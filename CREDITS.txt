@@ -1,6 +1,11 @@
 Spritework: ADoomedSpaceMarine
-Decorate: ADoomedSpaceMarine
-Sprites: ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for reload sprite)
-Sprite Edit: R3W (Shading)
-Sounds: HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 
+Decorate/Zscript: ADoomedSpaceMarine
+
+Sprites: ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite)
+
+Sprite Edits: R3W (Shading on Demon's Bane, Sprite work)
+
+Sounds: 
+HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
+Freesound.org

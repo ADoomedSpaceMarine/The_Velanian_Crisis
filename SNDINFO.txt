@@ -42,3 +42,6 @@ Weapons/ONUOpen		ONUOPEN
 Weapons/ONULoad		ONULOAD
 Weapons/ONUClose	ONUCLS
 
+//Annhilator Rocket Launcher
+Weapons/ANNFire		ANFIRE
+Weapons/ANNReload	ANRELD

@@ -2,7 +2,7 @@
 
 //Weapon Includes
 #include "actors/Weapons/Slot 3/DemonsBane.dec"
-#include "actors/Weapons/Slot 5/Devastator.dec"
+#include "actors/Weapons/Slot 5/Annihilator.dec"
 
 //General Includes
 #include "actors/Effects/casings.dec"

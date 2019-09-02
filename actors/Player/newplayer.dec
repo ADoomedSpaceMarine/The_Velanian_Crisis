@@ -1,10 +1,7 @@
 ACTOR NewPlayer : DoomPlayer
 {
   Player.StartItem "Pistol"
-  Player.StartItem "chainsaw"
   Player.StartItem "Fist"
-  Player.StartItem "Demonsbane"
   Player.StartItem "Clip", 50
-  Player.StartItem "Shell", 50
   Player.StartItem "IsShootingBuck", 1
   }
