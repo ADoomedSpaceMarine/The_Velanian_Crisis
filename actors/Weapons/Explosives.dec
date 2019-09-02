@@ -61,32 +61,31 @@ ACTOR STINGER12 : Rocket
 	Spawn:
 		MISL A 10
 		TNT1 A 0 Bright
-		Goto Release
-  Release:
-    MISL A 1 
+     Death:
+	 	MEXP A 1 A_Explode(100, 128)
+        MEXP BCEGIKMOQ 1
+        TNT1 A 0
+       
 	{
-    A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
-    A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-	A_Weave(3,3,2.0,1.0);
-	A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-    A_Weave(3,3,2.0,1.0);
-	A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-	A_Weave(3,3,2.0,1.0);
-	A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-    A_Weave(3,3,2.0,1.0);
-	A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-    A_Weave(3,3,2.0,1.0);
-	A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
-    A_Weave(3,3,2.0,1.0);
-	A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
+		A_PlaySound("Weapons/LGExplosion", CHAN_AUTO);
+		A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnProjectile("HORNET12",random(20,-20),Random(20,-20),0,(CMF_AIMDIRECTION));
+		A_Weave(3,3,2.0,1.0);
+		A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
+		A_SpawnProjectile("HORNET12",0,0,0,(CMF_AIMDIRECTION));
 	}
 	TNT1 A 0 Bright
-
-    Death:
-        TNT1 A 0 A_PlaySound("Weapons/LGExplosion", CHAN_AUTO)
-        MEXP A 1 A_Explode(100, 128)
-        MEXP BCDEFGHIJKLMNOPQ 1
-        Stop
+	stop
     }
 }
 
@@ -274,9 +273,9 @@ ACTOR PicoGren : grenade
 			A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
 		}
 	Death:
-        GEXP A 1 A_Explode(50, 80)
+        GREX A 1 A_Explode(50, 80)
 		TNT1 A 0 A_PlaySound("Weapons/SmExplosion", CHAN_AUTO)
-		GEXP BCDEFGHIJKLMNOPQ 1
+		GREX BCDEFGHIJKLMNOPQ 1
         Stop
     }
 }
