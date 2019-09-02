@@ -1,0 +1,20 @@
+Demon's Bane Shotgun
+Authored by Daniel Sr. AKA ADoomedSpaceMarine
+Made: 8/19/2019
+Last Update: 8/20/2019
+======================================================
+Please do not use or reproduce this shotgun in any personal mods. 
+This shotgun is intended for use by original author in 
+His personal upcoming mod:
+
+Doomed: An Apocalyptic Tale
+======================================================
+Information on this particular gun
+Name: Demon's Bane Shotgun
+Type: Hitscan
+Palette: Other
+Summon: DemonsBane
+Ammo Type: Shells
+Altfire: Yes
+
+

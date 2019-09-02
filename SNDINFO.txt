@@ -1,0 +1,44 @@
+
+//Generic Weapon Sounds
+Weapons/DryFire	    DRYFIRE1
+Weapons/GunUp1      DGUNUP1
+Weapons/SmExplosion SMEXPLO
+Weapons/LgExplosion LGEXPLO
+
+$attenuation weapons/ClustAlert 0.5
+$attenuation weapons/LgExplosion 0.75
+$attenuation weapons/SmExplosion 0.75
+Weapons/ClustAlert	CLALERT
+Weapons/GrenBounce	GNBOUNC
+
+//Casings
+$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
+$volume weapons/casing 0.7
+$limit weapons/casing  3
+weapons/casing1	dscasin1
+weapons/casing2	dscasin2
+weapons/casing3	dscasin3
+
+$random weapons/shotgunshells { weapons/shell1 weapons/shell2 weapons/shell3 }
+$volume weapons/shotgunshells 0.3
+$limit weapons/shotgunshells 3
+weapons/shell1	DSSHELL1
+weapons/shell2	DSSHELL2
+weapons/shell3	DSSHELL3
+
+$random chaingun/casing { chaingun/casing1 chaingun/casing2 chaingun/casing3 }
+$volume chaingun/casing 0.5
+$limit chaingun/casing 3
+chaingun/casing1	CHGNCAS1
+chaingun/casing2	CHGNCAS2
+chaingun/casing3	CHGNCAS3
+
+//Demon's Bane Shotgun
+Weapons/ONUFire		ONUSHOT
+Weapons/ONUSlug		ONSSHOT
+Weapons/ONUFrag		FRAGFIRE
+Weapons/ONUDual		ONDSHOT
+Weapons/ONUOpen		ONUOPEN
+Weapons/ONULoad		ONULOAD
+Weapons/ONUClose	ONUCLS
+

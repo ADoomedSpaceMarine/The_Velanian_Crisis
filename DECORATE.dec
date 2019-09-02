@@ -1,0 +1,10 @@
+//Do not use assets from my mod without expicit credits to myself, ADoomedSpaceMarine
+
+//Weapon Includes
+#include "actors/Weapons/Slot 3/DemonsBane.dec"
+#include "actors/Weapons/Slot 5/Devastator.dec"
+
+//General Includes
+#include "actors/Effects/casings.dec"
+#include "actors/Player/newplayer.dec"
+#include "actors/Weapons/Explosives.dec"

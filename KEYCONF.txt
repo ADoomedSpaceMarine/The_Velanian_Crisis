@@ -1,0 +1,4 @@
+   AddMenuKey "Dual Wield/Weapon Special" weaponspecial
+   Alias weaponspecial "puke 3756"
+   DefaultBind V weaponspecial
+   
