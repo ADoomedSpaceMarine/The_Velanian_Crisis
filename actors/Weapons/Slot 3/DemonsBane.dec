@@ -460,8 +460,8 @@ ACTOR DemonsBane : weapon Replaces shotgun
   Reload:
     ONUR BC 2 
     ONUR D 2 {
-      A_SpawnItemEx("ShotgunCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)); //A_FireProjectile("SSGCasingSpawner",0,0,random(7,9),random(-2,-4),FPF_NOAUTOAIM)
-	    A_SpawnItemEx("ShotgunCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(100,110)); //A_FireProjectile("SSGCasingSpawner",0,0,random(-6,-7),random(-2,-4),FPF_NOAUTOAIM)
+      A_SpawnItemEx("BuckCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)); //A_FireProjectile("SSGCasingSpawner",0,0,random(7,9),random(-2,-4),FPF_NOAUTOAIM)
+	    A_SpawnItemEx("BuckCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(100,110)); //A_FireProjectile("SSGCasingSpawner",0,0,random(-6,-7),random(-2,-4),FPF_NOAUTOAIM)
       }
         ONUR E 2 A_PlaySound ("weapons/ONUopen")
         ONUR F 4
