@@ -201,7 +201,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
       ONUG A 1 A_gunflash
       ONUG A 2 {
       A_PlaySound("weapons/ONUFire",CHAN_AUTO);
-      A_FireBullets (Random(6,8),Random(3,4),10,Random(5,7),"bulletpuff");
+      A_FireBullets (Random(4,6),Random(2,3),9,Random(6,8),"bulletpuff");
   	  A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ONUShots", 1);
       A_WeaponReady(WRF_NOBOB);
@@ -317,7 +317,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
     ONUG A 1 A_gunflash
     ONUG A 2 {
       A_PlaySound("weapons/ONUFire",CHAN_AUTO);
-      A_FireBullets (Random(6,7),Random(3,4),10,random(6,7),"bulletpuff");
+      A_FireBullets (Random(4,6),Random(2,3),9,Random(6,8),"bulletpuff");
   	  A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ONUShots", 1);
       A_WeaponReady(WRF_NOBOB);
@@ -420,7 +420,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
       ONUG A 1 A_gunflash
       ONUG A 2 {
       A_PlaySound("weapons/ONUDual",CHAN_AUTO);
-      A_FireBullets (Random(9,10),Random(4,5),20,Random(6,7),"bulletpuff");
+      A_FireBullets (Random(8,9),Random(3,4),18,Random(6,8),"bulletpuff");
   	  A_TakeInventory ("Shell", 1);   
       A_GiveInventory ("NoAmmoBarrel1", 1);    
    	  A_GiveInventory ("NoAmmoBarrel2", 1);
