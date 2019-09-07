@@ -109,6 +109,93 @@ States
 	}
 }
 
+ACTOR ExpCasing : GenericCasing
+{ 
+Scale 0.015
+bouncesound "weapons/shotgunshells"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		EXCA ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(velz == 0,"Death")
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		TNT1 A 0 A_jump(256,1,2,3)
+		EXCA I 30
+		wait
+		EXCA J 30
+		wait
+		EXCA K 30
+		wait
+	}
+}
+
+ACTOR ScimCasing : GenericCasing
+{ 
+Scale 0.015
+bouncesound "weapons/shotgunshells"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		SCCA ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(velz == 0,"Death")
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		TNT1 A 0 A_jump(256,1,2,3)
+		SCCA I 30
+		wait
+		SCCA J 30
+		wait
+		SCCA K 30
+		wait
+	}
+}
+
+ACTOR SlugCasing : GenericCasing
+{ 
+Scale 0.015
+bouncesound "weapons/shotgunshells"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		SLCA ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(velz == 0,"Death")
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		TNT1 A 0 A_jump(256,1,2,3)
+		SLCA I 30
+		wait
+		SLCA J 30
+		wait
+		SLCA K 30
+		wait
+	}
+}
+
 Actor BuckCasingSpawner
 {
 projectile
