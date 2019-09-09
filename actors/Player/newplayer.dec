@@ -1,7 +1,0 @@
-ACTOR NewPlayer : DoomPlayer
-{
-  Player.StartItem "Pistol"
-  Player.StartItem "Fist"
-  Player.StartItem "Clip", 50
-  Player.StartItem "IsShootingBuck", 1
-  }

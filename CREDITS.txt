@@ -1,11 +1,20 @@
-Spritework: ADoomedSpaceMarine
+Weapon Sprites: ADoomedSpaceMarine
 
-Decorate/Zscript: ADoomedSpaceMarine
+Decorate/coding: 
+- ADoomedSpaceMarine
 
-Sprites: ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite)
+Sprites: 
+- ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite) and Babby's First Zscript 
+Over and under for the two barrels used in shell insertion.
 
-Sprite Edits: R3W (Shading on Demon's Bane, Sprite work)
+Sprite Edits: 
+- R3W (Shading on Demon's Bane, Sprite work)
+- Carrot (Shell Recolors)
 
 Sounds: 
-HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
-Freesound.org
+- HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
+- Freesound.org
+
+Advice:
+- Painkiller
+- Secret

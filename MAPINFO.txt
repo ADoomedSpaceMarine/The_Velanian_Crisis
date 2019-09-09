@@ -1,4 +1,4 @@
 GameInfo
 {
-   PlayerClasses = "NewPlayer"
+   PlayerClasses = "VanillaMan", "VanillaShotgunner", "ShotgunnerTank", "GlassCannon" 
 }

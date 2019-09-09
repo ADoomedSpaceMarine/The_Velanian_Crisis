@@ -220,8 +220,28 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("BuckShots", 1);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-3.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
   SlugFirePrimary:
@@ -233,8 +253,29 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("SlugShots", 1);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
  ScimFirePrimary:
@@ -246,10 +287,30 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ScimShots", 1);
       A_WeaponReady(WRF_NOBOB);
-    }
-	  ONUF CDEDC 1
-    Goto Ready
+	  A_Recoil(2*cos(pitch));
 
+    }
+	  ONUF C 1  {
+	  A_SetPitch(pitch-3.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
+    Goto Ready
+	
   FragFirePrimary:
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
     ONUG A 1 A_gunflash
@@ -259,10 +320,30 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
-   
     HornetFirePrimary:
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
     ONUG A 1 A_gunflash
@@ -272,10 +353,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
       A_WeaponReady(WRF_NOBOB);
+      A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
-   
+	
    HiveFirePrimary:
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
     ONUG A 1 A_gunflash
@@ -284,9 +386,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("STINGER12", 0, 2, 0, 0);
 	  A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 2);
       A_WeaponReady(WRF_NOBOB);
+  	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
    
    GrenFirePrimary: 
@@ -297,9 +421,29 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("GREN12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 1);
       A_WeaponReady(WRF_NOBOB);
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
     ClusterFirePrimary:
@@ -310,11 +454,32 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("Cluster12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 2);
       A_WeaponReady(WRF_NOBOB);
+ 	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
-    goto ready
-   
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
+    Goto Ready
 	  
   AltFire:
 	    TNT1 A 0 A_JumpIfInventory("IsShootingBuck", 1, "BuckFireAlt")
@@ -336,10 +501,30 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("BuckShots", 1);
       A_WeaponReady(WRF_NOBOB);
-    }
-	  ONUF CDEDC 1
-    Goto Ready
+	  A_Recoil(2*cos(pitch));
 
+    }
+	  ONUF C 1  {
+	  A_SetPitch(pitch-3.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
+    Goto Ready
+	
   SlugFireAlt:
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
     ONUG A 1 A_gunflash
@@ -349,8 +534,29 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("SlugShots", 1);
       A_WeaponReady(WRF_NOBOB);
+ 	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
   ScimFireAlt:
@@ -362,8 +568,28 @@ ACTOR DemonsBane : weapon Replaces shotgun
   	  A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ScimShots", 1);
       A_WeaponReady(WRF_NOBOB);
+ 	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-3.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
   FragFireAlt:
@@ -375,10 +601,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
-  
+	
    HornetFireAlt:
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
     ONUG A 1 A_gunflash
@@ -388,8 +635,29 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
       A_WeaponReady(WRF_NOBOB);
+ 	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
    
    HiveFireAlt:
@@ -400,9 +668,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("STINGER12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 2);
       A_WeaponReady(WRF_NOBOB);
+ 	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
     GrenFireAlt: 
@@ -413,9 +703,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("GREN12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 1);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
    
   ClusterFireAlt:
@@ -426,9 +738,31 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_FireCustomMissile ("Cluster12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
+	  A_TakeInventory ("Shell", 2);
       A_WeaponReady(WRF_NOBOB);
+	  A_Recoil(2*cos(pitch));
+
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-4.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
   UnloadBoth:
@@ -440,8 +774,28 @@ ACTOR DemonsBane : weapon Replaces shotgun
       A_GiveInventory ("NoAmmoBarrel1", 1);    
    	  A_GiveInventory ("NoAmmoBarrel2", 1);
   	  A_GiveInventory ("BuckShots", 2);
+ 	  A_Recoil(2*cos(pitch));
     }
-	  ONUF CDEDC 1
+	  ONUF C 1  {
+	  A_SetPitch(pitch-5.0);
+	  A_ZoomFactor(0.985,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.995,ZOOM_INSTANT);
+	  }
+	  ONUF E 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.997,ZOOM_INSTANT);
+	  }
+	  ONUF D 1 {
+	  A_SetPitch(pitch+1.0);
+	  A_ZoomFactor(0.999,ZOOM_INSTANT);
+	  }
+	  ONUF C 1 {
+	  A_SetPitch(pitch+2.0);
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);
+	  }
     Goto Ready
 
   User1:

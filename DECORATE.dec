@@ -6,5 +6,5 @@
 
 //General Includes
 #include "actors/Effects/casings.dec"
-#include "actors/Player/newplayer.dec"
+#include "actors/Player/Players.dec"
 #include "actors/Weapons/Explosives.dec"
