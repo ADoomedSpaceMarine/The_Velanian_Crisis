@@ -451,7 +451,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
     ONUG A 1 A_gunflash
     ONUG A 2 {
       A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("Cluster12", 0, 2, 0, 0);
+      A_FireCustomMissile ("HPCGrenade", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
 	  A_TakeInventory ("Shell", 2);
@@ -735,7 +735,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
     ONUG A 1 A_gunflash
     ONUG A 2 {
       A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("Cluster12", 0, 2, 0, 0);
+      A_FireCustomMissile ("HPCGrenade", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
 	  A_TakeInventory ("Shell", 2);
@@ -915,7 +915,7 @@ ReloadScim:
 
 
   Flash:
-    ONUF A 2 Bright A_Light1
+    ONUF A 1 Bright A_Light1
     ONUF B 1 Bright A_Light2
     Goto LightDone
   

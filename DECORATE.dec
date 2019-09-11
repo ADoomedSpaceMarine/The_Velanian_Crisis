@@ -1,5 +1,8 @@
 //Do not use assets from my mod without expicit credits to myself, ADoomedSpaceMarine
 
+//Monster Includes
+#include "actors/Monsters/EasyGame/ZombieDude.dec"
+
 //Weapon Includes
 #include "actors/Weapons/Slot 3/DemonsBane.dec"
 #include "actors/Weapons/Slot 5/Annihilator.dec"

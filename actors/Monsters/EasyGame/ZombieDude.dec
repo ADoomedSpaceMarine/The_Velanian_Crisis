@@ -1,0 +1,4 @@
+ACTOR ZombieDude : ZombieMan replaces ZombieMan
+{
+  DropItem "Pistol"
+}
