@@ -291,7 +291,7 @@ AnnHiveFire:
 	NRLL A 1 A_gunflash 
     NRLL A 4 
     TNT1 A 0    A_PlaySound ("Weapons/ANNFire", CHAN_AUTO)
-	TNT1 A 2 	A_FireCustomMissile("StingerHive", -1, 0, -1, 0, 0, 0)
+	TNT1 A 2 	A_FireCustomMissile("StingerHive", -1, 1, -1, 0, 0, 0)
 	TNT1 A 0 	A_Recoil(4*cos(pitch))
     NRLL B 1 
 	{
@@ -455,7 +455,7 @@ DryFire:
 
 ReloadWorking:
 	NRLR OMLKJKLMO 1
-	TNT1 A 0 A_PlaySound("weapons/ANNReload", CHAN_AUTO)
+	TNT1 A 0 A_PlaySound("weapons/ANNInsert", CHAN_AUTO)
 	TNT1 A 0 A_TakeInventory("RocketAmmo", 1) // Exchange one spare rocket...
     TNT1 A 0 A_GiveInventory("AnnRockets", 1) // ... for one rocket in the gun.
     TNT1 A 0 A_JumpIfInventory("AnnRockets",4,"ReloadFinish") // Is the clip filled yet?
