@@ -1,0 +1,52 @@
+ACTOR VanillaMan : DoomPlayer
+{
+  Player.DisplayName "Doom Marine"
+  Player.StartItem "Pistol"
+  Player.StartItem "Fist"
+  Player.StartItem "IsShootingBuck", 1
+  Player.StartItem "clip", 50
+  }
+  
+
+ACTOR ShotgunnerTank : DoomPlayer
+{
+  DamageFactor "Normal", 0.7
+  RadiusDamageFactor 0.7
+  Player.MaxHealth 200
+  Health 200
+  Speed 0.865
+  Player.JumpZ 8
+  Player.DisplayName "Tank"
+  Player.CrouchSprite "PLYC"
+  Player.StartItem "Annihilator"
+  Player.StartItem "Fist"
+  Player.StartItem "Chainsaw"
+  Player.StartItem "IsShootingBuck", 1
+  Player.StartItem "AnnAmmo", 50
+  Player.StartItem "AnnClip", 4
+}
+
+ACTOR GlassCannon : DoomPlayer
+{
+  DamageFactor "Normal", 1.025
+  RadiusDamageFactor 1.03
+  Speed 2.25
+  Player.JumpZ 12
+  Player.DisplayName "Speedster"
+  Player.CrouchSprite "PLYC"
+  Player.StartItem "Demonsbane"
+  Player.StartItem "Fist"
+  Player.StartItem "IsShootingBuck", 1
+  Player.StartItem "Shell", 50
+}
+
+ACTOR VanillaShotgunner : DoomPlayer
+{
+  Player.JumpZ 10
+  Player.DisplayName "Shotgunner"
+  Player.CrouchSprite "PLYC"
+  Player.StartItem "Demonsbane"
+  Player.StartItem "Fist"
+  Player.StartItem "IsShootingBuck", 1
+  Player.StartItem "Shell", 50
+}

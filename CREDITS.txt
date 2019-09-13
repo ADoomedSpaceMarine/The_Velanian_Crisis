@@ -8,7 +8,7 @@ Sprites:
 Over and under for the two barrels used in shell insertion.
 
 Sprite Edits: 
-- R3W (Shading on Demon's Bane, Sprite work)
+- R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
 - Carrot (Shell Recolors)
 
 Sounds: 

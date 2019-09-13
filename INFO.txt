@@ -1,20 +1,12 @@
-Demon's Bane Shotgun
+Valanian Crisis: When Three Worlds Collided
 Authored by Daniel Sr. AKA ADoomedSpaceMarine
-Made: 8/19/2019
-Last Update: 8/20/2019
+Started: 8/19/2019
+Last Update: 9/12/2019
 ======================================================
-Please do not use or reproduce this shotgun in any personal mods. 
-This shotgun is intended for use by original author in 
-His personal upcoming mod:
-
-Doomed: An Apocalyptic Tale
+Please do not use or reproduce things found 
+this mod in any personal mods 
+without giving me explicit credit, or credits to
+others who helped or contributed found
+in the credits.txt file. 
 ======================================================
-Information on this particular gun
-Name: Demon's Bane Shotgun
-Type: Hitscan
-Palette: Other
-Summon: DemonsBane
-Ammo Type: Shells
-Altfire: Yes
-
 

@@ -44,6 +44,11 @@ Weapons/ONUClose	ONUCLS
 
 //Annhilator Rocket Launcher
 Weapons/ANNFire		ANFIRE
-Weapons/ANNReload	ANRELD
+Weapons/ANNCycle	ANCYCL
 Weapons/ANNInsert	ANSHEL
 Weapons/ANNDry	RLDRYFI
+Weapons/ANNBounce  ANNBNC
+Weapons/ANNin  ANNCIN
+Weapons/ANNout  ANNOut
+Weapons/ANNup  ANNUP
+Weapons/ANNSlap ANSLAP

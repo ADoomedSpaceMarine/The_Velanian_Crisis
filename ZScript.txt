@@ -1,0 +1,1 @@
+#include "zactors/Weapons/Slot 5/Annihilator/Annihilator.zsc"

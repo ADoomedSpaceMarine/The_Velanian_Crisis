@@ -1,13 +1,12 @@
 //Do not use assets from my mod without expicit credits to myself, ADoomedSpaceMarine
 
 //Monster Includes
-#include "actors/Monsters/EasyGame/ZombieDude.dec"
+#include "actors/Monsters/EasyGame/ZombieDude.txt"
 
 //Weapon Includes
-#include "actors/Weapons/Slot 3/DemonsBane.dec"
-#include "actors/Weapons/Slot 5/Annihilator.dec"
+#include "actors/Weapons/Slot 3/DemonsBane.txt"
 
 //General Includes
-#include "actors/Effects/casings.dec"
-#include "actors/Player/Players.dec"
-#include "actors/Weapons/Explosives.dec"
+#include "actors/Effects/casings.txt"
+#include "actors/Player/Players.txt"
+#include "actors/Weapons/Explosives.txt"
