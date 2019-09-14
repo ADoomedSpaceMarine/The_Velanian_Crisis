@@ -1,0 +1,71 @@
+PointLight MExp1
+{
+    color 1.0 1.0 0.0
+    Size 80
+}
+
+PointLight MExp2
+{
+    color 1.0 1.0 0.0
+    Size 60
+}
+
+PointLight MExp3
+{
+    color 1.0 1.0 0.0
+    Size 40
+}
+
+PointLight MExp4
+{
+    color 1.0 1.0 0.0
+    Size 40
+}
+
+PointLight BExp1
+{
+    color 1.0 1.0 0.0
+    Size 128
+}
+
+PointLight BExp2
+{
+    color 1.0 1.0 0.0
+    Size 100
+}
+
+PointLight BExp3
+{
+    color 1.0 1.0 0.0
+    Size 80
+}
+
+PointLight BExp4
+{
+    color 1.0 1.0 0.0
+    Size 60
+}
+
+PointLight SExp1
+{
+    color 1.0 1.0 0.0
+    Size 60
+}
+
+PointLight SExp2
+{
+    color 1.0 1.0 0.0
+    Size 40
+}
+
+PointLight SExp3
+{
+    color 1.0 1.0 0.0
+    Size 20
+}
+
+PointLight SExp4
+{
+    color 1.0 1.0 0.0
+    Size 10
+}

@@ -34,7 +34,10 @@ weapons/shell3	DSSHELL3
 //chaingun/casing3	CHGNCAS3
 
 //Demon's Bane Shotgun
-Weapons/ONUFire		ONUSHOT
+$random weapons/DBSHOT  { weapons/DBSHOT1 weapons/DBSHOT2 weapons/DBSHOT3 } 
+Weapons/DBSHOT1     DBSHOT1
+Weapons/DBSHOT2     DBSHOT2
+Weapons/DBSHOT3     DBSHOT3
 Weapons/ONUSlug		ONSSHOT
 Weapons/ONUFrag		FRAGFIRE
 Weapons/ONUDual		ONDSHOT

@@ -62,6 +62,7 @@ Class Annihilator : Weapon replaces RocketLauncher
       Weapon.SlotPriority 3;
       Weapon.UpSound "Weapons/ANNUp";
       +WEAPON.NOAUTOFIRE;
+      +Weapon.NOAUTOAIM
       +Weapon.Ammo_Optional;
 	  Inventory.PickupMessage "You found the Annihilator Versatile Rocket Defense System, Blow some stuff up!";
       Obituary "%o was blown to bits by %k's Annihilator Rocket Defense System.";
@@ -878,6 +879,7 @@ Else return ResolveState(null);
 }
 goto Reload;
 
+
   Reload:
   TNT1 A 0 
   {
@@ -889,11 +891,11 @@ goto Reload;
     Else If(Invoker.RocketsFired==0) return ResolveState("RealReady1");
     Else return ResolveState(null);
   }
-
+  
 FullReload:
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(-90,-105)); 
+TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin", CHAN_AUTO);
 	NRLR MNO 2;
@@ -911,7 +913,7 @@ TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+
 Reload3:
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-	TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(-90,-105)); 
+	TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin",CHAN_AUTO);
 	NRLR MNO 2;
@@ -929,7 +931,7 @@ Reload3:
 Reload2:	
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(-90,-105)); 
+TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin",CHAN_AUTO);
 	NRLR MNO 2;
@@ -947,7 +949,7 @@ TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+
 Reload1:
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",random(-8,-10),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(-90,-105));  
+TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105));  
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin",CHAN_AUTO);
 	NRLR MNO 2;

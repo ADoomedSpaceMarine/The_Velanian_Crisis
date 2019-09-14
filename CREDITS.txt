@@ -4,8 +4,10 @@ Decorate/coding:
 - ADoomedSpaceMarine
 
 Sprites: 
-- ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite) and Babby's First Zscript 
-Over and under for the two barrels used in shell insertion.
+- ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite) and "Babby's First Zscript 
+  Over and under" for the two barrels used in shell insertion.
+- Realm 667 For characters 
+- HellForged for the Acrobat's sprite
 
 Sprite Edits: 
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
@@ -14,7 +16,11 @@ Sprite Edits:
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
+- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots
 
 Advice:
 - Painkiller
 - Secret
+- Craneo
+- JMartinez
+- Tiberium Soul

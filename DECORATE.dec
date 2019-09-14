@@ -7,6 +7,6 @@
 #include "actors/Weapons/Slot 3/DemonsBane.txt"
 
 //General Includes
-#include "actors/Effects/casings.txt"
+#include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Player/Players.txt"
 #include "actors/Weapons/Explosives.txt"

@@ -5,10 +5,10 @@ ACTOR VanillaMan : DoomPlayer
   Player.StartItem "Fist"
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "clip", 50
-  }
-  
+  Player.StartItem "AnnClip", 4
+}  
 
-ACTOR ShotgunnerTank : DoomPlayer
+ACTOR TankPlayer : DoomPlayer
 {
   DamageFactor "Normal", 0.7
   RadiusDamageFactor 0.7
@@ -16,37 +16,262 @@ ACTOR ShotgunnerTank : DoomPlayer
   Health 200
   Speed 0.865
   Player.JumpZ 8
-  Player.DisplayName "Tank"
+  Player.DisplayName "The Tank"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Annihilator"
   Player.StartItem "Fist"
-  Player.StartItem "Chainsaw"
+  Player.StartItem "Demonsbane"
+  Player.StartItem "Chaingun"
   Player.StartItem "IsShootingBuck", 1
-  Player.StartItem "AnnAmmo", 50
+  Player.StartItem "AnnAmmo", 80
+  Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
+  Player.StartItem "Clip", 200
+  
+  States
+  {
+  Spawn:
+    TERM A -1
+    Loop
+  See:
+    TERM ABCD 4 
+    Loop
+  Missile:
+    TERM F 12
+    Goto Spawn
+  Melee:
+    TERM E 6 BRIGHT
+    Goto Missile
+  Pain:
+    TERM L 4 
+    TERM L 4 A_Pain
+    Goto Spawn
+  Death:
+    TERM H 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    TERM MN 3
+    TERM O 3 A_PlayerScream
+    TERM PQRSTUVWXYZ 3 A_NoBlocking
+    TERM Z -1
+    Stop
+  XDeath:
+    PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    TERM MN 3
+    TERM O 3 A_XScream
+    TERM PQRSTUVWXYZ 3 A_NoBlocking
+    TERM Z -1
+    Stop
+  AltSkinDeath:
+    TERM MN 3
+    TERM O 3 A_PlayerScream
+    TERM PQRSTUVWXYZ 3 A_NoBlocking
+    TERM Z -1
+    Stop
+  AltSkinXDeath:
+   TERM MN 3
+    TERM O 3 A_PlayerScream
+    TERM PQRSTUVWXYZ 3 A_NoBlocking
+    TERM Z -1
+    Stop
+  }
 }
 
-ACTOR GlassCannon : DoomPlayer
+ACTOR AcrobatPlayer : DoomPlayer
 {
-  DamageFactor "Normal", 1.025
-  RadiusDamageFactor 1.03
+  DamageFactor "Normal", 1.015
+  RadiusDamageFactor 1.025
   Speed 2.25
+  Player.MaxHealth 125
+  Health 125
   Player.JumpZ 12
-  Player.DisplayName "Speedster"
+  Player.DisplayName "The Acrobat"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Demonsbane"
   Player.StartItem "Fist"
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
+  Player.StartItem "AnnClip", 4
+
+  States
+  {
+  Spawn:
+    PLAF A -1
+    Loop
+  See:
+    PLAF ABCD 4 
+    Loop
+  Missile:
+    PLAF F 12
+    Goto Spawn
+  Melee:
+    PLAF E 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAF G 4 
+    PLAF G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAF I 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    PLAF HIJ 3
+    PLAF K 3 A_PlayerScream
+    PLAF LMN 3 A_NoBlocking
+    PLAF N -1
+    Stop
+  XDeath:
+    PLAF O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    PLAF OP 3
+    PLAF Q 3 A_XScream
+    PLAF RSTUVW 3 A_NoBlocking
+    PLAF W -1
+    Stop
+  AltSkinDeath:
+    PLAF HIJ 3
+    PLAF K 3 A_PlayerScream
+    PLAF LMN 3 A_NoBlocking
+    PLAF N -1
+    Stop
+  AltSkinXDeath:
+    PLAF OP 3
+    PLAF Q 3 A_XScream
+    PLAF RSTUVW 3 A_NoBlocking
+    PLAF W -1
+    Stop
+  }
 }
 
-ACTOR VanillaShotgunner : DoomPlayer
+ACTOR CommandoPlayer : DoomPlayer
 {
-  Player.JumpZ 10
-  Player.DisplayName "Shotgunner"
+  Speed 1.65
+  Player.JumpZ 11
+  Player.MaxHealth 150
+  Health 150
+  Player.DisplayName "The Commando"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Demonsbane"
+  Player.StartItem "Pistol"
   Player.StartItem "Fist"
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
+  Player.StartItem "AnnClip", 4
+  
+  States
+    {
+  Spawn:
+    ZSEC A -1
+    Loop
+  See:
+    ZSEC ABCD 4 
+    Loop
+  Missile:
+    ZSEC F 12
+    Goto Spawn
+  Melee:
+    ZSEC E 6 BRIGHT
+    Goto Missile
+  Pain:
+    ZSEC G 4 
+    ZSEC G 4 A_Pain
+    Goto Spawn
+  Death:
+    ZSDI I 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    ZSDI A 5
+    ZSDI B 5 A_PlayerScream
+    ZSDI CDE 5 A_NoBlocking
+    ZSDI E -1
+    Stop
+  XDeath:
+    ZSDI O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    ZSDI A 5
+    ZSDI B 5 A_PlayerScream
+    ZSDI CDE 5 A_NoBlocking
+    ZSDI E -1
+    Stop
+  AltSkinDeath:
+    ZSDI A 5
+    ZSDI B 5 A_PlayerScream
+    ZSDI CDE 5 A_NoBlocking
+    ZSDI E -1
+    Stop
+  AltSkinXDeath:
+    ZSDI A 5
+    ZSDI B 5 A_PlayerScream
+    ZSDI CDE 5 A_NoBlocking
+    ZSDI E -1
+    Stop
+  }
+}
+
+Actor CombatVeteran : DoomPlayer
+{
+  DamageFactor "Normal", 0.75
+  RadiusDamageFactor 0.75
+  Speed 1.8
+  Player.JumpZ 11
+  Player.MaxHealth 180
+  Health 180
+  Player.DisplayName "The Veteran"
+  Player.CrouchSprite "PLYC"
+  Player.StartItem "Demonsbane"
+  Player.StartItem "Annihilator"
+  Player.StartItem "Chaingun"
+  Player.StartItem "Pistol"
+  Player.StartItem "Fist"
+  Player.StartItem "IsShootingBuck", 1
+  Player.StartItem "Shell", 50
+  Player.StartItem "AnnAmmo", 80
+  Player.StartItem "Clip", 200
+  Player.StartItem "AnnClip", 4
+  
+  States
+    {
+  Spawn:
+    DEVZ A -1
+    Loop
+  See:
+    DEVZ ABCD 4 
+    Loop
+  Missile:
+    DEVZ F 12
+    Goto Spawn
+  Melee:
+    DEVZ E 6 BRIGHT
+    Goto Missile
+  Pain:
+    DEVZ G 4 
+    DEVZ G 4 A_Pain
+    Goto Spawn
+  Death:
+    DEVZ H 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    DEVZ H 5
+    DEVZ I 5 A_PlayerScream
+    DEVZ JKLMN 5 A_NoBlocking
+    DEVZ N -1
+    Stop
+  XDeath:
+    DEVZ O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    DEVZ H 5
+    DEVZ I 5 A_PlayerScream
+    DEVZ JKLMN 5 A_NoBlocking
+    DEVZ N -1
+    Stop
+  AltSkinDeath:
+    DEVZ O 5
+    DEVZ P 5 A_PlayerScream
+    DEVZ QRST 5 A_NoBlocking
+    DEVZ T -1
+    Stop
+  AltSkinXDeath:
+    DEVZ O 5
+    DEVZ P 5 A_PlayerScream
+    DEVZ QRST 5 A_NoBlocking
+    DEVZ T -1
+    Stop
+  }
 }
