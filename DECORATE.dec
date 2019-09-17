@@ -10,3 +10,4 @@
 #include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Player/Players.txt"
 #include "actors/Weapons/Explosives.txt"
+#include "actors/Weapons/Projectiles.txt"

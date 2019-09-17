@@ -74,15 +74,11 @@ Class Annihilator : Weapon replaces RocketLauncher
       Stop;
 
     Select:
-  		TNT1 A 0 {
-      }
       NRL4 A 1 A_Raise;
 	  	loop;
 
 	  Deselect:
-      TNT1 A 0 {      
-  }
-	NRL4 A 1 A_Lower;
+    	NRL4 A 1 A_Lower;
 		  Loop;
 
     Ready:

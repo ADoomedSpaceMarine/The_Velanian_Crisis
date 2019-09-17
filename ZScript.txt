@@ -1,1 +1,3 @@
+//Zscript Weapons
 #include "zactors/Weapons/Slot 5/Annihilator/Annihilator.zsc"
+#include "zactors/Weapons/Slot 7/BFL10k/BFL10K.zsc"

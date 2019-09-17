@@ -16,7 +16,8 @@ Sprite Edits:
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
-- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots
+- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots and other resources
+- A Laser sound from Painkiller's "Project Bruatality" was used as a layer for the big fire of the BFL 10k
 
 Advice:
 - Painkiller

@@ -69,3 +69,140 @@ PointLight SExp4
     color 1.0 1.0 0.0
     Size 10
 }
+
+PointLight BFL10KShotBig
+{
+Color 0.0 0.0 1.0
+Size 130
+}
+
+FlickerLight BFL10KShotBig_X1
+{
+Color 0.0 0.0 1.0
+Size 120
+SecondarySize 88
+Chance 0.3
+}
+
+FlickerLight BFL10KShotBig_X2
+{
+Color 0.0 0.0 1.0
+Size 110
+SecondarySize 112
+Chance 0.3
+}
+
+FlickerLight BFL10KShotBig_X3
+{
+Color 0.0 0.0 1.0
+Size 100
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KShotBig_X4
+{
+Color 0.0 0.0 1.0
+Size 80
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KShotBig_X5
+{
+Color 0.0 0.0 1.0
+Size 60
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KShotBig_X6
+{
+Color 0.0 0.0 1.0
+Size 15
+SecondarySize 128
+Chance 0.3
+}
+
+Object BFLBigShot
+{
+Frame BFLBA1A5 { Light BFL10KShotBig }
+Frame BFLBA2A8 { Light BFL10KShotBig }
+Frame BFLBA4A6 { Light BFL10KShotBig }
+Frame BFLBA3A7 { Light BFL10KShotBig }
+Frame BFLBB0{ Light BFL10KShotBig_X1 }
+Frame BFLBC0 { Light BFL10KShotBig_X2 }
+Frame BFLBD0 { Light BFL10KShotBig_X3 }
+Frame BFLBE0 { Light BFL10KShotBig_X4 }
+Frame BFLBF0 { Light BFL10KShotBig_X5 }
+Frame BFLBG0 { Light BFL10KShotBig_X6 }
+}
+
+PointLight BFL10KShotBig
+{
+Color 0.0 0.0 1.0
+Size 130
+}
+
+FlickerLight BFL10KSHOT_X1
+{
+Color 0.0 0.0 1.0
+Size 120
+SecondarySize 88
+Chance 0.3
+}
+
+FlickerLight BFL10KSHOT_X2
+{
+Color 0.0 0.0 1.0
+Size 110
+SecondarySize 112
+Chance 0.3
+}
+
+FlickerLight BFL10KSHOT_X3
+{
+Color 0.0 0.0 1.0
+Size 100
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KSHOT_X4
+{
+Color 0.0 0.0 1.0
+Size 80
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KSHOT_X5
+{
+Color 0.0 0.0 1.0
+Size 60
+SecondarySize 128
+Chance 0.3
+}
+
+FlickerLight BFL10KSHOT_X6
+{
+Color 0.0 0.0 1.0
+Size 15
+SecondarySize 128
+Chance 0.3
+}
+
+Object BFLStandardShot
+{
+Frame BFLSA1A5 { Light BFL10KSHOT }
+Frame BFLSA2A8 { Light BFL10KSHOT }
+Frame BFLSA4A6 { Light BFL10KSHOT }
+Frame BFLSA3A7 { Light BFL10KSHOT }
+Frame BFLSB0{ Light BFL10KSHOT_X1 }
+Frame BFLSC0 { Light BFL10KSHOT_X2 }
+Frame BFLSD0 { Light BFL10KSHOT_X3 }
+Frame BFLSE0 { Light BFL10KSHOT_X4 }
+Frame BFLSF0 { Light BFL10KSHOT_X5 }
+Frame BFLSG0 { Light BFL10KSHOT_X6 }
+}
+

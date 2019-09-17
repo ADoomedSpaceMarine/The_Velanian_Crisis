@@ -55,3 +55,22 @@ Weapons/ANNin  ANNCIN
 Weapons/ANNout  ANNOut
 Weapons/ANNup  ANNUP
 Weapons/ANNSlap ANSLAP
+
+//Big Effin' Laser Sounds
+$random weapons/BFLSHOT  { weapons/BFLFire1 weapons/BFLFire2 weapons/BFLFire3 } 
+$random weapons/BFLSHOTBIG  { weapons/BFLBig1 weapons/BFLBig2 weapons/BFLBig3 } 
+$volume weapons/BFLIdle 0.5
+Weapons/BFLBig1 BFLBFIR1
+Weapons/BFLBig2 BFLBFIR2
+Weapons/BFLBig3 BFLBFIR3
+Weapons/BFLFire1 BFLFIR1
+Weapons/BFLFire1 BFLFIR2
+Weapons/BFLFire1 BFLFIR3
+Weapons/BFLCharge1 BFLSCHG
+Weapons/BFLCharge2 2BFLCHRG
+Weapons/BFLUCharge BFLUCHRG
+Weapons/BFLUFire BFLUFIR
+Weapons/BFLUEnd BFLUFIN
+Weapons/BFLUP1 BFLUPSND
+Weapons/BFLUP2 BFLUPSN2
+Weapons/BFLIdle BFLIDLE

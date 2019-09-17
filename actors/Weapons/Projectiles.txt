@@ -1,0 +1,67 @@
+Actor BFLStandardShot : FastProjectile
+{
+  PROJECTILE
+  Radius 11
+  Height 8
+  Speed 200
+  Damage 160
+  +Ripper
+  +NoBlockMap
+  +NoGravity
+  +ActivateImpact
+  +ActivatePCross
+  +PuffOnActors
+  +PuffGetsOwner
+  +ForceRadiusDmg
+  +SKYEXPLODE
+  BounceType HexenCompat
+  BounceCount 3
+  Renderstyle Add
+  Alpha 0.75
+  Obituary "%o was vaporized by %k's Big Frickin Laser."
+  Decal BigScorch
+  States
+  {
+  Spawn:
+    BFLS A 0 Bright
+    BFLS A 3 Bright 
+    Loop
+  Death:
+    BFLS BCDEFG 2 Bright
+    Stop
+   }
+}
+
+Actor BFLBigShot : FastProjectile
+{
+  PROJECTILE
+  Radius 11
+  Height 8
+  Speed 200
+  Damage 160
+  +Ripper
+  +NoBlockMap
+  +NoGravity
+  +ActivateImpact
+  +ActivatePCross
+  +PuffOnActors
+  +PuffGetsOwner
+  +ForceRadiusDmg
+  +SKYEXPLODE
+  BounceType HexenCompat
+  BounceCount 3
+  Renderstyle Add
+  Alpha 0.75
+  Obituary "%o was vaporized by %k's Big Frickin Laser."
+  Decal BigScorch
+  States
+  {
+  Spawn:
+    BFLB A 0 Bright
+    BFLB A 3 Bright 
+    Loop
+  Death:
+    BFLB BCDEFG 2 Bright
+    Stop
+   }
+}
