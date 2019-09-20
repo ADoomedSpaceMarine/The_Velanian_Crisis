@@ -1,0 +1,17 @@
+Actor BFLBlackHoleDarkness
+{
++NOINTERACTION
++NOGRAVITY
++CLIENTSIDEONLY
+renderstyle Add
+radius 1
+height 1
+Scale 1
+	
+states
+	{
+	Spawn:
+    TNT1 A 5   light ("BFLBlackHoleDark")
+		stop
+	}
+}

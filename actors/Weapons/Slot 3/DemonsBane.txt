@@ -49,7 +49,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
 
   BuckGiver:
   ONUG A 6 {
-    A_TakeInventory("IsShootingCluster", 1);
+    A_TakeInventory("IsShootingFrags", 1);
     A_GiveInventory("IsShootingBuck", 1);
     A_Print("Switched to UAC Defender Spartan-12 00 Buckshot");
   }
@@ -87,43 +87,11 @@ ACTOR DemonsBane : weapon Replaces shotgun
   }
   goto ReloadScim
 
-  HomingGiver:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingFrags", 1);
-    A_GiveInventory("IsShootingHomers", 1);
-    A_Print("Switched to Hornet-12 Homing Fragmentation Rounds");
-  }
-  goto ReloadExp
-
- GrenGiver:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingHomers", 1);
-    A_GiveInventory("IsShootingGrens", 1);
-    A_Print("Switched to Grenadier-12 High Power Fragmentation Grenade Rounds");
-  }
-  goto ReloadExp
-
- HiveGiver:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingGrens", 1);
-    A_GiveInventory("IsShootingHive12", 1);
-    A_Print("Switched to Stinger Miniature Hornet's Nest Rounds");
-  }
-  goto ReloadExp
-  
- ClusterGiver:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingHive12", 1);
-    A_GiveInventory("IsShootingCluster", 1);
-    A_Print("Switched to CB-1250 Devastator Cluster Grenades");
-  }
-  goto ReloadExp
-
    BuckTaker:
   ONUG A 6 {
     A_TakeInventory("IsShootingBuck", 1);
-    A_GiveInventory("IsShootingCluster", 1);
-    A_Print("Switched to CB-1250 Devastator Cluster Grenades");
+    A_GiveInventory("IsShootingFrags", 1);
+    A_Print("Switched to Eviscerator FRAG-12 Fin Stablized Fragmentation Rounds");
   }
   goto ReloadBuck
 
@@ -159,39 +127,6 @@ ACTOR DemonsBane : weapon Replaces shotgun
   }
   goto ReloadExp
 
-  HomingTaker:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingHomers", 1);
-    A_GiveInventory("IsShootingFrags", 1);
-    A_Print("Switched to Eviscerator FRAG-12 Fin Stablized Fragmentation Rounds");
-  }
-  goto ReloadExp
-
- 
- GrenTaker:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingGrens", 1);
-    A_GiveInventory("IsShootingHomers", 1);
-    A_Print("Switched to Hornet-12 Homing Fragmentation Rounds");
-  }
-  goto ReloadExp
-
- HiveTaker:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingHive12", 1);
-    A_GiveInventory("IsShootingGrens", 1);
-    A_Print("Switched to Grenadier-12 High Power Fragmentation Grenade Rounds");
-  }
-  goto ReloadExp
-
- ClusterTaker:
-  ONUG A 4 {
-    A_TakeInventory("IsShootingCluster", 1);
-    A_GiveInventory("IsShootingHive12", 1);
-    A_Print("Switched to Stinger Miniature Hornet's Hive Rounds");
-  }
-  goto ReloadExp
-
   Deselect:
     ONUG A 1 A_Lower
     Loop
@@ -201,15 +136,12 @@ ACTOR DemonsBane : weapon Replaces shotgun
     Loop
   
   Fire:
-      TNT1 A 0 A_JumpIfInventory("IsShootingBuck", 1, "BuckFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingBoth", 1, "UnloadBoth")
-	    TNT1 A 0 A_JumpIfInventory("IsShootingSlugs", 1, "SlugFirePrimary")
-	    TNT1 A 0 A_JumpIfInventory("IsShootingScim", 1, "ScimFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "FragFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingHomers", 1, "HornetFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingHive12", 1, "HiveFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingGrens", 1, "GrenFirePrimary")
-      TNT1 A 0 A_JumpIfInventory("IsShootingCluster", 1, "ClusterFirePrimary")
+    TNT1 A 0 A_JumpIfInventory("IsShootingBuck", 1, "BuckFirePrimary")
+    TNT1 A 0 A_JumpIfInventory("IsShootingBoth", 1, "UnloadBoth")
+	TNT1 A 0 A_JumpIfInventory("IsShootingSlugs", 1, "SlugFirePrimary")
+	TNT1 A 0 A_JumpIfInventory("IsShootingScim", 1, "ScimFirePrimary")
+    TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "FragFirePrimary")
+
          
     BuckFirePrimary:
       TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
@@ -315,7 +247,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
     ONUG A 1 A_gunflash
     ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
+      A_PlaySound("weapons/DBshot",CHAN_AUTO);
       A_FireCustomMissile ("FRAG12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel1", 1);    
   	  A_GiveInventory ("ExpShots", 1);
@@ -377,109 +309,6 @@ ACTOR DemonsBane : weapon Replaces shotgun
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
     Goto Ready
-	
-   HiveFirePrimary:
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("STINGER12", 0, 2, 0, 0);
-	  A_GiveInventory ("NoAmmoBarrel1", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 2);
-      A_WeaponReady(WRF_NOBOB);
-  	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-   
-   GrenFirePrimary: 
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("GREN12", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel1", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 1);
-      A_WeaponReady(WRF_NOBOB);
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-
-    ClusterFirePrimary:
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel1", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("HPCGrenade", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel1", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 2);
-      A_WeaponReady(WRF_NOBOB);
- 	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
 	  
   AltFire:
 	    TNT1 A 0 A_JumpIfInventory("IsShootingBuck", 1, "BuckFireAlt")
@@ -487,10 +316,6 @@ ACTOR DemonsBane : weapon Replaces shotgun
 	    TNT1 A 0 A_JumpIfInventory("IsShootingSlugs", 1, "SlugFireAlt")
 	    TNT1 A 0 A_JumpIfInventory("IsShootingScim", 1, "ScimFireAlt")
       TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "FragFireAlt")
-      TNT1 A 0 A_JumpIfInventory("IsShootingHomers", 1, "HornetFireAlt")
-      TNT1 A 0 A_JumpIfInventory("IsShootingHive12", 1, "HiveFireAlt")
-      TNT1 A 0 A_JumpIfInventory("IsShootingGrens", 1, "GrenFireAlt")
-      TNT1 A 0 A_JumpIfInventory("IsShootingCluster", 1, "ClusterFireAlt")
  
    BuckFireAlt: 
    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
@@ -596,149 +421,10 @@ ACTOR DemonsBane : weapon Replaces shotgun
     TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
     ONUG A 1 A_gunflash
     ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
+      A_PlaySound("weapons/DBShot",CHAN_AUTO);
       A_FireCustomMissile ("FRAG12", 0, 2, 0, 0);
       A_GiveInventory ("NoAmmoBarrel2", 1);    
   	  A_GiveInventory ("ExpShots", 1);
-      A_WeaponReady(WRF_NOBOB);
-	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-	
-   HornetFireAlt:
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("HORNET12", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel2", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-      A_WeaponReady(WRF_NOBOB);
- 	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-   
-   HiveFireAlt:
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("STINGER12", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel2", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 2);
-      A_WeaponReady(WRF_NOBOB);
- 	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-
-    GrenFireAlt: 
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("GREN12", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel2", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 1);
-      A_WeaponReady(WRF_NOBOB);
-	  A_Recoil(2*cos(pitch));
-
-    }
-	  ONUF C 1  {
-	  A_SetPitch(pitch-4.0);
-	  A_ZoomFactor(0.985,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.995,ZOOM_INSTANT);
-	  }
-	  ONUF E 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.997,ZOOM_INSTANT);
-	  }
-	  ONUF D 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(0.999,ZOOM_INSTANT);
-	  }
-	  ONUF C 1 {
-	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-    Goto Ready
-   
-  ClusterFireAlt:
-    TNT1 A 0 A_JumpIfInventory("NoAmmoBarrel2", 1, "DryFire")
-    ONUG A 1 A_gunflash
-    ONUG A 2 {
-      A_PlaySound("weapons/ONUFrag",CHAN_AUTO);
-      A_FireCustomMissile ("HPCGrenade", 0, 2, 0, 0);
-      A_GiveInventory ("NoAmmoBarrel2", 1);    
-  	  A_GiveInventory ("ExpShots", 1);
-	  A_TakeInventory ("Shell", 2);
       A_WeaponReady(WRF_NOBOB);
 	  A_Recoil(2*cos(pitch));
 
@@ -803,11 +489,7 @@ ACTOR DemonsBane : weapon Replaces shotgun
   TNT1 A 0 A_JumpIfInventory("IsShootingBoth", 1, "SlugGiver")
   TNT1 A 0 A_JumpIfInventory("IsShootingSlugs", 1, "ScimGiver")
   TNT1 A 0 A_JumpIfInventory("IsShootingScim", 1, "FragGiver")
-  TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "HomingGiver")
-  TNT1 A 0 A_JumpIfInventory("IsShootingHomers", 1, "GrenGiver")
-	TNT1 A 0 A_JumpIfInventory("IsShootingGrens", 1, "HiveGiver")
-  TNT1 A 0 A_JumpIfInventory("IsShootingHive12", 1, "ClusterGiver")
-  TNT1 A 0 A_JumpIfInventory("IsShootingCluster", 1, "BuckGiver")
+  TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "BuckGiver")
   goto Ready
 
   User2:
@@ -816,14 +498,10 @@ ACTOR DemonsBane : weapon Replaces shotgun
   TNT1 A 0 A_JumpIfInventory("IsShootingSlugs", 1, "SlugTaker")
   TNT1 A 0 A_JumpIfInventory("IsShootingScim", 1, "ScimTaker")
   TNT1 A 0 A_JumpIfInventory("IsShootingFrags", 1, "FragTaker")
-  TNT1 A 0 A_JumpIfInventory("IsShootingHomers", 1, "HomingTaker")
-  TNT1 A 0 A_JumpIfInventory("IsShootingGrens", 1, "GrenTaker")
-  TNT1 A 0 A_JumpIfInventory("IsShootingHive12", 1, "HiveTaker")
-  TNT1 A 0 A_JumpIfInventory("IsShootingCluster", 1, "ClusterTaker")
   goto Ready
   
 	DryFire:
-	  ONUG A 0 A_PlaySound ("weapons/dryfire")
+	ONUG A 0 A_PlaySound ("weapons/dryfire")
   	goto Ready
   
 Reload:
@@ -982,26 +660,6 @@ Actor IsShootingScim : Inventory
 }
 
 Actor IsShootingFrags : Inventory
-{ 
-  Inventory.Maxamount 1
-}
-
-Actor IsShootingHomers : Inventory
-{ 
-  Inventory.Maxamount 1
-}
-
-Actor IsShootingHive12 : Inventory
-{ 
-  Inventory.Maxamount 1
-}
-
-Actor IsShootingGrens : Inventory
-{ 
-  Inventory.Maxamount 1
-}
-
-Actor IsShootingCluster : Inventory
 { 
   Inventory.Maxamount 1
 }

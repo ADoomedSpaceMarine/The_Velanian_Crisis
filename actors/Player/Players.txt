@@ -1,6 +1,8 @@
 ACTOR VanillaMan : DoomPlayer
 {
   Player.DisplayName "Doom Marine"
+  DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
   Player.StartItem "IsShootingBuck", 1
@@ -11,6 +13,8 @@ ACTOR VanillaMan : DoomPlayer
 ACTOR TankPlayer : DoomPlayer
 {
   DamageFactor "Normal", 0.7
+  DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
   RadiusDamageFactor 0.7
   Player.MaxHealth 200
   Health 200
@@ -22,11 +26,12 @@ ACTOR TankPlayer : DoomPlayer
   Player.StartItem "Fist"
   Player.StartItem "Demonsbane"
   Player.StartItem "Chaingun"
+  Player.StartItem "BFL10k"
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "AnnAmmo", 80
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
-  Player.StartItem "Clip", 200
+  Player.StartItem "Cell", 600
   
   States
   {
@@ -79,6 +84,8 @@ ACTOR TankPlayer : DoomPlayer
 
 ACTOR AcrobatPlayer : DoomPlayer
 {
+  DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
   DamageFactor "Normal", 1.015
   RadiusDamageFactor 1.025
   Speed 2.25
@@ -92,6 +99,9 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
+  Player.StartItem "BubbleShield", 4
+    
+  
 
   States
   {
@@ -146,6 +156,8 @@ ACTOR CommandoPlayer : DoomPlayer
 {
   Speed 1.65
   Player.JumpZ 11
+  DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
   Player.MaxHealth 150
   Health 150
   Player.DisplayName "The Commando"
@@ -156,7 +168,8 @@ ACTOR CommandoPlayer : DoomPlayer
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
-  
+ 
+
   States
     {
   Spawn:
@@ -210,21 +223,25 @@ Actor CombatVeteran : DoomPlayer
 {
   DamageFactor "Normal", 0.75
   RadiusDamageFactor 0.75
+  DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
   Speed 1.8
   Player.JumpZ 11
   Player.MaxHealth 180
   Health 180
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "Demonsbane"
+  Player.StartItem "BFL10k"
+  Player.StartItem "Cell", 200
   Player.StartItem "Annihilator"
+  Player.StartItem "Demonsbane"
   Player.StartItem "Chaingun"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnAmmo", 80
-  Player.StartItem "Clip", 200
+  Player.StartItem "Clip", 600
   Player.StartItem "AnnClip", 4
   
   States

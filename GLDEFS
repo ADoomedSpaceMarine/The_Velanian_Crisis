@@ -206,3 +206,14 @@ Frame BFLSF0 { Light BFL10KSHOT_X5 }
 Frame BFLSG0 { Light BFL10KSHOT_X6 }
 }
 
+PointLight BFLBlackHoleDark
+{
+Color 0.5 0.5 0.5
+Size 180
+Subtractive 1
+}
+
+Object BFLBlackHoleDarkness
+{
+    Frame TNT1 {Light BFLBlackHoleDark}
+}

@@ -1,0 +1,16 @@
+ACTOR BigGunSmoke : LavaSmoke
+{
+  +NOBLOCKMAP
+  +NOCLIP
+  +NOGRAVITY
+  +DONTSPLASH
+  Scale 0.3
+  RenderStyle Translucent
+  DefaultAlpha
+  States
+  {
+  Spawn:
+    LVAS GHIJK 2 Bright
+    Stop
+  }
+}

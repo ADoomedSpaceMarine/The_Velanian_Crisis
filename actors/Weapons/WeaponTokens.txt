@@ -1,0 +1,9 @@
+Actor UltToken : Inventory
+{
+  Inventory.MaxAmount 455
+}
+
+Actor Phase2Token : Inventory
+{
+  Inventory.MaxAmount 48
+}

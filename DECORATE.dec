@@ -7,7 +7,13 @@
 #include "actors/Weapons/Slot 3/DemonsBane.txt"
 
 //General Includes
-#include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Player/Players.txt"
 #include "actors/Weapons/Explosives.txt"
 #include "actors/Weapons/Projectiles.txt"
+#include "actors/Weapons/WeaponTokens.txt"
+
+//Effects
+#include "actors/Effects/CasingsAndClips.txt"
+#include "actors/Effects/LightGenerators.txt"
+#include "actors/Effects/SFX.txt"
+#include "actors/PowerUps/BubbleShield.txt"

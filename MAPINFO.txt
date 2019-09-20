@@ -2,3 +2,13 @@ GameInfo
 {
    PlayerClasses = "VanillaMan", "CommandoPlayer", "TankPlayer", "AcrobatPlayer", "CombatVeteran" 
 } 
+
+DamageType BFLCharge
+{
+Factor = 1
+}
+
+DamageType BFLBeam
+{
+  Factor = 2
+}
