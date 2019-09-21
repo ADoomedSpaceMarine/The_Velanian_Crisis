@@ -2,7 +2,7 @@ ACTOR BubbleShield : CustomInventory Replaces BlurSphere
 {
   +VISIBILITYPULSE
   +INVENTORY.UNDROPPABLE
-  +INVENTORY.PERSISTENTPOWER
+  +INVENTORY.HUBPOWER
   +INVENTORY.INVBAR
   Inventory.MaxAmount 1
   Inventory.Icon "BUBDB0"
@@ -18,12 +18,10 @@ ACTOR BubbleShield : CustomInventory Replaces BlurSphere
     TNT1 A 0 A_JumpIfInventory("UsingShield", 1, "UseMessage")
     TNT1 A 0 A_JumpIfInventory("ShieldDepleted", 1, "BubRechargeMessage")
     TNT1 A 0 A_GiveInventory("PowerBubble")
-    TNT1 A 0 A_Overlay(3, "UseShield")
+    TNT1 A 0 A_Overlay(-3, "UseShield")
     Fail
   UseShield:
     TNT1 A 0 A_GiveInventory("UsingShield", 1)
-    TNT1 A 0 A_OverlayFlags(3, PSPF_ALPHA, 1)
-    TNT1 A 0 A_OverlayAlpha(3, 0.5)
     TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
     BUBS ABCDEFGH 3
     TNT1 A 0 A_PlaySound("Powerup/ShieldMsg",CHAN_AUTO)
@@ -50,7 +48,7 @@ ACTOR BubbleShield : CustomInventory Replaces BlurSphere
     TNT1 A 0 A_TakeInventory("ShieldDepleted", 1)
     TNT1 A 0 A_PlaySound("Powerup/ShieldMsg",CHAN_AUTO)
     TNT1 A 0 A_Print("DBX-2750 is now ready for redeployment")
-    TNT1 A 0 A_ClearOverlays(3,3)
+    TNT1 A 0 A_ClearOverlays(-3,-3)
     Fail
   BubRechargeMessage:
     TNT1 A 0 A_PlaySound("Powerup/ShieldMsg",CHAN_AUTO)

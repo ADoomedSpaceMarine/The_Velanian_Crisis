@@ -1,4 +1,7 @@
-   AddMenuKey "Dual Wield/Weapon Special" weaponspecial
-   Alias weaponspecial "puke 3756"
-   DefaultBind V weaponspecial
-   
+addmenukey "Toggle Nightvision" NVGogs
+defaultbind n "NVgogs"
+alias NVGogs "puke 1258"
+
+addmenukey "Activate Bubble Shield" TgBub
+defaultbind b "Tgbub"
+alias TgBub "puke 2751"

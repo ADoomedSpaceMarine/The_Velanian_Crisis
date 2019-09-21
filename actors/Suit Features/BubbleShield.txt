@@ -1,0 +1,58 @@
+ACTOR BubbleShield : CustomInventory Replaces BlurSphere
+{
+  +VISIBILITYPULSE
+  +AUTOACTIVATE
+  Inventory.MaxAmount 1
+  Inventory.Icon "BUBDB0"
+  Inventory.PickupSound "Powerup/ShieldMsg"
+  RenderStyle Translucent
+  Inventory.PickupMessage "You Got the DXB-2750 Protector Reusable Bubble Shield"
+  States
+  {
+  Spawn:
+    PINS ABCDCB 2 Bright
+    loop
+  Use:
+    TNT1 A 0 A_GiveInventory("ShieldSwitch")
+    TNT1 A 0 A_GiveInventory("PowerBubble")
+    TNT1 A 0 A_Overlay(-2, "UseShield")
+    Fail
+  UseShield:
+    TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
+    BUBS ABCDEFGH 3
+    TNT1 A 0 ACS_Execute(2753,0,0,0,0) 
+    goto ShieldSustain
+  ShieldSustain:
+    BUBS I 980
+    TNT1 A 0 ACS_Execute(2754,0,0,0,0)
+    BUBS I 70
+    Goto ShieldCrash
+  ShieldCrash:
+    TNT1 A 0 A_PlaySound("Powerup/ShieldBrk",CHAN_AUTO)
+    BUBS IHGF 4
+    BUBD A 4
+    BUBD B 4
+    BUBD C 4
+    BUBD D 4
+    TNT1 A 0 ACS_Execute(2755,0,0,0,0)
+    TNT1 A 2100
+    TNT1 A 0 ACS_Execute(2756,0,0,0,0)
+    TNT1 A 0 A_ClearOverlays(-2,-2)
+    TNT1 A 0 
+    Stop
+  }
+}
+
+
+ACTOR PowerBFLBubble : PowerInvulnerable
+{
+  Powerup.Duration 350
+  Inventory.Icon "BUBDB0"
+}
+
+ACTOR PowerBubble : PowerInvulnerable
+{
+  Powerup.Duration -30
+  Inventory.Icon "BUBDB0"
+}
+

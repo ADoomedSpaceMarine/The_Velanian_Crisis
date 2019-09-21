@@ -79,7 +79,9 @@ Weapons/BFLUP2 BFLUPSN2
 Weapons/BFLIdle BFLIDLE
 
 //Bubble Shield
-Powerup/ShieldMsg ShldMsg
-Powerup/ShieldWarn ShieldWn
 Powerup/ShieldUp ShieldUp
 Powerup/ShieldBrk ShieldBK
+
+//Heads Up Display
+Hud/HudMsg HudMsg
+Hud/ShieldWarn ShieldWn

@@ -257,7 +257,7 @@ Class BFL10K : Weapon
             BFLF BCDEF 1 A_TakeInventory("Cell", 2);
             BFLU ABCDEF 5;
             BFLU GHIJK 3;
-            TNT1 A 0 A_Overlay(4, "ShieldUse", 1);
+            TNT1 A 0 A_Overlay(-3, "ShieldUse", 1);
             Goto Phase2;
             
             Phase2:

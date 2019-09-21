@@ -99,10 +99,8 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
-  Player.StartItem "BubbleShield", 4
+  Player.StartItem "ShieldSwitch", 1
     
-  
-
   States
   {
   Spawn:

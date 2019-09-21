@@ -1,0 +1,4 @@
+ACTOR PowerLightAmp1 : PowerLightAmp
+{
+  Powerup.Duration -240
+}

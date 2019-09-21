@@ -16,4 +16,5 @@
 #include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Effects/LightGenerators.txt"
 #include "actors/Effects/SFX.txt"
-#include "actors/PowerUps/BubbleShield.txt"
+#include "actors/Suit Features/BubbleShield.txt"
+#include "actors/Suit Features/NightVision.txt"
