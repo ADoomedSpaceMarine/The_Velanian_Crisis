@@ -1,12 +1,12 @@
-Class AnnClip : Ammo
+Class AnnClip : Ammo  //This ammo simply acts a counter for the gun's clip reserve
 {
   Default{
   Inventory.Icon "ANPU0";
   Inventory.MaxAmount 4;
-}
+	}
 }
 
-Class AnnAmmo : Ammo Replaces RocketAmmo
+Class AnnAmmo : Ammo Replaces RocketAmmo //Replace Rocket Launcher ammo
 {
 Default{ 
   Inventory.PickupMessage "Picked up a clip of Annihilator rockets."; 
@@ -15,7 +15,7 @@ Default{
   Ammo.BackpackAmount 4;
   Ammo.BackpackMaxAmount 160;
   Inventory.Icon "ANBX0";
-}
+	}
   States
   {
   Spawn: 
@@ -24,7 +24,7 @@ Default{
   }
 }
 
-Class AnnBox : AnnAmmo Replaces Rocketbox
+Class AnnBox : AnnAmmo Replaces Rocketbox //This class replaces the box of rockets in Doom
 {
   Default
   {
@@ -39,11 +39,11 @@ Class AnnBox : AnnAmmo Replaces Rocketbox
   }
 }
 
-Class Annihilator : Weapon replaces RocketLauncher
-{
- int RocketsFired;
- int ShotSwitcher;
- bool IsFiringStandard;
+Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher for Doom
+{	
+ int RocketsFired; 		//How many rockets have been fired
+ int ShotSwitcher;		//This is a numerical value for what ammo is being used
+ bool IsFiringStandard;		
  bool IsFiringHoming;
  bool IsFiringGrenades;
  bool IsFiringHives;
