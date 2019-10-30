@@ -3,9 +3,6 @@
 //Monster Includes
 #include "actors/Monsters/EasyGame/ZombieDude.txt"
 
-//Weapon Includes
-#include "actors/Weapons/Slot 3/DemonsBane.txt"
-
 //General Includes
 #include "actors/Player/Players.txt"
 #include "actors/Weapons/Explosives.txt"

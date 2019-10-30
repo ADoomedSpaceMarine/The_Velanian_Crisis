@@ -1,0 +1,94 @@
+#library "goggle"
+#include "zcommon.acs"
+
+bool Gogsrunning=0;
+int BubbleState=1;
+
+/*BubbleState declares what behavior the BubbleShield is currently performing.
+0 = No shield has been picked up.
+1 = Standard Shield has been obtained, but is not active (Ready).
+2 = Standard Shield is in deployed and in use.
+3 = Standard Shield is currently recharging.
+*/
+
+Script 1248 open
+{
+     TakeInventory("BubbleShield",1);
+     BubbleState = 1;
+}
+
+Script 1258 (void)
+{
+     if (Gogsrunning==0)
+     {
+			GiveInventory("PowerLightAmp1",1);
+			Gogsrunning=1;
+     }
+     else
+     {
+			TakeInventory("PowerLightAmp1",1);
+			Gogsrunning=0;
+     }
+}
+
+script 2751 (void) //Bubble Shield Functions
+{
+ if(BubbleState==0){
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"You Do not have a bubble shield yet!";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          Terminate;
+}
+ Else if(BubbleState==1){
+          ACS_Execute(2752,0,0,0,0);
+          Terminate;
+          }
+ Else if(BubbleState==2){
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"Invalid Request: Bubble Shield is currently deployed, please wait.";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          Terminate;
+ }
+ Else if(BubbleState==3){
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"DBX-2750 shield offline, please wait for recharge cycle to complete.";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          Terminate;
+  }
+}
+
+Script 2752 (void) //Bubble Giver
+{
+               GiveInventory("BubbleShield",1);
+               BubbleState=2;
+               Terminate;
+}
+
+Script 2753 (void)//Successful Deployment Message
+{
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"Deployment Successful. Sustaining for 30 Seconds.";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          Terminate;
+}
+
+Script 2754 (void) //Bubble Warning
+{
+          PlaySound(0,"Hud/ShieldWarn");
+          HudMessage(s:"Warning, Shield emmiter disengaging! Break imminent!";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          Terminate;
+}
+
+Script 2755 (void) //Bubble Depleted, Recharge.
+{
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"DBX-2750 depleted, initiating recharge cycle.";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          BubbleState=3;
+          Terminate;
+}
+
+Script 2756 (void)
+     {
+          BubbleState=1;
+          PlaySound(0,"Hud/HudMsg");
+          HudMessage(s:"DBX-2750 fully recharged. Ready for redeployment.";HUDMSG_TYPEON,27501,CR_LIGHTBLUE,1.5, 0.8, 5.0,0.03, 2.0);
+          TakeInventory("BubbleShield",1);
+          Terminate;
+     }
+     

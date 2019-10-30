@@ -5,7 +5,6 @@ ACTOR VanillaMan : DoomPlayer
   DamageFactor "BFLBeam", 0
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "IsShootingBuck", 1
   Player.StartItem "clip", 50
   Player.StartItem "AnnClip", 4
 }  
@@ -27,7 +26,6 @@ ACTOR TankPlayer : DoomPlayer
   Player.StartItem "Demonsbane"
   Player.StartItem "Chaingun"
   Player.StartItem "BFL10k"
-  Player.StartItem "IsShootingBuck", 1
   Player.StartItem "AnnAmmo", 80
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
@@ -96,10 +94,8 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Demonsbane"
   Player.StartItem "Fist"
-  Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
-  Player.StartItem "ShieldSwitch", 1
     
   States
   {
@@ -163,7 +159,6 @@ ACTOR CommandoPlayer : DoomPlayer
   Player.StartItem "Demonsbane"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
  
@@ -236,7 +231,6 @@ Actor CombatVeteran : DoomPlayer
   Player.StartItem "Chaingun"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "IsShootingBuck", 1
   Player.StartItem "Shell", 50
   Player.StartItem "AnnAmmo", 80
   Player.StartItem "Clip", 600

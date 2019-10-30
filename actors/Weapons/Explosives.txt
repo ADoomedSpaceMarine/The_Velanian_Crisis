@@ -651,3 +651,8 @@ ACTOR AnnMIRV : Rocket
 	stop
     }
 }
+
+ACTOR SmallRocketTrail : RocketTrail
+{
+  Scale 0.2
+}
