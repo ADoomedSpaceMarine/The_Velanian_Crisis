@@ -1,3 +1,14 @@
+
+addkeysection "Velanian Crisis Options" VelanianOptions
+
+addmenukey "Toggle Flashlight" toggleflashlight_bind   
+alias toggleflashlight_bind "pukename toggleflashlight"
+defaultbind J toggleflashlight_bind
+
+addmenukey "Toggle Radar Modes" CatV_mradar
+alias CatV_mradar "pukename radarmode"
+defaultbind "l" CatV_mradar
+
 addmenukey "Toggle Nightvision" NVGogs
 defaultbind n "NVgogs"
 alias NVGogs "puke 1258"

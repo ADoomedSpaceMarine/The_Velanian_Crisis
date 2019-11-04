@@ -12,3 +12,8 @@ DamageType BFLBeam
 {
   Factor = 2
 }
+
+gameinfo 
+{
+    addEventHandlers = "ATMP_MapHandler"
+}

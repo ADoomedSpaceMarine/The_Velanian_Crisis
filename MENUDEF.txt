@@ -1,0 +1,109 @@
+AddOptionMenu "OptionsMenu"
+{
+	StaticText " "
+	Submenu "Velanian Crisis Options",			"VelanianOpts"
+}
+
+OptionMenu "VelanianOpts"
+{
+  Title "Velanian Crisis Options"
+	Submenu "Visor/HUD Options",			"DHUD"
+	Submenu "Flashlight Options",			"Flashlight"
+}
+
+OptionMenu "DHUD"
+{
+  Title "Visor/HUD Options"
+  StaticText " "
+  Submenu "Radar option",			"Radar"
+  StaticText " "
+  StaticText "--Top part--"
+  Option "Level statistics", "CatV_Stats", "YesNo"
+  Option "Reduced level stats", "CatV_StatsMini", "YesNo"
+  Option "Top Screen", "CatV_Screen", "YesNo"
+  Option "Inventory indicator", "CatV_Inv", "YesNo"
+  Option "MugShot", "CatV_Mug", "YesNo"
+  Option "Enemy health bar", "CatV_EnHB", "YesNo"
+  StaticText " "
+  StaticText "--Right part--"
+  Option "Total ammo counters", "CatV_AmmoC", "YesNo"
+  Option "Weapon name", "CatV_WeaNam", "YesNo"
+  Option "Ammo icon", "CatV_AmmIco", "YesNo"
+  Option "Alternative ammo bar", "CatV_Altabar", "YesNo"
+  Option "Timer", "CatV_Clock", "YesNo"
+  StaticText " "
+  StaticText "--Left part--"
+  Option "Armor type name", "CatV_ArmTyp", "YesNo"
+  Option "Armor icon", "CatV_ArmIco", "YesNo"
+  Option "Health & Armor bars bottom left", "CatV_HPBottom", "YesNo"
+  StaticText " "
+  StaticText "--Bottom part--"
+  Option "Hide helmet overlay", "CatV_NoOverlay", "YesOrNo"
+  Option "Helmet edge visible", "CatV_OTyp2", "YesNo"
+  Option "Helmet light", "CatV_ArmLght", "YesNo"
+  StaticText " "
+  StaticText " "
+  Command "Apply All Changes", "Pukename CatsReset"
+}
+
+OptionMenu "Radar"
+{
+	Title  "Radar Options"
+	StaticText " "
+	Option "Enable Radar", "CatV_Radar", "YesNo"
+	Option "Radar on the left", "CatV_RadarLeft", "YesNo"
+	Control "Radar Toggle Key", "CatV_mradar"
+	Option "Default Radar Mode", "CatV_RadarMode", "RadarModes"
+	StaticText " "
+	StaticText "Setting the following option to 'Disable'"
+	StaticText "may increase performance at the cost of tracking monsters"
+	StaticText "and requires map restart to take effect"
+	StaticText " "
+	Option "Monster Tracking", "CatV_DisableGiver", "TIDAssign"
+}
+
+OptionValue "TIDAssign"
+{
+	1, "Disable"
+	0, "Enable"
+}
+
+OptionValue "RadarModes"
+{
+	0, "Disabled"
+	1, "Local"
+	2, "Local + Movement"
+	3, "Full"
+}
+
+OptionValue LocationOptions {
+
+    0, "Helmet"
+    1, "Right Shoulder"
+    2, "Left Shoulder"
+    3, "Center View"
+
+}
+
+
+OptionMenu "Flashlight"
+{
+    Title "Flashlight Options"
+    
+    StaticText " "
+    
+    ColorPicker "Color", "flashlight_color"
+    
+    StaticText " "
+    
+    Slider "Intensity ('Range')", "flashlight_intensity", 0, 1024, 1, 0
+    
+    StaticText " "
+    
+    Slider "Inner Angle", "flashlight_inner", 0, 180, 1, 0
+    
+    Slider "Outer Angle", "flashlight_outer", 0, 180, 1, 0
+    
+    Option "Location", flashlight_location, LocationOptions
+
+}

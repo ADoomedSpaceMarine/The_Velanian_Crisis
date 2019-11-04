@@ -1,0 +1,3426 @@
+Graphic "D4BFA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4BFA0", 0, 0
+}
+Graphic "D4SHA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4SHA0", 0, 0
+}
+Graphic "D4BUA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4BUA0", 0, 0
+}
+Graphic "D4GAA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4GAA0", 0, 0
+}
+Graphic "D4CLA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4CLA0", 0, 0
+}
+Graphic "D4MIA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4MIA0", 0, 0
+}
+Graphic "D4ROA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "D4ROA0", 0, 0
+}
+
+Graphic "TELECA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "TELECA", 0, 0
+}
+Graphic "SGLNOR", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SGLNOR", 0, 0
+}
+Graphic "SGLLVG", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SGLLVG", 0, 0
+}
+Graphic "SGLINC", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SGLINC", 0, 0
+}
+Graphic "SGLFRZ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SGLFRZ", 0, 0
+}
+Graphic "SGLACI", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SGLACI", 0, 0
+}
+Graphic "INFIAA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INFIAA", 0, 0
+}
+Graphic "GCDAXA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "GCDAXA", 0, 0
+}
+Graphic "MCDAXA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "MCDAXA", 0, 0
+}
+Graphic "HELLHP1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP1", 0, 0
+}
+Graphic "HELLHP2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP2", 0, 0
+}
+Graphic "HELLHP3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP3", 0, 0
+}
+Graphic "HELLHP4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP4", 0, 0
+}
+Graphic "HELLHP5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP5", 0, 0
+}
+Graphic "HELLHP6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP7", 0, 0
+}
+Graphic "HELLHP8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP8", 0, 0
+}
+Graphic "HELLHP9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP9", 0, 0
+}
+Graphic "HELLHP10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP10", 0, 0
+}
+Graphic "HELLHP11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP11", 0, 0
+}
+Graphic "HELLHP12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP12", 0, 0
+}
+Graphic "HELLHP13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP13", 0, 0
+}
+Graphic "HELLHP14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP14", 0, 0
+}
+Graphic "HELLHP15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP15", 0, 0
+}
+Graphic "HELLHP16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP16", 0, 0
+}
+Graphic "HELLHP17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP17", 0, 0
+}
+Graphic "HELLHP18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP18", 0, 0
+}
+Graphic "HELLHP19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP19", 0, 0
+}
+Graphic "HELLHP20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HELLHP20", 0, 0
+}
+Graphic "ENEHPBBB", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPBBB", 0, 0
+}
+Graphic "ENEHPB1", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB1", 0, 0
+}
+Graphic "ENEHPB2", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB2", 0, 0
+}
+Graphic "ENEHPB5", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB5", 0, 0
+}
+Graphic "ENEHPB8", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB8", 0, 0
+}
+Graphic "ENEHPB10", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB10", 0, 0
+}
+Graphic "ENEHPB12", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB12", 0, 0
+}
+Graphic "ENEHPB15", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB15", 0, 0
+}
+Graphic "ENEHPB18", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB18", 0, 0
+}
+Graphic "ENEHPB20", 92, 7
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ENEHPB20", 0, 0
+}
+Graphic "UHEAL1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL1", 0, 0
+}
+Graphic "UHEAL2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL2", 0, 0
+}
+Graphic "UHEAL3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL3", 0, 0
+}
+Graphic "UHEAL4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL4", 0, 0
+}
+Graphic "UHEAL5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL5", 0, 0
+}
+Graphic "UHEAL6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL6", 0, 0
+}
+Graphic "UHEAL7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL7", 0, 0
+}
+Graphic "UHEAL8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL8", 0, 0
+}
+Graphic "UHEAL9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL9", 0, 0
+}
+Graphic "UHEAL10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL10", 0, 0
+}
+Graphic "UHEAL11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL11", 0, 0
+}
+Graphic "UHEAL12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL12", 0, 0
+}
+Graphic "UHEAL13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL13", 0, 0
+}
+Graphic "UHEAL14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL14", 0, 0
+}
+Graphic "UHEAL15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL15", 0, 0
+}
+Graphic "UHEAL16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL16", 0, 0
+}
+Graphic "UHEAL17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL17", 0, 0
+}
+Graphic "UHEAL18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL18", 0, 0
+}
+Graphic "UHEAL19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL19", 0, 0
+}
+Graphic "UHEAL20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UHEAL20", 0, 0
+}
+Graphic "JPINDI1", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "JPINDI1", 0, 0
+}
+Graphic "JPIND00", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "JPIND00", 0, 0
+}
+Graphic "JPIND01", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "JPIND01", 0, 0
+}
+Graphic "JPIND02", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "JPIND02", 0, 0
+}
+Graphic "JPIND03", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "JPIND03", 0, 0
+}
+Graphic "OXYO00", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO00", 0, 0
+}
+Graphic "OXYO01", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO01", 0, 0
+}
+Graphic "OXYO02", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO02", 0, 0
+}
+Graphic "OXYO03", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO03", 0, 0
+}
+Graphic "OXYO04", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO04", 0, 0
+}
+Graphic "OXYO05", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO05", 0, 0
+}
+Graphic "OXYO06", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO06", 0, 0
+}
+Graphic "OXYO07", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYO07", 0, 0
+}
+Graphic "OXYAB", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "OXYAB", 0, 0
+}
+Graphic "OXYG1", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG1", 0, 0
+}
+Graphic "OXYG2", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG2", 0, 0
+}
+Graphic "OXYG3", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG3", 0, 0
+}
+Graphic "OXYG4", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG4", 0, 0
+}
+Graphic "OXYG5", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG5", 0, 0
+}
+Graphic "OXYG6", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG6", 0, 0
+}
+Graphic "OXYG7", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG7", 0, 0
+}
+Graphic "OXYG8", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG8", 0, 0
+}
+Graphic "OXYG9", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG9", 0, 0
+}
+Graphic "OXYG10", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG10", 0, 0
+}
+Graphic "OXYG11", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG11", 0, 0
+}
+Graphic "OXYG12", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG12", 0, 0
+}
+Graphic "OXYG13", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG13", 0, 0
+}
+Graphic "OXYG14", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG14", 0, 0
+}
+Graphic "OXYG15", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG15", 0, 0
+}
+Graphic "OXYG16", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG16", 0, 0
+}
+Graphic "OXYG17", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG17", 0, 0
+}
+Graphic "OXYG18", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG18", 0, 0
+}
+Graphic "OXYG19", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG19", 0, 0
+}
+Graphic "OXYG20", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "OXYG20", 0, 0
+}
+Graphic "UBARM1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM1", 0, 0
+}
+Graphic "UBARM2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM2", 0, 0
+}
+Graphic "UBARM3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM3", 0, 0
+}
+Graphic "UBARM4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM4", 0, 0
+}
+Graphic "UBARM5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM5", 0, 0
+}
+Graphic "UBARM6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM6", 0, 0
+}
+Graphic "UBARM7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM7", 0, 0
+}
+Graphic "UBARM8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM8", 0, 0
+}
+Graphic "UBARM9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM9", 0, 0
+}
+Graphic "UBARM10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM10", 0, 0
+}
+Graphic "UBARM11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM11", 0, 0
+}
+Graphic "UBARM12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM12", 0, 0
+}
+Graphic "UBARM13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM13", 0, 0
+}
+Graphic "UBARM14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM14", 0, 0
+}
+Graphic "UBARM15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM15", 0, 0
+}
+Graphic "UBARM16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM16", 0, 0
+}
+Graphic "UBARM17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM17", 0, 0
+}
+Graphic "UBARM18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM18", 0, 0
+}
+Graphic "UBARM19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM19", 0, 0
+}
+Graphic "UBARM20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "UBARM20", 0, 0
+}
+Graphic "AMNA1", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA1", 0, 0
+}
+Graphic "AMNA2", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA2", 0, 0
+}
+Graphic "AMNA3", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA3", 0, 0
+}
+Graphic "AMNA4", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA4", 0, 0
+}
+Graphic "AMNA5", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA5", 0, 0
+}
+Graphic "AMNA6", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA6", 0, 0
+}
+Graphic "AMNA7", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA7", 0, 0
+}
+Graphic "AMNA8", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA8", 0, 0
+}
+Graphic "AMNA9", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNA9", 0, 0
+}
+Graphic "AMNAG", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAG", 0, 0
+}
+Graphic "AMNAN", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAN", 0, 0
+}
+Graphic "AMNAR", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAR", 0, 0
+}
+Graphic "AMNAE", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAE", 0, 0
+}
+Graphic "AMNAS", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAS", 0, 0
+}
+Graphic "AMNAT", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAT", 0, 0
+}
+Graphic "AMNAU", 40, 12
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "AMNAU", 0, 0
+}
+Graphic "C4INDIC", 79, 19
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "C4INDIC", 0, 0
+}
+Graphic "GRINDIC", 81, 17
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "GRINDIC", 0, 0
+}
+Graphic "MINEDIC", 81, 17
+{
+	XScale 1.500
+	YScale 1.500
+	Patch "MINEDIC", 0, 0
+}
+Graphic "STATHEAD", 123, 79
+{
+	XScale 1.000
+	YScale 1.000
+	Patch "STATHEAD", 0, 0
+}
+Graphic "STAMO00", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO00", 0, 0
+}
+Graphic "STAMO01", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO01", 0, 0
+}
+Graphic "STAMO02", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO02", 0, 0
+}
+Graphic "STAMO03", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO03", 0, 0
+}
+Graphic "STAMO04", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO04", 0, 0
+}
+Graphic "STAMO05", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAMO05", 0, 0
+}
+Graphic "STAM18", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM18", 0, 0
+}
+
+Graphic "STAM19", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM19", 0, 0
+}
+
+Graphic "STAM20", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM20", 0, 0
+}
+
+Graphic "STAM1", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM1", 0, 0
+}
+
+Graphic "STAM2", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM2", 0, 0
+}
+
+Graphic "STAM3", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM3", 0, 0
+}
+
+Graphic "STAM4", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM4", 0, 0
+}
+
+Graphic "STAM5", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM5", 0, 0
+}
+
+Graphic "STAM6", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM6", 0, 0
+}
+
+Graphic "STAM7", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM7", 0, 0
+}
+
+Graphic "STAM8", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM8", 0, 0
+}
+
+Graphic "STAM9", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM9", 0, 0
+}
+
+Graphic "STAM10", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM10", 0, 0
+}
+
+Graphic "STAM11", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM11", 0, 0
+}
+
+Graphic "STAM12", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM12", 0, 0
+}
+
+Graphic "STAM13", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM13", 0, 0
+}
+
+Graphic "STAM14", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM14", 0, 0
+}
+
+Graphic "STAM15", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM15", 0, 0
+}
+
+Graphic "STAM16", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM16", 0, 0
+}
+
+Graphic "STAM17", 123, 8
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "STAM17", 0, 0
+}
+Graphic "ARMLIFE", 66, 130
+{
+	XScale 6.300
+	YScale 6.300
+	Patch "ARMLIFE", 0, 0
+}
+
+Graphic "ARM18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM18", 0, 0
+}
+
+Graphic "ARM19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM19", 0, 0
+}
+
+Graphic "ARM20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM20", 0, 0
+}
+
+Graphic "ARM21", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM21", 0, 0
+}
+
+Graphic "ARM1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM1", 0, 0
+}
+
+Graphic "ARM2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM2", 0, 0
+}
+
+Graphic "ARM3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM3", 0, 0
+}
+
+Graphic "ARM4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM4", 0, 0
+}
+
+Graphic "ARM5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM5", 0, 0
+}
+
+Graphic "ARM6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM6", 0, 0
+}
+
+Graphic "ARM7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM7", 0, 0
+}
+
+Graphic "ARM8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM8", 0, 0
+}
+
+Graphic "ARM9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM9", 0, 0
+}
+
+Graphic "ARM10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM10", 0, 0
+}
+
+Graphic "ARM11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM11", 0, 0
+}
+
+Graphic "ARM12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM12", 0, 0
+}
+
+Graphic "ARM13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM13", 0, 0
+}
+
+Graphic "ARM14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM14", 0, 0
+}
+
+Graphic "ARM15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM15", 0, 0
+}
+
+Graphic "ARM16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM16", 0, 0
+}
+
+Graphic "ARM17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "ARM17", 0, 0
+}
+
+Graphic "HEAL1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL1", 0, 0
+}
+
+Graphic "HEAL2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL2", 0, 0
+}
+
+Graphic "HEAL3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL3", 0, 0
+}
+
+Graphic "HEAL4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL4", 0, 0
+}
+
+Graphic "HEAL5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL5", 0, 0
+}
+
+Graphic "HEAL6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL6", 0, 0
+}
+
+Graphic "HEAL7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL7", 0, 0
+}
+
+Graphic "HEAL8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL8", 0, 0
+}
+
+Graphic "HEAL9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL9", 0, 0
+}
+
+Graphic "HEAL10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL10", 0, 0
+}
+
+Graphic "HEAL11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL11", 0, 0
+}
+
+Graphic "HEAL12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL12", 0, 0
+}
+
+Graphic "HEAL13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL13", 0, 0
+}
+
+Graphic "HEAL14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL14", 0, 0
+}
+
+Graphic "HEAL15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL15", 0, 0
+}
+
+Graphic "HEAL16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL16", 0, 0
+}
+
+Graphic "HEAL17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL17", 0, 0
+}
+
+Graphic "HEAL18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL18", 0, 0
+}
+
+Graphic "HEAL19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL19", 0, 0
+}
+
+Graphic "HEAL20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "HEAL20", 0, 0
+}
+
+Graphic "RPULS01", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS01", 0, 0
+}
+
+Graphic "RPULS02", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS02", 0, 0
+}
+
+Graphic "RPULS03", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS03", 0, 0
+}
+
+Graphic "RPULS04", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS04", 0, 0
+}
+
+Graphic "RPULS05", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS05", 0, 0
+}
+
+Graphic "RPULS06", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS06", 0, 0
+}
+
+Graphic "RPULS07", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS07", 0, 0
+}
+
+Graphic "RPULS08", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS08", 0, 0
+}
+
+Graphic "RPULS09", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS09", 0, 0
+}
+
+Graphic "RPULS10", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS10", 0, 0
+}
+
+Graphic "RPULS11", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS11", 0, 0
+}
+
+Graphic "RPULS12", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS12", 0, 0
+}
+
+Graphic "RPULS13", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS13", 0, 0
+}
+
+Graphic "RPULS14", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS14", 0, 0
+}
+
+Graphic "RPULS15", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS15", 0, 0
+}
+
+Graphic "RPULS16", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS16", 0, 0
+}
+
+Graphic "RPULS17", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "RPULS17", 0, 0
+}
+
+Graphic "PULS00", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS00", 0, 0
+}
+
+Graphic "PULS01", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS01", 0, 0
+}
+
+Graphic "PULS02", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS02", 0, 0
+}
+
+Graphic "PULS03", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS03", 0, 0
+}
+
+Graphic "PULS04", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS04", 0, 0
+}
+
+Graphic "PULS05", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS05", 0, 0
+}
+
+Graphic "PULS06", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS06", 0, 0
+}
+
+Graphic "PULS07", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS07", 0, 0
+}
+
+Graphic "PULS08", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS08", 0, 0
+}
+
+Graphic "PULS09", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS09", 0, 0
+}
+
+Graphic "PULS10", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS10", 0, 0
+}
+
+Graphic "PULS11", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS11", 0, 0
+}
+
+Graphic "PULS12", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS12", 0, 0
+}
+
+Graphic "PULS13", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS13", 0, 0
+}
+
+Graphic "PULS14", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS14", 0, 0
+}
+
+Graphic "PULS15", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS15", 0, 0
+}
+
+Graphic "PULS16", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS16", 0, 0
+}
+
+Graphic "PULS17", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS17", 0, 0
+}
+
+Graphic "PULS18", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS18", 0, 0
+}
+
+Graphic "PULS19", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS19", 0, 0
+}
+
+Graphic "PULS20", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS20", 0, 0
+}
+
+Graphic "PULS21", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS21", 0, 0
+}
+
+Graphic "PULS22", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS22", 0, 0
+}
+
+Graphic "PULS23", 123, 14
+{
+	XScale 0.800
+	YScale 0.800
+	Patch "PULS23", 0, 0
+}
+
+Graphic "PINAA", 29, 24
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINAA", 0, 0
+}
+Graphic "PINAB", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINAB", 0, 0
+}
+Graphic "PINAXX", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINAXX", 0, 0
+}
+Graphic "PINA666", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINA666", 0, 0
+}
+Graphic "PINAY", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINAY", 0, 0
+}
+Graphic "PINAZ", 23, 25
+{
+	XScale 1.400
+	YScale 1.500
+	Patch "PINAZ", 0, 0
+}
+Graphic "BFAMMA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFAMMA", 0, 0
+}
+Graphic "HLLMMA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "HLLMMA", 0, 0
+}
+Graphic "FZBAA0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "FZBAA0", 0, 0
+}
+Graphic "FZBAB0", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "FZBAB0", 0, 0
+}
+Graphic "PBAMMO", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBAMMO", 0, 0
+}
+Graphic "PBAMMO", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBAMMO", 0, 0
+}
+Graphic "PBROCK", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBROCK", 0, 0
+}
+Graphic "PBEXAM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBEXAM", 0, 0
+}
+Graphic "PBCLIP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBCLIP", 0, 0
+}
+Graphic "PBMAMM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PBMAMM", 0, 0
+}
+Graphic "CDCFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFDB", 0, 0
+}
+Graphic "CDCFDS", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFDS", 0, 0
+}
+Graphic "CDCFB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFB", 0, 0
+}
+Graphic "CDCFCC", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFCC", 0, 0
+}
+Graphic "CDCFL1", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFL1", 0, 0
+}
+Graphic "CDCFL2", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFL2", 0, 0
+}
+Graphic "CDCFLC", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFLC", 0, 0
+}
+Graphic "CDCFLS", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFLS", 0, 0
+}
+Graphic "CDCFM1", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFM1", 0, 0
+}
+Graphic "CDCFM2", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CDCFM2", 0, 0
+}
+Graphic "NONEA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "NONEA", 0, 0
+}
+Graphic "KNIFAA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "KNIFAA", 0, 0
+}
+Graphic "PINGAS", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINGAS", 0, 0
+}
+Graphic "PIGAN", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PIGAN", 0, 0
+}
+Graphic "PIC4N", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PIC4N", 0, 0
+}
+Graphic "PINHLSH", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINHLSH", 0, 0
+}
+
+Graphic "PINAX", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAX", 0, 0
+}
+
+Graphic "PINAD", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAD", 0, 0
+}
+
+Graphic "PINAE", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAE", 0, 0
+}
+
+Graphic "PINAF", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAF", 0, 0
+}
+
+Graphic "PINAG", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAG", 0, 0
+}
+
+Graphic "PINAL", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAL", 0, 0
+}
+
+Graphic "PINAM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAM", 0, 0
+}
+
+Graphic "PINAN", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAN", 0, 0
+}
+
+Graphic "PINAO", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAO", 0, 0
+}
+
+Graphic "PINAP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAP", 0, 0
+}
+Graphic "PIGANA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PIGANA", 0, 0
+}
+Graphic "PIC4NA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PIC4NA", 0, 0
+}
+Graphic "PINADA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINADA", 0, 0
+}
+
+Graphic "PINAEA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAEA", 0, 0
+}
+
+Graphic "PINAXA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAXA", 0, 0
+}
+
+Graphic "PINAFA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAFA", 0, 0
+}
+
+Graphic "PINAGA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAGA", 0, 0
+}
+
+Graphic "PINALA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINALA", 0, 0
+}
+
+Graphic "PINAMA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAMA", 0, 0
+}
+
+Graphic "PINANA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINANA", 0, 0
+}
+
+Graphic "PINAOA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAOA", 0, 0
+}
+
+Graphic "PINAPA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAPA", 0, 0
+}
+
+Graphic "PINGASA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINGASA", 0, 0
+}
+
+Graphic "PINHLSA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINHLSA", 0, 0
+}
+
+Graphic "PINAIA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAIA", 0, 0
+}
+Graphic "BESGM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BESGM", 0, 0
+}
+Graphic "BEBFGM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BEBFGM", 0, 0
+}
+Graphic "PINAI", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAI", 0, 0
+}
+
+Graphic "PINAK", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAK", 0, 0
+}
+Graphic "FBSGAM", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "FBSGAM", 0, 0
+}
+
+Graphic "PINAKA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "PINAKA", 0, 0
+}
+Graphic "BULFDA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BULFDA", 0, 0
+}
+Graphic "BULFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BULFDB", 0, 0
+}
+Graphic "BULFDJ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BULFDJ", 0, 0
+}
+Graphic "BULFDP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BULFDP", 0, 0
+}
+Graphic "BULFDT", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BULFDT", 0, 0
+}
+Graphic "BFGFDA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDA", 0, 0
+}
+Graphic "BFGFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDB", 0, 0
+}
+Graphic "BFGFDD", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDD", 0, 0
+}
+Graphic "BFGFDJ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDJ", 0, 0
+}
+Graphic "BFGFDP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDP", 0, 0
+}
+Graphic "BFGFDT", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "BFGFDT", 0, 0
+}
+Graphic "CELFDA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CELFDA", 0, 0
+}
+Graphic "CELFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CELFDB", 0, 0
+}
+Graphic "CELFDJ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CELFDJ", 0, 0
+}
+Graphic "CELFDP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CELFDP", 0, 0
+}
+Graphic "CELFDT", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "CELFDT", 0, 0
+}
+Graphic "RCKFDA", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "RCKFDA", 0, 0
+}
+Graphic "RCKFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "RCKFDB", 0, 0
+}
+Graphic "RCKFDJ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "RCKFDJ", 0, 0
+}
+Graphic "RCKFDP", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "RCKFDP", 0, 0
+}
+Graphic "RCKFDT", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "RCKFDT", 0, 0
+}
+Graphic "SHLFDB", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SHLFDB", 0, 0
+}
+Graphic "SHLFDJ", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SHLFDJ", 0, 0
+}
+Graphic "SHLFDT", 47, 55
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "SHLFDT", 0, 0
+}
+Graphic "AMMO18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO18", 0, 0
+}
+
+Graphic "AMMO19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO19", 0, 0
+}
+
+Graphic "AMMO20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO20", 0, 0
+}
+Graphic "AMMO1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO1", 0, 0
+}
+
+Graphic "AMMO2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO2", 0, 0
+}
+
+Graphic "AMMO3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO3", 0, 0
+}
+
+Graphic "AMMO4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO4", 0, 0
+}
+
+Graphic "AMMO5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO5", 0, 0
+}
+
+Graphic "AMMO6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO6", 0, 0
+}
+
+Graphic "AMMO7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO7", 0, 0
+}
+
+Graphic "AMMO8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO8", 0, 0
+}
+
+Graphic "AMMO9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO9", 0, 0
+}
+
+Graphic "AMMO10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO10", 0, 0
+}
+
+Graphic "AMMO11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO11", 0, 0
+}
+
+Graphic "AMMO12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO12", 0, 0
+}
+
+Graphic "AMMO13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO13", 0, 0
+}
+
+Graphic "AMMO14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO14", 0, 0
+}
+
+Graphic "AMMO15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO15", 0, 0
+}
+
+Graphic "AMMO16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO16", 0, 0
+}
+
+Graphic "AMMO17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMO17", 0, 0
+}
+Graphic "BATC00", 9, 19
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "BATC00", 0, 0
+}
+Graphic "BATC25", 9, 19
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "BATC25", 0, 0
+}
+Graphic "BATC50", 9, 19
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "BATC50", 0, 0
+}
+Graphic "BATC75", 9, 19
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "BATC75", 0, 0
+}
+Graphic "BATC99", 9, 19
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "BATC99", 0, 0
+}
+Graphic "DOUB00", 26, 22
+{
+	XScale 1.400
+	YScale 1.700
+	Patch "DOUB00", 0, 0
+}
+Graphic "DOUB100", 26, 22
+{
+	XScale 1.400
+	YScale 1.700
+	Patch "DOUB100", 0, 0
+}
+Graphic "DOUB75", 26, 22
+{
+	XScale 1.400
+	YScale 1.700
+	Patch "DOUB75", 0, 0
+}
+Graphic "DOUB50", 26, 22
+{
+	XScale 1.400
+	YScale 1.700
+	Patch "DOUB50", 0, 0
+}
+Graphic "DOUB25", 26, 22
+{
+	XScale 1.400
+	YScale 1.700
+	Patch "DOUB25", 0, 0
+}
+Graphic "INVU00", 29, 24
+{
+	XScale 1.500
+	YScale 1.800
+	Patch "INVU00", 0, 0
+}
+Graphic "INVU100", 29, 24
+{
+	XScale 1.500
+	YScale 1.800
+	Patch "INVU100", 0, 0
+}
+Graphic "INVU75", 29, 24
+{
+	XScale 1.500
+	YScale 1.800
+	Patch "INVU75", 0, 0
+}
+Graphic "INVU50", 29, 24
+{
+	XScale 1.500
+	YScale 1.800
+	Patch "INVU50", 0, 0
+}
+Graphic "INVU25", 29, 24
+{
+	XScale 1.500
+	YScale 1.800
+	Patch "INVU25", 0, 0
+}
+Graphic "IDASH02", 29, 24
+{
+	XScale 1.500
+	YScale 1.700
+	Patch "IDASH02", 0, 0
+}
+Graphic "SPEE00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "SPEE00", 0, 0
+}
+Graphic "SPEE100", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "SPEE100", 0, 0
+}
+Graphic "SPEE75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "SPEE75", 0, 0
+}
+Graphic "SPEE50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "SPEE50", 0, 0
+}
+Graphic "SPEE25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "SPEE25", 0, 0
+}
+Graphic "TIMFR99", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "TIMFR99", 0, 0
+}
+Graphic "TIMFR75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "TIMFR75", 0, 0
+}
+Graphic "TIMFR50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "TIMFR50", 0, 0
+}
+Graphic "TIMFR25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "TIMFR25", 0, 0
+}
+Graphic "TIMFR00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "TIMFR00", 0, 0
+}
+Graphic "REGE00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "REGE00", 0, 0
+}
+Graphic "REGE100", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "REGE100", 0, 0
+}
+Graphic "REGE75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "REGE75", 0, 0
+}
+Graphic "REGE50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "REGE50", 0, 0
+}
+Graphic "REGE25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "REGE25", 0, 0
+}
+Graphic "QAMA00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "QAMA00", 0, 0
+}
+Graphic "QAMA100", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "QAMA100", 0, 0
+}
+Graphic "QAMA75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "QAMA75", 0, 0
+}
+Graphic "QAMA50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "QAMA50", 0, 0
+}
+Graphic "QAMA25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "QAMA25", 0, 0
+}
+Graphic "DAMA00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "DAMA00", 0, 0
+}
+Graphic "DAMA100", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "DAMA100", 0, 0
+}
+Graphic "DAMA75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "DAMA75", 0, 0
+}
+Graphic "DAMA50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "DAMA50", 0, 0
+}
+Graphic "DAMA25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "DAMA25", 0, 0
+}
+Graphic "INVI00", 17, 17
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INVI00", 0, 0
+}
+Graphic "INVI100", 17, 17
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INVI100", 0, 0
+}
+Graphic "INVI75", 17, 17
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INVI75", 0, 0
+}
+Graphic "INVI50", 17, 17
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INVI50", 0, 0
+}
+Graphic "INVI25", 17, 17
+{
+	XScale 1.000
+	YScale 1.300
+	Patch "INVI25", 0, 0
+}
+Graphic "RADS00", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "RADS00", 0, 0
+}
+Graphic "RADS99", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "RADS99", 0, 0
+}
+Graphic "RADS25", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "RADS25", 0, 0
+}
+Graphic "RADS75", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "RADS75", 0, 0
+}
+Graphic "RADS50", 17, 17
+{
+	XScale 1.100
+	YScale 1.300
+	Patch "RADS50", 0, 0
+}
+Graphic "STAMA00", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA00", 0, 0
+}
+Graphic "STAMA01", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA01", 0, 0
+}
+Graphic "STAMA02", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA02", 0, 0
+}
+Graphic "STAMA03", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA03", 0, 0
+}
+Graphic "STAMA04", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA04", 0, 0
+}
+Graphic "STAMA05", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "STAMA05", 0, 0
+}
+Graphic "BERS00", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS00", 0, 0
+}
+
+Graphic "BERS01", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS01", 0, 0
+}
+
+Graphic "BERS02", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS02", 0, 0
+}
+
+Graphic "BERS03", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS03", 0, 0
+}
+
+Graphic "BERS04", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS04", 0, 0
+}
+
+Graphic "BERS05", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS05", 0, 0
+}
+Graphic "BERS06", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS06", 0, 0
+}
+Graphic "BERS07", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS07", 0, 0
+}
+Graphic "BERS08", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS08", 0, 0
+}
+Graphic "BERS09", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS09", 0, 0
+}
+Graphic "BERS10", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS10", 0, 0
+}
+Graphic "BERS11", 51, 58
+{
+	XScale 1.900
+	YScale 2.300
+	Patch "BERS11", 0, 0
+}
+Graphic "PBARM1", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "PBARM1", 0, 0
+}
+Graphic "PBARM2", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "PBARM2", 0, 0
+}
+Graphic "PBARM3", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "PBARM3", 0, 0
+}
+Graphic "SHARDA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "SHARDA", 0, 0
+}
+Graphic "CDCFZZ", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "CDCFZZ", 0, 0
+}
+Graphic "ARMJA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMJA0", 0, 0
+}
+Graphic "ARMKA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMKA0", 0, 0
+}
+Graphic "ARMLA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMLA0", 0, 0
+}
+Graphic "ARMMA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMMA0", 0, 0
+}
+Graphic "ARMHA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMHA0", 0, 0
+}
+Graphic "ARMOA0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMOA0", 0, 0
+}
+Graphic "ARMYYY", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMYYY", 0, 0
+}
+Graphic "ARMPQ0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMPQ0", 0, 0
+}
+Graphic "BON3A0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "BON3A0", 0, 0
+}
+Graphic "BON4A0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "BON4A0", 0, 0
+}
+
+Graphic "ARD4A0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARD4A0", 0, 0
+}
+Graphic "ARD4B0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARD4B0", 0, 0
+}
+Graphic "ARD4C0", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARD4C0", 0, 0
+}
+
+Graphic "SHARDA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "SHARDA", 0, 0
+}
+Graphic "CATARMO", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "CATARMO", 0, 0
+}
+Graphic "GENARM", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "GENARM", 0, 0
+}
+Graphic "B64AR1", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "B64AR1", 0, 0
+}
+Graphic "B64AR2", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "B64AR2", 0, 0
+}
+Graphic "ARMUGS", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMUGS", 0, 0
+}
+Graphic "ARMUA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMUA", 0, 0
+}
+Graphic "ARMUB", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMUB", 0, 0
+}
+Graphic "ARMUC", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMUC", 0, 0
+}
+Graphic "ARMUD", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "ARMUD", 0, 0
+}
+Graphic "CDHEAR", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "CDHEAR", 0, 0
+}
+Graphic "CDHEAB", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "CDHEAB", 0, 0
+}
+Graphic "HELMMA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "HELMMA", 0, 0
+}
+Graphic "UNIFOA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "UNIFOA", 0, 0
+}
+Graphic "BOTSA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "BOTSA", 0, 0
+}
+Graphic "WINDOA", 47, 55
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "WINDOA", 0, 0
+}
+Graphic "STKEYS0", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYS0", 0, 0
+}
+
+Graphic "STKEYS1", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYS1", 0, 0
+}
+
+Graphic "STKEYS2", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYS2", 0, 0
+}
+
+Graphic "STKEYS3", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYS3", 0, 0
+}
+
+Graphic "STKEYS4", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYS4", 0, 0
+}
+
+Graphic "STKEYS5", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYS5", 0, 0
+}
+Graphic "STKEYSA", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSA", 0, 0
+}
+
+Graphic "STKEYSG", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSG", 0, 0
+}
+
+Graphic "STKEYSB", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSB", 0, 0
+}
+
+Graphic "STKEYSH", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSH", 0, 0
+}
+
+Graphic "STKEYSC", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSC", 0, 0
+}
+
+Graphic "STKEYSI", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSI", 0, 0
+}
+Graphic "STKEYSD", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSD", 0, 0
+}
+
+Graphic "STKEYSJ", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSJ", 0, 0
+}
+
+Graphic "STKEYSE", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSE", 0, 0
+}
+
+Graphic "STKEYSK", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSK", 0, 0
+}
+
+Graphic "STKEYSF", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSF", 0, 0
+}
+
+Graphic "STKEYSL", 25, 35
+{
+	XScale 1.400
+	YScale 1.600
+	Patch "STKEYSL", 0, 0
+}
+Graphic "STKEYSM", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSM", 0, 0
+}
+Graphic "STKEYSN", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSN", 0, 0
+}
+Graphic "STKEYSO", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSO", 0, 0
+}
+Graphic "STKEYSP", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSP", 0, 0
+}
+Graphic "STKEYSQ", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSQ", 0, 0
+}
+Graphic "STKEYSR", 30, 33
+{
+	XScale 1.600
+	YScale 1.800
+	Patch "STKEYSR", 0, 0
+}
+Graphic "DERUA00", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA00", 0, 0
+}
+Graphic "DERUA01", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA01", 0, 0
+}
+Graphic "DERUA02", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA02", 0, 0
+}
+Graphic "DERUA03", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA03", 0, 0
+}
+Graphic "DERUA04", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA04", 0, 0
+}
+Graphic "DERUA05", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA05", 0, 0
+}
+Graphic "DERUA06", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA06", 0, 0
+}
+Graphic "DERUA07", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA07", 0, 0
+}
+Graphic "DERUA08", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA08", 0, 0
+}
+Graphic "DERUA09", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA09", 0, 0
+}
+Graphic "DERUA10", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA10", 0, 0
+}
+Graphic "DERUA11", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA11", 0, 0
+}
+Graphic "DERUA12", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA12", 0, 0
+}
+Graphic "DERUA13", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA13", 0, 0
+}
+Graphic "DERUA14", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA14", 0, 0
+}
+Graphic "DERUA15", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA15", 0, 0
+}
+Graphic "DERUA16", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA16", 0, 0
+}
+Graphic "DERUA17", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA17", 0, 0
+}
+Graphic "DERUA18", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA18", 0, 0
+}
+Graphic "DERUA19", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA19", 0, 0
+}
+Graphic "DERUA20", 42, 65
+{
+	XScale 0.500
+	YScale 0.700
+	Patch "DERUA20", 0, 0
+}
+Graphic "AMMUN1", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN1", 0, 0
+}
+Graphic "AMMUN2", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN2", 0, 0
+}
+Graphic "AMMUN3", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN3", 0, 0
+}
+Graphic "AMMUN4", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN4", 0, 0
+}
+Graphic "AMMUN5", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN5", 0, 0
+}
+Graphic "AMMUN6", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN6", 0, 0
+}
+Graphic "AMMUN7", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN7", 0, 0
+}
+Graphic "AMMUN8", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN8", 0, 0
+}
+Graphic "AMMUN9", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN9", 0, 0
+}
+Graphic "AMMUN10", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN10", 0, 0
+}
+Graphic "AMMUN11", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN11", 0, 0
+}
+Graphic "AMMUN12", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN12", 0, 0
+}
+Graphic "AMMUN13", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN13", 0, 0
+}
+Graphic "AMMUN14", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN14", 0, 0
+}
+Graphic "AMMUN15", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN15", 0, 0
+}
+Graphic "AMMUN16", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN16", 0, 0
+}
+Graphic "AMMUN17", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN17", 0, 0
+}
+Graphic "AMMUN18", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN18", 0, 0
+}
+Graphic "AMMUN19", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN19", 0, 0
+}
+Graphic "AMMUN20", 123, 14
+{
+	XScale 0.770
+	YScale 0.900
+	Patch "AMMUN20", 0, 0
+}
+
+Graphic "D4TIMERZ", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERZ", 0, 0
+}
+Graphic "D4TIMERX", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERX", 0, 0
+}
+Graphic "D4TIMERY", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERY", 0, 0
+}
+Graphic "D4TIMERW", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERW", 0, 0
+}
+Graphic "D4TIMERA", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERA", 0, 0
+}
+Graphic "D4TIMERB", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERB", 0, 0
+}
+Graphic "D4TIMERC", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERC", 0, 0
+}
+Graphic "D4TIMERD", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERD", 0, 0
+}
+Graphic "D4TIMERE", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERE", 0, 0
+}
+Graphic "D4TIMERF", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERF", 0, 0
+}
+Graphic "D4TIMERG", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERG", 0, 0
+}
+Graphic "D4TIMERH", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERH", 0, 0
+}
+Graphic "D4TIMERI", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERI", 0, 0
+}
+Graphic "D4TIMERJ", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERJ", 0, 0
+}
+Graphic "D4TIMERK", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERK", 0, 0
+}
+Graphic "D4TIMERL", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERL", 0, 0
+}
+Graphic "D4TIMERM", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERM", 0, 0
+}
+Graphic "D4TIMERN", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERN", 0, 0
+}
+Graphic "D4TIMERO", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERO", 0, 0
+}
+Graphic "D4TIMERP", 5, 16
+{
+	XScale 1.100
+	YScale 1.500
+	Patch "D4TIMERP", 0, 0
+}

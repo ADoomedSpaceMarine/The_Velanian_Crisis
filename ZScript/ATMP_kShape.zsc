@@ -1,0 +1,42 @@
+//convenient interface for Shape2D
+
+class ATMP_kShape : Shape2d
+{
+	vector2 size, pos;
+	double angle;
+	textureID tex;
+
+	static clearscope ATMP_kShape init(string image)
+	{
+		let s = new("ATMP_kShape");
+		s.tex = TexMan.checkForTexture(image, TexMan.Type_Any);
+		s.PushCoord((0,0));
+		s.PushCoord((1,0));
+		S.PushCoord((0,1));
+		s.PushCoord((1,1));
+		s.PushTriangle(0,2,1);
+		S.PushTriangle(2,3,1);
+		return s;
+	}
+	
+	void alter(Vector2 newSize, Vector2 newPos, double newAngle)
+	{
+		size = newSize;
+		pos = newPos;
+		angle = newAngle;
+		
+		self.Clear(ATMP_kShape.C_Verts);
+		Vector2 points[4];
+		points[0] = (-0.5*size.x,-0.5*size.y);
+		points[1] = ( 0.5*size.x,-0.5*size.y);
+		points[2] = (-0.5*size.x, 0.5*size.y);
+		points[3] = ( 0.5*size.x, 0.5*size.y);
+		for ( int i=0; i<4; i++ )
+		{
+			Vector2 oldpos = points[i];
+			points[i].x = oldpos.x*cos(angle)-oldpos.y*sin(angle) + pos.x;
+			points[i].y = oldpos.x*sin(angle)+oldpos.y*cos(angle) + pos.y;
+			self.PushVertex(points[i]);
+		}
+	}
+}

@@ -85,3 +85,8 @@ Powerup/ShieldBrk ShieldBK
 //Heads Up Display
 Hud/HudMsg HudMsg
 Hud/ShieldWarn ShieldWn
+Hud/CritWarn CRTWARN
+
+//Equipment Sounds
+equip/NightVUp NVUP
+equip/NightVDn NVOff

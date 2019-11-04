@@ -1,0 +1,402 @@
+class ATMP_MapHandler : StaticEventHandler 
+{
+		ui ATMP_kShape mapArrow;
+		ui ATMP_kShape backgroundShape;
+		//note: writing all the cvar stuff below was not pleasant.
+		
+		//these are mod-specific
+		transient cvar MapRotates;
+		transient cvar MapBackground ;
+		transient cvar miniMapX;
+		transient cvar miniMapY;
+		transient cvar miniMapSize;
+		transient cvar miniMapScale;
+		transient cvar enableMap;
+		transient cvar catv_radar;
+		transient cvar catv_radarleft;
+		transient cvar minimapAlpha;
+		transient cvar backgroundAlpha;
+		transient cvar CatV_HPBottom;
+		
+		
+		//below are native to gzdoom
+        transient cvar backColor;
+        transient cvar yourColor;
+        transient cvar wallColor;
+        transient cvar fdWallColor;
+        transient cvar cdWallColor;
+        transient cvar tsWallColor;
+        transient cvar efWallColor;
+        transient cvar gridColor;
+        transient cvar xHairColor;
+        transient cvar notSeenColor;
+        transient cvar lockedColor;
+        transient cvar intraLevelColor;
+        transient cvar interLevelColor;
+        transient cvar secretSectorColor;
+        transient cvar unexploredSecretColor;
+        transient cvar specialWallColor;
+        transient cvar portalColor;
+
+        transient cvar cheat;
+        //transient cvar showAllEnabled;
+        transient cvar secretWallColor;
+        transient cvar showtriggerlines;
+
+    override void WorldLoaded(WorldEvent e)
+    {
+		
+		//custom
+		if(!MapRotates) MapRotates = Cvar.FindCvar("ATMP_MapRotates");
+		if(!MapBackground) MapBackground = Cvar.FindCvar("ATMP_MapBackground");
+		if(!EnableMap) EnableMap = Cvar.FindCvar("ATMP_EnableMap");
+		if(!catv_radar) catv_radar = Cvar.FindCvar("CatV_Radar");
+		if(!catv_radarleft) catv_radarleft = Cvar.FindCvar("CatV_RadarLeft");
+		if(!catv_hpbottom) catv_hpbottom = Cvar.FindCvar("CatV_HPBottom");
+		if(!miniMapX) miniMapX = Cvar.FindCvar("ATMP_MapX");
+		if(!miniMapY) miniMapY = Cvar.FindCvar("ATMP_MapY");	
+		if(!miniMapSize) miniMapSize = Cvar.FindCvar("ATMP_MapSize");
+		if(!miniMapScale) miniMapScale = Cvar.FindCvar("ATMP_MapScale");
+		if(!miniMapAlpha) miniMapAlpha = Cvar.FindCvar("ATMP_MapAlpha");
+		if(!backgroundAlpha) backgroundAlpha = Cvar.FindCvar("ATMP_backgroundAlpha");
+			
+		
+		//internal
+        if(!backColor) backColor = Cvar.GetCvar("C_backcolor", players [consoleplayer]);
+        if(!yourColor) yourColor = Cvar.GetCvar("C_yourcolor", players [consoleplayer]);
+        if(!wallColor) wallColor = Cvar.GetCvar("C_wallcolor", players [consoleplayer]);
+        if(!fdWallColor) fdWallColor = Cvar.GetCvar("C_fdwallcolor", players [consoleplayer]);
+        if(!cdWallcolor) cdWallcolor = Cvar.GetCvar("C_cdwallcolor", players [consoleplayer]);
+        if(!tsWallcolor) tsWallcolor = Cvar.GetCvar("C_tswallcolor", players [consoleplayer]);
+        if(!efWallcolor) efWallcolor = Cvar.GetCvar("C_efwallcolor", players [consoleplayer]);
+        if(!gridcolor) gridcolor = Cvar.GetCvar("C_gridcolor", players [consoleplayer]);
+        if(!xhaircolor) xhaircolor = Cvar.GetCvar("C_xhaircolor", players [consoleplayer]);
+        if(!notseencolor) notseencolor = Cvar.GetCvar("C_notseencolor", players [consoleplayer]);
+        if(!lockedcolor) lockedcolor = Cvar.GetCvar("C_lockedcolor", players [consoleplayer]);
+        if(!intralevelcolor) intralevelcolor = Cvar.GetCvar("C_intralevelcolor", players [consoleplayer]);
+        if(!interlevelcolor) interlevelcolor = Cvar.GetCvar("C_interlevelcolor", players [consoleplayer]);
+        if(!secretsectorcolor) secretsectorcolor = Cvar.GetCvar("C_secretsectorcolor", players [consoleplayer]);
+        if(!unexploredsecretcolor)  unexploredSecretColor = Cvar.GetCvar("C_unexploredsecretcolor", players [consoleplayer]);
+        if(!specialwallcolor) specialWallColor = Cvar.GetCvar("C_specialwallcolor", players [consoleplayer]);
+        if(!portalcolor) portalColor = Cvar.GetCvar("C_portalcolor", players [consoleplayer]);
+
+        if(!cheat) cheat = Cvar.GetCvar("am_cheat", players [consoleplayer]);
+    //  if(!showAllEnabled) showAllEnabled = Cvar.GetCvar("am_ShowAllEnabled", players[consoleplayer]);
+        if(!secretWallColor) secretWallColor = Cvar.GetCvar("C_secretWallColor", players[consoleplayer]);
+        if(!showtriggerlines) showtriggerlines = Cvar.GetCvar("am_showtriggerlines", players[consoleplayer]);
+		super.WorldLoaded(e);
+    }
+    override void RenderOverlay(RenderEvent e)
+    {
+		if(!mapArrow)
+		{
+			mapArrow = ATMP_kShape.init("MAPARR");	
+		}
+		
+		if(!backgroundShape)
+		{
+			backgroundShape = ATMP_kShape.init("64BLK");	
+		}
+		
+		if(EnableMap.GetBool() && !automapactive && catv_radar.GetBool()) 
+		{
+			drawMiniMap();
+		}
+	}
+	
+    ui void DrawMiniMap()
+    {
+        let plr = PlayerPawn(players[consoleplayer].mo);
+        if (!plr)
+            return;
+		double ScreenHeight, ScreenWidth;
+		ScreenHeight = double(Screen.GetHeight());
+		ScreenWidth = double(Screen.GetWidth());
+		double mapscale = ScreenHeight*miniMapScale.GetFloat()/1080;
+		double MapX = ScreenWidth*miniMapX.GetInt()/1920;
+		double MapY = ScreenHeight*miniMapY.GetInt()/1080;
+		double MapSizeX = ScreenWidth*miniMapSize.GetFloat()/1920;
+		double MapSizeY = ScreenHeight*miniMapSize.GetFloat()/1080;
+		vector2 pos = (MapX, MapY);
+		vector2 size = (100,100);
+		//size = (max(100.0,MapSize),max(100.0,MapSize));
+		size = (MapSizeX, MapSizeY);
+		vector2 offset_2D = size*0.5;
+		double aspect = screen.GetAspectRatio();
+		if(catv_radarleft.GetBool())
+		{	
+			pos = (ScreenWidth*(miniMapX.GetInt()-1660)/1920, ScreenHeight*(miniMapY.GetInt()+91)/1080);
+		}
+		else
+		{
+			if (catv_hpbottom.GetBool())
+			{
+				pos = (MapX, MapY);
+			}
+			else
+			{
+				pos = (MapX, ScreenHeight*(miniMapY.GetInt()+91)/1080);
+			}
+		}
+		if(MapBackground.GetBool())
+		{
+			if(backgroundShape)
+			{
+				vector2 shapeSize = (MapSizeX,MapSizeY);
+				vector2 shapePos = (minimapX.GetInt(),minimapY.GetInt()); 
+				backgroundShape.Alter(shapeSize,shapePos+(shapesize*0.5),0); //move and scale the square
+				screen.DrawShape(backgroundShape.tex,False,backgroundShape,DTA_FillColor,backColor.GetInt(), DTA_Alpha, backgroundAlpha.GetFloat());
+			}
+		}
+		
+		int DrawAlpha = int(miniMapAlpha.getFloat()*255); //of course screen.drawline uses the 0-255 range..
+		
+		//thanks to phantombeta for altering the below to use BlockLinesIterator. Initially I iterated through every line in the level, hurting performance.
+		//using map size and scale cvars to alter the search radius was my addition though.
+        let lineIterator = BlockLinesIterator.Create (plr, MapSizeX/mapscale);
+        while(lineIterator.Next ())
+        {
+            line l = lineIterator.CurLine;
+            if (!l)
+                continue;
+
+            bool DoDraw;
+            color linecol;
+            [DoDraw, LineCol] = GetLineColor(l);
+
+            if(!DoDraw)
+                continue;
+
+            vector2 lineStart = l.v1.p;
+            vector2 lineEnd = l.v2.p;
+            vector2 offset_3D =  plr.pos.xy;
+            DrawMapLine(l.v1.p, l.v2.p,  linecol,DrawAlpha, mapscale, uL: pos, Size: size,  offset_3D, offset_2D, plr.angle);
+        }
+		
+		if(mapArrow) 
+		{
+			//here we rotate and draw the arrow indicating the player position.
+			
+			if(MapRotates.GetBool())
+				MapArrow.Alter((40,40)*max(mapscale,0.3), pos+offset_2D,0.0);
+				//don't rotate arrow if map rotates
+			else
+				MapArrow.Alter((40, 40)*max(mapscale,0.3), pos+offset_2D,-plr.angle+90);
+				//rotate arrow instead
+			screen.DrawShape(MapArrow.tex,TRUE,MapArrow,DTA_FillColor,yourColor.GetInt(),DTA_Alpha, miniMapAlpha.GetFloat());
+		}
+	}
+	
+    ui bool, color GetLineColor (line l) //this function is poorly written with the internal automap code as a reference.
+    {
+        color nocolor = color(0,0,0,0);
+
+        if(cheat.getInt() != 0 || l.flags & l.ML_MAPPED)
+        {	
+			/*
+            if(l.flags & l.ML_DONTDRAW && cheat.getInt() == 0 || cheat.getint() >= 4)
+            {
+                //showAllEnabled doesn't appear to be cvar, and produces null access errors
+                if(!showAllEnabled.getint()  ||  Map_CheckCheatMode())
+                {
+                    return false, nocolor;//eh, just skip the above bullshit for performance. 
+                }
+            }
+			*/
+			if(l.flags & l.ML_DONTDRAW)
+            {
+				return false, nocolor;
+				//eh, just skip the above bullshit for performance. 
+            }
+
+            //todo: whatever this is
+            /*
+            if(line.automapstyle > AMLS_Default && line.automapstyle <AMLS_COUNT
+                    && (cheat.GetInt() == 0 || cheat.getInt() >=4)
+            {
+                    return true, Automap_line_colors[l.automapstyle];
+            }
+            */
+
+            //to absolutely not do: portals because hell naw
+            /*
+            if(portalmode)
+            {
+                return true, portalcolor.GetInt();
+            }
+            */
+            if(l.flags & l.ML_SECRET) //todo: check if entire sector secret?
+            {
+                if(!(l.flags & l.ML_Mapped))
+                return true, unexploredSecretColor.GetInt();
+                else
+                return true, secretSectorColor.GetInt();
+            }
+            else if(l.flags & l.ML_SECRET)
+            {
+                //secret door
+                if(cheat.getInt() != 0 && l.backsector != null)
+                return true, secretWallColor.GetInt();
+                else
+                return true, wallColor.GetInt();
+            }
+            else if (IsTeleportBoundary(l))
+            {
+                return  intraLevelColor.GetInt();
+            }
+            else if (IsExitBoundary(l))
+            {
+                return  interLevelColor.GetInt();
+            }
+            //todo: lock color
+            /*
+            else if (AM_isLockBoundary(line, &lock))
+                    {
+                        if (AMColors.displayLocks)
+                        {
+                            color = P_GetMapColorForLock(lock);
+
+                            AMColor c;
+
+                            if (color >= 0) c.FromRGB(RPART(color), GPART(color), BPART(color));
+                            else c = AMColors[AMColors.LockedColor];
+
+                            drawMline(&l, c);
+                        }
+                        else
+                        {
+                            drawMline(&l, AMColors.LockedColor);  // locked special
+                        }
+                    }
+            */
+            //todo: non-door action buttons
+            /*
+            else if (am_showtriggerlines
+                        && AMColors.isValid(AMColors.SpecialWallColor)
+                        && AM_isTriggerBoundary(line))
+                    {
+                        drawMline(&l, AMColors.SpecialWallColor);   // wall with special non-door action the player can do
+                    }
+            */
+            else if (l.backsector == null)
+            {
+                return true, wallcolor.GetInt(); // one-sided wall
+            }
+            else if (!l.backsector.floorplane.isEqual(l.frontsector.floorplane))
+            {
+                return true, fdWallColor.GetInt(); // change in floor level
+            }
+            else if (!l.backsector.ceilingplane.isEqual(l.frontsector.ceilingplane))
+            {
+                return true, cdWallColor.GetInt(); // change in ceiling level
+            }
+            //todo: 3d floors
+            /*
+            else if (AM_Check3DFloors(&line))
+            {
+                drawMline(&l, AMColors.EFWallColor); // Extra floor border
+            }
+            */
+            else if(cheat.getInt() > 0 && cheat.getInt() < 4)
+            {
+                return true, tsWallColor.GetInt();
+            }
+        }
+
+        else if (level.allmap /*|| (l.flags & l.ML_REVEALED)*/) //this doesn't work apparently
+        {
+            if ((l.flags & l.ML_DONTDRAW) && (cheat.GetInt()== 0 || cheat.getInt() >= 4))
+            {
+                //showAllEnabled doesn't appear to be cvar, and produces null access errors
+                if (/*!showallenabled.Getint() ||*/ !map_CheckCheatmode() )
+                {
+                    return false, nocolor;
+                }
+            }
+            return true, notseencolor.GetInt();
+        }
+        return false, nocolor;
+    }
+
+    ui bool IsTeleportBoundary(line l) //adapted from source code
+    {
+        int special = l.special;
+
+            return (special == Teleport ||
+            special == Teleport_NoFog ||
+            special == Teleport_ZombieChanger ||
+            special == Teleport_Line);
+    }
+    ui bool IsExitBoundary(line l) //adapted from source code
+    {
+        int special = l.special;
+
+            return (special == Teleport_NewMap ||
+            special == Teleport_EndGame ||
+            special == Exit_Normal ||
+            special == Exit_Secret);
+    }
+
+    ui bool Map_CheckCheatMode() //adapted from source code
+    {
+        if(G_SkillPropertyInt(SKILLP_DisableCheats) || netgame || deathmatch && (!sv_cheats))
+        {
+            return true;
+        }
+        //else if(cl_blockCheats)
+        //{
+        //    return true;
+        //}
+        return false;
+    }
+
+    ui void DrawMapLine(vector2 s, vector2 e, color col, double alpha = 1.0, double scale = 1.0, vector2 uL = (0,0), vector2 Size = (100,100), vector2 minimapOffset = (0,0), vector2 minimap2DOffset = (0,0), double ang=0)
+    {
+        vector2 sComp, eComp;
+		
+        if(!MapRotates.GetBool()) //if map doesn't rotate, just offset and scale each line
+        {			
+			miniMapOffset = -miniMapOffset;
+            sComp = (s+miniMapOffset) * -scale;
+            sComp.x = -sComp.x;
+			sComp += uL+minimap2DOffset;
+            eComp = (e+miniMapOffset) * -scale;
+            eComp.x = -eComp.x;
+			eComp += uL+minimap2DOffset;
+        }
+        else //rotate the start point and end point of each line with the players position as the rotation point
+        {
+            ang+=90;
+            vector2 cent2D = uL+minimap2DOffset;
+            vector2 cent3D = miniMapOffset;
+
+            sComp = s;
+            vector2 sDif = s-cent3D;
+            sComp.x = (cos(ang) * (-sDif.x)) - (sin(ang) * (sDif.y));
+            sComp.y = (sin(ang) * (-sDif.x)) + (cos(ang) * (sDif.y));
+            sComp *= scale;
+            sComp += uL+miniMap2DOffset;
+
+            eComp = e;
+            vector2 eDif = e-cent3D;
+            eComp.x = (cos(ang) * (-eDif.x)) - (sin(ang) * (eDif.y));
+            eComp.y = (sin(ang) * (-eDif.x)) + (cos(ang) * (eDif.y));
+            eComp *= scale;
+            eComp += uL+miniMap2DOffset;
+        }
+        vector2 drawPoint0, drawPoint1;
+        bool CanDraw;
+		
+        [CanDraw, DrawPoint0, DrawPoint1] = ATMP_GlobalMaths.cohenSutherlandClip(sComp,eComp,uL,uL+Size);
+        if(!CanDraw) //line completely outside view area
+        {
+            return;
+        }
+        else
+        {
+            screen.drawline(drawPoint0.x, drawpoint0.y, drawpoint1.x, drawpoint1.y, col,alpha);
+        }
+    }
+	
+	
+}

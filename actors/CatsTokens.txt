@@ -1,0 +1,28 @@
+ACTOR CatV_Menu : Inventory 
+{ 
+	+INVENTORY.UNDROPPABLE 
+	inventory.maxamount 1
+}
+
+ACTOR CatV_Stats : CatV_Menu {}
+ACTOR CatV_StatsMini : CatV_Menu {}
+ACTOR CatV_Inv : CatV_Menu {}
+ACTOR CatV_Screen : CatV_Menu {}
+ACTOR CatV_AmmoC : CatV_Menu {}
+ACTOR CatV_Mug : CatV_Menu {}
+ACTOR CatV_WeaNam : CatV_Menu {}
+ACTOR CatV_ArmTyp : CatV_Menu {}
+ACTOR CatV_Altabar : CatV_Menu {}
+ACTOR CatV_AmmIco : CatV_Menu {}
+ACTOR CatV_ArmIco : CatV_Menu {}
+ACTOR CatV_EnHB : CatV_Menu {}
+ACTOR CatV_OTyp2 : CatV_Menu {}
+ACTOR CatV_Clock : CatV_Menu {}
+ACTOR CatV_ArmLght : CatV_Menu {}
+ACTOR CatV_NoOverlay : CatV_Menu {}
+ACTOR CatV_HPBottom : CatV_Menu {}
+
+ACTOR CatV_DemonMorphed : Inventory 
+{ 
+	inventory.maxamount 1
+}

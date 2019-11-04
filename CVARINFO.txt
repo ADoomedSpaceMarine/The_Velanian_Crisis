@@ -1,0 +1,60 @@
+user bool CatV_Stats = false;
+user bool CatV_Screen = false;
+user bool CatV_Inv = false;
+user bool CatV_AmmoC = true;
+user bool CatV_Mug = true;
+user bool CatV_WeaNam = false;
+user bool CatV_ArmTyp = false;
+user bool CatV_Altabar = false;
+user bool CatV_ArmIco = true;
+user bool CatV_AmmIco = true;
+user bool CatV_EnHB = false;
+user bool CatV_OTyp2 = false;
+user bool CatV_Clock = true;
+user bool CatV_ArmLght = true;
+user bool CatV_StatsMini = true;
+user bool CatV_NoOverlay = false;
+user bool CatV_HPBottom = false;
+
+
+user bool CatV_RadarEnabled = true;
+user bool CatV_RadarStart = true;
+user int CatV_RadarMode = 2;
+server bool CatV_DisableGiver = false;
+
+user bool ATMP_MapRotates = true;
+user bool ATMP_MapBackground = false;
+user bool CatV_Radar = true;
+user bool CatV_RadarLeft = true;
+user bool ATMP_EnableMap = true;
+user int ATMP_MapX = 1700;
+user int ATMP_MapY = 200;
+user int ATMP_MapSize = 180;
+user float ATMP_MapScale = 0.08;
+user float ATMP_BackgroundAlpha = 0.2;
+user float ATMP_MapAlpha = 0.5;
+
+
+user color C_backColor = "00 00 00";
+user color C_yourColor = "00 ff 00";
+user color C_wallColor = "53 cb ff";
+user color C_fdWallColor = "53 ff ff";
+user color C_cdWallColor = "71 8f ff";
+user color C_tsWallColor = "88 88 88";
+user color C_efWallColor = "75 91 af";
+user color C_gridColor = "37 86 ff";
+user color C_xHairColor = "80 bc cb";
+user color C_notSeenColor = "00 00 e3";
+user color C_lockedColor = "f2 00 00";
+user color C_intraLevelColor = "00 00 ff";
+user color C_interlevelcolor = "00 bc ff";
+user color C_secretSectorColor = "00 96 ff";
+user color C_unexploredSecretColor = "1c b4 ff";
+user color C_specialWallColor = "ff ff ff";
+user color C_portalColor = "40 7c 9a";
+
+server color flashlight_color = "FF FF FF";
+server int flashlight_intensity = 128;
+server float flashlight_inner = 12.0;
+server float flashlight_outer = 26.0;
+server int flashlight_location = 0;

@@ -1,2 +1,11 @@
+CatsVisorHud
+DemonMorphCheck
+BubbleShield
 equipment
 messagesystem
+CamCheck
+acs_menu
+enemybar
+Aspect
+Radar
+flashlight

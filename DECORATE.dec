@@ -1,4 +1,4 @@
-//Do not use assets from my mod without expicit credits to myself, ADoomedSpaceMarine
+//Do not use assets from my mod without expicit credits to myself or other content creators, ADoomedSpaceMarine
 
 //Monster Includes
 #include "actors/Monsters/EasyGame/ZombieDude.txt"
@@ -15,3 +15,9 @@
 #include "actors/Effects/SFX.txt"
 #include "actors/Suit Features/BubbleShield.txt"
 #include "actors/Suit Features/NightVision.txt"
+
+//Cat's Visor Stuff
+#include "actors/cathudinv_deathcam.txt"
+#include "actors/CatsTokens.txt"
+#include "actors/Radar.txt"
+

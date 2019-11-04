@@ -14,7 +14,7 @@ Default{
   Inventory.MaxAmount 80;
   Ammo.BackpackAmount 4;
   Ammo.BackpackMaxAmount 160;
-  Inventory.Icon "ANBX0";
+  Inventory.Icon "ANPU0";
 	}
   States
   {
@@ -192,6 +192,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Loop;
 	
     NoAmmoReady:
+    TNT1 A 0 ACS_Execute(9996);
     NRL4 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     Loop;
 
@@ -247,7 +248,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     {
     Invoker.ShotSwitcher = 1;
     Invoker.IsFiringStandard = 1;
-    A_Print("Switching to HE-650 Hi-Explosive Rockets");
+    ACS_Execute(3655);
     }
     Goto SwitchChecker;
 
@@ -256,7 +257,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 2;
     Invoker.IsFiringStandard = 0;
     Invoker.IsFiringHoming = 1;
-    A_Print("Switching to YJ-650 Yellow Jacket Homing Ordinance Rockets");
+    ACS_Execute(3656);
     }
     Goto SwitchChecker;
 
@@ -265,8 +266,8 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     {
     Invoker.ShotSwitcher = 3;
     Invoker.IsFiringHoming = 0;
-    Invoker.IsFiringGrenades = 1;
-    A_Print("Switching to SN-850 Sub-Nuclear Grenade Rounds");
+    Invoker.IsFiringGrenades = 1; 
+    ACS_Execute(3657);
     }
     Goto SwitchChecker;
 
@@ -276,7 +277,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 4;
     Invoker.IsFiringGrenades = 0;
     Invoker.IsFiringHives = 1;
-    A_Print("Switching to HN-850 Hornet's Nest Homing Hive Missiles");
+    ACS_Execute(3658);
     }
     Goto SwitchChecker;
 
@@ -286,7 +287,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 5;
     Invoker.IsFiringHives = 0;
     Invoker.IsFiringQuads = 1;
-    A_Print("Switching to HMX-2078 Hi-Explosive Quadshot MIRV Rockets");
+     ACS_Execute(3659);
     }
     Goto SwitchChecker;
     
@@ -296,7 +297,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 6;
     Invoker.IsFiringQuads = 0;
     Invoker.IsFiringCluster = 1;
-    A_Print("Switching to BFGR-7080 Magnus Destroyer Cluster Bombs");
+    ACS_Execute(3660);
     }
     Goto SwitchChecker;
     
@@ -307,7 +308,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 6;
     Invoker.IsFiringStandard = 0;
     Invoker.IsFiringCluster = 1;
-    A_Print("Switching to BFGR-7080 Magnus Destroyer Cluster Bombs");
+    ACS_Execute(3660);
     }
     Goto SwitchChecker;
 
@@ -317,7 +318,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 1;
     Invoker.IsFiringHoming = 0;
     Invoker.IsFiringStandard = 1;
-    A_Print("Switching to HE-650 Hi-Explosive Rockets");
+     ACS_Execute(3655);
     }
     Goto SwitchChecker;
 
@@ -327,7 +328,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 2;
     Invoker.IsFiringGrenades = 0;
     Invoker.IsFiringHoming = 1;
-    A_Print("Switching to YJ-650 Yellow Jacket Homing Ordinance Rockets");
+    ACS_Execute(3656);
     }
     Goto SwitchChecker;
 
@@ -337,7 +338,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 3;
     Invoker.IsFiringHives = 0;
     Invoker.IsFiringGrenades = 1;
-    A_Print("Switching to SN-850 Sub-Nuclear Grenade Rounds");
+    ACS_Execute(3657);
     }
     Goto SwitchChecker;
 
@@ -347,7 +348,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 4;
     Invoker.IsFiringQuads = 0;
     Invoker.IsFiringHives = 1;
-    A_Print("Switching to HN-850 Hornet's Nest Homing Hive Missiles");
+     ACS_Execute(3658);
     }
     Goto SwitchChecker;
     
@@ -357,7 +358,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
     Invoker.ShotSwitcher = 5;
     Invoker.IsFiringCluster = 0; 
     Invoker.IsFiringQuads = 1;   
-    A_Print("Switching to HMX-2078 Hi-Explosive Quadshot MIRV Rockets");
+ ACS_Execute(3659);
     } 
     Goto SwitchChecker;
 

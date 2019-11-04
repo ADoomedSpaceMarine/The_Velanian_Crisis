@@ -1,0 +1,159 @@
+	
+texture puls00
+	range puls23 tics 1.35
+texture puls01
+	range puls22 tics 1.15
+texture puls02
+	range puls21 tics 0.95
+texture puls03
+	range puls21 tics 0.75
+texture Rpuls01
+	range Rpuls17 tics 0.45
+texture Rpuls02
+	range Rpuls17 tics 0.95
+		
+texture BERS00
+	range BERS11 tics 1.35
+
+texture JPIND00
+	range JPIND03 tics 1.35
+	
+texture JPOD00
+	range JPOD08 tics 1.35
+	
+texture STAMA00
+	range STAMA05 tics 5.00
+
+texture OXYO00
+	range OXYO07 tics 5.00
+
+texture STAMO00
+	range STAMO05 tics 3.00
+texture DERUA00
+	range DERUA20 tics 2.50
+
+texture LWHPD00
+	range LWHPD01 tics 10.00
+texture LWHPG00
+	range LWHPG01 tics 10.00
+texture LWHPT00
+	range LWHPT01 tics 10.00
+	
+texture MugNF00
+	 pic MugNF00 tics 40
+	 pic MugNF05 tics 05
+	 pic MugNF00 tics 10
+	 pic MugNF01 tics 10
+	 pic MugNF02 tics 30
+	 pic MugNF01 tics 05
+	 pic MugNF00 tics 40
+	 pic MugNF05 tics 05
+	 pic MugNF00 tics 20
+	 pic MugNF03 tics 10
+	 pic MugNF04 tics 30
+	 pic MugNF03 tics 05
+	 pic MugNF00 tics 40
+	 pic MugNF05 tics 05
+
+texture MugOF00
+	 pic MugOF00 tics 40
+	 pic MugOF05 tics 05
+	 pic MugOF00 tics 10
+	 pic MugOF01 tics 10
+	 pic MugOF02 tics 30
+	 pic MugOF01 tics 05
+	 pic MugOF00 tics 40
+	 pic MugOF05 tics 05
+	 pic MugOF00 tics 20
+	 pic MugOF03 tics 10
+	 pic MugOF04 tics 30
+	 pic MugOF03 tics 05
+	 pic MugOF00 tics 40
+	 pic MugOF05 tics 05
+
+texture MugPF00
+	 pic MugPF00 tics 40
+	 pic MugPF05 tics 05
+	 pic MugPF00 tics 10
+	 pic MugPF01 tics 10
+	 pic MugPF02 tics 30
+	 pic MugPF01 tics 05
+	 pic MugPF00 tics 40
+	 pic MugPF05 tics 05
+	 pic MugPF00 tics 20
+	 pic MugPF03 tics 10
+	 pic MugPF04 tics 30
+	 pic MugPF03 tics 05
+	 pic MugPF00 tics 40
+	 pic MugPF05 tics 05
+
+texture MugQF00
+	 pic MugQF00 tics 40
+	 pic MugQF05 tics 05
+	 pic MugQF00 tics 10
+	 pic MugQF01 tics 10
+	 pic MugQF02 tics 30
+	 pic MugQF01 tics 05
+	 pic MugQF00 tics 40
+	 pic MugQF05 tics 05
+	 pic MugQF00 tics 20
+	 pic MugQF03 tics 10
+	 pic MugQF04 tics 30
+	 pic MugQF03 tics 05
+	 pic MugQF00 tics 40
+	 pic MugQF05 tics 05
+
+texture MugRF00
+	 pic MugRF00 tics 40
+	 pic MugRF05 tics 05
+	 pic MugRF00 tics 10
+	 pic MugRF01 tics 10
+	 pic MugRF02 tics 30
+	 pic MugRF01 tics 05
+	 pic MugRF00 tics 40
+	 pic MugRF05 tics 05
+	 pic MugRF00 tics 20
+	 pic MugRF03 tics 10
+	 pic MugRF04 tics 30
+	 pic MugRF03 tics 05
+	 pic MugRF00 tics 40
+	 pic MugRF05 tics 05
+
+texture MugNG00
+	 pic MugNG00 tics 60
+	 pic MugNG01 tics 07
+	 pic MugNG00 tics 100
+	 pic MugNG01 tics 05
+
+texture MugOG00
+	 pic MugOG00 tics 60
+	 pic MugOG01 tics 07
+	 pic MugOG00 tics 100
+	 pic MugOG01 tics 05
+
+texture MugPG00
+	 pic MugPG00 tics 60
+	 pic MugPG01 tics 07
+	 pic MugPG00 tics 100
+	 pic MugPG01 tics 05
+
+texture MugQG00
+	 pic MugQG00 tics 60
+	 pic MugQG01 tics 07
+	 pic MugQG00 tics 100
+	 pic MugQG01 tics 05
+	 
+texture MugRG00
+	 pic MugRG00 tics 60
+	 pic MugRG01 tics 07
+	 pic MugRG00 tics 100
+	 pic MugRG01 tics 05
+	 	 
+	
+texture MugXD00
+	 pic MugXD00 tics 5
+	 pic MugXD01 tics 5
+	 pic MugXD02 tics 5
+	 pic MugXD03 tics 5
+	 pic MugXD04 tics 5
+	 pic BLANK tics 600

@@ -144,7 +144,7 @@ class DemonsBane : weapon replaces shotgun
                 case 2: ACS_Execute(3652);              //Play flechette message
                 break;                                  //Break out of the switch block
 
-                case 3: ACS_Execute(3653);              //Play frag-12 message
+                case 3: ACS_Execute(3661);              //Play frag-12 message
                 break;                                  //Break out of the switch block
             }
             invoker.ShellsSwitched = true;
@@ -453,7 +453,7 @@ class DemonsBane : weapon replaces shotgun
                 if (invoker.ShellsSwitched == true)
                 {
                     invoker.ShellsSwitched = false;
-                    return ResolveState(null);
+                    return ResolveState("ReloadAnim");
                 }
                 if(invoker.BarrelsFired == 0)
                 {
@@ -471,7 +471,7 @@ class DemonsBane : weapon replaces shotgun
             ONUR ABCD 1;
             ONUR E 1 
             { 
-               switch(invoker.ShotType)                //Base switch on shots fired
+               switch(invoker.ShotType)                //Base switch on shots type
                {
                 case 0: //Eject Buck Casings
                     A_SpawnItemEx("BuckCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)); //A_FireProjectile("SSGCasingSpawner",0,0,random(7,9),random(-2,-4),FPF_NOAUTOAIM);
@@ -489,8 +489,11 @@ class DemonsBane : weapon replaces shotgun
                     A_SpawnItemEx("ExpCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)); //A_FireProjectile("SSGCasingSpawner",0,0,random(7,9),random(-2,-4),FPF_NOAUTOAIM);
 	                A_SpawnItemEx("ExpCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(100,110)); //A_FireProjectile("SSGCasingSpawner",0,0,random(-6,-7),random(-2,-4),FPF_NOAUTOAIM);
                     break;
-                }
+                } 
             }
+            goto ReloadAnim;
+
+        ReloadAnim:
             ONUR F 1 A_PlaySound("Weapons/ONUOpen");
             ONUR GHIJ 1;
             ONUR K 1 A_PlaySound("Weapons/ONULoad");

@@ -1,0 +1,2 @@
+Radar.acs and aspect.acs are from UDV by saegiru (radar code by cybermind, edited by SchrödingCat)
+Minimap is kMinimap by kodi (with small edits by SchrödingCat)

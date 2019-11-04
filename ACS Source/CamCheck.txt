@@ -1,0 +1,14 @@
+#library "CamChecker"
+#include "zcommon.acs"
+
+Script "CameraCheck" Enter
+{
+	While(true)
+		{
+			while (CheckPlayerCamera(PlayerNumber()) == -1) Delay(1);
+			GiveInventory("cat_extcam",1);
+			while (CheckPlayerCamera(PlayerNumber()) != -1) Delay(1);
+			TakeInventory("cat_extcam",1);
+			delay(1);
+		}
+}

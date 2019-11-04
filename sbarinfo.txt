@@ -1,0 +1,681 @@
+//
+// CatsVisor 1.8
+//
+// Based on XV117's NewDoomguy Visor and on KEENO7's Dynamic Hud for BD21 which are both 
+//based on Ultimate Doom visor by Saegiru
+//  
+// Comptatible with Vanilla Doom, BeautifulDoom, BrutalDoom v21beta,BD21 (+ TomtefarsExtension1.8b + XV117 Mutators 1.5.3), HardDoom, SmoothDoom
+//
+// Comptatible with Beyond hell on Earth
+//
+// Original code by XV117 
+// Modified by SchrodingCat
+//
+Height 1;
+InterpolateHealth True, 6;
+InterpolateArmor True, 6;
+Resolution 320,200;
+statusbar fullscreen, forcescaled
+Ininventory cat_extcam || CatV_DemonMorphed
+	{
+	
+	}
+Else Ininventory CatV_NoOverlay
+{
+
+}
+ELSE
+{
+//////////////////////////////////////////////
+InInventory CatV_OTyp2
+{
+	Aspectratio "16:9" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LGTSCR2", 0, 0;
+			}
+		
+		InInventory CatV_ArmLght
+		{		
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "V1SORA1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "V1SORA3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "V1SORA4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "V1SORA5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "V1SORA6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "V1SORA2", 0, 0;
+			}
+		}
+		
+		Else
+			{
+				DrawImage "V1SORA2", 0, 0;
+			}
+		
+		Alpha 0.2
+		InInventory CatV_Screen
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LGTSCR2", 0, 0;
+			}
+		
+		
+		
+		
+	InInventory CatV_Mug
+		{		
+		InInventory CatV_Screen
+				{
+					InInventory CatV_Inv
+						{	
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 86, 10;
+							}
+						}
+					else
+						{
+								Alpha 0.40
+								{
+								drawmugshot "STF", 5, 146, 10;
+								}
+						}
+				}
+		Else
+					{
+						Alpha 0.40
+						{
+						drawmugshot "STF", 5, 221, 11;
+						}
+					}
+				
+		}
+	}
+	Aspectratio "4:3" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG1SCR2", 0, 0;
+			}
+		
+		InInventory CatV_ArmLght
+		{	
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "VISORA1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "VISORA3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "VISORA4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "VISORA5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "VISORA6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "VISORA2", 0, 0;
+			}
+		}
+		Else
+			{
+				DrawImage "VISORA2", 0, 0;
+			}
+			
+			Alpha 0.2
+			InInventory CatV_Screen
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG1SCR2", 0, 0;
+			}
+		
+			
+		InInventory CatV_Mug
+		{		
+			InInventory CatV_Screen
+				{
+					InInventory CatV_Inv
+						{	
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 5, 10;
+							}
+						}
+					else
+						{
+								Alpha 0.40
+								{
+								drawmugshot "STF", 5, 146, 10;
+								}
+						}
+				}
+					Else
+						{
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 186, 11;
+							}
+						}
+			}		
+			
+   }
+	Aspectratio "16:10" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG2SCR2", 0, 0;
+			}
+		InInventory CatV_ArmLght
+		{
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "V2SORA1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "V2SORA3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "V2SORA4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "V2SORA5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "V2SORA6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "V2SORA2", 0, 0;
+			}
+		}
+		Else
+			{
+				DrawImage "V2SORA2", 0, 0;
+			}
+			
+			Alpha 0.2
+			InInventory CatV_Screen
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG2SCR2", 0, 0;
+			}
+			
+			
+	InInventory CatV_Mug
+		{		
+		
+			InInventory CatV_Screen
+				{	
+				InInventory CatV_Inv
+					{
+						Alpha 0.40
+						{
+						drawmugshot "STF", 5, 98, 10;
+						}
+					}
+				else
+					{
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 146, 10;
+							}
+					}
+				}
+			Else
+				{
+					Alpha 0.40
+					{
+					drawmugshot "STF", 5, 216, 11;
+					}
+				}
+		}
+	}
+}		
+////////////////////////////////////////////////////////////////////////   
+//////////////////////////////////////////////
+ELSE
+{
+	Aspectratio "16:9" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LGTSCR2", 0, 0;
+			}
+		InInventory CatV_ArmLght
+		{
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "V1SORB1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "V1SORB3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "V1SORB4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "V1SORB5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "V1SORB6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "V1SORB2", 0, 0;
+			}
+		}
+		Else
+			{
+				DrawImage "V1SORB2", 0, 0;
+			}
+			
+		Alpha 0.2
+		InInventory CatV_Screen
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LGTSCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LGTSCR2", 0, 0;
+			}
+		
+		
+		
+	InInventory CatV_Mug
+		{		
+		InInventory CatV_Screen
+				{
+					InInventory CatV_Inv
+						{	
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 86, 10;
+							}
+						}
+					else
+						{
+								Alpha 0.40
+								{
+								drawmugshot "STF", 5, 146, 10;
+								}
+						}
+				}
+		Else
+					{
+						Alpha 0.40
+						{
+						drawmugshot "STF", 5, 221, 11;
+						}
+					}
+				
+		}
+	}
+	Aspectratio "4:3" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG1SCR2", 0, 0;
+			}
+			
+		InInventory CatV_ArmLght
+		{	
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "VISORB1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "VISORB3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "VISORB4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "VISORB5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "VISORB6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "VISORB2", 0, 0;
+			}
+		}
+		Else
+			{
+				DrawImage "VISORB2", 0, 0;
+			}
+			Alpha 0.2
+			InInventory CatV_Screen
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG1SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG1SCR2", 0, 0;
+			}
+		
+			
+		InInventory CatV_Mug
+		{		
+			InInventory CatV_Screen
+				{
+					InInventory CatV_Inv
+						{	
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 5, 10;
+							}
+						}
+					else
+						{
+								Alpha 0.40
+								{
+								drawmugshot "STF", 5, 146, 10;
+								}
+						}
+				}
+					Else
+						{
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 186, 11;
+							}
+						}
+			}		
+			
+   }
+	Aspectratio "16:10" 
+	{
+		InInventory CatV_Screen
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG2SCR2", 0, 0;
+			}
+			
+		InInventory CatV_ArmLght
+		{		
+			InInventory BasicArmor, 175
+			{	
+				DrawImage "V2SORB1", 0, 0;
+			}
+			Else InInventory BasicArmor, 125
+			{	
+				DrawImage "V2SORB3", 0, 0;
+			}
+			Else InInventory BasicArmor, 75
+			{	
+				DrawImage "V2SORB4", 0, 0;
+			}
+			Else InInventory BasicArmor, 50
+			{	
+				DrawImage "V2SORB5", 0, 0;
+			}
+			Else InInventory BasicArmor, 25
+			{	
+				DrawImage "V2SORB6", 0, 0;
+			}
+			Else
+			{
+				DrawImage "V2SORB2", 0, 0;
+			}
+		}
+		Else
+			{
+				DrawImage "V2SORB2", 0, 0;
+			}
+			
+			Alpha 0.2
+			InInventory CatV_Screen
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else InInventory not CatV_Mug
+			{
+			DrawImage "LG2SCR1", 0, 0;
+			}
+		else
+			{
+			DrawImage "LG2SCR2", 0, 0;
+			}
+			
+			
+	InInventory CatV_Mug
+		{		
+		
+			InInventory CatV_Screen
+				{	
+				InInventory CatV_Inv
+					{
+						Alpha 0.40
+						{
+						drawmugshot "STF", 5, 98, 10;
+						}
+					}
+				else
+					{
+							Alpha 0.40
+							{
+							drawmugshot "STF", 5, 146, 10;
+							}
+					}
+				}
+			Else
+				{
+					Alpha 0.40
+					{
+					drawmugshot "STF", 5, 216, 11;
+					}
+				}
+		}
+	}
+}		
+////////////////////////////////////////////////////////////////////////   
+
+	
+
+	//Inventory
+	InInventory CatV_Screen
+		{	
+		 InInventory CatV_Inv
+			{	
+			Alpha 0.5
+			DrawSelectedInventory center, centerbottom, AILIFONT, 163, 39, 175, 32, lightblue;
+			Alpha 0.35
+			DrawImage "HUDSTAT2", 130, 0;
+			}
+		else 
+			{
+			Alpha 0.45
+			DrawImage "HUDSTAT3", 130, 5;
+			}
+		}
+	/*Alpha 0.50
+	InInventory GenderMale, 1
+	{
+	drawmugshot "STF", 5, 86, 10;
+	}
+	Alpha 0.50
+	InInventory GenderFemale, 1
+	{
+	drawmugshot "GAL", 5, 86, 10;
+	}*/
+	
+}
+statusbar inventory // Standard bar overlay (ZDoom Addition)
+{
+	Alpha 0.6
+	drawinventorybar Strife, translucent, 9, INDEXFONT, 50, 170;
+}
+
+statusbar inventoryfullscreen, fullscreenoffsets // ZDoom HUD overlay.
+{
+	Alpha 0.6
+	drawinventorybar Strife, translucent, 7, INDEXFONT, -106+center, -31;
+}
+
+mugshot "Normal", health2
+{
+	ST00 17;
+	ST03 2;
+	ST04 17;
+	ST03 2;
+	ST00 17;
+	ST05 3;
+	ST00 17;
+	ST01 2;
+	ST02 17;
+	ST01 2;
+	ST00 17;
+	ST03 2;
+	ST04 17;
+	ST05 2;
+	ST01 2;
+	ST02 17;
+	ST01 2;
+	ST00 17;
+	ST05 3;
+	ST00 17;
+	ST01 2;
+	ST02 17;
+	ST01 2;
+	ST00 17;
+	ST03 2;
+	ST04 17;
+	ST05 2;
+	ST01 2;
+	ST02 17;
+	ST01 2;
+	ST00 17;
+	ST05 3;
+}
+
+mugshot "death"
+{
+	DEAD0 3;
+	DEAD1 3;
+	DEAD2 3;
+	DEAD3 -1;
+}
+
+mugshot "xdeath"
+{
+	XDTH0 3;
+	XDTH1 2;
+	XDTH2 2;
+	XDTH3 2;
+	XDTH4 -1;
+}
+}
