@@ -36,14 +36,14 @@ class DemonsBane : weapon replaces shotgun
     states
     {
         Select:
-            ONUG A 1 A_Raise;               //raise the weapon
+            ONUG A 1 A_Raise(12);               //raise the weapon
             loop;                           //keep it raised
         Deselect:
             TNT1 A 0
             {
             if(CountInv("shell") == 0)
             {
-                ACS_Execute(9999);
+                ACS_NamedExecute("OutOfShells");
                 A_PlaySound("Weapons/ANNup",CHAN_AUTO);
                 return ResolveState(null);
             }
@@ -52,7 +52,7 @@ class DemonsBane : weapon replaces shotgun
                 return ResolveState(null);
             }
             }
-            ONUG A 1 A_Lower;               //lower the weapon
+            ONUG A 1 A_Lower(12);               //lower the weapon
             loop;                           //keep it lowered
         Ready:
             ONUG A 1
@@ -113,7 +113,7 @@ class DemonsBane : weapon replaces shotgun
         User2:
         ONUG A 0 
             {
-                if(Invoker.ShotType == 0)           //If the shot type variable is equal to four
+                if(Invoker.ShotType == 0)           //If the shot type variable is equal to zero
                 {
                 invoker.ShotType = 3;               //reset ShotType to 3 (Frag-12)
                 return ResolveState("MsgState");    //Go to ammo switch message switch block
@@ -196,7 +196,7 @@ class DemonsBane : weapon replaces shotgun
 
                     case 3: //Frag-12 Fired
                     A_FireProjectile("FRAG12", 0, 1, 0, 0);                                           //Fire A Frag-12
-                    A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
+                    A_Recoil(3*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
                     break;                                                                          //Break out of the switch block
@@ -205,7 +205,7 @@ class DemonsBane : weapon replaces shotgun
                                                                                                     //Additional recoil calls below here
             ONUF C 1                                                                           
             {
-                A_SetPitch(pitch-6.0);
+                A_SetPitch(pitch-2.0);
 	            A_ZoomFactor(0.96,ZOOM_INSTANT);
 	        }
 	        ONUF D 1 
@@ -220,30 +220,32 @@ class DemonsBane : weapon replaces shotgun
 	        }
             ONUF F 1 
             {
-	            A_SetPitch(pitch+1.0);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.975,ZOOM_INSTANT);
             }
             ONUF G 1 
             {
-	            A_SetPitch(pitch+1.0);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.98,ZOOM_INSTANT);
             }
 	        ONUF F 1 
-            {
-	            A_SetPitch(pitch+1.0);
+            {	
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);	
 	            A_ZoomFactor(0.985,ZOOM_INSTANT);
 	        }
 	        ONUF E 1 
             {
-	            A_SetPitch(pitch+1.0);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);;
 	            A_ZoomFactor(0.99,ZOOM_INSTANT);
 	        }
             ONUF D 1 
             {
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.995,ZOOM_INSTANT);
 	        }
             ONUF C 1                                                                           
-            {
+            {	
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(1,ZOOM_INSTANT);
 	        }
             goto Ready;                              //Finish off fire cycle, goto ready
@@ -302,7 +304,7 @@ class DemonsBane : weapon replaces shotgun
                                                                                                     //Additional recoil calls below here
              ONUF C 1                                                                           
             {
-                A_SetPitch(pitch-6.0);
+                A_SetPitch(pitch-2.0);
 	            A_ZoomFactor(0.96,ZOOM_INSTANT);
 	        }
 	        ONUF D 1 
@@ -316,31 +318,33 @@ class DemonsBane : weapon replaces shotgun
 	            A_ZoomFactor(0.97,ZOOM_INSTANT);
 	        }
             ONUF F 1 
-            {
-	            A_SetPitch(pitch+1.0);
+            {	
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.975,ZOOM_INSTANT);
             }
             ONUF G 1 
             {
-	            A_SetPitch(pitch+1.0);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.98,ZOOM_INSTANT);
             }
 	        ONUF F 1 
             {
-	            A_SetPitch(pitch+1.0);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.985,ZOOM_INSTANT);
 	        }
 	        ONUF E 1 
-            {
-	            A_SetPitch(pitch+1.0);
-	            A_ZoomFactor(0.99,ZOOM_INSTANT);
+            {   
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+				A_ZoomFactor(0.99,ZOOM_INSTANT);
 	        }
             ONUF D 1 
             {
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(0.995,ZOOM_INSTANT);
 	        }
             ONUF C 1                                                                           
-            {
+            {	
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 	            A_ZoomFactor(1,ZOOM_INSTANT);
 	        }
             goto Ready;                             //Finish off Altfire cycle, goto ready

@@ -11,8 +11,8 @@ defaultbind "l" CatV_mradar
 
 addmenukey "Toggle Nightvision" NVGogs
 defaultbind n "NVgogs"
-alias NVGogs "puke 1258"
+alias NVGogs "pukename NightVisionToggle"
 
 addmenukey "Activate Bubble Shield" TgBub
 defaultbind b "Tgbub"
-alias TgBub "puke 2751"
+alias TgBub "pukename ActivateBubbleShield"

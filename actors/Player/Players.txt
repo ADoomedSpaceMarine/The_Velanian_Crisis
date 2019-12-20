@@ -17,7 +17,7 @@ ACTOR TankPlayer : DoomPlayer
   RadiusDamageFactor 0.7
   Player.MaxHealth 200
   Health 200
-  Speed 0.865
+  Speed 0.875
   Player.JumpZ 8
   Player.DisplayName "The Tank"
   Player.CrouchSprite "PLYC"
@@ -90,7 +90,7 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.MaxHealth 125
   Health 125
   Player.JumpZ 12
-  Player.DisplayName "The Acrobat"
+  Player.DisplayName "The Rogue"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Demonsbane"
   Player.StartItem "Fist"
@@ -146,19 +146,23 @@ ACTOR AcrobatPlayer : DoomPlayer
   }
 }
 
-ACTOR CommandoPlayer : DoomPlayer
+ACTOR CyberMarine : DoomPlayer
 {
-  Speed 1.65
+  Speed 1.5
   Player.JumpZ 11
   DamageFactor "BFLCharge", 0
   DamageFactor "BFLBeam", 0
   Player.MaxHealth 150
   Health 150
-  Player.DisplayName "The Commando"
+  Player.DisplayName "The Cybermarine"
   Player.CrouchSprite "PLYC"
+  Player.StartItem "Annihilator"
   Player.StartItem "Demonsbane"
+  Player.StartItem "Chaingun"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
+  Player.StartItem "Clip", 400
+  Player.StartItem "AnnAmmo", 20
   Player.StartItem "Shell", 50
   Player.StartItem "AnnClip", 4
  
@@ -166,7 +170,7 @@ ACTOR CommandoPlayer : DoomPlayer
   States
     {
   Spawn:
-    ZSEC A -1
+	  ZSEC A -1
     Loop
   See:
     ZSEC ABCD 4 
@@ -219,7 +223,7 @@ Actor CombatVeteran : DoomPlayer
   DamageFactor "BFLCharge", 0
   DamageFactor "BFLBeam", 0
   Speed 1.8
-  Player.JumpZ 11
+  Player.JumpZ 12
   Player.MaxHealth 180
   Health 180
   Player.DisplayName "The Veteran"

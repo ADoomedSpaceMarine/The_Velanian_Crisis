@@ -1,8 +1,9 @@
 #library "goggle"
 #include "zcommon.acs"
 
-bool Gogsrunning=0;
-int BubbleState=1;
+bool Gogsrunning = 0;
+int BubbleState = 0;
+
 
 /*BubbleState declares what behavior the BubbleShield is currently performing.
 0 = No shield has been picked up.
@@ -11,112 +12,295 @@ int BubbleState=1;
 3 = Standard Shield is currently recharging.
 */
 
-Script 1248 open
+//Makes sure that players have the right items for classes
+Script "InventoryEnabler" Enter
 {
-     TakeInventory("BubbleShield",1);
-     BubbleState = 1;
+	Switch(PlayerClass(0))
+	{
+	Case 1: 
+		GiveInventory("gogsFound", 1);
+		Break;
+	Case 2:
+		Break;
+	Case 3:
+		GiveInventory("BubbleFound", 1);
+		BubbleState = 1;
+		Break;
+	Case 4:
+		GiveInventory("gogsFound", 1);
+		GiveInventory("BubbleFound", 1);
+		BubbleState = 1;
+		Break;
+		}
+	Terminate;
 }
 
-Script 1258 (void)
-{
-     if (Gogsrunning==0)
-     {
-               PlaySound(0,"equip/NightVUp");
-			GiveInventory("PowerLightAmp1",1);
+//And Check if player found the bubbleshield yet.
+Script "BubbleCheck" Enter
+{	
+	if(CheckInventory("BubbleFound") == 1) 
+	{
+		TakeInventory("BubbleShield",1);
+		TakeInventory("PickUpBubbleShield",1);
+		BubbleState = 1;
+		terminate;
+	}
+	else
+	{
+	terminate;
+	}
+}
+
+//Night Vision Related Things
+Script "NightVisionToggle" (void)
+{	
+	if (CheckInventory("gogsFound") == 0)
+	{
+		PlaySound(0,"Hud/HudError");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"ERROR 501: VelaTech Nighthawk Night Vision Module not detected!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);       
+		Terminate;
+	}
+	else
+	{
+		if (Gogsrunning == 0)
+		{
+            PlaySound(0,"equip/NightVUp");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"Night vision activated";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        	GiveInventory("PowerLightAmp1",1);
 			Gogsrunning=1;
-     }
-     else
-     {
-               PlaySound(0,"equip/NightVDn");
-			TakeInventory("PowerLightAmp1",1);
+		}
+		else
+		{
+			PlaySound(0,"equip/NightVDn");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"Night vision deactivated.";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+            TakeInventory("PowerLightAmp1",1);
 			Gogsrunning=0;
-     }
+		}
+	}
 }
 
-script 2751 (void) //Bubble Shield Functions
+//Night Vision Installing
+Script "NVinitialize" (void)
 {
- if(BubbleState==0){
-          PlaySound(0,"Hud/HudMsg");
-          HudMessage(s:"You Do not have a bubble shield yet!";HUDMSG_TYPEON,27501,CR_WHITE,1.5, 0.8, 5.0,0.03, 2.0);
-          Terminate;
-}
- Else if(BubbleState==1)
- {
-     ACS_Execute(2752,0,0,0,0);
-     Terminate;
-}
- Else if(BubbleState==2)
- { 
-     PlaySound(0,"Hud/HudMsg");
-     SetFont("UDVSMALL");	
-	SetHudSize(5762,3240,0);
-	HudMessage(s:"Invalid Request: Bubble Shield is currently deployed, please wait.";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
-	SetHudSize(640,480,0);				
-     Terminate;         
- }
- Else if(BubbleState==3)
- {
-     PlaySound(0,"Hud/HudMsg");
-     SetFont("UDVSMALL");	
-	SetHudSize(5762,3240,0);
-	HudMessage(s:"DBX-2750 shield offline, please wait for recharge cycle to complete.";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
-	SetHudSize(640,480,0);				
-     Terminate;         
-  }
+	if(CheckInventory("gogsFound") == 0)
+	{	
+		PlaySound(0,"Hud/ModInst");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Installing Velatec NH5- 711 Nighthawk Infrared Vision Amplification Module, please wait.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		delay(130);
+		PlaySound(0,"Hud/HudMsg");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"VelaTech module installation successful! Deploying now!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		PlaySound(0,"equip/NightVUp");
+		GiveInventory("Infrared3",1);
+		GiveInventory("gogsFound", 1);
+		terminate;
+	}
+	else
+	{
+		GiveInventory("Infrared3",1);
+		Terminate;
+	}
 }
 
-Script 2752 (void) //Bubble Giver
+//The Bubble Shield Command Puked from the keybinding
+script "ActivateBubbleShield" (void) //Bubble Shield Functions
 {
-               GiveInventory("BubbleShield",1);
-               BubbleState=2;
-               Terminate;
+if(CheckInventory("BubbleFound") == 0)
+	{
+		PlaySound(0,"Hud/HudError");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"ERROR 500: DBX-2750 suit module not detected!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        Terminate;
+	}
+else	
+	{
+		ACS_NamedExecute("BubbleStateChecker",0);
+		Terminate;
+	}
 }
 
-Script 2753 (void)//Successful Deployment Message
+//Before we can initialize the bubbleshield, check what state it's in.
+Script "BubbleStateChecker" (void) //Bubble Giver
+{
+if(BubbleState == 1)	
+	{	
+		TakeInventory("BubbleShield",1);
+        GiveInventory("BubbleShield",1);
+        BubbleState=2;
+        Terminate;
+	}
+Else if(BubbleState == 2)
+	{ 
+		PlaySound(0,"Hud/HudError");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+		HudMessage(s:"Invalid Request: Bubble Shield is currently deployed, please wait.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		SetHudSize(640,480,0);				
+		Terminate;         
+	}
+ Else if(BubbleState == 3)
+	{
+		PlaySound(0,"Hud/CritWarn");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+		HudMessage(s:"DBX-2750 shield offline, please wait for recharge cycle to complete.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		SetHudSize(640,480,0);				
+		Terminate;         
+	}
+}
+
+//Successful Deployment Message
+Script "DeploymentMessage" (void)//Successful Deployment Message
 {         
-     PlaySound(0,"Hud/HudMsg");
-     SetFont("UDVSMALL");	
+    PlaySound(0,"Hud/HudError");
+    SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
 	HudMessage(s:"Deployment Successful. Sustaining for 30 Seconds.";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
 	SetHudSize(640,480,0);				
-     Terminate;
+    Terminate;
 }
 
-Script 2754 (void) //Bubble Warning
+//Warning of shield collapse
+Script "ShieldWarning" (void) //Bubble Warning
 {
-     PlaySound(0,"Hud/HudMsg");
-     SetFont("UDVSMALL");	
+    PlaySound(0,"Hud/ShieldWarn");
+    SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"Warning, Shield emmiter disengaging! Break imminent!";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	HudMessage(s:"Warning, shield integrity failing! Break imminent!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
 	SetHudSize(640,480,0);				
-     Terminate;
+    Terminate;
 }
 
-Script 2755 (void) //Bubble Depleted, Recharge.
+//Shield depleted and recharging
+Script "MainShieldDepleted" (void) //Bubble Depleted, Recharge.
 {
-     PlaySound(0,"Hud/CritWarn");
-     SetFont("UDVSMALL");	
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
 	HudMessage(s:"DBX-2750 depleted, initiating recharge cycle.";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
 	SetHudSize(640,480,0);				
-     BubbleState=3;
-     Terminate;
+    BubbleState=3;
+    Terminate;
 }
 
-Script 2756 (void)
+//Let the player know it was recharged if they didn't find an auxillary charge
+Script "RechargedMessage" (void)
+	{
+		BubbleState = 1;
+        PlaySound(0,"Hud/CritWarn");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"DBX-2750 Bubble Shield fully recharged and ready for redeployment!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        Terminate;
+	}
+
+
+/*
+everything below this point has to do with the 
+pickup bubbleshield
+*/
+
+//When picked up find out if the user found the bubble shield yet, if not initialize it.
+script "PickupBubbleSwitch" (void) 
+{
+	if(BubbleState == 2)
+	{
+        PlaySound(0,"Hud/HudError");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Invalid Request: DBX-2750 bubble Shield currently in use, please wait.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        Terminate;
+	}
+ Else
+	{
+		TakeInventory("PickupBubbleShieldActive", 1);
+		ACS_NamedExecute("PickupBubbleGiver", 0);
+		Terminate;
+	}
+}
+
+//Pickup Use, Install if not found, just bring up if found
+Script "PickupBubbleGiver" (void)
+{	
+	if(CheckInventory("BubbleFound") == 0)
+	{
+		PlaySound(0,"Hud/ModInst");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Installing  VelaTech DBX-2750 Defender Shield Module, please wait.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		delay(130);
+		PlaySound(0,"Hud/HudMsg");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+		HudMessage(s:"VelaTech module installation successful! Calibrating and deploying...";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		delay(90);
+		GiveInventory("BubbleFound", 1);
+		GiveInventory("PickupBubbleShieldActive",1);
+		BubbleState = 2;
+		Terminate;
+	}
+	else
+	{
+		BubbleState = 2;
+		GiveInventory("PickupBubbleShieldActive",1);
+		Terminate;
+	}
+}
+
+//Takes the bubble pickup, leaving player with recharge.
+Script "PickupBubbleTaker" (void)
      {
-     PlaySound(0,"Hud/HudMsg");
-     SetFont("UDVSMALL");	
-	SetHudSize(5762,3240,0);
-	HudMessage(s:"DBX-2750 fully recharged. Ready for redeployment.";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
-	SetHudSize(640,480,0);				
-     BubbleState=1;
-     Terminate;
-     }
-     
+		if(CheckInventory("BubbleFound") == 0)
+		{
+			BubbleState = 1;
+			PlaySound(0,"Hud/CritWarn");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"DBX-2750 Initial Auxillary Shield Depleted, ready for module redeployment.";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+			SetHudSize(640,480,0);	
+			Terminate;
+		}
+		else
+		{
+			BubbleState = 1;
+			PlaySound(0,"Hud/CritWarn");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"DBX-2750 Auxillary Shield Depleted. Auxillary recharge completed, module ready for redeployment!";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+			SetHudSize(640,480,0);	
+			Terminate; 
+		}
+	}
+
+
+
+
+
+	

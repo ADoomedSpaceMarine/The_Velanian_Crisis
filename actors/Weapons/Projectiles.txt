@@ -2,11 +2,11 @@ Actor BFLStandardShot
 {
   PROJECTILE
   DONTHURTSHOOTER
-  Radius 5
+  Radius 6
   Height 5
-  Speed 250
+  Speed 310
   Damage 100
-  +DoomBounce
+  BounceType "doom"
   +Ripper
   +ForceRadiusDmg
   Renderstyle Add
@@ -19,7 +19,8 @@ Actor BFLStandardShot
   {
   Spawn:
     BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
-    BFLS A 1 Bright A_SpawnItemEx("StandardBFLTrail", -5)
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+	BFLS A 1 Bright A_SpawnItemEx("StandardBFLTrail", -5)
     Goto DmgLoop
   DmgLoop:
     BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
@@ -32,20 +33,85 @@ Actor BFLStandardShot
    }
 }
 
+Actor BFLSmallShot
+{
+  PROJECTILE
+  DONTHURTSHOOTER
+  Radius 5
+  Height 4
+  Speed 300
+  Damage 20
+  BounceType "doom"
+  +ForceRadiusDmg
+  Renderstyle Add
+  BounceCount 4
+  Scale 0.075
+  Alpha 0.95
+  Obituary "%o was vaporized by %k's Big Frickin Photon Cannon."
+  Decal BigScorch
+  States
+  {
+  Spawn:
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    Goto DmgLoop
+  DmgLoop:
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 1 Bright A_Explode(80,120,0,0,0,0,0,BulletPuff,"BFLBeam")
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    Loop
+  Death:
+    BFLS BCDEFG 2 Bright
+    Stop
+   }
+}
+
+Actor BFLTinyShot
+{
+  PROJECTILE
+  DONTHURTSHOOTER
+  +ripper
+  Radius 4
+  Height 3
+  Speed 300
+  Damage 5
+  +ForceRadiusDmg
+  Renderstyle Add
+  Scale 0.025
+  Alpha 0.95
+  Obituary "%o was vaporized by %k's Big Frickin Photon Cannon."
+  Decal BigScorch
+  States
+  {
+  Spawn:
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    Goto DmgLoop
+  DmgLoop:
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 1 Bright A_Explode(80,120,0,0,0,0,0,BulletPuff,"BFLBeam")
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    Loop
+  Death:
+    BFLS BCDEFG 2 Bright
+    Stop
+   }
+}
+
 Actor BFLBigShot
 {
   PROJECTILE  
   DONTHURTSHOOTER
-  +DoomBounce
+  BounceType "doom"
   +Ripper
   +ForceRadiusDmg
   +BLOCKEDBYSOLIDACTORS
-  Radius 5
-  Height 5
+  Radius 3
+  Height 4
   BounceCount 4
-  Speed 250
+  Speed 300
   Damage 400
-  scale 0.85
+  scale 0.5
   Renderstyle Add
   Alpha 0.95
   Obituary "%o was vaporized by %k's Big Frickin Laser."
@@ -57,9 +123,12 @@ Actor BFLBigShot
     BFLB A 1 Bright A_SpawnItemEx("LargeBFLTrail", -5)
     Goto DmgLoop
   DmgLoop:
-    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
     BFLB A 1 Bright A_Explode(400,220,0,0,0,0,0,BulletPuff,"BFLBeam")
-    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
     Loop
   Death:
     BFLB BCDEFG 2 Bright
@@ -71,11 +140,11 @@ Actor BFLUltShot
 {
   PROJECTILE
   DONTHURTSHOOTER
-  Radius 5
-  Height 5
+  Radius 4
+  Height 6
   Speed 300
   Damage 600
-  scale 1
+  scale 0.65
   +ripper
   +ForceRadiusDmg
   Renderstyle Add
@@ -92,7 +161,7 @@ Actor BFLUltShot
   DmgLoop:
     BLFB A 1 A_SpawnItemEx("UltBFLTrail", -5)
     BFLB A 1 Bright A_Explode(600,230,0,0,0,0,0,BulletPuff,"BFLBeam")
-    BLFB A 1 A_SpawnItemEx("UltBFLTrail", -5)
+	BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
     Loop
   Death:
     BFLB BCDEFG 2 Bright
@@ -103,8 +172,8 @@ Actor BFLUltShot
 Actor StandardBFLTrail
 {
   PROJECTILE
-   Radius 9
-   Height 6
+   Radius 6
+   Height 5
    Scale 0.5
    RenderStyle Add
    +NOGRAVITY
@@ -113,8 +182,29 @@ Actor StandardBFLTrail
    
    States
    {
+   Spawn:     
+     BFLB A 1 Bright
+     BFLB A 1 Bright A_FadeOut
+     BFLB A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+	 Loop
+   }
+}
+
+Actor SmallBFLTrail
+{
+  PROJECTILE
+   Radius 5
+   Height 4
+   Scale 0.1
+   RenderStyle Add
+   +NOGRAVITY
+   +NOBLOCKMAP
+   +NOCLIP
+   
+   States
+   {
    Spawn:
-     BFLS AAAA 1 Bright A_FadeOut
+     BFLB A 1 Bright A_FadeOut
      Loop
    }
 }
@@ -122,9 +212,9 @@ Actor StandardBFLTrail
 Actor LargeBFLTrail
 {
   PROJECTILE
-   Radius 9
+   Radius 7
    Height 6
-   Scale 0.85
+   Scale 0.75
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -133,7 +223,9 @@ Actor LargeBFLTrail
    States
    {
    Spawn:
-     BFLB AAAA 1 Bright A_FadeOut
+     BFLB A 1 Bright A_FadeOut
+     BFLB A 1 Bright A_SpawnItemEx("StandardBFLTrail", -5)
+     BFLB A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
      Loop
    }
 }
@@ -141,9 +233,9 @@ Actor LargeBFLTrail
 Actor UltBFLTrail
 {
   PROJECTILE
-   Radius 9
-   Height 6
-   Scale 1
+   Radius 8
+   Height 7
+   Scale 0.8
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -152,7 +244,7 @@ Actor UltBFLTrail
    States
    {
    Spawn:
-     BFLB AAAAA 1 Bright A_FadeOut
+     BFLB A 1 Bright A_FadeOut
      Loop
    }
 }

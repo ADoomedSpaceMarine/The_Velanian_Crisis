@@ -59,12 +59,12 @@ Class BFL10K : Weapon
             Stop;
         
         Select:
-            BFNA A 1 A_Raise;
+            BFNA A 1 A_Raise(12);
             loop;
 
         Deselect:
             BFNA A 0 A_PlaySound("weapons/ANNUp", CHAN_WEAPON);
-            BFNA A 1 A_Lower;
+            BFNA A 1 A_Lower(12);
             Loop;
         
         Ready:
@@ -359,7 +359,6 @@ Class BFL10K : Weapon
             TNT1 A 0 A_PlaySound("Weapons/BFLUEnd",CHAN_WEAPON);
             BFDN ABCDEFGHIJKLMNOP 5;
             BFDN Q 35;
-            TNT1 A 0 A_ClearOverlays;
             Goto BFLUp;
           
             User1: 
@@ -371,17 +370,18 @@ Class BFL10K : Weapon
             }
             Goto BFLIdle;
             ShieldUse:   
-              TNT1 A 0 A_GiveInventory("PowerBFLBubble");
+              TNT1 A 0 A_GiveInventory("PowerBFLTerror");
+			  TNT1 A 0 A_GiveInventory("PowerBFLBuddha");
               BUBS ABCDEFGH 1;
               goto ShieldSustain;
             ShieldSustain:
               BUBS I 350;
               Goto ShieldCrash;
             ShieldCrash:
-              BUBD A 5;
-              BUBD B 5;
-              BUBD C 5;
-              BUBD D 5;
+              BUBD A 1;
+              BUBD B 1;
+              BUBD C 1;
+              BUBD D 1;
             Stop;
     }
 }

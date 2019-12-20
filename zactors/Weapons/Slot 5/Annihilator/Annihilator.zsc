@@ -1,4 +1,4 @@
-Class AnnClip : Ammo  //This ammo simply acts a counter for the gun's clip reserve
+Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserve
 {
   Default{
   Inventory.Icon "ANPU0";
@@ -42,28 +42,24 @@ Class AnnBox : AnnAmmo Replaces Rocketbox //This class replaces the box of rocke
 Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher for Doom
 {	
  int RocketsFired; 		//How many rockets have been fired
- int ShotSwitcher;		//This is a numerical value for what ammo is being used
- bool IsFiringStandard;		
- bool IsFiringHoming;
- bool IsFiringGrenades;
- bool IsFiringHives;
- bool IsFiringQuads;
- bool IsFiringCluster;
+ int ShotType;		//This is a numerical value for what ammo is being used
+ int MirvCheck;
  
   Default{
-      Weapon.SelectionOrder 2500;
+	  Weapon.SelectionOrder 2500;
       Weapon.BobStyle "smooth";
-      Weapon.AmmoUse 1;
+      Weapon.AmmoUse1 1;
+	  Weapon.AmmoUse2 4;
       Weapon.AmmoGive1 0;
       Weapon.AmmoGive2 4;
       Weapon.AmmoType "AnnClip";
       Weapon.AmmoType2 "AnnAmmo";
       Weapon.SlotNumber 5;
       Weapon.SlotPriority 3;
-      Weapon.UpSound "Weapons/ANNUp";
+      Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
       +Weapon.NOAUTOAIM
-      +Weapon.Ammo_Optional;
+	  +WEAPON.AMMO_CHECKBOTH
 	  Inventory.PickupMessage "You found the Annihilator Versatile Rocket Defense System, Blow some stuff up!";
       Obituary "%o was blown to bits by %k's Annihilator Rocket Defense System.";
       Decal "BigScorch";
@@ -74,677 +70,262 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
       Stop;
 
     Select:
-      NRL4 A 1 A_Raise;
-	  	loop;
+      NRL4 A 1 A_Raise(12);
+	  loop;
 
 	  Deselect:
-    	NRL4 A 1 A_Lower;
+		TNT1 A 0
+    	  {
+            if(CountInv("AnnAmmo") >  0 && CountInv("AnnAmmo") < 4)
+            {
+				ACS_NamedExecute("NotEnoughRockets");
+                A_PlaySound("Weapons/ANNup",CHAN_AUTO);
+                return ResolveState (null);
+            }
+			else if(CountInv("AnnAmmo") ==  0)
+            {
+				ACS_NamedExecute("OutOfRockets");
+                A_PlaySound("Weapons/ANNup",CHAN_AUTO);
+                return ResolveState (null);
+            }
+            else 
+			{
+			    return ResolveState(null);
+			}
+           }
+		  NRL4 A 1 A_Lower(12);
 		  Loop;
 
     Ready:
-      TNT1 A 0 {
-	  If(CountInv("AnnClip") == 4) Return ResolveState ("Staging");
-	  Else If(CountInv("AnnClip") == 3) Return ResolveState ("Last3");
-	  Else If(CountInv("AnnClip") == 2) Return ResolveState ("Last2");
-	  Else If(CountInv("AnnAmmo") == 1) Return ResolveState ("Last1");
-	  Else If(CountInv("AnnClip") == 1) Return ResolveState ("Last1");
-	  Else If(CountInv("AnnClip")==0) return ResolveState("reload");
-	  Else return ResolveState (null);
-	  }
-	  Goto Staging;
-	  
-	Staging:
-	  TNT1 A 0{
-	  invoker.ShotSwitcher = 1;
-	  invoker.IsFiringStandard = 1;
-      A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-      }
-      NRRC ABCDEFGHIJKLMN 1;
-      Goto ReadyChecker;
-	  
-
-	Last4:
-		TNT1 A 0 
-		{
-		invoker.ShotSwitcher = 1;
-		invoker.IsFiringStandard = 1;
-		Invoker.RocketsFired = 0;
-		A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		}
-		NRRC ABCDEFGHIJKLMN 1;
-		Goto RealReady1;
-	Last3:
-		TNT1 A 0 
-		{
-		invoker.ShotSwitcher = 1;
-	    invoker.IsFiringStandard = 1;
-		Invoker.RocketsFired = 1;
-		A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		}
-		NRC1 ABCDEFGHIJKLMN 1;
-		Goto RealReady2;
-	Last2:
-		TNT1 A 0 
-		{
-		invoker.ShotSwitcher = 1;
-	    invoker.IsFiringStandard = 1;
-		Invoker.RocketsFired = 2;
-		A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		}
-		NRC2 ABCDEFGHIJKLMN 1;
-		Goto RealReady3;
-	Last1:
-		TNT1 A 0 
-		{
-		invoker.ShotSwitcher = 1;
-		invoker.IsFiringStandard = 1;
-		Invoker.RocketsFired = 3;
-		A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		}
-		NRC3 ABCDEFGHIJKLMN 1;
-		Goto RealReady4;
-
-    ReadyChecker:
-        TNT1 A 0 {
-		If(CountInv("AnnClip")==0)Return ResolveState ("NoAmmoReady");
-		Else If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3) Return ResolveState ("RealReady4");
-        Else If(Invoker.RocketsFired==2) Return ResolveState ("RealReady3");
-        Else If(Invoker.RocketsFired==1) Return ResolveState ("RealReady2");
-        Else If(Invoker.RocketsFired==0) Return ResolveState ("RealReady1");
-        Else return ResolveState(null);
-        }
-
-     SwitchChecker:
-        TNT1 A 0 {
-        If(Invoker.RocketsFired==3) Return ResolveState ("Switch4");
-        Else If(Invoker.RocketsFired==2) Return ResolveState ("Switch3");
-        Else If(Invoker.RocketsFired==1) Return ResolveState ("Switch2");
-        Else If(Invoker.RocketsFired==0) Return ResolveState ("Switch1");
-        Else If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
+      TNT1 A 0 
+	  {	
+		If(Invoker.RocketsFired==4) return ResolveState("OneUp");
+		Else If(Invoker.RocketsFired==3) return ResolveState("OneUp");
+		Else If(Invoker.RocketsFired==2) return ResolveState("TwoUp");
+		Else If(Invoker.RocketsFired==1) return ResolveState("ThreeUp");
+		Else If(Invoker.RocketsFired==0) return ResolveState("FourUp");
 		Else return ResolveState(null);
-        }
-     
+		}
 
-  //Actual Ready States
-    RealReady1:
+	FourUp:
+		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
+		NRRC ABCDEFGHIJKLMN 1;
+		Goto RealReadyFour;
+		
+	ThreeUp:
+		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
+		NRC1 ABCDEFGHIJKLMN 1;
+		Goto RealReadyThree;
+	
+	TwoUp:
+		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
+		NRC2 ABCDEFGHIJKLMN 1;
+		Goto RealReadyTwo;
+	
+	OneUp:
+		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
+		NRC3 ABCDEFGHIJKLMN 1;
+		Goto RealReadyOne;
+
+ //Actual Ready States
+    RealReadyFour:
     NRLL A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER1);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER2);
     Loop;
 
-    RealReady2:
+    RealReadyThree:
     NRL2 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER1);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER2);
     Loop;
 
-    RealReady3:
+    RealReadyTwo:
     NRL3 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER1);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER2);
     Loop;
 
-    RealReady4:
+    RealReadyOne:
     NRL4 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER1);
     TNT1 A 0 A_WeaponReady(WRF_ALLOWUSER2);
     Loop;
 	
     NoAmmoReady:
-    TNT1 A 0 ACS_Execute(9996);
     NRL4 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
     Loop;
-
-  //Ammo Switch Finishers
-    Switch1:
-      TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-      NRRC ABCDEFGHIJKLMN 1;
-      Goto RealReady1;
-    Switch2:
-      TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-      NRC1 ABCDEFGHIJKLMN 1;
-      Goto RealReady2;
-    Switch3:
-      TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-      NRC2 ABCDEFGHIJKLMN 1;
-      Goto RealReady3;
-    Switch4:
-      TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-      NRC3 ABCDEFGHIJKLMN 1;
-      Goto RealReady4;
-
-    //Firemode Switch Key 1
+	
+//Firemode Switch Key 1
     User1:
-      TNT1 A 0
-      {
-       If((Invoker.ShotSwitcher == 1)) return ResolveState ("HomingGiver");
-       Else If((Invoker.ShotSwitcher == 2)) return ResolveState ("GrenadeGiver");
-       Else If((Invoker.ShotSwitcher == 3)) return ResolveState ("HiveGiver");
-       Else If((Invoker.ShotSwitcher == 4)) return ResolveState ("QuadGiver");
-       Else If((Invoker.ShotSwitcher == 5)) return ResolveState ("ClusterGiver");
-       Else If((Invoker.ShotSwitcher == 6)) return ResolveState ("StandardGiver");
-       Else return ResolveState(null);
-    } 
-    goto ReadyChecker;
-
+	TNT1 A 0
+	{
+			if(Invoker.ShotType == 5)           //If the shot type variable is equal to three
+			{
+				invoker.ShotType = 0;               //reset ShotType to 0 (Buckshot)
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			} 
+			else if (invoker.ShotType != 5)     //Otherwise if shot type is not equal to three
+			{
+				invoker.ShotType++;                  //Incriment shot type variable by one
+				return ResolveState("RkMsgState");     //Go to ammo switch message switch block
+			}
+			else 
+			{
+				return ResolveState(null); 
+			}
+        }
+   
     //Firemode Switch Key 2
     User2:
       TNT1 A 0
-      {
-       If((Invoker.ShotSwitcher == 1)) return ResolveState ("StandardTaker");
-       Else If((Invoker.ShotSwitcher == 2)) return ResolveState ("HomingTaker");
-       Else If((Invoker.ShotSwitcher == 3)) return ResolveState ("GrenadeTaker");
-       Else If((Invoker.ShotSwitcher == 4)) return ResolveState ("HiveTaker");
-       Else If((Invoker.ShotSwitcher == 5)) return ResolveState ("QuadTaker");
-       Else If((Invoker.ShotSwitcher == 6)) return ResolveState ("ClusterTaker");
-       Else return ResolveState(null);
-    }
-    Goto ReadyChecker;
+		{
+			if(Invoker.ShotType == 0)           //If the shot type variable is equal to zero
+			{
+				invoker.ShotType = 5;               //reset ShotType to 3 (Frag-12)
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			} 
+			else if (Invoker.ShotType != 0)     //otherwise if shot type is not equal to zero
+			{   
+				invoker.ShotType--;                  //decriment shot type by one
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			}
+			else
+			{
+				return ResolveState(null);
+			}    
+		}
+		
+	 RkMsgState:
+        TNT1 A 0
+        {
+         switch(invoker.ShotType)
+            {
+                case 0: ACS_Execute(3655);              //Play Normal Rocket message
+                break;                                  //Break out of the switch block
 
-    //Ammo Givers
-    StandardGiver:
-    TNT1 A 0 
-    {
-    Invoker.ShotSwitcher = 1;
-    Invoker.IsFiringStandard = 1;
-    ACS_Execute(3655);
-    }
-    Goto SwitchChecker;
+                case 1: ACS_Execute(3656);              //Play Homing Rocket message
+                break;                                  //Break out of the switch block
 
-    HomingGiver:
-    TNT1 A 0 {
-    Invoker.ShotSwitcher = 2;
-    Invoker.IsFiringStandard = 0;
-    Invoker.IsFiringHoming = 1;
-    ACS_Execute(3656);
-    }
-    Goto SwitchChecker;
+                case 2: ACS_Execute(3657);              //Play Grenade message
+                break;                                  //Break out of the switch block
 
-    GrenadeGiver:
-    TNT1 A 0 
-    {
-    Invoker.ShotSwitcher = 3;
-    Invoker.IsFiringHoming = 0;
-    Invoker.IsFiringGrenades = 1; 
-    ACS_Execute(3657);
-    }
-    Goto SwitchChecker;
-
-    HiveGiver:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 4;
-    Invoker.IsFiringGrenades = 0;
-    Invoker.IsFiringHives = 1;
-    ACS_Execute(3658);
-    }
-    Goto SwitchChecker;
-
-    QuadGiver:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 5;
-    Invoker.IsFiringHives = 0;
-    Invoker.IsFiringQuads = 1;
-     ACS_Execute(3659);
-    }
-    Goto SwitchChecker;
-    
-    ClusterGiver:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 6;
-    Invoker.IsFiringQuads = 0;
-    Invoker.IsFiringCluster = 1;
-    ACS_Execute(3660);
-    }
-    Goto SwitchChecker;
-    
-    //Ammo Takers
-    StandardTaker:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 6;
-    Invoker.IsFiringStandard = 0;
-    Invoker.IsFiringCluster = 1;
-    ACS_Execute(3660);
-    }
-    Goto SwitchChecker;
-
-    HomingTaker:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 1;
-    Invoker.IsFiringHoming = 0;
-    Invoker.IsFiringStandard = 1;
-     ACS_Execute(3655);
-    }
-    Goto SwitchChecker;
-
-    GrenadeTaker:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 2;
-    Invoker.IsFiringGrenades = 0;
-    Invoker.IsFiringHoming = 1;
-    ACS_Execute(3656);
-    }
-    Goto SwitchChecker;
-
-    HiveTaker:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 3;
-    Invoker.IsFiringHives = 0;
-    Invoker.IsFiringGrenades = 1;
-    ACS_Execute(3657);
-    }
-    Goto SwitchChecker;
-
-    QuadTaker:
-    TNT1 A 0 
-    {
-    Invoker.ShotSwitcher = 4;
-    Invoker.IsFiringQuads = 0;
-    Invoker.IsFiringHives = 1;
-     ACS_Execute(3658);
-    }
-    Goto SwitchChecker;
-    
-    ClusterTaker:
-    TNT1 A 0
-    {
-    Invoker.ShotSwitcher = 5;
-    Invoker.IsFiringCluster = 0; 
-    Invoker.IsFiringQuads = 1;   
- ACS_Execute(3659);
-    } 
-    Goto SwitchChecker;
+                case 3: ACS_Execute(3658);              //Play Hornet's Hive message
+                break;                                  //Break out of the switch block
+				
+                case 4: ACS_Execute(3659);              //Play QuadShot message
+                break;                                  //Break out of the switch block
+				
+                case 5: ACS_Execute(3660);              //Play Magnus message
+                break;                                  //Break out of the switch block
+            }    
+		}
+	goto Ready; 		
 
 Fire:
-  TNT1 A 0 {
-      If((Invoker.RocketsFired == 4)) return ResolveState ("DryFire");
-      Else If((Invoker.IsFiringStandard == 1)) return ResolveState ("FireStandardFlashCheck");
-	  Else If((Invoker.IsFiringHoming == 1)) return ResolveState ("FireHomingFlashCheck");
-      Else If((Invoker.IsFiringGrenades == 1)) return ResolveState ("FireGrenadeFlashCheck");
-      Else If((Invoker.IsFiringHives == 1)) return ResolveState ("FireHiveFlashCheck");
-      Else If((Invoker.IsFiringQuads == 1)) return ResolveState ("FireQuadFlashCheck");
-      Else If((Invoker.IsFiringCluster == 1)) return ResolveState ("FireClusterFlashCheck");
-      Else Return ResolveState(null);
-  }
-Goto ReadyChecker;
-
-FireStandardFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3) Return ResolveState ("FireStandard4");
-        Else If(Invoker.RocketsFired==2) Return ResolveState ("FireStandard3");
-        Else If(Invoker.RocketsFired==1) Return ResolveState ("FireStandard2");
-        Else If(Invoker.RocketsFired==0) Return ResolveState ("FireStandard1");
-        Else Return ResolveState(null);
-  }
-
-FireStandard1:
   TNT1 A 0 
-  {
-    A_FireProjectile("AnnRocket",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 1;
-  }
-  
+	{
+      If((Invoker.RocketsFired == 4)) 
+	  {
+		return ResolveState ("DryFire");
+	  }
+	  Else
+	  {
+		return ResolveState (null);
+	  }
+	}
+	TNT1 A 0 
+	{
+	  Switch(Invoker.ShotType)
+	  {
+		Case 0:
+			A_FireProjectile("AnnRocket",0 , 1, 0, -1);
+			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			break;
+		Case 1:
+			A_FireProjectile("AnnHornet",0 , 1, 0, -1);
+			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			break;
+		Case 2: 
+			A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
+			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			break;
+		Case 3: 
+			A_FireProjectile("HornetHive",0 , 1, 0, -1);
+			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			break;			
+		Case 4: 
+			invoker.MirvCheck = 1;
+			break;
+		Case 5: 
+			A_FireProjectile("MagnusCluster",0 , 1, 0, -1);
+			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			break;
+		Default:
+			break;
+		}
+	if(invoker.MirvCheck == 1)
+	{
+	return ResolveState("FireMirv");
+	}
+	else
+	{
+	return ResolveState ("FireCheck");
+	}
+}
+
+FireMirv:
+TNT1 A 0
+{
+	invoker.MirvCheck = 0;
+	if(invoker.RocketsFired > 0) 
+	{
+		Return ResolveState ("reload");
+	}
+	else 
+	{
+		return ResolveState (null);
+	}
+}
+	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	NRRC ABCDEFGHIJKLMN 1;
+	TNT1 A 0 A_PlaySound("Weapons/ANNCycle", CHAN_AUTO);
+	NRC1 ABCDEFGHIJKLMN 1;
+	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	NRC2 ABCDEFGHIJKLMN 1;
+	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	NRC3 ABCDEFGHIJKLMN 1;
+	TNT1 A 0
+	{
+	A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+	A_FireProjectile("AnnMIRV",0 , 1, -6, -1);
+	A_FireProjectile("AnnMIRV",0 , 1, 6, -1); 
+	A_FireProjectile("AnnMIRV",0 , 1, -12, -1);
+	A_FireProjectile("AnnMIRV",0 , 1, 12, -1);
+	}
+	goto FireOne;
+
+FireCheck:
+	TNT1 A 0
+	{
+	If(Invoker.RocketsFired==0) Return ResolveState ("FireFour");
+	Else If(Invoker.RocketsFired==1) Return ResolveState ("FireThree");
+    Else If(Invoker.RocketsFired==2) Return ResolveState ("FireTwo");
+	Else If(Invoker.RocketsFired==3 || Invoker.RocketsFired==4) Return ResolveState ("FireOne");
+	Else Return ResolveState(null);
+	}
+	
+FireFour:
   NRF1 A 2 Bright A_Light1;
   NRF1 B 1 Bright; 
   NRF1 C 1 Bright A_Light2;
   NRLL A 1;
-  Goto Recoil1;
-   
-  FireStandard2:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnRocket",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 2;
-  }
-  
-  NRF2 A 2 Bright A_Light1;
-  NRF2 B 1 Bright; 
-  NRF2 C 1 Bright A_Light2;
-  NRL2 A 1;
-  Goto Recoil2;
-  
-  FireStandard3:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnRocket",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 3;
-  }
-  
-  NRF3 A 2 Bright A_Light1;
-  NRF3 B 1 Bright; 
-  NRF3 C 1 Bright A_Light2;
-  NRL3 A 1;
-  Goto Recoil3;
-  
-  FireStandard4:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnRocket",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-  
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRL4 A 1;
-  Goto Recoil4;
-  
-  FireHomingFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3) Return ResolveState ("FireHoming4");
-        Else If(Invoker.RocketsFired==2) Return ResolveState ("FireHoming3");
-        Else If(Invoker.RocketsFired==1) Return ResolveState ("FireHoming2");
-        Else If(Invoker.RocketsFired==0) Return ResolveState ("FireHoming1");
-        Else Return ResolveState(null);
-  }
-
-FireHoming1:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnHornet",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 1;
-  }
-  
-  NRF1 A 2 Bright A_Light1;
-  NRF1 B 1 Bright; 
-  NRF1 C 1 Bright A_Light2;
-  NRLL A 1;
-  Goto Recoil1;
-   
-  FireHoming2:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnHornet",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 2;
-  }
-  
-  NRF2 A 2 Bright A_Light1;
-  NRF2 B 1 Bright; 
-  NRF2 C 1 Bright A_Light2;
-  NRL2 A 1;
-  Goto Recoil2;
-  
-  FireHoming3:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnHornet",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 3;
-  }
-  
-  NRF3 A 2 Bright A_Light1;
-  NRF3 B 1 Bright; 
-  NRF3 C 1 Bright A_Light2;
-  NRL3 A 1;
-  Goto Recoil3;
-  
-  FireHoming4:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnHornet",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-  
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRL4 A 1;
-  Goto Recoil4;
-  
-  FireGrenadeFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3)  Return ResolveState ("FireGrenade4");
-        Else If(Invoker.RocketsFired==2)  Return ResolveState ("FireGrenade3");
-        Else If(Invoker.RocketsFired==1)  Return ResolveState ("FireGrenade2");
-        Else If(Invoker.RocketsFired==0)  Return ResolveState ("FireGrenade1");
-        Else Return ResolveState(null);
-  }
-
-FireGrenade1:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 1;
-  }
-  
-  NRF1 A 2 Bright A_Light1;
-  NRF1 B 1 Bright; 
-  NRF1 C 1 Bright A_Light2;
-  NRLL A 1;
-  Goto Recoil1;
-   
-  FireGrenade2:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 2;
-  }
-  
-  NRF2 A 2 Bright A_Light1;
-  NRF2 B 1 Bright; 
-  NRF2 C 1 Bright A_Light2;
-  NRL2 A 1;
-  Goto Recoil2;
-  
-  FireGrenade3:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 3;
-  }
-  
-  NRF3 A 2 Bright A_Light1;
-  NRF3 B 1 Bright; 
-  NRF3 C 1 Bright A_Light2;
-  NRL3 A 1;
-  Goto Recoil3;
-  
-  FireGrenade4:
-  TNT1 A 0 
-  {
-    A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-  
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRL4 A 1;
-  Goto Recoil4;
-
-   FireHiveFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3)  Return ResolveState ("FireHive4");
-        Else If(Invoker.RocketsFired==2)  Return ResolveState ("FireHive3");
-        Else If(Invoker.RocketsFired==1)  Return ResolveState ("FireHive2");
-        Else If(Invoker.RocketsFired==0)  Return ResolveState ("FireHive1");
-        Else Return ResolveState(null);
-  }
-
-FireHive1:
-  TNT1 A 0 
-  {
-    A_FireProjectile("HornetHive",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 1;
-  }
-  
-  NRF1 A 2 Bright A_Light1;
-  NRF1 B 1 Bright; 
-  NRF1 C 1 Bright A_Light2;
-  NRLL A 1;
-  Goto Recoil1;
-   
-  FireHive2:
-  TNT1 A 0 
-  {
-    A_FireProjectile("HornetHive",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 2;
-  }
-  
-  NRF2 A 2 Bright A_Light1;
-  NRF2 B 1 Bright; 
-  NRF2 C 1 Bright A_Light2;
-  NRL2 A 1;
-  Goto Recoil2;
-  
-  FireHive3:
-  TNT1 A 0 
-  {
-    A_FireProjectile("HornetHive",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 3;
-  }
-  
-  NRF3 A 2 Bright A_Light1;
-  NRF3 B 1 Bright; 
-  NRF3 C 1 Bright A_Light2;
-  NRL3 A 1;
-  Goto Recoil3;
-  
-  FireHive4:
-  TNT1 A 0 
-  {
-    A_FireProjectile("HornetHive",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-  
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRL4 A 1;
-  Goto Recoil4;
-
-  FireQuadFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired >= 1) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==0) Return ResolveState ("FireQuad");
-        Else Return ResolveState(null);
-  }
-
-FireQuad:
-  TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
-  NRRC ABCDEFGHIJKLMN 1;
-  TNT1 A 0 A_PlaySound("Weapons/ANNCycle", CHAN_AUTO);
-  NRC1 ABCDEFGHIJKLMN 1;
-  TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
-  NRC2 ABCDEFGHIJKLMN 1;
-  TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
-  NRC3 ABCDEFGHIJKLMN 1;
-
-  TNT1 A 0 
-  {  
-  A_FireProjectile("AnnMIRV",0 , 1, -6, -1);
-  A_FireProjectile("AnnMIRV",0 , 1, 6, -1); 
-  A_FireProjectile("AnnMIRV",0 , 1, -12, -1);
-  A_FireProjectile("AnnMIRV",0 , 1, 12, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRLL A 1;
-  Goto Recoil4;
-
- FireClusterFlashCheck:
-   TNT1 A 0 {
-        If(Invoker.RocketsFired==4) Return ResolveState ("Reload");
-        Else If(Invoker.RocketsFired==3)  Return ResolveState ("FireCluster4");
-        Else If(Invoker.RocketsFired==2)  Return ResolveState ("FireCluster3");
-        Else If(Invoker.RocketsFired==1)  Return ResolveState ("FireCluster2");
-        Else If(Invoker.RocketsFired==0)  Return ResolveState ("FireCluster1");
-        Else Return ResolveState(null);
-  }
-
-FireCluster1:
-  TNT1 A 0 
-  {
-    A_FireProjectile("MagnusCluster", 0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 1;
-  }
-  
-  NRF1 A 2 Bright A_Light1;
-  NRF1 B 1 Bright; 
-  NRF1 C 1 Bright A_Light2;
-  NRLL A 1;
-  Goto Recoil1;
-   
-  FireCluster2:
-  TNT1 A 0 
-  {
-    A_FireProjectile("MagnusCluster",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 2;
-  }
-  
-  NRF2 A 2 Bright A_Light1;
-  NRF2 B 1 Bright; 
-  NRF2 C 1 Bright A_Light2;
-  NRL2 A 1;
-  Goto Recoil2;
-  
-  FireCluster3:
-  TNT1 A 0 
-  {
-    A_FireProjectile("MagnusCluster",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 3;
-  }
-  
-  NRF3 A 2 Bright A_Light1;
-  NRF3 B 1 Bright; 
-  NRF3 C 1 Bright A_Light2;
-  NRL3 A 1;
-  Goto Recoil3;
-  
-  FireCluster4:
-  TNT1 A 0 
-  {
-    A_FireProjectile("MagnusCluster",0 , 1, 0, -1);
-    A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-    invoker.RocketsFired = 4;
-  }
-  
-  NRF4 A 2 Bright A_Light1;
-  NRF4 B 1 Bright; 
-  NRF4 C 1 Bright A_Light2;
-  NRL4 A 1;
-  Goto Recoil4;
-
-Recoil1:
   NRL2 A 1 A_Recoil(2*cos(pitch));
   NRL2 B 1  {
 	  A_SetPitch(pitch-5.0);
 	  A_ZoomFactor(0.97,ZOOM_INSTANT);
 	  }
-	NRL2 C 1 {
+	NRF2 C 1 {
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(0.975,ZOOM_INSTANT);
 	  }
@@ -761,15 +342,18 @@ Recoil1:
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
   NRL2 A 1 {
+	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
-	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
+	  A_ZoomFactor(1.0,ZOOM_INSTANT);		
+	}
   
-  TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-  NRC1 ABCDEFGHIJKLMN 1;
-  Goto RealReady2;
+  Goto ThreeUp;
 
-  Recoil2:
+FireThree:
+  NRF2 A 2 Bright A_Light1;
+  NRF2 B 1 Bright; 
+  NRF2 C 1 Bright A_Light2;
+  NRL2 A 1;
   NRL3 A 1 A_Recoil(2*cos(pitch));
   NRL3 B 1  {
 	  A_SetPitch(pitch-6.0);
@@ -796,14 +380,17 @@ Recoil1:
 	  A_ZoomFactor(0.995,ZOOM_INSTANT);
 	  }
   NRL3 B 1  {
+	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
-  TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-  NRC2 ABCDEFGHIJKLMN 1;
-  Goto RealReady3;
-    
-  Recoil3:
+  Goto TwoUp;
+
+FireTwo:
+  NRF3 A 2 Bright A_Light1;
+  NRF3 B 1 Bright; 
+  NRF3 C 1 Bright A_Light2;
+  NRL3 A 1;
   NRL4 A 1 A_Recoil(2*cos(pitch));
   NRL4 B 1  {
 	  A_SetPitch(pitch-5.0);
@@ -826,15 +413,18 @@ Recoil1:
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
   NRL4 A 1
-  {
+	{
+	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
-	  }
-  TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-  NRC3 ABCDEFGHIJKLMN 1;
-  Goto RealReady4;
-
-  Recoil4:
+	}	
+  Goto OneUp;
+  
+FireOne:
+  NRF4 A 2 Bright A_Light1;
+  NRF4 B 1 Bright; 
+  NRF4 C 1 Bright A_Light2;
+  NRL4 A 1;    
   NRL4 A 1 A_Recoil(2*cos(pitch));
   NRL4 B 1  {
 	  A_SetPitch(pitch-5.0);
@@ -857,42 +447,39 @@ Recoil1:
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
   NRL4 A 1 {
+	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
-	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
-	RDRY CDEFGHGFEDC 1; 
-    Goto RealReady4;
+    Goto OneUp;
 
 DryFire:
-RDRY AB 2;
-RDRY A 10 A_PlaySound("Weapons/ANNDRY",CHAN_AUTO);
-TNT1 A 0 A_PlaySound("Weapons/ANNCycle",CHAN_AUTO);
-RDRY CDEFGHGFEDC 1;
-TNT1 A 0 
-{
-If(CountInv("AnnAmmo")==0) return ResolveState("NoReload");  
-Else return ResolveState(null);
-}
+	RDRY AB 2;
+	RDRY A 10 A_PlaySound("Weapons/ANNDRY",CHAN_AUTO);
+	TNT1 A 0 A_PlaySound("Weapons/ANNCycle",CHAN_AUTO);
+	RDRY CDEFGHGFEDC 1;
 goto Reload;
 
 
   Reload:
   TNT1 A 0 
   {
-	If(CountInv("AnnAmmo")==0) return ResolveState("NoReload");  
-    If(Invoker.RocketsFired==4) return ResolveState("FullReload");
+	If(CountInv("AnnAmmo") < 4 && Invoker.RocketsFired==1) Return ResolveState("RealReadyThree");
+	Else If(CountInv("AnnAmmo") < 4 && Invoker.RocketsFired==2) Return ResolveState("RealReadyTwo");
+	Else If(CountInv("AnnAmmo") < 4 && Invoker.RocketsFired==3) Return ResolveState("RealReadyOne");
+	If(CountInv("AnnAmmo") < 4 && Invoker.RocketsFired==4) Return ResolveState("deselect");
     Else If(Invoker.RocketsFired==3) return ResolveState("Reload3");
     Else If(Invoker.RocketsFired==2) return ResolveState("Reload2");
     Else If(Invoker.RocketsFired==1) return ResolveState("Reload1");
-    Else If(Invoker.RocketsFired==0) return ResolveState("RealReady1");
-    Else return ResolveState(null);
+    Else If(Invoker.RocketsFired==0) return ResolveState("RealReadyFour");
+	Else If(CountInv("AnnAmmo") >= 4) return ResolveState("FullReload");
+	Else return ResolveState(null);
   }
   
 FullReload:
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
+	TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin", CHAN_AUTO);
 	NRLR MNO 2;
@@ -905,7 +492,7 @@ TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2
 	A_TakeInventory("AnnAmmo", 4); // Exchange four spare rockets...
 	A_GiveInventory("AnnClip", 4); // ... for four rockets in the gun.
 	}
-  Goto ReloadFinish;
+  Goto FourUp;
 
 Reload3:
 	NRLR AB 2;
@@ -923,12 +510,12 @@ Reload3:
 	A_TakeInventory("AnnAmmo", 3); // Exchange three spare rockets...
     A_GiveInventory("AnnClip", 4); // ... for three rockets in the gun.
 	}
-	Goto ReloadFinish;
+	Goto FourUp;
 
 Reload2:	
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
+	TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin",CHAN_AUTO);
 	NRLR MNO 2;
@@ -941,12 +528,12 @@ TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2
 	A_TakeInventory("AnnAmmo", 2); // Exchange two spare rockets...
     A_GiveInventory("AnnClip", 4); // ... for two rockets in the gun.
 	}
-	Goto ReloadFinish;
+	Goto FourUp;
 
 Reload1:
 	NRLR AB 2;
 	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105));  
+	TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105));  
 	NRLR DEFGHIJK 2;
 	NRLR L 2 A_PlaySound("Weapons/ANNin",CHAN_AUTO);
 	NRLR MNO 2;
@@ -959,22 +546,6 @@ TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2
 	A_TakeInventory("AnnAmmo", 1); // Exchange one spare rocket...
 	A_GiveInventory("AnnClip", 4); // ... for one rocket in the gun.
 	}
-	Goto ReloadFinish;
-
-ReloadFinish:
-	TNT1 A 0 A_PlaySound("Weapons/ANNCycle", CHAN_AUTO);
-	NRRC ABCDEFGHIJKMN 1;	
-	NRLL A 0;
-	Goto RealReady1;
-	
-NoReload:
-TNT1 A 0{
-    If(Invoker.RocketsFired==3) Return ResolveState ("RealReady4");
-    Else If(Invoker.RocketsFired==2) Return ResolveState ("RealReady3");
-    Else If(Invoker.RocketsFired==1) Return ResolveState ("RealReady2");
-    Else If(Invoker.RocketsFired==0) Return ResolveState ("RealReady1");
-	Else If(Invoker.RocketsFired==4) Return ResolveState ("NoAmmoReady");
-	Else Return ResolveState(null);
-		}
+	Goto FourUp;
 	}
 }

@@ -42,10 +42,12 @@ script "toggleflashlight" (void) NET {
 	}
 	
 	if (playersFlashOn[pN]) {
+		PlaySound(0,"equip/FlashOff");
 		Thing_Deactivate(playersFlashID[pN]);
 		playersFlashOn[pN] = FALSE;
 		
 	} else {	
+		PlaySound(0,"equip/FlashOn");
 		Thing_Activate(playersFlashID[pN]);
 		playersFlashOn[pN] = TRUE;
 	}		

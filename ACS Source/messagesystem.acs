@@ -64,7 +64,18 @@ Script 3654 (void)
     PlaySound(0,"Hud/HudMsg");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"Switching to Photon Cannon Mode.";
+	HudMessage(s:"Switching to Low-Power Photon Cannon Mode.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3662 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to High-Power Photon Cannon Mode.";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -140,12 +151,12 @@ Script 3660 (void)
 
 
 //Ammo Depletion Errors
-Script 9999 (void)
+Script "OutOfShells" (void)
 {
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"CRITICAL WARNING! Shotgun ammunition depleted!";
+	HudMessage(s:"CRITICAL WARNING: Shotgun ammunition depleted!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -173,7 +184,7 @@ Script 9997 (void)
     Terminate;
 }
 
-Script 9996 (void)
+Script "OutOfRockets" (void)
 {
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
@@ -183,3 +194,16 @@ Script 9996 (void)
 	SetHudSize(640,480,0);				
     Terminate;
 }
+
+Script "NotEnoughRockets" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING! Not enough rocket ammo to reload!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Bubble Shield Messages

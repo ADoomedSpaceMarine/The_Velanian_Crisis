@@ -83,10 +83,17 @@ Powerup/ShieldUp ShieldUp
 Powerup/ShieldBrk ShieldBK
 
 //Heads Up Display
+$volume Hud/Heartbeat 0.85
 Hud/HudMsg HudMsg
+Hud/HudError HudError
 Hud/ShieldWarn ShieldWn
 Hud/CritWarn CRTWARN
+Hud/Heartbeat heartbeat
+Hud/ModInst ModInst
+
 
 //Equipment Sounds
 equip/NightVUp NVUP
 equip/NightVDn NVOff
+equip/FlashOn FlashOn
+equip/FlashOff FlashOff

@@ -1,4 +1,48 @@
+ACTOR Infrared2 : CustomInventory replaces Infrared
+{
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.PickupMessage "You got the VelaTech NH-5711 NightHawk Night Vision Module"
+  Inventory.MaxAmount 0
+  States
+  {
+  Spawn:
+    PVIS A 6 Bright
+    PVIS B 6
+    Loop
+   Pickup:
+	TNT1 A 0 ACS_NamedExecute("NVInitialize")
+  }
+}
+
+ACTOR Infrared3 : Infrared
+{
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.MaxAmount 0
+  Powerup.Type "LightAmp2"
+  States
+  {
+  Spawn:
+    PVIS A 6 Bright
+    PVIS B 6
+    Loop
+  }
+}
+
 ACTOR PowerLightAmp1 : PowerLightAmp
 {
-  Powerup.Duration -240
+  Powerup.Duration -600
+}
+
+ACTOR PowerLightAmp2 : PowerLightAmp
+{
+  Powerup.Duration -30
+}
+
+ACTOR gogsFound : Inventory
+{
+	Inventory.MaxAmount 1
 }
