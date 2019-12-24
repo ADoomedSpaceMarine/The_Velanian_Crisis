@@ -22,7 +22,7 @@ class DemonsBane : weapon replaces shotgun
         Weapon.AmmoType2 "Shell";
         Weapon.AmmoUse1 1;
         Weapon.AmmoUse2 1;
-        Weapon.AmmoGive1 16;
+        Weapon.AmmoGive1 2;
         Inventory.PickupMessage "You picked up the Demon's Bane over and under shotgun!";
         Obituary "%o was blown away by %k's Demon's Bane";
         Weapon.SlotNumber 3;
@@ -31,6 +31,7 @@ class DemonsBane : weapon replaces shotgun
         Weapon.KickBack 120;
         +Weapon.NOAUTOFIRE;
         +Weapon.NOAUTOAIM;
+		decal "BulletChip";
     }
     
     states

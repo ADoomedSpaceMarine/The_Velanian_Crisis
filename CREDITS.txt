@@ -9,6 +9,10 @@ Sprites:
 - Realm 667 For characters 
 - HellForged for the Acrobat's sprite
 - Cat's Visor Resources by Schrodinger's Cat
+- Shells for AR36 were found on FreePNG.Com
+- AR36 originated from a user named Captain J.
+- Some Edits to add reload to AR were done myself
+- The bubble shield pickup was made by myself after making some minor alterations to the blursphere
 
 Sprite Edits: 
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
@@ -18,7 +22,7 @@ Sprite Edits:
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
-- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots and other resources
+- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots, the AR36 sounds and other resources
 - A Laser sound from Painkiller's "Project Bruatality" was used as a layer for the big fire of the BFL 10k
 
 HUD:

@@ -1,4 +1,4 @@
 ACTOR ZombieDude : ZombieMan replaces ZombieMan
 {
-  DropItem "Pistol"
+  DropItem "RifleAmmo"
 }

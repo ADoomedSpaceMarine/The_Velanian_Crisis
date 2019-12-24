@@ -6,7 +6,7 @@ ACTOR VanillaMan : DoomPlayer
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
   Player.StartItem "clip", 50
-  Player.StartItem "AnnClip", 4
+  Player.StartItem "ARClip", 30
 }  
 
 ACTOR TankPlayer : DoomPlayer
@@ -24,12 +24,13 @@ ACTOR TankPlayer : DoomPlayer
   Player.StartItem "Annihilator"
   Player.StartItem "Fist"
   Player.StartItem "Demonsbane"
-  Player.StartItem "Chaingun"
+  Player.StartItem "AR36"
   Player.StartItem "BFL10k"
-  Player.StartItem "AnnAmmo", 80
-  Player.StartItem "Shell", 50
-  Player.StartItem "AnnClip", 4
-  Player.StartItem "Cell", 600
+  Player.StartItem "Pistol"
+  Player.StartItem "AnnAmmo", 30
+  Player.StartItem "Shell", 24
+  Player.StartItem "RifleAmmo", 240
+  Player.StartItem "Cell", 300
   
   States
   {
@@ -92,10 +93,11 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.JumpZ 12
   Player.DisplayName "The Rogue"
   Player.CrouchSprite "PLYC"
+  Player.StartItem "Pistol"
   Player.StartItem "Demonsbane"
   Player.StartItem "Fist"
   Player.StartItem "Shell", 50
-  Player.StartItem "AnnClip", 4
+  Player.StartItem "Clip", 50
     
   States
   {
@@ -156,16 +158,16 @@ ACTOR CyberMarine : DoomPlayer
   Health 150
   Player.DisplayName "The Cybermarine"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "Annihilator"
   Player.StartItem "Demonsbane"
-  Player.StartItem "Chaingun"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "Clip", 400
-  Player.StartItem "AnnAmmo", 20
-  Player.StartItem "Shell", 50
+  Player.StartItem "RifleAmmo", 300
+  Player.StartItem "Clip", 100
+  Player.StartItem "AnnAmmo", 10
+  Player.StartItem "Shell", 16
   Player.StartItem "AnnClip", 4
- 
+  Player.StartItem "AR36", 1
+
 
   States
     {
@@ -229,16 +231,17 @@ Actor CombatVeteran : DoomPlayer
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
   Player.StartItem "BFL10k"
-  Player.StartItem "Cell", 200
+  Player.StartItem "Cell", 240
   Player.StartItem "Annihilator"
   Player.StartItem "Demonsbane"
-  Player.StartItem "Chaingun"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "Shell", 50
-  Player.StartItem "AnnAmmo", 80
-  Player.StartItem "Clip", 600
-  Player.StartItem "AnnClip", 4
+  Player.StartItem "Shell", 24
+  Player.StartItem "AnnAmmo", 40
+  Player.StartItem "RifleAmmo", 240
+  Player.StartItem "Clip", 50
+  Player.StartItem "ARClip", 30
+  Player.StartItem "AR36", 1
   
   States
     {

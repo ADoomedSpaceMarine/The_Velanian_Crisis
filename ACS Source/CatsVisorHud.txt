@@ -3397,6 +3397,7 @@ script "CatsVisorHud" ENTER
 			//Slot 4
 		  if(StrICmp(weapon, "U_Rifle") == 0)                  ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("rifleammo"), weicon="PINADA", weaponname = "Rifle", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 31;
 		  if(StrICmp(weapon, "Rifle") == 0)                    ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("rifleammo"), weicon="PINADA", weaponname = "Rifle", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 31;
+		  if(StrICmp(weapon, "AR36") == 0)                     ammo = CheckInventory("RifleAmmo"), ammo2 = CheckInventory("ARclip"), weicon="PINADA", weaponname = "UAC AR-39", ammocapa = GetAmmoCapacity("ARClip"), clipsize = 30;
 		  if(StrICmp(weapon, "U_MiniGun") == 0)                ammo = CheckInventory("MinigunAmmo"), ammo2 = -1, weicon="PINANA", weaponname = "Minigun", ammocapa = GetAmmoCapacity("MinigunAmmo"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "MiniGun") == 0)                  ammo = CheckInventory("Clip2"), ammo2 = -1, weicon="PINADA", weaponname = "Minigun", ammocapa = GetAmmoCapacity("Clip2"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "DualURifle") == 0)               ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("DualRifleAmmo"), weicon="PINADA", weaponname = "Rifles", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 62;
@@ -3902,6 +3903,46 @@ script "CatsVisorHud" ENTER
 		  rocket = CheckInventory("D4Rockets");
 		  }
 		  else if(strICmp(PlClass, "SaturnPlayer") == 0)
+		  {
+		  Pclip = CheckInventory("Clip");
+		  clip = CheckInventory("RifleAmmo");
+		  shell = CheckInventory("Shell");
+		  rocket = CheckInventory("RocketAmmo");
+		  cell = CheckInventory("Cell");
+		  revolverbullets = CheckInventory("Bullets");
+		  minigunammo = CheckInventory("Nato");
+		  }
+		  else if(strICmp(PlClass, "CyberMarine") == 0)
+		  {
+		  Pclip = CheckInventory("Clip");
+		  clip = CheckInventory("RifleAmmo");
+		  shell = CheckInventory("Shell");
+		  rocket = CheckInventory("RocketAmmo");
+		  cell = CheckInventory("Cell");
+		  revolverbullets = CheckInventory("Bullets");
+		  minigunammo = CheckInventory("Nato");
+		  }
+		  else if(strICmp(PlClass, "CombatVeteran") == 0)
+		  {
+		  Pclip = CheckInventory("Clip");
+		  clip = CheckInventory("RifleAmmo");
+		  shell = CheckInventory("Shell");
+		  rocket = CheckInventory("RocketAmmo");
+		  cell = CheckInventory("Cell");
+		  revolverbullets = CheckInventory("Bullets");
+		  minigunammo = CheckInventory("Nato");
+		  }
+		  else if(strICmp(PlClass, "AcrobatPlayer") == 0)
+		  {
+		  Pclip = CheckInventory("Clip");
+		  clip = CheckInventory("RifleAmmo");
+		  shell = CheckInventory("Shell");
+		  rocket = CheckInventory("RocketAmmo");
+		  cell = CheckInventory("Cell");
+		  revolverbullets = CheckInventory("Bullets");
+		  minigunammo = CheckInventory("Nato");
+		  }
+		   else if(strICmp(PlClass, "TankPlayer") == 0)
 		  {
 		  Pclip = CheckInventory("Clip");
 		  clip = CheckInventory("RifleAmmo");

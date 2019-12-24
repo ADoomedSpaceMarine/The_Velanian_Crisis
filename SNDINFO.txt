@@ -12,19 +12,25 @@ Weapons/ClustAlert	CLALERT
 Weapons/GrenBounce	GNBOUNC
 
 //Casings
-//$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
-//$volume weapons/casing 0.7
-//$limit weapons/casing  3
-//weapons/casing1	dscasin1
-//weapons/casing2	dscasin2
-//weapons/casing3	dscasin3
+$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
+$volume weapons/casing 0.7
+$limit weapons/casing  3
+weapons/casing1	dscasin1
+weapons/casing2	dscasin2
+weapons/casing3	dscasin3
 
 $random weapons/shotgunshells { weapons/shell1 weapons/shell2 weapons/shell3 }
-$volume weapons/shotgunshells 0.3
+$volume weapons/shotgunshells 0.5
 $limit weapons/shotgunshells 3
 weapons/shell1	DSSHELL1
 weapons/shell2	DSSHELL2
 weapons/shell3	DSSHELL3
+
+//AR Shells
+
+$limit weapons/RifleCase 2
+$volume weapons/RifleCase 0.5
+Weapons/RifleCase RFCAS
 
 //$random chaingun/casing { chaingun/casing1 chaingun/casing2 chaingun/casing3 }
 //$volume chaingun/casing 0.5
@@ -77,6 +83,17 @@ Weapons/BFLUEnd BFLUFIN
 Weapons/BFLUP1 BFLUPSND
 Weapons/BFLUP2 BFLUPSN2
 Weapons/BFLIdle BFLIDLE
+
+//Assault Rifle Sounds
+$random weapons/AR36  { weapons/AR361 weapons/AR362} 
+weapons/ar361	AR361
+weapons/ar362	AR362
+weapons/ardmr	ARDMR
+weapons/argrenade ARGREN
+weapons/arout AROUT
+weapons/arin ARMAG
+weapons/arbolt ARBOLT
+weapons/arswitch ARSWITC
 
 //Bubble Shield
 Powerup/ShieldUp ShieldUp
