@@ -23,6 +23,7 @@ class DemonsBane : weapon replaces shotgun
         Weapon.AmmoUse1 1;
         Weapon.AmmoUse2 1;
         Weapon.AmmoGive1 2;
+		Inventory.PickupSound ("weapons/ONUClose");
         Inventory.PickupMessage "You picked up the Demon's Bane over and under shotgun!";
         Obituary "%o was blown away by %k's Demon's Bane";
         Weapon.SlotNumber 3;

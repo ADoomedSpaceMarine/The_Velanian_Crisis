@@ -2,6 +2,7 @@ class ARClip : ammo
 {
 	default
 	{
+		Inventory.PickupSound ("weapons/arout");	
 		Inventory.Icon "ARPU0";
 		Inventory.MaxAmount 30;
 	}
@@ -9,8 +10,10 @@ class ARClip : ammo
 
 class RifleAmmo : Ammo
 {
+
 	default
-	{ 
+	{
+	Inventory.PickupSound ("weapons/arin");	
 	Inventory.PickupMessage "Picked up a clip of rifle rounds.";
 	Inventory.Amount 30;
 	Inventory.MaxAmount 480;	
@@ -30,6 +33,7 @@ Class RifleBox : RifleAmmo Replaces ClipBox
 {
 	default
 	{
+	Inventory.PickupSound ("weapons/arin");
 	Inventory.PickupMessage "You picked up a box of rifle bullets!"; // "Picked up a box of bullets.";
 	Inventory.Amount 60;
 	}
@@ -48,10 +52,11 @@ class AR36 : weapon replaces chaingun
 	
 	Default
 	{
+		Inventory.PickupSound ("weapons/arbolt");
 		Weapon.SelectionOrder 1500;
 		Weapon.BobStyle "smooth";
 		Weapon.AmmoUse1 1;
-		Weapon.AmmoUse2 0;
+		Weapon.AmmoUse2 1;
 		Weapon.AmmoGive1 0;
 		Weapon.AmmoGive2 30;
 		Weapon.AmmoType "ARClip";

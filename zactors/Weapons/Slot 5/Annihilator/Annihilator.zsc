@@ -9,6 +9,7 @@ Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserv
 Class AnnAmmo : Ammo Replaces RocketAmmo //Replace Rocket Launcher ammo
 {
 Default{ 
+  Inventory.PickupSound ("weapons/ANNIn");
   Inventory.PickupMessage "Picked up a clip of Annihilator rockets."; 
   Inventory.Amount 4;
   Inventory.MaxAmount 80;
@@ -28,6 +29,7 @@ Class AnnBox : AnnAmmo Replaces Rocketbox //This class replaces the box of rocke
 {
   Default
   {
+  Inventory.PickupSound ("weapons/ANNIn");
   Inventory.PickupMessage "Picked up a box of Annihilator rockets.";
   Inventory.Amount 8;
   }
@@ -46,6 +48,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
  int MirvCheck;
  
   Default{
+	  Inventory.PickupSound ("weapons/ANNSlap");
 	  Weapon.SelectionOrder 2500;
       Weapon.BobStyle "smooth";
       Weapon.AmmoUse1 1;
