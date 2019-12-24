@@ -459,6 +459,19 @@ class AR36 : weapon replaces chaingun
 		goto Ready;
 
 	WeaponFirstUp:
+	 TNT1 A 0 {
+            if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+                return ResolveState ("Ready");
+
+            int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+            if (ammoAmount <= 0)
+                return ResolveState ("Ready");
+
+            GiveInventory (invoker.ammoType1, ammoAmount);
+            TakeInventory (invoker.ammoType2, ammoAmount);
+
+            return ResolveState (null);
+		}	
 		ARRE H 3;
 		ARRE I 3;
 		ARRE J 3;
