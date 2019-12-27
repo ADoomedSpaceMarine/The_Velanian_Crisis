@@ -24,13 +24,10 @@ ACTOR TankPlayer : DoomPlayer
   Player.StartItem "Annihilator"
   Player.StartItem "Fist"
   Player.StartItem "Demonsbane"
-  Player.StartItem "AR36"
   Player.StartItem "BFL10k"
-  Player.StartItem "Pistol"
   Player.StartItem "AnnAmmo", 30
-  Player.StartItem "Shell", 24
-  Player.StartItem "RifleAmmo", 240
-  Player.StartItem "Cell", 300
+  Player.StartItem "Shell", 18
+  Player.StartItem "Cell", 150
   
   States
   {
@@ -96,7 +93,7 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.StartItem "Pistol"
   Player.StartItem "Demonsbane"
   Player.StartItem "Fist"
-  Player.StartItem "Shell", 50
+  Player.StartItem "Shell", 24
   Player.StartItem "Clip", 50
     
   States
@@ -156,13 +153,13 @@ ACTOR CyberMarine : DoomPlayer
   DamageFactor "BFLBeam", 0
   Player.MaxHealth 150
   Health 150
-  Player.DisplayName "The Cybermarine"
+  Player.DisplayName "The Commando"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Demonsbane"
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
-  Player.StartItem "RifleAmmo", 300
-  Player.StartItem "Clip", 100
+  Player.StartItem "RifleAmmo", 270
+  Player.StartItem "Clip", 50
   Player.StartItem "AnnAmmo", 10
   Player.StartItem "Shell", 16
   Player.StartItem "AnnClip", 4
@@ -240,7 +237,6 @@ Actor CombatVeteran : DoomPlayer
   Player.StartItem "AnnAmmo", 40
   Player.StartItem "RifleAmmo", 240
   Player.StartItem "Clip", 50
-  Player.StartItem "ARClip", 30
   Player.StartItem "AR36", 1
   
   States

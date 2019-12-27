@@ -56,7 +56,7 @@ class AR36 : weapon replaces chaingun
 		Weapon.SelectionOrder 1500;
 		Weapon.BobStyle "smooth";
 		Weapon.AmmoUse1 1;
-		Weapon.AmmoUse2 1;
+		Weapon.AmmoUse2 0;
 		Weapon.AmmoGive1 0;
 		Weapon.AmmoGive2 30;
 		Weapon.AmmoType "ARClip";
@@ -64,8 +64,11 @@ class AR36 : weapon replaces chaingun
 		Weapon.SlotNumber 4;
 		Weapon.SlotPriority 2;
 		Weapon.UpSound "Weapons/GunUp1";
-		+WEAPON.AMMO_CHECKBOTH
-		+Weapon.NoAutoFire
+		Weapon.MinSelectionAmmo1 1;
+		Weapon.MinSelectionAmmo2 1;
+		+Weapon.NoAutoFire;
+		+WEAPON.AMMO_CHECKBOTH;
+		+Weapon.NOALERT
 		Inventory.PickupMessage "You found the UAC DeltaTech AR-36 Assault Rifle!";
 		Obituary "%o was shot down by %k's UAC AR-36!";
 		decal "BulletChip";
@@ -83,6 +86,7 @@ class AR36 : weapon replaces chaingun
 		Deselect:
 			TNT1 A 0
 			{
+				A_ZoomFactor(1);
 				if(CountInv("RifleAmmo") == 0)
 				{
 					ACS_Execute(1238,0);
@@ -94,6 +98,7 @@ class AR36 : weapon replaces chaingun
 		Ready:
 		TNT1 A 0
 		{
+			A_ZoomFactor(1);
 			if(invoker.initialUp == 0)
 			{
 				invoker.initialUp = 1;
@@ -106,15 +111,44 @@ class AR36 : weapon replaces chaingun
 		}
 			AR36 A 1 
 			{	
-				A_WeaponReady(WRF_AllowReload);
-				A_WeaponReady(WRF_AllowUser1);
-				A_WeaponReady(WRF_AllowUser2);
+				A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
 			}
 			loop;
+		
+		Ready2:	
+			ARIS A 1 
+			{	
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+	        A_ZoomFactor(1.5,ZOOM_INSTANT);
+			int input = GetPlayerInput(INPUT_BUTTONS);
+			if (input & BT_ALTATTACK)
+				{
+				if(input != BT_ATTACK && input == BT_ALTATTACK)
+				{
+					A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+					return ResolveState ("AltFire");
+				}
+				Else
+				{	
+					A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+					return ResolveState (null);
+				}
+			}
+			else 
+			{
+			A_ZoomFactor(1);
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			return ResolveState ("Ready");
+			}
+		}
+	wait;
+	
+		
 		
 		User1:
 			TNT1 A 0
 			{
+			A_ZoomFactor(1);
 			  if(Invoker.fireMode == 2)           //If the shot type variable is equal to three
                 {
                 invoker.fireMode = 0;               //reset ShotType to 0 (Buckshot)
@@ -129,6 +163,7 @@ class AR36 : weapon replaces chaingun
 		User2:
 			TNT1 A 0
 			{
+			A_ZoomFactor(1);
 			  if(Invoker.fireMode == 0)           //If the shot type variable is equal to three
                 {
                 invoker.fireMode = 2;               //reset ShotType to 0 (Buckshot)
@@ -185,6 +220,7 @@ class AR36 : weapon replaces chaingun
 		
 		TNT1 A 0 
 		{
+		A_AlertMonsters();
 			if(invoker.fireMode == 0)
 			{
 				return ResolveState ("FireAuto");
@@ -204,11 +240,74 @@ class AR36 : weapon replaces chaingun
 		}
 		goto ready;
 		
+	AltFire:
+		AltFire:
+		TNT1 A 0 A_ZoomFactor(1.5);
+		ARIS A 1 {
+		A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+		int input = GetPlayerInput(INPUT_BUTTONS);
+		if (input & BT_ALTATTACK)
+		{	
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			if (input & BT_ATTACK)
+			{
+				return ResolveState("AltShoot");
+			}
+		}
+		else
+		{
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			A_ZoomFactor(1);
+			return ResolveState("Ready");
+		}
+		A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+		return ResolveState(null);
+	}
+	Wait;
+	
+	AltShoot:
+	TNT1 A 0
+		{
+		
+			if(countInv("ARClip") == 0)
+			{
+				return ResolveState ("DryFire");
+			}
+			else
+			{
+				return ResolveState (null);
+			}
+		}
+		
+		TNT1 A 0 
+		{
+		A_AlertMonsters();
+			if(invoker.fireMode == 0)
+			{
+				return ResolveState ("AltFireAuto");
+			}
+			else if(invoker.fireMode == 1)
+			{	
+				return ResolveState ("AltFireBurst");
+			}
+			else if(invoker.fireMode == 2)
+			{
+				return ResolveState ("AltFireSemi");
+			}
+			else
+			{
+				return ResolveState (null);
+			}
+		}
+		goto ready;
+	
+		
 //GrenadeFire
 	GrenadeFire:
 		AR36 A 2; 
 		AR3G A 2 
 		{
+		A_AlertMonsters();
 		A_PlaySound("weapons/argrenade");
 		A_FireProjectile("HPGrenade",0 , 1, 0, -1);
 		}
@@ -236,7 +335,7 @@ class AR36 : weapon replaces chaingun
 
 //Automatic Fire		
 		FireAuto:
-						TNT1 A 0
+			TNT1 A 0
 			{
 				if(countInv("ARClip") == 0)
 				{
@@ -249,7 +348,7 @@ class AR36 : weapon replaces chaingun
 			}
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright A_Light(1);
-			TNT1 A 0 A_FireBullets(Random(3,4), Random(0,2), 1, random(8,9), "BulletPuff");
+			TNT1 A 0 A_FireBullets(Random(2,3), Random(0,2), 1, random(8,10), "BulletPuff");
 			AR3F B 1 Bright A_Light(2);
 			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
 			AR3R B 1  
@@ -265,6 +364,41 @@ class AR36 : weapon replaces chaingun
 				AR36 A 1 A_ReFire;
 			
 			goto Ready;
+			
+//AltAutomatic Fire		
+		AltFireAuto:
+						TNT1 A 0
+			{
+				if(countInv("ARClip") == 0)
+				{
+					return ResolveState ("DryFire");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
+			ARIF A 1 Bright A_Light(1);
+			TNT1 A 0 
+			{
+			A_FireBullets(Random(2,3), Random(0,1), 1, random(8,10), "BulletPuff");
+			TakeInventory("ARClip", 1);
+			}
+			ARIF B 1 Bright A_Light(2);
+			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105)); 
+			ARIR B 1  
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(1.49,ZOOM_INSTANT);
+			}
+				ARIR C 1  
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.5, ZOOM_INSTANT);
+			}
+			ARIS A 1 A_ReFire;
+			goto AltFire;
 
 //Fire Burst
 		FireBurst:
@@ -283,7 +417,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 3), random(0,3), 1, random(8,9),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			AR3F B 1 Bright 
@@ -316,7 +450,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 3), random(0,3), 1, random(8,9),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			AR3F B 1 Bright 
@@ -349,7 +483,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 3), random(0,3), 1, random(8,9),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			AR3F B 1 Bright 
@@ -370,6 +504,112 @@ class AR36 : weapon replaces chaingun
 			}
 			AR36 A 1 A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);  
 			goto Ready;
+			
+AltFireBurst:
+			TNT1 A 0
+			{
+				if(countInv("ARClip") == 0)
+				{
+					return ResolveState ("DryFire");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+//Fire First Shot
+			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
+			ARIF A 1 Bright 
+			{
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
+			TakeInventory("ARClip", 1);
+			A_Light(1);
+			}
+			ARIF B 1 Bright 
+			{
+			A_Light(2); 
+			A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105)); 
+			}
+			ARIR B 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(1.49,ZOOM_INSTANT);
+			}
+				TNT1 A 0
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.5, ZOOM_INSTANT);
+			}
+//Fire Second Shot
+			TNT1 A 0
+			{
+				if(countInv("ARClip") == 0)
+				{
+					return ResolveState ("DryFire");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
+			ARIF A 1 Bright 
+			{
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
+			TakeInventory("ARClip", 1);
+			A_Light(1);
+			}
+			ARIF B 1 Bright 
+			{
+			A_Light(2); 
+			A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105)); 
+			}
+			ARIR B 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(1.49,ZOOM_INSTANT);
+			}
+				TNT1 A 0  
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.5, ZOOM_INSTANT);
+			}
+//Fire Third Shot
+			TNT1 A 0
+			{
+				if(countInv("ARClip") == 0)
+				{
+					return ResolveState ("DryFire");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
+			ARIF A 1 Bright 
+			{
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
+			TakeInventory("ARClip", 1);
+			A_Light(1);
+			}
+			ARIF B 1 Bright 
+			{
+			A_Light(2); 
+			A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105)); 
+			}
+			ARIR A 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(1.49,ZOOM_INSTANT);
+			}
+				ARIR C 1   
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.5, ZOOM_INSTANT);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+			}
+			goto Ready2;			
 
 //Semi Auto Fire
 		FireSemi:
@@ -386,13 +626,13 @@ class AR36 : weapon replaces chaingun
 			}
 			TNT1 A 0 A_PlaySound("weapons/ardmr", Chan_Weapon);
 			AR3F A 1 Bright A_Light(1);
-			TNT1 A 0 A_FireBullets(2, 0, 1, 35, "BulletPuff");
+			TNT1 A 0 A_FireBullets(2, 1, 1, 30, "BulletPuff");
 			AR3F B 1 Bright A_Light(2);
 			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105));  
 			AR3R B 1
 			{
 				A_SetPitch(pitch-2.0);
-	            A_ZoomFactor(0.95,ZOOM_INSTANT);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
 			}
 				AR3R C 1   
 			{
@@ -402,14 +642,50 @@ class AR36 : weapon replaces chaingun
 			}
 			AR36 A 1 A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 			goto Ready;
+			
+AltFireSemi:
+			TNT1 A 0
+			{
+				if(countInv("ARClip") == 0)
+				{
+					return ResolveState ("DryFire");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			TNT1 A 0 A_PlaySound("weapons/ardmr", Chan_Weapon);
+			ARIF A 1 Bright A_Light(1);
+			TNT1 A 0 
+			{
+			A_FireBullets(1, 1, 1, 30, "BulletPuff");
+			TakeInventory("ARClip", 1);
+			}
+			ARIF B 1 Bright A_Light(2);
+			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105));  
+			ARIR B 1
+			{
+				A_SetPitch(pitch-2.0);
+	            A_ZoomFactor(1.485,ZOOM_INSTANT);
+			}
+				ARIR C 1   
+			{
+				A_SetPitch(pitch+2.0);
+	            A_ZoomFactor(1.5, ZOOM_INSTANT);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+			}
+			goto Ready2;
 
 		DryFire:
-			AR36 B 0 A_PlaySound ("Weapons/DryFire");   //Play dryfire sound
+			TNT1 A 0 A_ZoomFactor(1);
+			ARIS B 0 A_PlaySound ("Weapons/DryFire");   //Play dryfire sound
             goto Reload;                                 //goto ready state
 
 		Reload:
 		TNT1 A 0
 		{
+			A_ZoomFactor(1);
 			If(CountInv("RifleAmmo") <= 30)
 			{
 				ACS_Execute(1237);
