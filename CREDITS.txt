@@ -18,6 +18,7 @@ Sprite Edits:
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
 - Carrot (Shell Recolors)
 - Moa Dixon, Thanks for reworking a prettier Demon's Bane Reload!
+-TypicalSF, Thanks a ton for the initial ADS sprite for the AR36!
 
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
