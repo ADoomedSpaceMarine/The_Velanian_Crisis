@@ -13,17 +13,20 @@ Sprites:
 - AR36 originated from a user named Captain J.
 - Some Edits to add reload to AR were done myself
 - The bubble shield pickup was made by myself after making some minor alterations to the blursphere
+- The Battlehawk some origin sprites from Yukes Van Faust's Armory found here https://forum.zdoom.org/viewtopic.php?f=37&t=58655
+- Some ammo sprites online
+- D3Stakler for the EPIC BFL expansion sprites 
 
 Sprite Edits: 
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
 - Carrot (Shell Recolors)
 - Moa Dixon, Thanks for reworking a prettier Demon's Bane Reload!
--TypicalSF, Thanks a ton for the initial ADS sprite for the AR36!
+- TypicalSF, Thanks a ton for the initial ADS sprite for the AR36!
 
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
-- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots, the AR36 sounds and other resources
+- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots, the AR36 sounds and other resources, now including the deagle.
 - A Laser sound from Painkiller's "Project Bruatality" was used as a layer for the big fire of the BFL 10k
 
 HUD:
