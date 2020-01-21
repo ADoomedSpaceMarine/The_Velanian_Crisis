@@ -21,6 +21,7 @@ Class BFLBox : BFLAmmo
   Default
   {
   Inventory.PickupMessage "Picked up a BFL10K charge pack.";
+  Inventory.Amount 300;
   }
   States
   {
@@ -45,7 +46,7 @@ Class BFL10K : Weapon
       Weapon.AmmoType "Cell";
       Weapon.AmmoType2 "Cell";
       Weapon.SlotNumber 7;
-      Weapon.SlotPriority 3;
+      Weapon.SlotPriority 1;
       Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
 	    Inventory.PickupMessage "You Obtained the BFL-10k Electroatomic Photon Cannon!";

@@ -8,6 +8,7 @@
 #include "actors/Weapons/Explosives.txt"
 #include "actors/Weapons/Projectiles.txt"
 #include "actors/Weapons/WeaponTokens.txt"
+#include "actors/Spawners/spawners.dec"
 
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"

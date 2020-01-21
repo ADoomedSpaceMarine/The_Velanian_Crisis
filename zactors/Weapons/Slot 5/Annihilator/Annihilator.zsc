@@ -6,7 +6,7 @@ Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserv
 	}
 }
 
-Class AnnAmmo : Ammo Replaces RocketAmmo //Replace Rocket Launcher ammo
+Class AnnAmmo : Ammo  //Replace Rocket Launcher ammo
 {
 Default{ 
   Inventory.PickupSound ("weapons/ANNIn");
@@ -25,7 +25,7 @@ Default{
   }
 }
 
-Class AnnBox : AnnAmmo Replaces Rocketbox //This class replaces the box of rockets in Doom
+Class AnnBox : AnnAmmo //This class replaces the box of rockets in Doom
 {
   Default
   {
@@ -41,7 +41,7 @@ Class AnnBox : AnnAmmo Replaces Rocketbox //This class replaces the box of rocke
   }
 }
 
-Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher for Doom
+Class Annihilator : Weapon //Replacement Rocket Laucher for Doom
 {	
  int RocketsFired; 		//How many rockets have been fired
  int ShotType;		//This is a numerical value for what ammo is being used
@@ -58,7 +58,7 @@ Class Annihilator : Weapon replaces RocketLauncher //Replacement Rocket Laucher 
       Weapon.AmmoType "AnnClip";
       Weapon.AmmoType2 "AnnAmmo";
       Weapon.SlotNumber 5;
-      Weapon.SlotPriority 3;
+      Weapon.SlotPriority 1;
       Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
       +Weapon.NOAUTOAIM

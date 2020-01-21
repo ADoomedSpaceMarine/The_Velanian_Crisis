@@ -53,7 +53,7 @@ Script 3653 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"WARNING! Swtiching to experimental Photonuclear Acceleration Mode!.";
+	HudMessage(s:"WARNING: Swtiching to experimental Photonuclear Acceleration Mode!.";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -120,7 +120,7 @@ Script 1237 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"WARNING! AR ammo is running low!";
+	HudMessage(s:"WARNING: AR ammo is running low!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -131,7 +131,30 @@ Script 1238 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"CRITICAL WARNING! AR ammo depleted!";
+	HudMessage(s:"CRITICAL WARNING: AR ammo depleted!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Deagle Warnings
+Script 1239 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: .50 AE ammo depleted!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1240 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: .50 AE ammo is running low!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -179,7 +202,7 @@ Script 3658 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"WARNING! Switching to Hornet's Nest Homing Hive Missiles, watch enemy positioning!";
+	HudMessage(s:"WARNING: Switching to hornet's nest homing hive missiles, watch enemy positioning!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -190,7 +213,7 @@ Script 3659 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"WARNING! Switching to quad-shot MIRV rounds. Death is certain at close range!";
+	HudMessage(s:"WARNING: Switching to quad-shot MIRV rounds. Death is certain at close range!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);			
     Terminate;
@@ -201,7 +224,7 @@ Script 3660 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"WARNING! Switching to Magnus Cluster Bombs, Death is certain at close range!";
+	HudMessage(s:"WARNING: Switching to magnus cluster bombs, Death is certain at close range!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;

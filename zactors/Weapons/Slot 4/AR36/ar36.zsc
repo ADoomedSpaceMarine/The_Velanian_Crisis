@@ -1,9 +1,11 @@
+
+
 class ARClip : ammo
 {
 	default
 	{
 		Inventory.PickupSound ("weapons/arout");	
-		Inventory.Icon "ARPU0";
+		Inventory.Icon "ARPUA0";
 		Inventory.MaxAmount 30;
 	}
 }
@@ -14,38 +16,40 @@ class RifleAmmo : Ammo
 	default
 	{
 	Inventory.PickupSound ("weapons/arin");	
-	Inventory.PickupMessage "Picked up a clip of rifle rounds.";
+	Inventory.PickupMessage "Picked up an AR-36 clip.";
 	Inventory.Amount 30;
 	Inventory.MaxAmount 480;	
 	ammo.BackpackAmount 480;
 	Ammo.BackpackMaxAmount 960; 
-	Inventory.Icon "CLIPA0";
+	Inventory.Icon "ARPUA0";
+	scale .165;
 	}
 	States
 	{
 	Spawn:
-    CLIP A -1;
+    ARPU A -1;
     Stop;
   }
 }
 
-Class RifleBox : RifleAmmo Replaces ClipBox
+Class RifleBox : RifleAmmo 
 {
 	default
 	{
 	Inventory.PickupSound ("weapons/arin");
-	Inventory.PickupMessage "You picked up a box of rifle bullets!"; // "Picked up a box of bullets.";
-	Inventory.Amount 60;
+	Inventory.PickupMessage "You picked up a box of UAC 5.56 rifle rounds!"; // "Picked up a box of bullets.";
+	Inventory.Amount 120;
+	scale .165;
 	}
 	States
 	{
 	Spawn:
-		AMMO A -1;
+		RFBX A -1;
 		Stop;
   }
 }
 
-class AR36 : weapon replaces chaingun
+class AR36 : weapon
 {
 	int fireMode;
 	bool initialUp;
@@ -62,7 +66,7 @@ class AR36 : weapon replaces chaingun
 		Weapon.AmmoType "ARClip";
 		Weapon.AmmoType2 "RifleAmmo";
 		Weapon.SlotNumber 4;
-		Weapon.SlotPriority 2;
+		Weapon.SlotPriority 1;
 		Weapon.UpSound "Weapons/GunUp1";
 		Weapon.MinSelectionAmmo1 1;
 		Weapon.MinSelectionAmmo2 1;
@@ -87,7 +91,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0
 			{
 				A_ZoomFactor(1);
-				if(CountInv("RifleAmmo") == 0)
+				if(CountInv("RifleAmmo") == 0 && CountInv("ARClip") == 0)
 				{
 					ACS_Execute(1238,0);
 				}

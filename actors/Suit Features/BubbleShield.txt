@@ -37,7 +37,7 @@ ACTOR BubbleShield : CustomInventory
   }
 }
 
-ACTOR PickUpBubbleShield : CustomInventory Replaces BlurSphere
+ACTOR PickUpBubbleShield : CustomInventory 
 {
   +VISIBILITYPULSE
   +AUTOACTIVATE

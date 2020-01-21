@@ -3382,6 +3382,7 @@ script "CatsVisorHud" ENTER
 		  if(strICmp(weapon, "Revolver") == 0)       	       ammo = CheckInventory("AmmoShell"), ammo2 = CheckInventory("RevolverAmmo"), weicon="PINAEA", weaponname = "Revolver", ammocapa = GetAmmoCapacity("AmmoShell"), clipsize = 6;
 		  if(strICmp(weapon, "Revolver2") == 0)       	       ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("RevolverAmmo"), weicon="PINADA", weaponname = "Revolver", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 6;
 		  if(strICmp(weapon, "DualRevolver") == 0)       	   ammo = CheckInventory("RevolverBullets"), ammo2 = CheckInventory("DualRevolverAmmo"), weicon="PINAMA", weaponname = "Revolvers", ammocapa = GetAmmoCapacity("RevolverBullets"), clipsize = 12;
+		  if(strICmp(weapon, "Battlehawk") == 0)       	   ammo = CheckInventory("DeagleAmmo"), ammo2 = CheckInventory("DeClip"), weicon="PINAMA", weaponname = ".50 AE UAC Battlehawk", ammocapa = GetAmmoCapacity("DeagleAmmo"), clipsize = 7;
 		  if(strICmp(weapon, "PerkPistol") == 0)          	   ammo = CheckInventory("Clip"),ammo2 = -1, weicon="PINADA", weaponname = "Pistol", ammocapa = GetAmmoCapacity("Clip"), clipsize =ammocapa;
 		  if(strICmp(weapon, "LDPistol") == 0)          	   ammo = CheckInventory("Clip"),ammo2 = -1, weicon="PINADA", weaponname = "Pistol", ammocapa = GetAmmoCapacity("Clip"), clipsize =ammocapa;	
 			//Slot 2 (SMG)

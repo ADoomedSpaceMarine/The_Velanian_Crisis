@@ -95,6 +95,17 @@ weapons/arin ARMAG
 weapons/arbolt ARBOLT
 weapons/arswitch ARSWITC
 
+//Deagle Sounds
+$random weapons/DEAGLE  { weapons/DEAGL1 weapons/DEAGL2 weapons/DEAGL3} 
+weapons/DEAGL1	DEAG1
+weapons/DEAGL2	DEAG2
+weapons/DEAGL3	DEAG3
+weapons/deagout	DEOUT
+weapons/deagin DEAGIN
+weapons/deagslap DESLAP
+weapons/deagback DEBACK
+weapons/deagforward DEREL
+
 //Bubble Shield
 Powerup/ShieldUp ShieldUp
 Powerup/ShieldBrk ShieldBK

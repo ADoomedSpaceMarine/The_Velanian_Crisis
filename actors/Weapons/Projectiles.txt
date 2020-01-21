@@ -155,13 +155,12 @@ Actor BFLUltShot
   States
   {
   Spawn:
-    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
     BFLB A 1 Bright A_SpawnItemEx("UltBFLTrail", -5)
-    Goto DmgLoop
+    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
+	Goto DmgLoop
   DmgLoop:
-    BLFB A 1 A_SpawnItemEx("UltBFLTrail", -5)
     BFLB A 1 Bright A_Explode(600,230,0,0,0,0,0,BulletPuff,"BFLBeam")
-	BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
+	BFLB A 1 A_SpawnItemEx("LargeBFLTrail", -5)
     Loop
   Death:
     BFLB BCDEFG 2 Bright

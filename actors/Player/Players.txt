@@ -238,6 +238,8 @@ Actor CombatVeteran : DoomPlayer
   Player.StartItem "RifleAmmo", 240
   Player.StartItem "Clip", 50
   Player.StartItem "AR36", 1
+  Player.StartItem "Battlehawk", 1 
+  Player.StartItem "DeagleAmmo", 35
   
   States
     {
