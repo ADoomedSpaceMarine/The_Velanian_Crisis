@@ -43,8 +43,8 @@ Class BFL10K : Weapon
       Weapon.AmmoUse1 5;
       Weapon.AmmoUse2 50;
       Weapon.AmmoGive1 80;
-      Weapon.AmmoType "Cell";
-      Weapon.AmmoType2 "Cell";
+      Weapon.AmmoType "BFLAmmo";
+      Weapon.AmmoType2 "BFLAmmo";
       Weapon.SlotNumber 7;
       Weapon.SlotPriority 1;
       Weapon.UpSound "Weapons/GunUp1";

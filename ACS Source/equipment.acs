@@ -21,15 +21,12 @@ Script "InventoryEnabler" Enter
 		GiveInventory("gogsFound", 1);
 		Break;
 	Case 2:
+    	GiveInventory("gogsFound", 1);
 		Break;
 	Case 3:
-		GiveInventory("BubbleFound", 1);
 		BubbleState = 1;
 		Break;
 	Case 4:
-		GiveInventory("gogsFound", 1);
-		GiveInventory("BubbleFound", 1);
-		BubbleState = 1;
 		Break;
 		}
 	Terminate;

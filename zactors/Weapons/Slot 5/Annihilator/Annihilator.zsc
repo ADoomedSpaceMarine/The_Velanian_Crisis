@@ -58,7 +58,7 @@ Class Annihilator : Weapon //Replacement Rocket Laucher for Doom
       Weapon.AmmoType "AnnClip";
       Weapon.AmmoType2 "AnnAmmo";
       Weapon.SlotNumber 5;
-      Weapon.SlotPriority 1;
+      Weapon.SlotPriority 0;
       Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
       +Weapon.NOAUTOAIM

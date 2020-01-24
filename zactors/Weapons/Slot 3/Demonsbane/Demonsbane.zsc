@@ -16,7 +16,7 @@ class DemonsBane : Weapon
 
     default
     {
-        Weapon.SelectionOrder 1400;
+        Weapon.SelectionOrder 325;
         Weapon.BobStyle "smooth";
         Weapon.AmmoType1 "Shell";
         Weapon.AmmoType2 "Shell";
@@ -27,7 +27,7 @@ class DemonsBane : Weapon
         Inventory.PickupMessage "You picked up the Demon's Bane over and under shotgun!";
         Obituary "%o was blown away by %k's Demon's Bane";
         Weapon.SlotNumber 3;
-        Weapon.SlotPriority 1;
+        Weapon.SlotPriority 3;
         Weapon.UpSound "Weapons/GunUp1";
         Weapon.KickBack 120;
         +Weapon.NOAUTOFIRE;
@@ -170,7 +170,7 @@ class DemonsBane : Weapon
                 }
             }
             ONUG A 1 A_GunFlash;                                                                    //Play gun flash animation
-            ONUG A 2                                                                                //Proceed to fire the gun
+            ONUG A 1                                                                              //Proceed to fire the gun
             {
                 A_PlaySound ("Weapons/DBSHOT", CHAN_AUTO);                                           //Play the fire sound
                 switch(invoker.ShotType)                                                            //Determine what type of shot to fire
@@ -180,28 +180,32 @@ class DemonsBane : Weapon
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
 
                     case 1: //Slug Fired
                     A_FireBullets(random(1,2), random (1,2), 1, random(160,175), "bulletpuff");     //Fire the slug
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
 
                     case 2: //Flechette Fired
                     A_FireBullets(random(2,3), random (2,3), 10, random(9,12), "bulletpuff");       //Fire the flechettes
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
 
                     case 3: //Frag-12 Fired
                     A_FireProjectile("FRAG12", 0, 1, 0, 0);                                           //Fire A Frag-12
                     A_Recoil(3*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
                 }
             }
                                                                                                     //Additional recoil calls below here
@@ -259,28 +263,32 @@ class DemonsBane : Weapon
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
 
                     case 1: //Slug Fired
                     A_FireBullets(random(1,2), random (1,2), 1, random(160,175), "bulletpuff");     //Fire the slug
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
 
                     case 2: //Flechette Fired
                     A_FireBullets(random(2,3), random (2,3), 10, random(9,12), "bulletpuff");       //Fire the flechettes
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+					A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);                   
+				    break;                                                                          //Break out of the switch block
 
                     case 3: //Frag-12 Fired
                     A_FireProjectile("FRAG12", 0, 1, 0, 0);                                           //Fire A Frag-12
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil            
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
-                    break;                                                                          //Break out of the switch block
+                    A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+					break;                                                                          //Break out of the switch block
                 }
             }
                                                                                                     //Additional recoil calls below here
@@ -453,8 +461,8 @@ class DemonsBane : Weapon
             ONUR F 1 A_PlaySound("Weapons/ONUOpen");
             ONUR GHIJ 1;
             ONUR K 1 A_PlaySound("Weapons/ONULoad");
-            ONUR LM 2;
-            ONUR N 2 A_PlaySound("Weapons/ONULoad");
+            ONUR LM 1;
+            ONUR N 1 A_PlaySound("Weapons/ONULoad");
             ONUR OPQRS 1;
             ONUR T 1 A_PlaySound("Weapons/ONUClose");
             ONUR UVWXYZ 1;

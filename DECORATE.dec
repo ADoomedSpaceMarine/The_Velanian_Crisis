@@ -2,6 +2,7 @@
 
 //Monster Includes
 #include "actors/Monsters/EasyGame/ZombieDude.txt"
+#include "actors/Monsters/EasyGame/ShotgunDude.txt"
 
 //General Includes
 #include "actors/Player/Players.txt"

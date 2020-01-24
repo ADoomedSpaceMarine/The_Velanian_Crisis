@@ -1,58 +1,21 @@
-actor Shotgun2 : Shotgun 
-{
-     Weapon.SlotNumber 3
-     Weapon.SlotPriority 2
-}
-actor ShotgunSpawner : RandomSpawner replaces Shotgun
-{
-    DropItem "Shotgun2", 255, 2
-    DropItem "Demonsbane", 255, 1
-}
-
-actor Clip2 : clip
-{
-Inventory.Amount 14
-}
+actor Clip2 : clip{}
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "Clip2", 255, 1
-    DropItem "RifleAmmo", 255, 2
+    DropItem "Clip2", 255, 2
 	DropItem "DeagleAmmo", 255, 2
-	DropItem "Pistol2", 255, 1
+    DropItem "RifleAmmo", 255, 2
+	DropItem "Pistol", 255, 1
 }
 
 actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
 {
-    DropItem "ClipBox2", 255, 1
-    DropItem "RifleBox", 255, 2
-	DropItem "DeagleBox", 255, 3
+	DropItem "DeagleBox", 255, 2
+    DropItem "ClipBox2", 255, 2
+	DropItem "RifleBox", 255, 3
 }
 
-actor Pistol2 : Pistol
-{
-      Weapon.SlotNumber 2
-      Weapon.SlotPriority 2
-}
-actor Tier2AmmoSpawner : RandomSpawner replaces Pistol
-{
-    DropItem "Pistol2", 255, 4
-    DropItem "Battlehawk", 255, 1
-}
-
-
-actor CellPack2 : CellPack{}
-actor BFLAmmoSpawner : RandomSpawner replaces CellPack
-{
-    DropItem "CellPack2", 255, 1
-    DropItem "BFLBox", 255, 1
-}
-
-actor Chaingun2 : Chaingun
-{
-      Weapon.SlotNumber 4
-      Weapon.SlotPriority 2
-}
+actor Chaingun2 : Chaingun{}
 actor SlotFourSpawner : RandomSpawner replaces Chaingun
 {
     DropItem "Chaingun2", 255, 1
@@ -62,28 +25,33 @@ actor SlotFourSpawner : RandomSpawner replaces Chaingun
 actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
 {
-    DropItem "ZombieDude", 255, 3
+    DropItem "ZombieDude", 255, 2
     DropItem "BattleHZombie", 255, 1
+	DropItem "AssaultZombie", 255, 1
 }
 
+actor ShotgunDude : RandomSpawner replaces ShotgunGuy
+{
+    DropItem "ShotgunGuy2", 255, 2
+    DropItem "DBShotgunGuy", 255, 1
+}
 actor RocketLauncher2 : RocketLauncher
 {
      Weapon.SlotNumber 5
-     Weapon.SlotPriority 2
+     Weapon.SlotPriority 0
 }
+
 actor tier5Spawner1 : RandomSpawner replaces RocketLauncher 
 {
     DropItem "RocketLauncher2", 255, 1
-    DropItem "Annihilator", 255, 1
+    DropItem "Annihilator", 255, 2
 }
-
 actor RocketAmmo2 : RocketAmmo{}
 actor tier5AmmoSpawner1 : RandomSpawner replaces RocketAmmo 
 {
     DropItem "RocketAmmo2", 255, 1
     DropItem "AnnAmmo", 255, 1
 }
-
 actor RocketBox2 : RocketBox{}
 actor tier5BoxSpawner2 : RandomSpawner replaces RocketBox
 {
@@ -91,6 +59,23 @@ actor tier5BoxSpawner2 : RandomSpawner replaces RocketBox
     DropItem "AnnBox", 255, 1
 }
 
+
+actor BFG2 : BFG9000
+{
+     Weapon.SlotNumber 5
+     Weapon.SlotPriority 0
+}
+actor BFGSpawner : RandomSpawner replaces bfg9000
+{
+    DropItem "BFG2", 255, 1
+    DropItem "BFL10K", 255, 1
+}
+actor CellPack2 : CellPack{}
+actor BFLAmmoSpawner : RandomSpawner replaces CellPack
+{
+    DropItem "CellPack2", 255, 1
+    DropItem "BFLBox", 255, 1
+}
 
 actor BlurSphere2 : BlurSphere{}
 actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
@@ -118,6 +103,7 @@ actor Shell2 : shell
 
 actor ShellBox2 : Shell replaces shellbox
 {
+	Inventory.PickupSound "Weapons/ONUClose"
 	Inventory.PickupMessage "Picked up a box of shells" 
 	Inventory.Amount 25
 	scale .155

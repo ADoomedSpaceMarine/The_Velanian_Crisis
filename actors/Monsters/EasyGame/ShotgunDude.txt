@@ -1,0 +1,122 @@
+ACTOR DbShotgunGuy
+{
+  Health 40
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 10
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "shotguy/sight"
+  AttackSound "shotguy/attack"
+  PainSound "shotguy/pain"
+  DeathSound "shotguy/death"
+  ActiveSound "shotguy/active"
+  Obituary "$OB_SHOTGUY"
+  DropItem "DemonsBane"
+  States
+  {
+  Spawn:
+    SPOS AB 10 A_Look
+    Loop
+  See:
+    SPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    SPOS E 4 A_FaceTarget
+	SPOS F 1 bright A_PlaySound("weapons/dbshot", CHAN_AUTO)
+	SPOS F 2 bright A_CustomBulletAttack(22.5, 0, 9, random(1,2)*3, "BulletPuff", 0, CBAF_NORANDOM)
+    SPOS E 2
+	SPOS F 1 bright A_PlaySound("weapons/dbshot", CHAN_AUTO)
+	SPOS F 2 bright A_CustomBulletAttack(22.5, 0, 9, random(1,2)*3, "BulletPuff", 0, CBAF_NORANDOM)
+    SPOS E 6
+	{
+		A_PlaySound("weapons/ONUOPEN", CHAN_Auto);
+		A_SpawnItemEx("BuckCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),random(2,3),0,random(5,7),	random(90,105)) ;
+		A_SpawnItemEx("BuckCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(20,22),random(2,3),0,random(5,7),	random(100,110));
+	}
+	SPOS E 3 A_PlaySound("weapons/ONULoad", CHAN_AUTO)
+	SPOS E 3 A_PlaySound("weapons/ONULoad", CHAN_AUTO)
+	SPOS E 6 A_PlaySound("weapons/ONUclose", CHAN_AUTO)
+    Goto See
+  Pain:
+    SPOS G 3
+    SPOS G 3 A_Pain
+    Goto See
+  Death:
+    SPOS H 5
+    SPOS I 5 A_Scream
+    SPOS J 5 A_NoBlocking
+    SPOS K 5
+    SPOS L -1
+    Stop
+  XDeath:
+    SPOS M 5
+    SPOS N 5 A_XScream
+    SPOS O 5 A_NoBlocking
+    SPOS PQRST 5
+    SPOS U -1
+    Stop
+  Raise:
+    SPOS L 5
+    SPOS KJIH 5
+    Goto See
+  }
+}
+
+ACTOR ShotgunGuy2
+{
+  Health 30
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 8
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "shotguy/sight"
+  AttackSound "shotguy/attack"
+  PainSound "shotguy/pain"
+  DeathSound "shotguy/death"
+  ActiveSound "shotguy/active"
+  Obituary "$OB_SHOTGUY"
+  DropItem "Shotgun"
+  States
+  {
+  Spawn:
+    SPOS AB 10 A_Look
+    Loop
+  See:
+    SPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    SPOS E 10 A_FaceTarget
+    SPOS F 10 Bright A_SPosAttackUseAtkSound
+	TNT1 A 0 A_SpawnItemEx("BuckCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)) 
+    SPOS E 10
+    Goto See
+  Pain:
+    SPOS G 3
+    SPOS G 3 A_Pain
+    Goto See
+  Death:
+    SPOS H 5
+    SPOS I 5 A_Scream
+    SPOS J 5 A_NoBlocking
+    SPOS K 5
+    SPOS L -1
+    Stop
+  XDeath:
+    SPOS M 5
+    SPOS N 5 A_XScream
+    SPOS O 5 A_NoBlocking
+    SPOS PQRST 5
+    SPOS U -1
+    Stop
+  Raise:
+    SPOS L 5
+    SPOS KJIH 5
+    Goto See
+  }
+}

@@ -6,26 +6,25 @@ ACTOR VanillaMan : DoomPlayer
   Player.StartItem "Pistol"
   Player.StartItem "Fist"
   Player.StartItem "clip", 50
-  Player.StartItem "ARClip", 30
 }  
 
 ACTOR TankPlayer : DoomPlayer
 {
   DamageFactor "Normal", 0.7
+  RadiusDamageFactor 0.7
   DamageFactor "BFLCharge", 0
   DamageFactor "BFLBeam", 0
-  RadiusDamageFactor 0.7
   Player.MaxHealth 200
   Health 200
-  Speed 0.875
+  Speed 0.9
   Player.JumpZ 8
   Player.DisplayName "The Tank"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Annihilator"
-  Player.StartItem "Fist"
   Player.StartItem "Demonsbane"
   Player.StartItem "BFL10k"
   Player.StartItem "AnnAmmo", 30
+  Player.StartItem "Fist"
   Player.StartItem "Shell", 18
   Player.StartItem "Cell", 150
   
@@ -90,12 +89,10 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.JumpZ 12
   Player.DisplayName "The Rogue"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "Pistol"
   Player.StartItem "Demonsbane"
-  Player.StartItem "Fist"
   Player.StartItem "Shell", 24
-  Player.StartItem "Clip", 50
-    
+  Player.StartItem "Fist"    
+  
   States
   {
   Spawn:
@@ -155,16 +152,10 @@ ACTOR CyberMarine : DoomPlayer
   Health 150
   Player.DisplayName "The Commando"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "Demonsbane"
-  Player.StartItem "Pistol"
-  Player.StartItem "Fist"
-  Player.StartItem "RifleAmmo", 270
-  Player.StartItem "Clip", 50
-  Player.StartItem "AnnAmmo", 10
-  Player.StartItem "Shell", 16
-  Player.StartItem "AnnClip", 4
   Player.StartItem "AR36", 1
-
+  Player.StartItem "RifleAmmo", 300
+  Player.StartItem "AnnAmmo", 10
+  Player.StartItem "Fist"
 
   States
     {
@@ -227,19 +218,11 @@ Actor CombatVeteran : DoomPlayer
   Health 180
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "BFL10k"
-  Player.StartItem "Cell", 240
-  Player.StartItem "Annihilator"
   Player.StartItem "Demonsbane"
-  Player.StartItem "Pistol"
-  Player.StartItem "Fist"
   Player.StartItem "Shell", 24
-  Player.StartItem "AnnAmmo", 40
-  Player.StartItem "RifleAmmo", 240
-  Player.StartItem "Clip", 50
-  Player.StartItem "AR36", 1
   Player.StartItem "Battlehawk", 1 
   Player.StartItem "DeagleAmmo", 35
+  Player.StartItem "Fist"
   
   States
     {
