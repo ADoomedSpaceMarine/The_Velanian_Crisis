@@ -160,8 +160,50 @@ Script 1240 (void)
     Terminate;
 }
 
+//Glock Warnings
+Script 1241 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: 9mm ammo depleted!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
 
+Script 1242 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: 9mm ammo is running low!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
 
+Script 1243(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to fully automatic fire.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1244(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to semi-automatic fire.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
 //Annihilator Messages
 
 Script 3655 (void)

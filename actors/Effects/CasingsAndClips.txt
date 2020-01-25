@@ -34,7 +34,7 @@ Scale .15
 }
 
 
-ACTOR PistolCasing : GenericCasing
+ACTOR DeagleCasing : GenericCasing
 {
 Scale .0135
 bouncesound "weapons/casing"
@@ -64,6 +64,69 @@ States
 		wait
 	}
 }
+
+ACTOR 9mmCasing : GenericCasing
+{
+Scale .012
+bouncesound "weapons/casing"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(velz == 0,"Death")
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		TNT1 A 0 A_jump(256,1,2,3)
+		9MMS I 30
+		wait
+		9MMS J 30
+		wait
+		9MMS K 30
+		wait
+	}
+}
+
+ACTOR PistolCasing : GenericCasing
+{
+Scale .0135
+bouncesound "weapons/casing"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		9MMS ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		TNT1 A 0 A_JumpIf(velz == 0,"Death")
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		TNT1 A 0 A_jump(256,1,2,3)
+		9MMS I 30
+		wait
+		9MMS J 30
+		wait
+		9MMS K 30
+		wait
+	}
+}
+
 
 Actor PistolCasingSpawner
 {
@@ -356,6 +419,32 @@ States
 		TNT1 A 0 A_Jump(128,2)
 		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
 		DECL I 30
+		wait
+	}
+}
+
+
+ACTOR GlockEmptyClip : GenericCasing
+{ 
+Scale 0.05
+bouncesound "weapons/ANNBounce"
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_QueueCorpse
+		TNT1 A 0 A_Jump(256,1,2,3,4,5,6,7,8)
+		GKEM ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		GKEM ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		GKEM ABCDEFGH 1 A_JumpIf(waterlevel > 0, "Death")
+		TNT1 A 0
+		goto spawn+3
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Jump(128,2)
+		TNT1 A 0 A_SetScale(scalex*(-1),scaley)
+		GKEM I 30
 		wait
 	}
 }

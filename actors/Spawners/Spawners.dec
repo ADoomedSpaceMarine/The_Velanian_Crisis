@@ -1,7 +1,8 @@
 actor Clip2 : clip{}
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "Clip2", 255, 2
+    DropItem "GlockBullets", 255, 2
+	DropItem "GlockAmmo", 255, 2
 	DropItem "DeagleAmmo", 255, 2
     DropItem "RifleAmmo", 255, 2
 	DropItem "Pistol", 255, 1
@@ -11,7 +12,7 @@ actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
 {
 	DropItem "DeagleBox", 255, 2
-    DropItem "ClipBox2", 255, 2
+    DropItem "GlockBox", 255, 2
 	DropItem "RifleBox", 255, 3
 }
 
@@ -25,14 +26,14 @@ actor SlotFourSpawner : RandomSpawner replaces Chaingun
 actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
 {
-    DropItem "ZombieDude", 255, 2
     DropItem "BattleHZombie", 255, 1
-	DropItem "AssaultZombie", 255, 1
+	DropItem "AssaultZombie", 255, 2
+    DropItem "ZombieDude", 255, 3
 }
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
-    DropItem "ShotgunGuy2", 255, 2
+    DropItem "ShotgunGuy2", 255, 4
     DropItem "DBShotgunGuy", 255, 1
 }
 actor RocketLauncher2 : RocketLauncher
@@ -58,7 +59,6 @@ actor tier5BoxSpawner2 : RandomSpawner replaces RocketBox
     DropItem "RocketBox2", 255, 1
     DropItem "AnnBox", 255, 1
 }
-
 
 actor BFG2 : BFG9000
 {

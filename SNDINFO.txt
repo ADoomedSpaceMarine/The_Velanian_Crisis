@@ -96,6 +96,15 @@ weapons/arbolt ARBOLT
 weapons/arswitch ARSWITC
 
 //Deagle Sounds
+$random weapons/GLOCK  { weapons/GLOCK1 weapons/GLOCK2 weapons/GLOCK3} 
+weapons/GLOCK1 GLOCK1
+weapons/GLOCK2 GLOCK2
+weapons/GLOCK3	GLOCK3
+weapons/glkout	GLKOUT
+weapons/glkin GLOCKIN
+weapons/glkback GLKBAK
+weapons/glkfor GLKFOR
+weapons/glkSlide GLKPKU
 $random weapons/DEAGLE  { weapons/DEAGL1 weapons/DEAGL2 weapons/DEAGL3} 
 weapons/DEAGL1	DEAG1
 weapons/DEAGL2	DEAG2
@@ -105,6 +114,7 @@ weapons/deagin DEAGIN
 weapons/deagslap DESLAP
 weapons/deagback DEBACK
 weapons/deagforward DEREL
+weapons/deagSlide DEAGFUL
 
 //Bubble Shield
 Powerup/ShieldUp ShieldUp

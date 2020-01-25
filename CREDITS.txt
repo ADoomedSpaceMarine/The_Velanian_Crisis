@@ -16,6 +16,8 @@ Sprites:
 - The Battlehawk some origin sprites from Yukes Van Faust's Armory found here https://forum.zdoom.org/viewtopic.php?f=37&t=58655
 - Some ammo sprites online
 - D3Stakler for the EPIC BFL expansion sprites 
+- JoeyTD, Minigunner - Glock 18
+
 
 Sprite Edits: 
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
@@ -26,7 +28,7 @@ Sprite Edits:
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
-- A user named MagmaCow on gamebanana for the BEEFY demon's bane shots, the AR36 sounds and other resources, now including the deagle.
+- Big thanks to magmacow for his blessing to use his righteous weapon sounds!
 - A Laser sound from Painkiller's "Project Bruatality" was used as a layer for the big fire of the BFL 10k
 
 HUD:

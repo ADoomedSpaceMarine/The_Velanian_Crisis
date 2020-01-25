@@ -3370,6 +3370,7 @@ script "CatsVisorHud" ENTER
 		
 			// Slot 2
 		  if(strICmp(weapon, "Beretta") == 0)       	       ammo = CheckInventory("Magazine9mm"), ammo2 = CheckInventory("BerettaAmmo"), weaponname = "Beretta", weicon="PINAXA", ammocapa = GetAmmoCapacity("Magazine9mm"), clipsize = 16;
+		  if(strICmp(weapon, "Glock18") == 0)       	       ammo = CheckInventory("GlockAmmo"), ammo2 = CheckInventory("GlockClip"), weaponname = "UAC Glock 18", weicon="PINAXA", ammocapa = GetAmmoCapacity("GlockClip"), clipsize = 17;
 		  if(strICmp(weapon, "BrutalPistol") == 0)             ammo = CheckInventory("Clip1"), ammo2 = CheckInventory("BDPistolAmmo"), weicon="PINADA", weaponname = "Pistol", ammocapa = GetAmmoCapacity("Clip1"), clipsize = 16;
 		  if(strICmp(weapon, "ClassicPistol") == 0)            ammo = CheckInventory("Clip2"),ammo2 = -1, weicon="PINADA", ammocapa = GetAmmoCapacity("Clip2"), weaponname = "Pistol", clipsize =ammocapa;
 		  if(strICmp(weapon, "Pistol") == 0)          		   ammo = CheckInventory("Clip"),ammo2 = -1, weicon="PINADA", ammocapa = GetAmmoCapacity("Clip"), weaponname = "Pistol", clipsize =ammocapa;

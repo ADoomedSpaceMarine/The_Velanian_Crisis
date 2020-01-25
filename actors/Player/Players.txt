@@ -89,6 +89,8 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.JumpZ 12
   Player.DisplayName "The Rogue"
   Player.CrouchSprite "PLYC"
+  Player.StartItem "Glock18"
+  Player.StartItem "GlockAmmo", 170
   Player.StartItem "Demonsbane"
   Player.StartItem "Shell", 24
   Player.StartItem "Fist"    
@@ -152,6 +154,8 @@ ACTOR CyberMarine : DoomPlayer
   Health 150
   Player.DisplayName "The Commando"
   Player.CrouchSprite "PLYC"
+  Player.StartItem "Glock18"
+  Player.StartItem "GlockAmmo", 170
   Player.StartItem "AR36", 1
   Player.StartItem "RifleAmmo", 300
   Player.StartItem "AnnAmmo", 10
@@ -218,6 +222,8 @@ Actor CombatVeteran : DoomPlayer
   Health 180
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
+  Player.StartItem "Glock18"
+  Player.StartItem "GlockAmmo", 170
   Player.StartItem "Demonsbane"
   Player.StartItem "Shell", 24
   Player.StartItem "Battlehawk", 1 

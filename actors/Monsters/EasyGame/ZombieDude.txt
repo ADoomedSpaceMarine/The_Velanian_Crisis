@@ -1,6 +1,57 @@
 ACTOR ZombieDude : ZombieMan replaces ZombieMan
 {
-  DropItem "Clip"
+  Health 30
+  Radius 20
+  Height 56
+  Speed 8
+  PainChance 200
+  Monster
+  +FLOORCLIP
+  SeeSound "grunt/sight"
+  PainSound "grunt/pain"
+  DeathSound "grunt/death"
+  ActiveSound "grunt/active"
+  Obituary "$OB_ZOMBIE" // "%o was killed by a Glock wielding zombieman."
+  DropItem "Glock18"
+  States
+  {
+  Spawn:
+    POSS AB 10 A_Look
+    Loop
+  See:
+    POSS AABBCCDD 4 A_Chase
+    Loop
+   Missile:
+   POSS E 4 A_FaceTarget
+   POSS E 0 A_PlaySound ("weapons/glock")
+   POSS F 3 A_CustomBulletAttack (22.5, 0, 1, random(2,5) * 3, "BulletPuff", 0, CBAF_NORANDOM)
+   TNT1 A 0 A_SpawnItemEx("9mmCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105))
+   POSS E 6
+   goto See
+  Pain:
+    POSS G 3
+    POSS G 3 A_Pain
+    Goto See
+  Death:
+    POSS H 5
+    POSS I 5 A_Scream
+    POSS J 5 A_NoBlocking
+    POSS K 5
+    POSS L -1
+    Stop
+  XDeath:
+    POSS M 5
+    POSS N 5 A_XScream
+    POSS O 5 A_NoBlocking
+    POSS PQRST 5
+    POSS U -1
+    Stop
+	
+  Raise:
+    POSS K 5
+    POSS JIH 5
+    Goto See
+  }
 }
 
 ACTOR BattleHZombie : ZombieMan replaces ZombieMan
@@ -8,7 +59,7 @@ ACTOR BattleHZombie : ZombieMan replaces ZombieMan
   Health 30
   Radius 20
   Height 56
-  Speed 9
+  Speed 12
   PainChance 200
   Monster
   +FLOORCLIP
@@ -30,7 +81,7 @@ ACTOR BattleHZombie : ZombieMan replaces ZombieMan
    POSS E 7 A_FaceTarget
    POSS E 0 A_PlaySound ("weapons/deagle")
    POSS F 3 A_CustomBulletAttack (22.5, 0, 1, random(10,14) * 3, "BulletPuff", 0, CBAF_NORANDOM)
-   TNT1 A 0 A_SpawnItemEx("PistolCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105))
+   TNT1 A 0 A_SpawnItemEx("DeagleCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40),	random(-2,-3),0,random(5,7),random(90,105))
    POSS E 6
    goto See
   Pain:
