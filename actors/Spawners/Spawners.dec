@@ -1,75 +1,33 @@
-actor Clip2 : clip{}
 actor ClipSpawner : RandomSpawner replaces clip
 {
     DropItem "GlockBullets", 255, 2
 	DropItem "GlockAmmo", 255, 2
 	DropItem "DeagleAmmo", 255, 2
     DropItem "RifleAmmo", 255, 2
-	DropItem "Pistol", 255, 1
 }
 
 actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
 {
 	DropItem "DeagleBox", 255, 2
-    DropItem "GlockBox", 255, 2
+    DropItem "GlockBox", 255, 4
 	DropItem "RifleBox", 255, 3
-}
-
-actor Chaingun2 : Chaingun{}
-actor SlotFourSpawner : RandomSpawner replaces Chaingun
-{
-    DropItem "Chaingun2", 255, 1
-    DropItem "AR36", 255, 1
 }
 
 actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
 {
     DropItem "BattleHZombie", 255, 1
-	DropItem "AssaultZombie", 255, 2
-    DropItem "ZombieDude", 255, 3
+	DropItem "AssaultZombie", 255, 3
+    DropItem "ZombieDude", 255, 4
 }
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
-    DropItem "ShotgunGuy2", 255, 4
+    DropItem "ShotgunGuy2", 255, 5
     DropItem "DBShotgunGuy", 255, 1
 }
-actor RocketLauncher2 : RocketLauncher
-{
-     Weapon.SlotNumber 5
-     Weapon.SlotPriority 0
-}
 
-actor tier5Spawner1 : RandomSpawner replaces RocketLauncher 
-{
-    DropItem "RocketLauncher2", 255, 1
-    DropItem "Annihilator", 255, 2
-}
-actor RocketAmmo2 : RocketAmmo{}
-actor tier5AmmoSpawner1 : RandomSpawner replaces RocketAmmo 
-{
-    DropItem "RocketAmmo2", 255, 1
-    DropItem "AnnAmmo", 255, 1
-}
-actor RocketBox2 : RocketBox{}
-actor tier5BoxSpawner2 : RandomSpawner replaces RocketBox
-{
-    DropItem "RocketBox2", 255, 1
-    DropItem "AnnBox", 255, 1
-}
-
-actor BFG2 : BFG9000
-{
-     Weapon.SlotNumber 5
-     Weapon.SlotPriority 0
-}
-actor BFGSpawner : RandomSpawner replaces bfg9000
-{
-    DropItem "BFG2", 255, 1
-    DropItem "BFL10K", 255, 1
-}
 actor CellPack2 : CellPack{}
 actor BFLAmmoSpawner : RandomSpawner replaces CellPack
 {

@@ -21,7 +21,6 @@ Script "InventoryEnabler" Enter
 		GiveInventory("gogsFound", 1);
 		Break;
 	Case 2:
-    	GiveInventory("gogsFound", 1);
 		Break;
 	Case 3:
 		BubbleState = 1;

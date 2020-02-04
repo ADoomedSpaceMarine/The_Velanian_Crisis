@@ -18,10 +18,10 @@ gameinfo
     addEventHandlers = "ATMP_MapHandler"
 	weaponslot = 1, "Fist", "Chainsaw"
 	weaponslot = 2, "Glock18", "Battlehawk" 
-	weaponslot = 3, "Demonsbane", "SuperShotgun", "Shotgun2"
-	weaponslot = 4, "AR36", "Chaingun"
-	weaponslot = 5, "Annihilator", "RocketLauncher"
-	WeaponSlot = 6, "PlasmaRifle"
-	WeaponSlot = 7, "BFL10k", "BFG9000"
+	weaponslot = 3, "Demonsbane"
+	weaponslot = 4, "AR36"
+	weaponslot = 5, "Annihilator"
+	WeaponSlot = 6, "PlasmaRifle2"
+	WeaponSlot = 7, "BFL10k"
 }
 

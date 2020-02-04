@@ -12,7 +12,7 @@ ACTOR ZombieDude : ZombieMan replaces ZombieMan
   DeathSound "grunt/death"
   ActiveSound "grunt/active"
   Obituary "$OB_ZOMBIE" // "%o was killed by a Glock wielding zombieman."
-  DropItem "Glock18"
+  DropItem "Glock18, clip"
   States
   {
   Spawn:

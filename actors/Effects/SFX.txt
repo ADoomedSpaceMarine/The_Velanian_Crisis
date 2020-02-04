@@ -14,3 +14,79 @@ ACTOR BigGunSmoke : LavaSmoke
     Stop
   }
 }
+
+ACTOR DeagleSmoke
+{
+ +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.3
+  VSpeed 2
+  Mass 5
+  scale .5
+  States
+  {
+  Spawn:
+    GSM1 ABCDE 2 Bright
+    Stop
+  }
+}
+
+ACTOR PistolSmoke
+{
+ +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.3
+  VSpeed 1
+  Mass 5
+  scale 0.25
+  States
+  {
+  Spawn:
+    GSM1 ABCDE 2 Bright
+    Stop
+  }
+}
+
+ACTOR ARSmoke
+{
+ +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.3
+  VSpeed 1
+  Mass 5
+  scale 0.3
+  States
+  {
+  Spawn:
+    GSM1 ABCDE 2 Bright
+    Stop
+  }
+}
+
+ACTOR DBSmoke
+{
+ +NOBLOCKMAP
+  +NOGRAVITY
+  +ALLOWPARTICLES
+  +RANDOMIZE
+  RenderStyle Translucent
+  Alpha 0.3
+  VSpeed 2
+  Mass 5
+  scale 0.75
+  States
+  {
+  Spawn:
+    GSM1 ABCDE 2 Bright
+    Stop
+  }
+}

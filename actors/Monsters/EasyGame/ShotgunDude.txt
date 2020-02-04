@@ -81,7 +81,7 @@ ACTOR ShotgunGuy2
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
-  DropItem "Shotgun"
+  DropItem "Shell"
   States
   {
   Spawn:

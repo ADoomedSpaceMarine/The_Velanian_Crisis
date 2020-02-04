@@ -116,6 +116,12 @@ weapons/deagback DEBACK
 weapons/deagforward DEREL
 weapons/deagSlide DEAGFUL
 
+//Plasma Caster
+weapons/PCaster	PLASCAST
+weapons/APCaster ALTCAST
+weapons/CasterSteam CASSTEM
+$volume weapons/CasterSteam 0.4
+
 //Bubble Shield
 Powerup/ShieldUp ShieldUp
 Powerup/ShieldBrk ShieldBK

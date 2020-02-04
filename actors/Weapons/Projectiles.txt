@@ -18,11 +18,11 @@ Actor BFLStandardShot
   States
   {
   Spawn:
-    BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
+    BFLS A 1 A_SpawnItemEx("StandardBFLTrail", -5)
     BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
-	BFLS A 1 Bright A_SpawnItemEx("StandardBFLTrail", -5)
     Goto DmgLoop
   DmgLoop:
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
     BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
     BFLS A 1 Bright A_Explode(100,100,0,0,0,0,0,BulletPuff,"BFLBeam")
     BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
@@ -63,6 +63,26 @@ Actor BFLSmallShot
   Death:
     BFLS BCDEFG 2 Bright
     Stop
+   }
+}
+
+Actor UltBFLTrail
+{
+  PROJECTILE
+   Radius 8
+   Height 7
+   Scale 0.6
+   RenderStyle Add
+   +NOGRAVITY
+   +NOBLOCKMAP
+   +NOCLIP
+   
+   States
+   {
+   Spawn:
+     BFLB A 1 Bright 
+	 BFLB A 1 A_FadeOut
+	 Loop
    }
 }
 
@@ -111,7 +131,7 @@ Actor BFLBigShot
   BounceCount 4
   Speed 300
   Damage 400
-  scale 0.5
+  scale 0.55
   Renderstyle Add
   Alpha 0.95
   Obituary "%o was vaporized by %k's Big Frickin Laser."
@@ -119,14 +139,12 @@ Actor BFLBigShot
   States
   {
   Spawn:
-    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
-    BFLB A 1 Bright A_SpawnItemEx("LargeBFLTrail", -5)
+    BFLB A 1 Bright
     Goto DmgLoop
   DmgLoop:
     BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
     BFLS A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
-    BFLS A 0 A_SpawnItemEx("SmallBFLTrail", -5)
-    BFLS A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
     BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
     BFLB A 1 Bright A_Explode(400,220,0,0,0,0,0,BulletPuff,"BFLBeam")
     Loop
@@ -144,7 +162,7 @@ Actor BFLUltShot
   Height 6
   Speed 300
   Damage 600
-  scale 0.65
+  scale 0.6
   +ripper
   +ForceRadiusDmg
   Renderstyle Add
@@ -155,12 +173,11 @@ Actor BFLUltShot
   States
   {
   Spawn:
-    BFLB A 1 Bright A_SpawnItemEx("UltBFLTrail", -5)
-    BFLB A 0 A_SpawnItemEx("LargeBFLTrail", -5)
+    BFLB A 1 Bright
 	Goto DmgLoop
   DmgLoop:
     BFLB A 1 Bright A_Explode(600,230,0,0,0,0,0,BulletPuff,"BFLBeam")
-	BFLB A 1 A_SpawnItemEx("LargeBFLTrail", -5)
+	BFLB A 1 A_SpawnItemEx("UltBFLTrail", -5)
     Loop
   Death:
     BFLB BCDEFG 2 Bright
@@ -183,8 +200,8 @@ Actor StandardBFLTrail
    {
    Spawn:     
      BFLB A 1 Bright
-     BFLB A 1 Bright A_FadeOut
      BFLB A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+	 BFLB A 1 Bright A_FadeOut
 	 Loop
    }
 }
@@ -222,28 +239,99 @@ Actor LargeBFLTrail
    States
    {
    Spawn:
-     BFLB A 1 Bright A_FadeOut
+     BFLB A 1 Bright 
      BFLB A 1 Bright A_SpawnItemEx("StandardBFLTrail", -5)
-     BFLB A 0 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+     BFLB A 1 Bright A_FadeOut
      Loop
    }
 }
 
-Actor UltBFLTrail
+ACTOR PlasmaBall3 : plasmaball replaces plasmaball
+{
+  Radius 13
+  Height 8
+  Speed 70
+  Damage 9
+  scale 0.55
+  Projectile
+  +RANDOMIZE
+  +ZDOOMTRANS
+  RenderStyle Add
+  Alpha 0.5
+  SeeSound	"weapons/PCaster"
+  DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLCB A 1 Bright 
+	PLCB ABCDEFGH 1 Bright A_SpawnItemEx("PlasmaCasterTrail")
+    Loop
+  Death:
+    PLCE ABCDEFG 2 Bright
+    Stop
+  }
+}
+
+ACTOR PlasmaBall4 : PlasmaBall3
+{
+  Radius 13
+  Height 8
+  Speed 90
+  Damage 7
+  scale 0.3
+  Projectile
+  +RANDOMIZE
+  +ZDOOMTRANS
+  RenderStyle Add
+  Alpha 0.5
+  SeeSound	"weapons/PCaster"
+  DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLCB A 1 Bright 
+	PLCB ABCDEFGH 1 Bright A_SpawnItemEx("PlasmaCasterTrail2")
+    Loop
+  Death:
+    PLCE ABCDEFG 2 Bright
+    Stop
+  }
+}
+
+Actor PlasmaCasterTrail
 {
   PROJECTILE
-   Radius 8
-   Height 7
-   Scale 0.8
+   Radius 5
+   Height 4
+   scale 0.55
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
-   +NOCLIP
    
    States
    {
    Spawn:
-     BFLB A 1 Bright A_FadeOut
+     PLCB ACEG 1 Bright A_FadeOut
+     Loop
+   }
+}
+
+Actor PlasmaCasterTrail2
+{
+  PROJECTILE
+   Radius 5
+   Height 4
+   scale 0.3
+   RenderStyle Add
+   +NOGRAVITY
+   +NOBLOCKMAP
+   
+   States
+   {
+   Spawn:
+     PLCB ACEG 1 Bright A_FadeOut
      Loop
    }
 }

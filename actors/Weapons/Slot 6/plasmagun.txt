@@ -1,0 +1,136 @@
+ACTOR PlasmaCaster : weapon replaces PlasmaRifle
+{
+  Weapon.SelectionOrder 100
+  Weapon.AmmoUse 1
+  Weapon.AmmoUse2 6
+  Weapon.AmmoGive 60
+  Weapon.AmmoType "Cell"
+  Weapon.AmmoType2 "Cell"
+  Weapon.SlotNumber 6
+  +WEAPON.NOAUTOAIM
+  +WEAPON.AMMO_CHECKBOTH
+  Inventory.PickupMessage "You got the UAC Plasmacaster!"
+  Tag "$TAG_PLASMARIFLE"
+  States
+  {
+  Ready:
+    PLCG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PLCG A 1 A_Lower(12)
+    Loop
+  Select:
+    PLCG A 1 A_Raise(12)
+    Loop
+  Fire:
+	TNT1 A 0 A_PlaySound("weapons/PCaster", CHAN_WEAPON)
+    PLCG A 3 A_FirePlasma 
+	TNT1 A 0 A_SetPitch(pitch+1.0)
+	TNT1 A 0 A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+	PLCG C 1 A_ReFire
+	TNT1 A 0 A_PlaySound("weapons/CasterSteam", CHAN_Auto)
+	PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+	PLCG B 2
+	TNT1 A 0 A_ZoomFactor(1,ZOOM_INSTANT)
+    Goto Ready
+ 
+ AltFire:
+	TNT1 A 0
+	{
+		if(countinv("cell") < 10)
+		{
+			Return ResolveState ("dryfire");
+		}
+		else
+		{
+			return ResolveState ("");
+		}
+	}
+			
+		
+	TNT1 A 0 A_JumpIfNoAmmo("dryfire")
+	TNT1 A 0 A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+	TNT1 A 0 A_PlaySound("weapons/APCaster", CHAN_WEAPON)
+	PLCG A 3 A_Gunflash
+	TNT1 A 0 A_SetPitch(pitch+1.0)
+    PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 1,0,0,0,random(0,1)) 
+    PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(0,-1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(0,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(0,-1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(0,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(0,-1))
+	PLCG A 0 A_FireProjectile("PlasmaBall4", random(-3,3), 0,0,0,0,random(-1,1)) 
+	PLCA A 1 A_Recoil(2*cos(pitch))
+	PLCA C 1   
+		{
+			A_SetPitch(pitch-4.0);
+		}
+		PLCA B 1   
+		{
+			A_SetPitch(pitch+4.0);
+		}
+	PLCG A 3
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	}
+	PLCG A 1 A_ReFire
+	PLCG C 2
+	TNT1 A 0 A_PlaySound("weapons/CasterSteam", CHAN_Auto)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
+    PLCG B 2
+	TNT1 A 0 A_ZoomFactor(1,ZOOM_INSTANT)
+    Goto Ready
+ DryFire:
+        PLCG A 4 
+		PLCD A 2 A_PlaySound ("Weapons/DryFire")  //Play dryfire sound
+        goto Ready                             //goto ready state 
+ Flash:
+    PLCF A 1 Bright A_Light1
+	TNT1 A 0
+	{	
+		A_SetPitch(pitch-1.0);
+	    A_ZoomFactor(0.99,ZOOM_INSTANT);
+	}
+    PLCF B 1 Bright A_Light2
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	} 
+	PLCF c 1 Bright A_Light2
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	}
+
+    Goto LightDone
+  Spawn:
+    PLAS A -1
+    Stop
+  }
+}

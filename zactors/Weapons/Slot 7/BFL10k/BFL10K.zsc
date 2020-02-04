@@ -1,4 +1,4 @@
-Class BFLAmmo : Ammo
+Class BFLAmmo : ammo
 {
 Default{ 
   Inventory.PickupMessage "Picked up a BFL10K Cell";
@@ -21,7 +21,7 @@ Class BFLBox : BFLAmmo
   Default
   {
   Inventory.PickupMessage "Picked up a BFL10K charge pack.";
-  Inventory.Amount 300;
+  Inventory.Amount 200;
   }
   States
   {
@@ -31,7 +31,7 @@ Class BFLBox : BFLAmmo
   }
 }
 
-Class BFL10K : Weapon
+Class BFL10K : Weapon replaces BFG9000
 {
     Bool Isfiringstandard;
     Bool IsFiringUltimate;
@@ -40,16 +40,16 @@ Class BFL10K : Weapon
     {
       Weapon.SelectionOrder 2900;
       Weapon.BobStyle "smooth";
-      Weapon.AmmoUse1 5;
+      Weapon.AmmoUse1 10;
       Weapon.AmmoUse2 50;
-      Weapon.AmmoGive1 80;
+      Weapon.AmmoGive1 100;
       Weapon.AmmoType "BFLAmmo";
       Weapon.AmmoType2 "BFLAmmo";
       Weapon.SlotNumber 7;
       Weapon.SlotPriority 1;
       Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
-	    Inventory.PickupMessage "You Obtained the BFL-10k Electroatomic Photon Cannon!";
+	    Inventory.PickupMessage "You Obtained the BFL-10k Photonic Megacannon!";
       Obituary "%o was vaporized by %k's Big Frickin Photon Cannon.";
       Decal "BigScorch";
     }
@@ -137,7 +137,7 @@ Class BFL10K : Weapon
             TNT1 A 0 
             {
               A_PlaySound("Weapons/BFLShot", CHAN_WEAPON);
-              A_FireProjectile("BFLStandardShot", 0, -1, 0, -8, 0);
+              A_FireProjectile("BFLStandardShot", 0, 1, 0, -8, 0);
               A_Recoil(3*cos(pitch));
               A_SetPitch(pitch-3.0);
               A_ZoomFactor(0.85,ZOOM_INSTANT);
@@ -194,7 +194,7 @@ Class BFL10K : Weapon
             TNT1 A 0 
             {
               A_PlaySound("Weapons/BFLSHOTBIG", CHAN_WEAPON);
-              A_FireProjectile("BFLBigShot", 0, -1, 0, -8, 0);
+              A_FireProjectile("BFLBigShot", 0, 1, 0, -8, 0);
               A_Recoil(3*cos(pitch));
               A_SetPitch(pitch-3.0);
               A_ZoomFactor(0.85,ZOOM_INSTANT);

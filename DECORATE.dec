@@ -10,6 +10,8 @@
 #include "actors/Weapons/Projectiles.txt"
 #include "actors/Weapons/WeaponTokens.txt"
 #include "actors/Spawners/spawners.dec"
+#include "actors/Weapons/Slot 6/Plasmagun.txt"
+
 
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"
