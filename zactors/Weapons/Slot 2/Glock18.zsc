@@ -139,16 +139,16 @@ int firemode;
 			  if(Invoker.fireMode == 1)          //If Firemode is 1
                 {
                 invoker.fireMode--;               //reset firemode to 0 (Buckshot)
-                return ResolveState("ARMsgState");    //Go to ammo switch message switch block
+                return ResolveState("GKMsgState");    //Go to ammo switch message switch block
                 } 
                 else
                 {
                 invoker.fireMode++;                  //Incriment shot type variable by one
-                return ResolveState("ARMsgState");     //Go to ammo switch message switch block
+                return ResolveState("GKMsgState");     //Go to ammo switch message switch block
                 }
 			}
 
-		ARMsgState:
+		GKMsgState:
 			TNT1 A 0
 			{
 			switch(invoker.fireMode)

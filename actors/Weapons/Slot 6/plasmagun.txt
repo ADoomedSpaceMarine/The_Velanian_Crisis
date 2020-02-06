@@ -7,10 +7,14 @@ ACTOR PlasmaCaster : weapon replaces PlasmaRifle
   Weapon.AmmoType "Cell"
   Weapon.AmmoType2 "Cell"
   Weapon.SlotNumber 6
+  Weapon.SlotPriority 3
+  Weapon.UpSound "Weapons/Casterup"
+  Inventory.PickupSound "Weapons/Plasmaup"
   +WEAPON.NOAUTOAIM
   +WEAPON.AMMO_CHECKBOTH
   Inventory.PickupMessage "You got the UAC Plasmacaster!"
   Tag "$TAG_PLASMARIFLE"
+  decal "plasmascorch"
   States
   {
   Ready:

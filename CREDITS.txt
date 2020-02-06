@@ -1,22 +1,22 @@
-Weapon Sprites: ADoomedSpaceMarine
-
-Decorate/coding: 
-- ADoomedSpaceMarine
+Decorate/zScript/ACS coding: 
+- Myself, ADoomedSpaceMarine
 
 Sprites: 
-- ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite) and "Babby's First Zscript 
-  Over and under" for the two barrels used in shell insertion.
+- Myself, ADoomedSpaceMarine & Some Resources used from Realm 667 (Modified for Demon's Bane reload sprite) and "Babby's First Zscript 
+  Over and under" for a portion of the two barrels used in shell insertion. Many of the borrowed sprites started as 2-4 base sprites that I 
+  created animation frames for.
 - Realm 667 For characters 
 - HellForged for the Acrobat's sprite
 - Cat's Visor Resources by Schrodinger's Cat
 - Shells for AR36 were found on FreePNG.Com
-- AR36 originated from a user named Captain J.
+- AR36 originated from a user named Captain J's page.
 - Some Edits to add reload to AR were done myself
 - The bubble shield pickup was made by myself after making some minor alterations to the blursphere
 - The Battlehawk some origin sprites from Yukes Van Faust's Armory found here https://forum.zdoom.org/viewtopic.php?f=37&t=58655
 - Some ammo sprites online
 - D3Stakler for the EPIC BFL expansion sprites 
 - JoeyTD, Minigunner - Glock 18
+- The Tricannon originated from Captain J's resource page, found here: https://forum.zdoom.org/viewtopic.php?f=37&t=37556
 
 
 Sprite Edits: 
@@ -28,16 +28,19 @@ Sprite Edits:
 Sounds: 
 - HQ DOOM SFX Pack Perkistan (https://www.doomworld.com/vb/wads-mods/58879-the-hi-res-doom-sound-pack-is-updated/)
 - Freesound.org
-- Big thanks to magmacow for his blessing to use his righteous weapon sounds!
+- Big thanks to magmacow for his blessing to use his righteous weapon sounds! https://gamebanana.com/members/1303372
 - A Laser sound from Painkiller's "Project Bruatality" was used as a layer for the big fire of the BFL 10k
 
 HUD:
 - Cat's Hud's maker, Schrodinger's Cat, and all associated people who helped him with that mod.
-- Helmet on animations from SaeGiru
+- Helmet on animations from SaeGiru (to be implimented)
 - Flashlight from Steve's Flashlight
 
 SloMo Bullet Time:
-- ReactorCore for his permission for usage of his slomo mod.
+- ReactorCore for his permission for usage of his slomo mod. (to be implimented)
+
+Script help
+-zdoom forums
 
 Advice:
 - Painkiller
@@ -45,3 +48,9 @@ Advice:
 - Craneo
 - JMartinez
 - Tiberium Soul
+- r3w
+- GoldenMobster
+- TypicalSF
+- Yukes Van Faust
+- SideshowKaz
+- Moa Dixon

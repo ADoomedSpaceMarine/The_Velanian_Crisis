@@ -28,7 +28,7 @@ class DemonsBane : Weapon replaces shotgun
         Obituary "%o was blown away by %k's Demon's Bane";
         Weapon.SlotNumber 3;
         Weapon.SlotPriority 3;
-        Weapon.UpSound "Weapons/GunUp1";
+        Weapon.UpSound "weapons/ONUClose";
         Weapon.KickBack 120;
         +Weapon.NOAUTOFIRE;
         +Weapon.NOAUTOAIM;

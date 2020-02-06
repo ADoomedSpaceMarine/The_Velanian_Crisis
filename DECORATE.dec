@@ -12,7 +12,6 @@
 #include "actors/Spawners/spawners.dec"
 #include "actors/Weapons/Slot 6/Plasmagun.txt"
 
-
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Effects/LightGenerators.txt"

@@ -3400,6 +3400,7 @@ script "CatsVisorHud" ENTER
 		  if(StrICmp(weapon, "U_Rifle") == 0)                  ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("rifleammo"), weicon="PINADA", weaponname = "Rifle", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 31;
 		  if(StrICmp(weapon, "Rifle") == 0)                    ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("rifleammo"), weicon="PINADA", weaponname = "Rifle", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 31;
 		  if(StrICmp(weapon, "AR36") == 0)                     ammo = CheckInventory("RifleAmmo"), ammo2 = CheckInventory("ARclip"), weicon="PINADA", weaponname = "UAC AR-36", ammocapa = GetAmmoCapacity("ARClip"), clipsize = 30;
+		    if(StrICmp(weapon, "TriCannon") == 0)                     ammo = CheckInventory("RifleAmmo"), ammo2 = -1, weicon="PINADA", weaponname = "UAC Eviscerator Tricannon", ammocapa = GetAmmoCapacity("RifleAmmo"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "U_MiniGun") == 0)                ammo = CheckInventory("MinigunAmmo"), ammo2 = -1, weicon="PINANA", weaponname = "Minigun", ammocapa = GetAmmoCapacity("MinigunAmmo"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "MiniGun") == 0)                  ammo = CheckInventory("Clip2"), ammo2 = -1, weicon="PINADA", weaponname = "Minigun", ammocapa = GetAmmoCapacity("Clip2"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "DualURifle") == 0)               ammo = CheckInventory("Clip2"), ammo2 = CheckInventory("DualRifleAmmo"), weicon="PINADA", weaponname = "Rifles", ammocapa = GetAmmoCapacity("Clip2"), clipsize = 62;

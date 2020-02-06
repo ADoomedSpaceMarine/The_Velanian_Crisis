@@ -63,7 +63,7 @@ bool firstUp;
 		Weapon.AmmoGive2 7;
 		Weapon.SlotNumber 2;
 		Weapon.SlotPriority 2;
-		Weapon.UpSound "Weapons/DeBack";
+		Weapon.UpSound "weapons/deagback";
 		Weapon.AmmoType1 "DeClip";
 		Weapon.AmmoType2 "DeagleAmmo";
 		Inventory.PickupSound ("weapons/DEAGSLIDE");

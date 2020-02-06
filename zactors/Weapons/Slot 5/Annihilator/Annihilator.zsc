@@ -59,7 +59,6 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
       Weapon.AmmoType2 "AnnAmmo";
       Weapon.SlotNumber 5;
       Weapon.SlotPriority 0;
-      Weapon.UpSound "Weapons/GunUp1";
       +WEAPON.NOAUTOFIRE;
       +Weapon.NOAUTOAIM
 	  +WEAPON.AMMO_CHECKBOTH

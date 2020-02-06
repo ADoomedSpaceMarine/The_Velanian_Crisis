@@ -131,7 +131,7 @@ Script 1238 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"CRITICAL WARNING: AR ammo depleted!";
+	HudMessage(s:"CRITICAL WARNING: Rifle ammo depleted!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -204,6 +204,31 @@ Script 1244(void)
 	SetHudSize(640,480,0);				
     Terminate;
 }
+
+//Tricannon
+Script 1245(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to UAC 7.62 heavy-impact fire.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1246(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to buckshot tri-barrel fire.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+
 //Annihilator Messages
 
 Script 3655 (void)
@@ -290,18 +315,7 @@ Script 9998 (void)
     PlaySound(0,"Hud/CritWarn");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"CRITICAL WARNING! Energy cells depleted!";
-	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
-	SetHudSize(640,480,0);				
-    Terminate;
-}
-
-Script 9997 (void)
-{
-    PlaySound(0,"Hud/CritWarn");
-    SetFont("UDVSMALL");	
-	SetHudSize(5762,3240,0);
-	HudMessage(s:"CRITICAL WARNING! Pistol ammunition depleted!";
+	HudMessage(s:"CRITICAL WARNING! Plasma cells depleted!";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;

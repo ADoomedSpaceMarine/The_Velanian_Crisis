@@ -120,7 +120,12 @@ weapons/deagSlide DEAGFUL
 weapons/PCaster	PLASCAST
 weapons/APCaster ALTCAST
 weapons/CasterSteam CASSTEM
+weapons/CasterUp PLASMUP
 $volume weapons/CasterSteam 0.4
+
+//Tricannon Sounds
+weapons/Trican	TRIFIRE
+weapons/TriShot	BUCKFIRE
 
 //Bubble Shield
 Powerup/ShieldUp ShieldUp
