@@ -1,0 +1,44 @@
+decal CasterScorch1
+{
+	pic PLCBA0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower1
+}
+
+decal CasterScorch2
+{
+	pic PLCBB0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower2
+}
+
+decal CasterScorch3
+{
+	pic PCLBC0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower1
+}
+
+decal CasterScorch4
+{
+	pic PLCBD0
+	add 1.0
+	fullbright
+	animator GoAway
+	lowerdecal PlasmaScorchLower2
+}
+
+
+decalgroup CasterScorch
+{
+	CasterScorch1	1
+	CasterScorch2	1
+	CasterScorch3	1
+	CasterScorch4	1
+}

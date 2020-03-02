@@ -258,6 +258,7 @@ ACTOR PlasmaBall3 : plasmaball replaces plasmaball
   +ZDOOMTRANS
   RenderStyle Add
   Alpha 0.5
+  decal CasterScorch
   SeeSound	"weapons/PCaster"
   DeathSound "weapons/plasmax"
   Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
@@ -277,14 +278,15 @@ ACTOR PlasmaBall4 : PlasmaBall3
 {
   Radius 13
   Height 8
-  Speed 90
+  Speed 120
   Damage 7
-  scale 0.3
+  scale 0.25
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
   RenderStyle Add
   Alpha 0.5
+  decal CasterScorch
   SeeSound	"weapons/PCaster"
   DeathSound "weapons/plasmax"
   Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."

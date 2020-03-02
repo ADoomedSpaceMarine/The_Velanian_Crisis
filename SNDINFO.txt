@@ -127,6 +127,10 @@ $volume weapons/CasterSteam 0.4
 weapons/Trican	TRIFIRE
 weapons/TriShot	BUCKFIRE
 
+//Autocannon Sounds
+weapons/Autocan	AUTOCAN
+weapons/AutoCycle AUTOCYC
+
 //Bubble Shield
 Powerup/ShieldUp ShieldUp
 Powerup/ShieldBrk ShieldBK

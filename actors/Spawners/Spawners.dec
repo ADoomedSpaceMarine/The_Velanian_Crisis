@@ -4,6 +4,13 @@ actor ClipSpawner : RandomSpawner replaces clip
 	DropItem "GlockAmmo", 255, 3
 	DropItem "DeagleAmmo", 255, 3
     DropItem "RifleAmmo", 255, 3
+	DropItem "Glock18", 255, 3
+}
+
+actor Slot4Spawner : RandomSpawner replaces chaingun
+{
+    DropItem "TriCannon", 255, 15
+    DropItem "AutoCannon", 255, 1
 }
 
 actor ClipBox2 : ClipBox{}

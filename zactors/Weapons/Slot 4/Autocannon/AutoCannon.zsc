@@ -1,0 +1,73 @@
+class Autocannon : Weapon 
+{
+	bool initup;
+	default
+	{
+		scale 0.6;
+		Weapon.SelectionOrder 700;
+		Weapon.AmmoUse 6;
+		Weapon.AmmoGive 240;
+		Weapon.BobStyle ("smooth");
+		Inventory.PickupSound ("Weapons/ANNin");
+		Weapon.UpSound ("Weapons/ANNin");
+		Weapon.AmmoType ("RifleAmmo");
+		Weapon.SlotNumber 4;
+		Weapon.SlotPriority 1;
+		Inventory.PickupMessage ("You got the UAC Devastator 20mm Autocannon");
+		Obituary ("%o was turned into pink mist by %k's 20mm autocannon.");
+		Tag "$TAG_CHAINGUN";
+		decal "BulletChip";
+	}	
+	States
+	{
+	Ready:
+		ACAN A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		TNT1 A 0
+			{
+				A_ZoomFactor(1);
+				if(CountInv("RifleAmmo") == 0)
+				{
+					ACS_Execute(1247,0);
+				}
+			}
+		ACAN A 1 A_Lower(12);
+		Loop;
+	Select:
+		ACAN A 1 A_Raise(12);
+		Loop;
+		
+	Fire:
+		ACAN A 1;
+		ACAN D 1 
+		{	
+			A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_Light1();
+			A_ZoomFactor(0.90,ZOOM_INSTANT);
+		}
+		ACAN E 1 
+		{
+			A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_PlaySound("weapons/autocan", CHAN_WEAPON);
+			A_FireBullets(4, 2, 1, random(80, 130), "BulletPuff");
+			A_SetPitch(pitch-3.0);
+			A_Light2();
+		}
+		ACAN F 1
+		{
+			A_SpawnItemEx("AutoCanCasing",random(-7,-8),cos(pitch)*25,sin(-pitch)*25+random(30,34), random(-2,-3),0,random(5,7),random(90,105)); 
+			A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_Light1();
+			A_ZoomFactor(1,ZOOM_INSTANT);
+			A_SetPitch(pitch+3.0);
+		}
+		ACAN B 1;
+		TNT1 A 0 A_ReFire;
+		Goto Ready;
+	
+	Spawn:
+		20MM P -1;
+		Stop;
+   }
+}

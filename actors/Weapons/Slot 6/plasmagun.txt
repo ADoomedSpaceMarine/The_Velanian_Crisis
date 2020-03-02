@@ -14,7 +14,7 @@ ACTOR PlasmaCaster : weapon replaces PlasmaRifle
   +WEAPON.AMMO_CHECKBOTH
   Inventory.PickupMessage "You got the UAC Plasmacaster!"
   Tag "$TAG_PLASMARIFLE"
-  decal "plasmascorch"
+  decal casterScorch
   States
   {
   Ready:
@@ -139,7 +139,7 @@ ACTOR PlasmaCaster : weapon replaces PlasmaRifle
 	goto SmokeCooldown
 	
  SmokeCooldown:
-	PLCG C 2
+	PLCG C 1
 	TNT1 A 0 A_PlaySound("weapons/CasterSteam", CHAN_Auto)
     PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
     PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
@@ -153,20 +153,20 @@ ACTOR PlasmaCaster : weapon replaces PlasmaRifle
     PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
     PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
     PLCG D 1 A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0)
-    PLCG C 2
+    PLCG C 1
 	TNT1 A 0 A_TakeInventory("PCasterCooldownCounter", 31)
 	TNT1 A 0 A_ZoomFactor(1,ZOOM_INSTANT)
     Goto Ready
 	
 BigCoolDown:
-	PLCG C 2
+	PLCG C 1
     TNT1 A 0 A_PlaySound("weapons/CasterSteam", CHAN_Auto)
 	PLCG DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1
 	{
 	A_SpawnItemEx("DeagleSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
     A_PlaySound("weapons/CasterSteam", CHAN_Auto);
 	 }
-	PLCG C 2
+	PLCG C 1
 	TNT1 A 0 A_ZoomFactor(1,ZOOM_INSTANT)
 	TNT1 A 0 A_TakeInventory("PCasterCooldownCounter", 31)
     Goto Ready

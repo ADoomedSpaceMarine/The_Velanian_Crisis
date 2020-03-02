@@ -184,7 +184,7 @@ class DemonsBane : Weapon replaces shotgun
 					break;                                                                          //Break out of the switch block
 
                     case 1: //Slug Fired
-                    A_FireBullets(random(1,2), random (1,2), 1, random(160,175), "bulletpuff");     //Fire the slug
+                    A_FireBullets(random(1,2), random (1,2), 1, random(75,85), "bulletpuff");     //Fire the slug
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -268,7 +268,7 @@ class DemonsBane : Weapon replaces shotgun
 					break;                                                                          //Break out of the switch block
 
                     case 1: //Slug Fired
-                    A_FireBullets(random(1,2), random (1,2), 1, random(160,175), "bulletpuff");     //Fire the slug
+                    A_FireBullets(random(1,2), random (1,2), 1, random(75,85), "bulletpuff");     //Fire the slug
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
