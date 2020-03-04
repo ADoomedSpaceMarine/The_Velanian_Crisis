@@ -9,9 +9,17 @@ actor ClipSpawner : RandomSpawner replaces clip
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 15
+    DropItem "TriCannon", 255, 20
     DropItem "AutoCannon", 255, 1
 }
+
+actor Shotgun2 : Shotgun{}
+actor Slot3Spawner : RandomSpawner replaces shotgun
+{
+    DropItem "UAC12", 255, 5
+    DropItem "Demonsbane", 255, 1
+}
+
 
 actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
@@ -31,7 +39,7 @@ actor ZombieSpawner1 : RandomSpawner replaces Zombieman
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
-    DropItem "ShotgunGuy2", 255, 6
+    DropItem "ShotgunGuy2", 255, 8
     DropItem "DBShotgunGuy", 255, 1
 }
 
@@ -49,19 +57,25 @@ actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
     DropItem "BlurSphere2", 255, 1
 }
 
-actor Shell2 : shell
+actor BFL10K2 : BFL10K{}
+actor Slot7Spawner : RandomSpawner replaces BFL10k
+{
+	DropItem "AutoCannon", 255, 1
+	DropItem "BFL10K2", 255, 1
+}
+
+actor Shell2 : ammo replaces shell
 {
 	Inventory.PickupSound "Weapons/ONUClose"
 	Inventory.PickupMessage "Picked up some shotgun shells."
 	Inventory.Amount 4
-	Inventory.MaxAmount 50	
-	ammo.BackpackAmount 50
-	Ammo.BackpackMaxAmount 100 
-	scale .09
+	Inventory.MaxAmount 80
+	ammo.BackpackAmount 80
+	Ammo.BackpackMaxAmount 180
 	States
 	{
 		Spawn:
-			SHLP A -1
+			SHEL A -1
 			Stop
 	}
 }
@@ -70,12 +84,11 @@ actor ShellBox2 : Shell replaces shellbox
 {
 	Inventory.PickupSound "Weapons/ONUClose"
 	Inventory.PickupMessage "Picked up a box of shells" 
-	Inventory.Amount 25
-	scale .155
+	Inventory.Amount 20
 	States
 	{
 		Spawn:
-			SHLB A -1
+			SBOX A -1
 			Stop
 	}
 }

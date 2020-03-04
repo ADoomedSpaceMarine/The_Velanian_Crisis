@@ -3427,8 +3427,13 @@ script "CatsVisorHud" ENTER
 		  if(StrICmp(weapon, "ClassicShotgun") == 0)           ammo = CheckInventory("AmmoShell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa; 
 		  if(StrICmp(weapon, "ClassicSSG") == 0)               ammo = CheckInventory("AmmoShell"), ammo2 = -1, weicon="PINAEA", weaponname = "Super Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
 		  if(strICmp(weapon, "Shotgun") == 0)          		   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
-		  if(strICmp(weapon, "DemonsBane") == 0)          	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Demon's Bane", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
-		  if(strICmp(weapon, "PerkShotgun") == 0)          	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
+		  //Velanian Crisis Shell Weapons
+		  if(strICmp(weapon, "UAC12") == 0)          	   ammo = CheckInventory("Shell2"), ammo2 = CheckInventory("UAC12Counter"), weicon="PINAEA", weaponname = "UAC-12 Tactical Shotgun", ammocapa = GetAmmoCapacity("Shell2"), clipsize = 8;
+		  if(strICmp(weapon, "Demonsbane") == 0)          	   ammo = CheckInventory("Shell2"), ammo2 = -1, weicon="PINAEA", weaponname = "Demon's Bane Over and Under", ammocapa = GetAmmoCapacity("shell2"), clipsize = ammocapa;
+		 
+		  if(StrICmp(weapon, "Shot_Gun") == 0)                 ammo = CheckInventory("AmmoShell"), ammo2 = CheckInventory("ShotgunAmmo"), weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("AmmoShell"), clipsize = 10;  
+				 
+		 if(strICmp(weapon, "PerkShotgun") == 0)          	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
 		  if(strICmp(weapon, "Shotgun~") == 0)          	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
 		  if(strICmp(weapon, "BD_Shotgun") == 0)          	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;
 		  if(strICmp(weapon, "SuperShotgun") == 0)         	   ammo = CheckInventory("Shell"), ammo2 = -1, weicon="PINAEA", weaponname = "Super Shotgun", ammocapa = GetAmmoCapacity("Shell"), clipsize =ammocapa;

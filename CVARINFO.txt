@@ -54,7 +54,7 @@ user color C_specialWallColor = "ff ff ff";
 user color C_portalColor = "40 7c 9a";
 
 server color flashlight_color = "FF FF FF";
-server int flashlight_intensity = 128;
+server int flashlight_intensity = 512;
 server float flashlight_inner = 12.0;
 server float flashlight_outer = 26.0;
 server int flashlight_location = 0;

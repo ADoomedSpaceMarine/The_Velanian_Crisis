@@ -44,7 +44,7 @@ Class RifleBox : RifleAmmo
 	States
 	{
 	Spawn:
-		RFBX A -1;
+		AMMO A -1;
 		Stop;
   }
 }
@@ -215,7 +215,6 @@ class AR36 : weapon replaces chaingun
 		goto ready;
 		
 	AltFire:
-		AltFire:
 		TNT1 A 0 A_ZoomFactor(1.5);
 		ARIS A 1 {
 		int input = GetPlayerInput(INPUT_BUTTONS);
@@ -334,7 +333,7 @@ class AR36 : weapon replaces chaingun
 			}
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright A_Light(1);
-			TNT1 A 0 A_FireBullets(Random(2,3), Random(0,2), 1, random(6,8), "BulletPuff");
+			TNT1 A 0 A_FireBullets(Random(2,3), Random(0,2), 1, random(8,10), "BulletPuff");
 			AR3F B 1 Bright A_Light(2);
 			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
@@ -369,7 +368,7 @@ class AR36 : weapon replaces chaingun
 			ARIF A 1 Bright A_Light(1);
 			TNT1 A 0 
 			{
-			A_FireBullets(Random(2,3), Random(0,1), 1, random(6,8), "BulletPuff");
+			A_FireBullets(Random(2,3), Random(0,1), 1, random(8,10), "BulletPuff");
 			TakeInventory("ARClip", 1);
 			}
 			ARIF B 1 Bright A_Light(2);
@@ -405,7 +404,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 2), random(2,2), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
@@ -439,7 +438,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 2), random(2,2), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
@@ -473,7 +472,7 @@ class AR36 : weapon replaces chaingun
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			AR3F A 1 Bright 
 			{
-			A_FireBullets(Random(2, 2), random(2,2), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(2, 2), random(2,2), 1, random(8,10),"BulletPuff");
 			A_Light(1);
 			}
 			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
@@ -512,7 +511,7 @@ AltFireBurst:
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			ARIF A 1 Bright 
 			{
-			A_FireBullets(Random(0, 1), random(0,1), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
 			TakeInventory("ARClip", 1);
 			A_Light(1);
 			}
@@ -547,7 +546,7 @@ AltFireBurst:
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			ARIF A 1 Bright 
 			{
-			A_FireBullets(Random(0, 1), random(0,1), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
 			TakeInventory("ARClip", 1);
 			A_Light(1);
 			}
@@ -582,7 +581,7 @@ AltFireBurst:
 			TNT1 A 0 A_PlaySound("weapons/ar36", Chan_Weapon);
 			ARIF A 1 Bright 
 			{
-			A_FireBullets(Random(0, 1), random(0,1), 1, random(6,8),"BulletPuff");
+			A_FireBullets(Random(0, 1), random(0,1), 1, random(8,10),"BulletPuff");
 			TakeInventory("ARClip", 1);
 			A_Light(1);
 			}
@@ -620,7 +619,7 @@ AltFireBurst:
 			}
 			TNT1 A 0 A_PlaySound("weapons/ardmr", Chan_Weapon);
 			AR3F A 1 Bright A_Light(1);
-			TNT1 A 0 A_FireBullets(2, 1, 1, 30, "BulletPuff");
+			TNT1 A 0 A_FireBullets(2, 1, 1, 15, "BulletPuff");
 			AR3F B 1 Bright A_Light(2);
 			TNT1 A 0 A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105));  
 			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
@@ -654,7 +653,7 @@ AltFireSemi:
 			ARIF A 1 Bright A_Light(1);
 			TNT1 A 0 
 			{
-			A_FireBullets(1, 1, 1, 30, "BulletPuff");
+			A_FireBullets(1, 1, 1, 15, "BulletPuff");
 			TakeInventory("ARClip", 1);
 			}
 			ARIF B 1 Bright A_Light(2);

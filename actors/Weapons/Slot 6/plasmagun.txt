@@ -3,7 +3,7 @@ ACTOR PlasmaCaster : weapon replaces PlasmaRifle
   Weapon.SelectionOrder 100
   Weapon.AmmoUse 1
   Weapon.AmmoUse2 5
-  Weapon.AmmoGive 60
+  Weapon.AmmoGive 30
   Weapon.AmmoType "Cell"
   Weapon.AmmoType2 "Cell"
   Weapon.SlotNumber 6

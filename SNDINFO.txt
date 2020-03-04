@@ -39,6 +39,13 @@ Weapons/RifleCase RFCAS
 //chaingun/casing2	CHGNCAS2
 //chaingun/casing3	CHGNCAS3
 
+//UAC-12 Shotgun
+weapons/UAC12Fire UAC12F
+weapons/UACBack	KSGBACK
+weapons/UAC12Forward	UACFOR
+weapons/UAC12In	UAC12IN
+weapons/UAC12Pickup	UACPUPS
+
 //Demon's Bane Shotgun
 $random weapons/DBSHOT  { weapons/DBSHOT1 weapons/DBSHOT2 weapons/DBSHOT3 } 
 Weapons/DBSHOT1     DBSHOT1

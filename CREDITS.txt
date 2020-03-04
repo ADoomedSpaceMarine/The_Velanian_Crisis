@@ -17,6 +17,7 @@ Sprites:
 - D3Stakler for the EPIC BFL expansion sprites 
 - JoeyTD, Minigunner - Glock 18
 - The Tricannon originated from Captain J's resource page, found here: https://forum.zdoom.org/viewtopic.php?f=37&t=37556
+- So did the 4 base sprites for the UAC-12
 
 
 Sprite Edits: 

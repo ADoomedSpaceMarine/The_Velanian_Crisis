@@ -1,4 +1,4 @@
-class DemonsBane : Weapon replaces shotgun
+class DemonsBane : Weapon replaces supershotgun
 {
     int BarrelsFired;
     int ShotType; 
@@ -18,8 +18,8 @@ class DemonsBane : Weapon replaces shotgun
     {
         Weapon.SelectionOrder 325;
         Weapon.BobStyle "smooth";
-        Weapon.AmmoType1 "Shell";
-        Weapon.AmmoType2 "Shell";
+        Weapon.AmmoType1 "Shell2";
+        Weapon.AmmoType2 "Shell2";
         Weapon.AmmoUse1 1;
         Weapon.AmmoUse2 1;
         Weapon.AmmoGive1 2;
@@ -43,7 +43,7 @@ class DemonsBane : Weapon replaces shotgun
         Deselect:
             TNT1 A 0
             {
-            if(CountInv("shell") == 0)
+            if(CountInv("shell2") == 0)
             {
                 ACS_NamedExecute("OutOfShells");
                 A_PlaySound("Weapons/ANNup",CHAN_AUTO);
@@ -79,7 +79,7 @@ class DemonsBane : Weapon replaces shotgun
         NoAmmoReady:
             ONUG A 1
                 {
-                    if(CountInv("Shell") > 2)
+                    if(CountInv("Shell2") > 2)
                     {
                         A_WeaponReady(WRF_ALLOWRELOAD);
                         return ResolveState("Reload");
@@ -332,7 +332,7 @@ class DemonsBane : Weapon replaces shotgun
                 { 
                     return ResolveState ("DryFire");                                                    //goto the dryfire state
                 }
-                else if(CountInv("shell") < 2)
+                else if(CountInv("shell2") < 2)
                 {
                     return ResolveState ("DryFire");
                 }
@@ -344,7 +344,7 @@ class DemonsBane : Weapon replaces shotgun
             ONUG A 1 A_GunFlash;                                                                    //Do the gunflash animation
             ONUG A 1                                                                                //Proceed into firing the gun
             {
-                A_TakeInventory("Shell", 1);                                                           //Take an extra shell for double fire
+                A_TakeInventory("Shell2", 1);                                                           //Take an extra shell for double fire
                 A_PlaySound ("Weapons/ONUDual", CHAN_AUTO);                                         //Play the fire sound
                 switch(invoker.ShotType)                                                            //Determin what type of shot to fire
                 {
@@ -426,7 +426,7 @@ class DemonsBane : Weapon replaces shotgun
                 {
                     return ResolveState("ready");
                 }
-                else if(CountInv("shell") == 0)
+                else if(CountInv("shell2") == 0)
                 {
                     return ResolveState("NoAmmoReady");
                 }

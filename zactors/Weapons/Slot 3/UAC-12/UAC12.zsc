@@ -1,0 +1,601 @@
+class UAC12Counter : ammo
+{
+	default
+	{	
+		Inventory.MaxAmount 8;
+	}
+}
+
+class UAC12 : Weapon replaces shotgun
+{
+    int shotsFired;
+    int ShotType;
+	bool initialUp;
+    
+    /* ShotType has 5 types numbered 0-3
+    0: Buckshot
+    1: Slugs
+    2: SCIMTR-12 Flachette 
+    3: Fin-stabilized FRAG-12 Rounds
+    */
+
+
+    default
+    {
+        Weapon.SelectionOrder 325;
+        Weapon.BobStyle "smooth";
+        Weapon.AmmoType1 "UAC12Counter";
+        Weapon.AmmoType2 "Shell2";
+        Weapon.AmmoUse1 1;
+        Weapon.AmmoUse2 0;
+        Weapon.AmmoGive1 0;
+		Weapon.AmmoGive2 8;	
+		Inventory.PickupSound ("weapons/UAC12Pickup");
+        Inventory.PickupMessage "You picked up a UAC-12 Tactical Shotgun!";
+        Obituary "%o was blown away by %k's UAC12";
+        Weapon.SlotNumber 3;
+        Weapon.SlotPriority 2;
+        Weapon.UpSound "weapons/UAC12Foreward";
+        Weapon.KickBack 120;
+		Weapon.MinSelectionAmmo1 1;
+		Weapon.MinSelectionAmmo2 1;
+        +Weapon.NOAUTOFIRE;
+		+WEAPON.AMMO_CHECKBOTH;
+		+Weapon.NOALERT;
+        +Weapon.NOAUTOAIM;
+		decal "BulletChip";
+    }
+    
+    states
+    {
+        Select:
+            UACK A 1 A_Raise(12);               //raise the weapon
+            loop;                           //keep it raised
+        Deselect:
+            TNT1 A 0
+            {
+            if(CountInv("shell2") == 0)
+            {
+                ACS_NamedExecute("OutOfShells");
+                return ResolveState(null);
+            }
+            else 
+            {
+                return ResolveState(null);
+            }
+            }
+            UACK A 1 A_Lower(12);               //lower the weapon
+            loop;                           //keep it lowered
+        Ready:
+			TNT1 A 0 A_ZoomFactor(1);
+            UACK A 1
+            {
+				if(invoker.initialUp == 0)
+				{
+					invoker.initialUp = 1;
+					return ResolveState ("WeaponFirstUp");
+				}
+                else if(invoker.shotsFired > 8)                    
+                {
+                    return ResolveState ("Reload");                                  //goto reload
+                }
+				else                     
+                {
+                    A_WeaponReady(WRF_ALLOWRELOAD|WRF_ALLOWUSER1|WRF_ALLOWUSER2);                                  //Weapon is ready to fire and reload
+                    return ResolveState(null);
+                }
+            }
+            loop;
+			
+        User1:
+        UACK A 0
+            {
+                if(Invoker.ShotType == 3)           //If the shot type variable is equal to three
+                {
+                invoker.ShotType = 0;               //reset ShotType to 0 (Buckshot)
+                return ResolveState("MsgState");    //Go to ammo switch message switch block
+                } 
+                else if (invoker.ShotType != 3)     //Otherwise if shot type is not equal to three
+                {
+                invoker.ShotType++;                  //Incriment shot type variable by one
+                return ResolveState("MsgState");     //Go to ammo switch message switch block
+                }
+                else 
+                {
+                    return ResolveState(null); 
+                }
+        }
+        goto ready;
+
+        User2:
+        UACK A 0 
+            {
+                if(Invoker.ShotType == 0)           //If the shot type variable is equal to zero
+                {
+                invoker.ShotType = 3;               //reset ShotType to 3 (Frag-12)
+                return ResolveState("MsgState");    //Go to ammo switch message switch block
+                } 
+                else if (Invoker.ShotType != 0)     //otherwise if shot type is not equal to zero
+                {   
+                invoker.ShotType--;                  //decriment shot type by one
+                return ResolveState("MsgState");    //Go to ammo switch message switch block
+                }
+                else
+                {
+                    return ResolveState(null);
+                }    
+            }
+        goto ready;
+
+        MsgState:
+        TNT1 A 0
+        {
+         switch(invoker.ShotType)
+            {
+                case 0: ACS_Execute(3650);              //Play buckshot message
+                break;                                  //Break out of the switch block
+
+                case 1: ACS_Execute(3651);              //Play slug message
+                break;                                  //Break out of the switch block
+
+                case 2: ACS_Execute(3652);              //Play flechette message
+                break;                                  //Break out of the switch block
+
+                case 3: ACS_Execute(3661);              //Play frag-12 message
+                break;                                  //Break out of the switch block
+            }
+        }                                          
+        goto FireSwitch; 
+
+		FireSwitch:
+			UACK A 2;
+			UACS A 2;
+			UACS B 2 A_PlaySound("Weapons/UAC12Forward", chan_auto);
+			UACS A 2;
+			UACK A 2;
+			goto ready;
+	
+        Fire:
+            TNT1 A 0 
+            {
+			if(CountInv("UAC12Counter") == 0)
+				{
+                    return ResolveState ("DryFire");                                                    //goto the dryfire state
+                }
+                else                                                                                    //otherwise
+                {                                                                               
+                    return ResolveState (null);                                                         //continue past the condition checker
+                }
+            }
+            UACK A 1 A_AlertMonsters();                                                                    		  
+			UAKF A 1 A_PlaySound ("Weapons/UAC12Fire", CHAN_AUTO);
+			UACF B 1                                                                              //Proceed to fire the gun
+            {
+			switch(invoker.ShotType)                                                            //Determine what type of shot to fire
+                {
+                    case 0: //Buckshot Fired
+                    A_FireBullets(random(4,5), random(2,3), 9,random (6,8), "bulletpuff");          //fire the pellets
+                    A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
+                    invoker.ShotsFired++;  					//Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+
+                    case 1: //Slug Fired
+                    A_FireBullets(random(3,4), random (2,2), 1, random(30,50), "bulletpuff");     //Fire the slug
+                    A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+
+                    case 2: //Flechette Fired
+                    A_FireBullets(random(3,4), random (1,2), 10, random(8,10), "bulletpuff");       //Fire the flechettes
+                    A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+
+                    case 3: //Frag-12 Fired
+                    A_FireProjectile("FRAG12", 0, 1, 0, 0);                                           //Fire A Frag-12
+                    A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+                }
+            }
+			UARC A 1
+            {
+				A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SetPitch(pitch-4.0);
+				A_ZoomFactor(0.96,ZOOM_INSTANT);
+	        }
+			UARC B 1
+            {
+	            A_SetPitch(pitch+2.0);
+				A_ZoomFactor(1,ZOOM_INSTANT);
+				A_ZoomFactor(0.98,ZOOM_INSTANT);
+			}
+	        UARC A 1 
+            {
+	            A_SetPitch(pitch+2.0);
+				A_ZoomFactor(1,ZOOM_INSTANT);
+            }
+			UACK BCDE 1;
+			UACK F 1 A_PlaySound("weapons/UAC12Pickup", CHAN_AUTO);
+			UACK G 1;
+			UACK H 1
+			{
+			   switch(invoker.ShotType)
+				{
+					case 0: A_SpawnItemEx("BuckCasing",random(-6,-7),cos(pitch)*30,sin(-pitch)*25+random(36,38),	random(-2,-3),0,random(5,7),random(90,105)); 
+
+					break;                                  //Break out of the switch block
+
+					case 1: A_SpawnItemEx("SlugCasing",random(-6,-7),cos(pitch)*30,sin(-pitch)*25+random(36,38),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break;                                  //Break out of the switch block
+
+					case 2: A_SpawnItemEx("ScimCasing",random(-6,-7),cos(pitch)*30,sin(-pitch)*25+random(36,38),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break;                                  //Break out of the switch block
+	
+					case 3: A_SpawnItemEx("ExpCasing",random(-6,-7),cos(pitch)*30,sin(-pitch)*25+random(36,38),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break; 
+				}
+			}
+			UACK G 1;
+			UACK FEDCBA 1;
+            goto Ready;                              //Finish off fire cycle, goto ready
+			
+	AltFire:
+	UBAD ABD 1 A_ZoomFactor(1.5);
+	goto RealAlt;
+	
+	RealAlt:
+		TNT1 A 0 A_ZoomFactor(1.5);
+		UBAD D 1 {
+		int input = GetPlayerInput(INPUT_BUTTONS);
+		int oldinput = GetPlayerInput(INPUT_OLDBUTTONS);
+		If(input & BT_ALTATTACK)
+		{
+			if (oldinput & BT_ATTACK)
+			{	
+				return ResolveState(null);
+			}
+			else if (input & BT_ATTACK)
+			{
+				A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+				return ResolveState("AltShoot");
+			}
+			else
+			{
+			return resolvestate(null);
+			}
+			
+		}
+		else
+		{
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			A_ZoomFactor(1);
+			return ResolveState("Ready");
+		}
+	}
+	loop; 
+		
+	
+	adsDown:	
+		UBAD DBA 1 A_ZoomFactor(1);
+		UACK A 1
+		{
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			return ResolveState("Ready");
+		}
+		loop;
+		
+		
+	AltShoot:                    
+            TNT1 A 0 
+            {
+				if(CountInv("UAC12Counter") == 0)
+				{
+                    return ResolveState ("DryFire");                                                    //goto the dryfire state
+                }
+                else                                                                                    //otherwise
+                {                                                                               
+                    return ResolveState (null);                                                         //continue past the condition checker
+                }
+            }
+            UBAD D 1 A_AlertMonsters();                                                                    		  
+			UADF A 1 A_PlaySound ("Weapons/UAC12Fire", CHAN_AUTO);
+			UADF B 1                                    //Proceed to fire the gun
+            {
+                switch(invoker.ShotType)                                                            //Determine what type of shot to fire
+                {
+                    case 0: //Buckshot Fired
+                    A_FireBullets(random(3,4), random(2,3), 9,random (6,8), "bulletpuff");          //fire the pellets
+                    A_Recoil(1*cos(pitch));                                                         //Add shot recoil   
+					A_TakeInventory ("UAC12Counter", 1);
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+
+                    case 1: //Slug Fired
+                    A_FireBullets(random(1,2), random(2, 1), 1,  random(30,40), "bulletpuff");     //Fire the slug
+                    A_Recoil(1*cos(pitch));                                                         //Add shot recoil   
+                    A_TakeInventory ("UAC12Counter", 1);
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+
+                    case 2: //Flechette Fired
+                    A_FireBullets(random(2,3), random (2,3), 10, random(8,10), "bulletpuff");       //Fire the flechettes
+                    A_Recoil(1*cos(pitch));                                                         //Add shot recoil   
+                    A_TakeInventory ("UAC12Counter", 1);
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+                    break;                                                                          //Break out of the switch block
+
+                    case 3: //Frag-12 Fired
+                    A_FireProjectile("FRAG12", 0, 1, 0, 0);                                           //Fire A Frag-12
+                    A_Recoil(1*cos(pitch));                                                         //Add shot recoil   
+					A_TakeInventory ("UAC12Counter", 1);
+                    invoker.ShotsFired++;                                                       //Set barrels fired to one
+					break;                                                                          //Break out of the switch block
+                }
+            }
+			UAFR A 1
+            {
+				A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SetPitch(pitch-2.0);
+	            A_ZoomFactor(1,ZOOM_INSTANT);
+	        }
+			UAFR B 1
+            {
+	            A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.25,ZOOM_INSTANT);
+	        }
+	        UAFR A 1 
+            {
+	            A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1.5,ZOOM_INSTANT);
+            }
+			UBAD EFG 1;
+			UBAD H 1 A_PlaySound("weapons/UAC12Pickup", CHAN_AUTO);
+			UBAD IJ 1;
+			UACD J 0
+			{
+			   switch(invoker.ShotType)
+				{
+					case 0: A_SpawnItemEx("BuckCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
+
+					break;                                  //Break out of the switch block
+
+					case 1: A_SpawnItemEx("SlugCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break;                                  //Break out of the switch block
+
+					case 2: A_SpawnItemEx("ScimCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break;                                  //Break out of the switch block
+	
+					case 3: A_SpawnItemEx("ExpCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
+					break; 
+				}
+			}
+			
+			UBAD IHGFE 1;
+            goto RealAlt;                           
+
+        DryFire:
+			TNT1 A 0 A_ZoomFactor(1);
+            UADR A 2 A_PlaySound ("Weapons/DryFire");   //Play dryfire sound
+            goto Reload;                                 //goto ready state
+        
+        Reload:
+			TNT1 A 0 A_ZoomFactor(1);
+            TNT1 A 0
+            {
+				if(CountInv("UAC12Counter") == 0 && CountInv("shell2") == 0)
+				{
+				A_SelectWeapon("",SWF_SELECTPRIORITY);
+				return ResolveState (null);
+				}
+                if(CountInv("UAC12Counter") == 8 || countInv("Shell2") == 0)
+                {
+                    return ResolveState("ready");
+                }
+                else
+                {
+                    return ResolveState(null);
+                }
+            }
+            UAKR ABCDEFG 1;
+            UAKR G 0
+            { 
+               if(invoker.ShotType == 0)            
+				{
+					return ResolveState ("ReloadBuck");
+				}
+				Else if(invoker.ShotType == 1)                
+				{
+                    return ResolveState ("ReloadSlugs");
+				}
+                Else if(invoker.ShotType == 2)                
+				{
+					return ResolveState ("ReloadScim");				
+				}
+				Else if(invoker.ShotType == 3)               
+				{
+					return ResolveState ("ReloadExp");
+                }  
+				Else
+				{
+					return ResolveState ("Ready");
+                } 
+            }
+
+        ReloadBuck:
+			UAKR G 1 A_JumpIfInventory("UAC12Counter", 8, "Ready");
+            TNT1 A 0
+			{
+				int input = GetPlayerInput(INPUT_BUTTONS);
+				if(input & BT_ATTACK && invoker.ShotsFired < 8)
+				{
+					return ResolveState("fire");
+				}
+				else
+				{
+					return resolveState(null);	
+				}
+			}
+			UBKR A 2;
+			UBKR B 2 
+			{
+			A_PlaySound("weapons/UAC12In", CHAN_WEAPON);
+			A_GiveInventory("UAC12Counter", 1);
+			A_TakeInventory("shell2", 1);
+			invoker.ShotsFired--;
+			}
+			TNT1 A 0
+			{
+				if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+					return ResolveState ("Ready");
+
+				int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+				if (ammoAmount <= 0)
+					return ResolveState ("Ready");
+					return ResolveState (null);
+			}	
+			UBKR C 1;
+			UBKR D 1;
+			UAKR I 1;
+			UAKR H 1;
+			UAKR G 1;
+			goto ReloadBuck;
+			
+		ReloadSlugs:
+			UAKR G 1 A_JumpIfInventory("UAC12Counter", 8, "Ready");
+            TNT1 A 0
+			{
+				int input = GetPlayerInput(INPUT_BUTTONS);
+				if(input & BT_ATTACK && invoker.ShotsFired < 8)
+				{
+					return ResolveState("fire");
+				}
+				else
+				{
+					return resolveState(null);	
+				}
+			}
+			USKR A 1;
+			USKR B 1 
+			{
+			A_PlaySound("weapons/UAC12In", CHAN_WEAPON);
+			A_GiveInventory("UAC12Counter", 1);
+			A_TakeInventory("shell2", 1);
+			invoker.ShotsFired--;
+			}
+			TNT1 A 0
+			{
+				if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+					return ResolveState ("Ready");
+
+				int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+				if (ammoAmount <= 0)
+					return ResolveState ("Ready");
+					return ResolveState (null);
+			}	
+			USKR C 1;
+			USKR D 1;
+			UAKR H 1;
+			UAKR I 1;
+			UAKR G 1;
+			goto ReloadSlugs;
+			
+		ReloadScim:
+			UAKR G 1 A_JumpIfInventory("UAC12Counter", 8, "Ready");
+            TNT1 A 0
+			{
+				int input = GetPlayerInput(INPUT_BUTTONS);
+				if(input & BT_ATTACK && Invoker.ShotsFired < 8)
+				{
+					return ResolveState("fire");
+				}
+				else
+				{
+					return resolveState(null);	
+				}
+			}
+			USCR A 1;
+			USCR B 1 
+			{
+			A_PlaySound("weapons/UAC12In", CHAN_WEAPON);
+			A_GiveInventory("UAC12Counter", 1);
+			A_TakeInventory("shell2", 1);
+			invoker.ShotsFired--;
+			}
+			TNT1 A 0
+			{
+				if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+					return ResolveState ("Ready");
+
+				int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+				if (ammoAmount <= 0)
+					return ResolveState ("Ready");
+					return ResolveState (null);
+			}	
+			USCR C 1;
+			USCR D 1;
+			UAKR H 1;
+			UAKR I 1;
+			UAKR G 1;
+			goto ReloadScim;
+			
+		ReloadExp:
+			UAKR G 1 A_JumpIfInventory("UAC12Counter", 8, "Ready");
+            TNT1 A 0
+			{
+				int input = GetPlayerInput(INPUT_BUTTONS);
+				if(input & BT_ATTACK && invoker.ShotsFired < 8)
+				{
+					return ResolveState("fire");
+				}
+				else
+				{
+					return resolveState(null);	
+				}
+			}
+			UECR A 1;
+			UECR B 1 
+			{
+			A_PlaySound("weapons/UAC12In", CHAN_WEAPON);
+			A_GiveInventory("UAC12Counter", 1);
+			A_TakeInventory("shell2", 1);
+			invoker.ShotsFired--;
+			}
+			TNT1 A 0
+			{
+				if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+					return ResolveState ("Ready");
+
+				int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+				if (ammoAmount <= 0)
+					return ResolveState ("Ready");
+					return ResolveState (null);
+			}	
+			UECR C 1;
+			UECR D 1;
+			UAKR H 1;
+			UAKR I 1;
+			UAKR G 1;
+			goto ReloadExp;
+			
+		WeaponFirstUp:
+		UACK BCDE 1;
+		UACK F 1 A_PlaySound("weapons/UAC12Pickup", CHAN_WEAPON);
+		UACK G 1;
+		UACK H 1;
+		UACK G 1;
+		UACK FEDCBA 1;
+		TNT1 A 0
+		{
+		invoker.shotsfired = 0;
+		takeinventory("Shell2", 8);
+		giveinventory("UAC12Counter", 8);
+		}
+		goto Ready;   
+			
+        Spawn:
+            UACP A -1;
+            Stop;
+		
+	}
+}

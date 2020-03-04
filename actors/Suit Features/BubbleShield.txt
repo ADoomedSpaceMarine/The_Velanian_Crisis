@@ -5,6 +5,9 @@ ACTOR BubbleShield : CustomInventory
   Inventory.MaxAmount 1
   Inventory.Icon "BPUSA0"
   +INVENTORY.PERSISTENTPOWER
+  RenderStyle Translucent
+  Alpha 0.15
+ 
   
   States
   {
@@ -14,21 +17,18 @@ ACTOR BubbleShield : CustomInventory
     Fail
   UseShield:
     TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
-    BUBS ABCDEFGH 2
+    BUBS ABCDEFGHIJ 1
     TNT1 A 0 ACS_NamedExecute("DeploymentMessage") 
     goto ShieldSustain
   ShieldSustain:
-    BUBS I 980
+    BUBS K 960
     TNT1 A 0 ACS_NamedExecute("ShieldWarning")
-    BUBS I 70
+    BUBS K 90
     Goto ShieldCrash
   ShieldCrash:
     TNT1 A 0 A_PlaySound("Powerup/ShieldBrk",CHAN_AUTO)
-    BUBS IHGF 2
-    BUBD A 2
-    BUBD B 2
-    BUBD C 2
-    BUBD D 2
+    BUBS JIHGFE 1
+    BUBD ABCDEFGHI 1
     TNT1 A 0 ACS_NamedExecute("MainShieldDepleted")
     TNT1 A 2100
     TNT1 A 0 ACS_NamedExecute("RechargedMessage")
@@ -48,7 +48,7 @@ ACTOR PickUpBubbleShield : CustomInventory
   States
   {
   Spawn:
-    BPUS ABCDCB 3 Bright
+    BPUS ABCDCB 2 Bright
     loop
   Pickup:
 	TNT1 A 0 ACS_NamedExecute("PickupBubbleSwitch")
@@ -73,21 +73,27 @@ ACTOR PickupBubbleShieldActive : CustomInventory
 	fail
   UseShield2:
     TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
-    BUBS ABCDEFGH 2
+    BUBS ABCDEFGHIJ 1
 	TNT1 A 0 ACS_NamedExecute("DeploymentMessage") 
     goto ShieldSustain2
   ShieldSustain2:
-    BUBS I 980
+    BUBS K 980
     TNT1 A 0 ACS_NamedExecute("ShieldWarning")
-    BUBS I 70
+    BUBS K 70
     Goto ShieldCrash2
   ShieldCrash2:
     TNT1 A 0 A_PlaySound("Powerup/ShieldBrk",CHAN_AUTO)
-    BUBS IHGF 2
-    BUBD A 2
-    BUBD B 2
-    BUBD C 2
-    BUBD D 2
+    BUBS KJIHG 1
+    BUBD A 1
+    BUBD B 1
+    BUBD C 1
+    BUBD D 1
+    BUBD E 1
+    BUBD F 1
+    BUBD G 1
+    BUBD H 1
+    BUBD I 1
+    BUBD J 1
     TNT1 A 0 ACS_NamedExecute("PickupBubbleTaker")
     TNT1 A 0 
     Stop

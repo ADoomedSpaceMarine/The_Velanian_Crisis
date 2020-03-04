@@ -1,3 +1,84 @@
+ACTOR DoomMarineMK2 : DoomPlayer
+{
+  Speed 1
+  Health 100
+  Radius 16
+  Height 56
+  Mass 100
+  PainChance 255
+   DamageFactor "BFLCharge", 0
+  DamageFactor "BFLBeam", 0
+  Player.DisplayName "Marine"
+  Player.CrouchSprite "PLYC"
+  Player.StartItem "Glock18"
+  Player.StartItem "GlockAmmo", 50
+  Player.StartItem "Fist"
+  Player.ColorRange 112, 127
+  Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
+  Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
+  Player.ColorSet 2, "Brown",         0x40, 0x4F,  0x42
+  Player.ColorSet 3, "Red",           0x20, 0x2F,  0x22
+  // Doom Legacy additions
+  Player.ColorSet 4, "Light Gray",    0x58, 0x67,  0x5A
+  Player.ColorSet 5, "Light Brown",   0x38, 0x47,  0x3A
+  Player.ColorSet 6, "Light Red",     0xB0, 0xBF,  0xB2
+  Player.ColorSet 7, "Light Blue",    0xC0, 0xCF,  0xC2
+
+  States
+  {
+  Spawn:
+    PLAY A -1
+    Loop
+  See:
+    PLAY ABCD 4 
+    Loop
+  Missile:
+    PLAY E 12
+    Goto Spawn
+  Melee:
+    PLAY F 6 BRIGHT
+    Goto Missile
+  Pain:
+    PLAY G 4 
+    PLAY G 4 A_Pain
+    Goto Spawn
+  Death:
+    PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
+  Death1:
+    PLAY H 10
+    PLAY I 10 A_PlayerScream
+    PLAY J 10 A_NoBlocking
+    PLAY KLM 10
+    PLAY N -1
+    Stop
+  XDeath:
+    PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
+  XDeath1:
+    PLAY O 5
+    PLAY P 5 A_XScream
+    PLAY Q 5 A_NoBlocking
+    PLAY RSTUV 5
+    PLAY W -1
+    Stop
+  AltSkinDeath:
+    PLAY H 6
+    PLAY I 6 A_PlayerScream
+    PLAY JK 6
+    PLAY L 6 A_NoBlocking
+    PLAY MNO 6
+    PLAY P -1
+    Stop
+  AltSkinXDeath:
+    PLAY Q 5 A_PlayerScream
+    PLAY R 0 A_NoBlocking
+    PLAY R 5 A_SkullPop
+    PLAY STUVWX 5
+    PLAY Y -1
+    Stop
+  }
+}
+
+
 ACTOR TankPlayer : DoomPlayer
 {
   DamageFactor "Normal", 0.7
@@ -10,13 +91,11 @@ ACTOR TankPlayer : DoomPlayer
   Player.JumpZ 8
   Player.DisplayName "Tank"
   Player.CrouchSprite "PLYC"
-   Player.StartItem "Glock18"
-  Player.StartItem "GlockAmmo", 170
+  Player.StartItem "Glock18"
+  Player.StartItem "GlockAmmo", 50
   Player.StartItem "Tricannon"
-  Player.StartItem "RifleAmmo", 400
-  Player.StartItem "Plasmacaster"
+  Player.StartItem "RifleAmmo", 120
   Player.StartItem "Fist"
-  Player.StartItem "Cell", 300
   
   States
   {
@@ -80,9 +159,9 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.DisplayName "Acrobat"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
-  Player.StartItem "GlockAmmo", 170
-  Player.StartItem "Demonsbane"
-  Player.StartItem "Shell", 24
+  Player.StartItem "GlockAmmo", 50
+  Player.StartItem "UAC12"
+  Player.StartItem "Shell2", 24
   Player.StartItem "Fist"    
   
   States
@@ -145,10 +224,10 @@ ACTOR CyberMarine : DoomPlayer
   Player.DisplayName "Commando"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
-  Player.StartItem "GlockAmmo", 170
-  Player.StartItem "AR36", 1
-  Player.StartItem "RifleAmmo", 300
-  Player.StartItem "AnnAmmo", 10
+  Player.StartItem "GlockAmmo", 50
+  Player.StartItem "AR36"
+  Player.StartItem "RifleAmmo", 90
+  Player.StartItem "AnnAmmo", 5
   Player.StartItem "Fist"
 
   States
@@ -213,11 +292,9 @@ Actor CombatVeteran : DoomPlayer
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
-  Player.StartItem "GlockAmmo", 170
-  Player.StartItem "Demonsbane"
-  Player.StartItem "Shell", 40
-  Player.StartItem "Battlehawk"
-  Player.StartItem "DeagleAmmo", 50
+  Player.StartItem "GlockAmmo", 50
+  Player.StartItem "UAC12"
+  Player.StartItem "Shell2", 24
   Player.StartItem "Fist"
   
   States
