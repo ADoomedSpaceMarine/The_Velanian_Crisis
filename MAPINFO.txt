@@ -20,7 +20,7 @@ gameinfo
 	weaponslot = 2, "Glock18", "Battlehawk" 
 	weaponslot = 3, "UAC-12", "Demonsbane"
 	weaponslot = 4, "AR36", "TriCannon"
-	weaponslot = 5, "Annihilator"
+	weaponslot = 5, "NewRl"
 	WeaponSlot = 6, "PlasmaCaster"
 	WeaponSlot = 7, "BFL10k",  "AutoCannon"
 }

@@ -10,6 +10,42 @@ class ARClip : ammo
 	}
 }
 
+
+Class AnnAmmo : RocketAmmo  Replaces RocketAmmo//Replace Rocket Launcher ammo
+{
+Default{ 
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "Picked up a clip of Annihilator rockets."; 
+  Inventory.Amount 4;
+  Inventory.MaxAmount 80;
+  Ammo.BackpackAmount 4;
+  Ammo.BackpackMaxAmount 160;
+  Inventory.Icon "ANPU0";
+	}
+  States
+  {
+  Spawn: 
+    ANPU A -1;
+    Stop;
+  }
+}
+
+Class AnnBox : RocketAmmo replaces RocketBox//This class replaces the box of rockets in Doom
+{
+  Default
+  {
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "Picked up a box of Annihilator rockets.";
+  Inventory.Amount 8;
+  }
+  States
+  {
+  Spawn:
+    ANBX A -1;
+    Stop;
+  }
+}
+
 class RifleAmmo : Ammo
 {
 
@@ -178,7 +214,7 @@ class AR36 : weapon replaces chaingun
 		Fire:
 		TNT1 A 0
 		{
-			if(GetPlayerInput (MODINPUT_BUTTONS) & BT_ALTATTACK && CountInv("AnnAmmo") > 0)
+			if(GetPlayerInput (MODINPUT_BUTTONS) & BT_ALTATTACK && CountInv("RocketAmmo") > 0)
 			{
 				return ResolveState ("GrenadeFire");
 			}
@@ -314,7 +350,7 @@ class AR36 : weapon replaces chaingun
 				A_SetPitch(pitch+2.0);
 	            A_ZoomFactor(1, ZOOM_INSTANT);
 			}
-		AR36 A 0 A_TakeInventory("AnnAmmo", 1);
+		AR36 A 0 A_TakeInventory("RocketAmmo", 1);
 		AR36 A 1;
 		goto Ready;
 
