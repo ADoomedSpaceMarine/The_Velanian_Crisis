@@ -1,8 +1,5 @@
-//Do not use assets from my mod without expicit credits to myself or other content creators, ADoomedSpaceMarine
+//Do not use assets from my mod without expicit credits to myself or other content creators included in credit, ADoomedSpaceMarine
 
-//Monster Includes
-#include "actors/Monsters/EasyGame/ZombieDude.txt"
-#include "actors/Monsters/EasyGame/ShotgunDude.txt"
 
 //General Includes
 #include "actors/Player/Players.txt"
@@ -24,3 +21,9 @@
 #include "actors/CatsTokens.txt"
 #include "actors/Radar.txt"
 
+
+//Monster Includes
+#include "actors/Monsters/Wood Tier/ZombieDude.txt"
+#include "actors/Monsters/Wood Tier/ShotgunDude.txt"
+#include "actors/Monsters/Mid Tier/RifleDude/RifleDude.txt"
+#include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"

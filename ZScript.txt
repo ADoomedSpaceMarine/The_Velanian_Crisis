@@ -1,5 +1,5 @@
 //All Cat's Visor Related Content
-version "3.7"
+version "3.0"
 #include "zscript/ATMP_MapHandler.zsc"
 #include "zscript/ATMP_kShape.zsc"
 #include "zscript/ATMP_GlobalMaths.zsc"
@@ -9,11 +9,29 @@ version "3.7"
 
 //Zscript Weapons
 #include "zactors/Weapons/Slot 7/BFL10k/BFL10K.zsc"
+#include "zactors/Weapons/Slot 7/Autocannon/AutoCannon.zsc"
 #include "zactors/Weapons/Slot 5/Annihilator/Annihilator.zsc"
 #include "zactors/Weapons/Slot 3/Demonsbane/Demonsbane.zsc"
 #include "zactors/Weapons/Slot 3/UAC-12/UAC12.zsc"
 #include "zactors/Weapons/Slot 4/AR36/ar36.zsc"
 #include "zactors/Weapons/Slot 4/Trigun/Tricannon.zsc"
-#include "zactors/Weapons/Slot 4/Autocannon/AutoCannon.zsc"
 #include "zactors/Weapons/Slot 2/Deagle.zsc"
 #include "zactors/Weapons/Slot 2/Glock18.zsc"
+
+//Nash Gore
+#include "zscript/NashGoreCommon.zc"
+#include "zscript/NashGoreStatics.zc"
+#include "zscript/NashGoreHandler.zc"
+#include "zscript/NashGoreBlood.zc"
+#include "zscript/NashGoreBloodPlane.zc"
+#include "zscript/NashGoreGibs.zc"
+#include "zscript/NashGoreCrushedGibs.zc"
+#include "zscript/NashGoreSquishyGibs.zc"
+#include "zscript/NashGoreIceChunk.zc"
+#include "zscript/NashGoreLiquidBlood.zc"
+#include "zscript/NashGoreWallBlood.zc"
+#include "zscript/NashGoreActor.zc"
+#include "zscript/NashGoreMenu.zc"
+
+// global constants
+const STAT_NashGore_Gore = Thinker.STAT_USER + 1;

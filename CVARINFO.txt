@@ -58,3 +58,18 @@ server int flashlight_intensity = 512;
 server float flashlight_inner = 12.0;
 server float flashlight_outer = 26.0;
 server int flashlight_location = 0;
+
+//Nash Gore
+server int nashgore_maxgore = 1024;
+server int nashgore_bloodtype = 0;
+server int nashgore_bloodamount = 255;
+server bool nashgore_spriteblood = false;
+server bool nashgore_bloodspurt = true;
+server int nashgore_gibtype = 0;
+server int nashgore_gibamount = 255;
+server bool nashgore_corpseblood = true;
+server bool nashgore_footprints = true;
+server bool nashgore_deathflip = true;
+server bool nashgore_squish = true;
+server bool nashgore_icedeath = true;
+server bool nashgore_splat = true;

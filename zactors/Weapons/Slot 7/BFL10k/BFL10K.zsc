@@ -1,4 +1,4 @@
-Class BFLAmmo : ammo
+Class BFLAmmo : cell
 {
 Default{ 
   Inventory.PickupMessage "Picked up a BFL10K Cell";

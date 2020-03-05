@@ -25,3 +25,7 @@ gameinfo
 	WeaponSlot = 7, "BFL10k",  "AutoCannon"
 }
 
+GameInfo
+{
+	AddEventHandlers = "NashGoreHandler"
+}

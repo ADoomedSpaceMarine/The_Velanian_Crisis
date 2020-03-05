@@ -1,3 +1,10 @@
+//Nash Gore
+#include "models/nashgore/BloodSpot/_materials.txt"
+#include "models/nashgore/CorpseBlood/_materials.txt"
+#include "models/nashgore/Footprint/_materials.txt"
+
+
+//Other
 PointLight MExp1
 {
     color 1.0 1.0 0.0
@@ -216,4 +223,145 @@ Subtractive 1
 Object BFLBlackHoleDarkness
 {
     Frame TNT1 {Light BFLBlackHoleDark}
+}
+
+FlickerLight2 RifleCommandoAttack
+{
+color 1.0 0.8 0.2
+size 48
+secondarySize 56
+interval 1
+offset 0 40 0
+}
+
+Object RifleDude
+{
+Frame ACPSF { Light RifleCommandoAttack }
+}
+
+
+//Brightmaps
+
+BrightMap Sprite ACPSE1
+{
+Map ACPFTRE1
+DisableFullBright
+}
+
+BrightMap Sprite ACPSE2E8
+{
+Map ACPFTRE2
+DisableFullBright
+}
+
+BrightMap Sprite ACPSE3E7
+{
+Map ACPFTRE3
+DisableFullBright
+}
+
+BrightMap Sprite ACPSE4E6
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite ACPSE5
+{
+Map BMBLACK
+DisableFullBright
+}
+
+BrightMap Sprite ACPSF1
+{
+Map ACPFTRF1
+DisableFullBright
+}
+
+BrightMap Sprite ACPSF2F8
+{
+Map ACPFTRF2
+DisableFullBright
+}
+
+BrightMap Sprite ACPSF3F7
+{
+Map ACPFTRF3
+DisableFullBright
+}
+
+BrightMap Sprite ACPSF4F6
+{
+Map ACPFTRF4
+DisableFullBright
+}
+
+BrightMap Sprite ACPSF5
+{
+Map ACPFTRF5
+DisableFullBright
+}
+
+//Pistol Zombie 
+//SMALL GUNFIRE
+FlickerLight2 SmallGunFire
+{
+Color 1.0 0.8 0.2
+Size 48
+SecondarySize 56
+Interval 1.0
+}
+
+
+Object ZombieDude
+{
+	Frame ALY2F { Light SmallGunFire }
+}
+
+
+Object BattleHZombie
+{
+	Frame ALY2F { Light SmallGunFire }
+}
+
+//BRIGHTMAPS: PISTOL
+BrightMap Sprite ALY2F1
+{
+Map BMALY2F1
+DisableFullBright
+}
+BrightMap Sprite ALY2F2
+{
+Map BMALY2F2
+DisableFullBright
+}
+BrightMap Sprite ALY2F3
+{
+Map BMALY2F3
+DisableFullBright
+}
+BrightMap Sprite ALY2F4
+{
+Map BMALY2F4
+DisableFullBright
+}
+BrightMap Sprite ALY2F5
+{
+Map BM1HAND5
+DisableFullBright
+}
+BrightMap Sprite ALY2F6
+{
+Map BMALY2F6
+DisableFullBright
+}
+BrightMap Sprite ALY2F7
+{
+Map BMALY2F7
+DisableFullBright
+}
+BrightMap Sprite ALY2F8
+{
+Map BMALY2F8
+DisableFullBright
 }

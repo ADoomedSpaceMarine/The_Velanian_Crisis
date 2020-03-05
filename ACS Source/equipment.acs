@@ -18,15 +18,17 @@ Script "InventoryEnabler" Enter
 	Switch(PlayerClass(0))
 	{
 	Case 0: 
-		GiveInventory("gogsFound", 1);
 		Break;
 	Case 1:
+		GiveInventory("gogsFound", 1);
 		Break;
 	Case 2:
+		Break;
+	Case 3:
 		BubbleState = 1;
 		GiveInventory("BubbleFound", 1); 
 		Break;
-	Case 3:
+	Case 4:
 		Break;
 		}
 	Terminate;

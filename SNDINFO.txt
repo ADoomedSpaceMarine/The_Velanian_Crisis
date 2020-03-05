@@ -11,6 +11,9 @@ $attenuation weapons/SmExplosion 0.75
 Weapons/ClustAlert	CLALERT
 Weapons/GrenBounce	GNBOUNC
 
+//Misc
+SFX/Buzz	DSBUZZ
+
 //Casings
 $random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
 $volume weapons/casing 0.7
@@ -102,7 +105,7 @@ weapons/arin ARMAG
 weapons/arbolt ARBOLT
 weapons/arswitch ARSWITC
 
-//Deagle Sounds
+
 $random weapons/GLOCK  { weapons/GLOCK1 weapons/GLOCK2 weapons/GLOCK3} 
 weapons/GLOCK1 GLOCK1
 weapons/GLOCK2 GLOCK2
@@ -112,6 +115,8 @@ weapons/glkin GLOCKIN
 weapons/glkback GLKBAK
 weapons/glkfor GLKFOR
 weapons/glkSlide GLKPKU
+
+//Deagle Sounds
 $random weapons/DEAGLE  { weapons/DEAGL1 weapons/DEAGL2 weapons/DEAGL3} 
 weapons/DEAGL1	DEAG1
 weapons/DEAGL2	DEAG2
@@ -151,9 +156,131 @@ Hud/CritWarn CRTWARN
 Hud/Heartbeat heartbeat
 Hud/ModInst ModInst
 
-
 //Equipment Sounds
 equip/NightVUp NVUP
 equip/NightVDn NVOff
 equip/FlashOn FlashOn
 equip/FlashOff FlashOff
+
+//DeagleHunter
+$random Shadow/Idle { Shadow/Idle1 Shadow/Idle2}
+Shadow/Idle1 SHADIDL1
+Shadow/Idle2 SHADIDL2
+Shadow/Death SHADDEAD
+Shadow/Pain SHADPAIN
+Shadow/Sight SHADSIGH
+Shadow/Fire SHADGUN
+
+
+//Nash Gore
+//===========================================================================
+//
+// Blood Splash
+//
+//===========================================================================
+
+nashgore/bloodsplash1 "sounds/blood splash 01.ogg"
+nashgore/bloodsplash2 "sounds/blood splash 02.ogg"
+nashgore/bloodsplash3 "sounds/blood splash 03.ogg"
+
+$random nashgore/bloodsplash
+{
+	nashgore/bloodsplash1
+	nashgore/bloodsplash2
+	nashgore/bloodsplash3
+}
+
+$limit nashgore/bloodsplash 2
+$volume nashgore/bloodsplash 0.3
+
+//===========================================================================
+//
+// Blood Drop
+//
+//===========================================================================
+
+nashgore/blooddrop01 "sounds/blood drop 01.ogg"
+nashgore/blooddrop02 "sounds/blood drop 02.ogg"
+
+$random nashgore/blooddrop
+{
+	nashgore/blooddrop01
+	nashgore/blooddrop02
+}
+
+$volume nashgore/blooddrop 0.25
+$limit nashgore/blooddrop 2
+
+//===========================================================================
+//
+// Small Gib
+//
+//===========================================================================
+
+nashgore/gibsmall01 "sounds/gib small 01.ogg"
+nashgore/gibsmall02 "sounds/gib small 02.ogg"
+
+$random nashgore/gibsmall
+{
+	nashgore/gibsmall01
+	nashgore/gibsmall02
+}
+
+$volume nashgore/gibsmall 0.44;
+
+//===========================================================================
+//
+// Big Gib
+//
+//===========================================================================
+
+nashgore/giblarge01 "sounds/gib large 01.ogg"
+nashgore/giblarge02 "sounds/gib large 02.ogg"
+nashgore/giblarge03 "sounds/gib large 03.ogg"
+
+// replace the stock gibbed sound
+$random misc/gibbed
+{
+	nashgore/giblarge01
+	nashgore/giblarge02
+	nashgore/giblarge03
+}
+
+$limit misc/gibbed 3
+
+//===========================================================================
+//
+// Bouncing Gib
+//
+//===========================================================================
+
+nashgore/gibbounce01 "sounds/gib bounce 01.ogg"
+nashgore/gibbounce02 "sounds/gib bounce 02.ogg"
+nashgore/gibbounce03 "sounds/gib bounce 03.ogg"
+
+$random nashgore/gibbounce
+{
+	nashgore/gibbounce01
+	nashgore/gibbounce02
+	nashgore/gibbounce03
+}
+
+$volume nashgore/gibbounce 0.225
+$limit nashgore/gibbounce 4
+
+//===========================================================================
+//
+// Body Drop
+//
+//===========================================================================
+
+nashgore/bodydrop "sounds/body drop 01.ogg"
+
+//===========================================================================
+//
+// Bullet Hit Flesh
+//
+//===========================================================================
+
+nashgore/bullethitflesh "sounds/bullet hit flesh.ogg"
+$volume nashgore/bullethitflesh 0.23

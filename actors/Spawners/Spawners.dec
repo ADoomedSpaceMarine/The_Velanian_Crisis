@@ -1,6 +1,6 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 2
+    DropItem "GlockBullets", 255, 3
 	DropItem "GlockAmmo", 255, 3
 	DropItem "DeagleAmmo", 255, 3
     DropItem "RifleAmmo", 255, 3
@@ -9,7 +9,7 @@ actor ClipSpawner : RandomSpawner replaces clip
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 20
+    DropItem "TriCannon", 255, 16
     DropItem "AutoCannon", 255, 1
 }
 
@@ -31,16 +31,19 @@ actor Box2Spawner : RandomSpawner replaces ClipBox
 
 actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
-{
-    DropItem "BattleHZombie", 255, 1
-	DropItem "AssaultZombie", 255, 4
+{	
+	DropItem "DeagleHunter", 255, 2
+	DropItem "BattleHZombie", 255, 3
+	DropItem "RifleDude", 255, 4
+	DropItem "AssaultZombie", 255, 5
     DropItem "ZombieDude", 255, 6
 }
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
+	DropItem "DeagleHunter", 255, 1
     DropItem "ShotgunGuy2", 255, 8
-    DropItem "DBShotgunGuy", 255, 1
+    DropItem "DBShotgunGuy", 255, 6
 }
 
 actor CellPack2 : CellPack{}

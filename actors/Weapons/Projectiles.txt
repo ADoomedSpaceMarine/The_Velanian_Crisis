@@ -251,7 +251,7 @@ ACTOR PlasmaBall3 : plasmaball replaces plasmaball
   Radius 13
   Height 8
   Speed 70
-  Damage 9
+  Damage 7
   scale 0.55
   Projectile
   +RANDOMIZE
@@ -279,8 +279,8 @@ ACTOR PlasmaBall4 : PlasmaBall3
   Radius 13
   Height 8
   Speed 120
-  Damage 7
-  scale 0.25
+  Damage 5
+  scale 0.15
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
