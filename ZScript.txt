@@ -34,5 +34,8 @@ version "3.0"
 #include "zscript/NashGoreActor.zc"
 #include "zscript/NashGoreMenu.zc"
 
+//General
+#include "zactors/Weapons/Ammo/AmmoDefs.zsc"
+
 // global constants
 const STAT_NashGore_Gore = Thinker.STAT_USER + 1;

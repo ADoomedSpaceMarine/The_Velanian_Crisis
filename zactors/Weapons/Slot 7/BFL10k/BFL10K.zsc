@@ -43,12 +43,12 @@ Class BFL10K : Weapon replaces BFG9000
       Weapon.AmmoUse1 10;
       Weapon.AmmoUse2 50;
       Weapon.AmmoGive1 100;
-      Weapon.AmmoType "BFLAmmo";
-      Weapon.AmmoType2 "BFLAmmo";
+      Weapon.AmmoType "Cell2";
+      Weapon.AmmoType2 "Cell2";
       Weapon.SlotNumber 7;
-      Weapon.SlotPriority 1;
+      Weapon.SlotPriority 3;
       +WEAPON.NOAUTOFIRE;
-	    Inventory.PickupMessage "You Obtained the BFL-10k Photonic Megacannon!";
+	  Inventory.PickupMessage "You Obtained the BFL-10k Photonic Megacannon!";
       Obituary "%o was vaporized by %k's Big Frickin Photon Cannon.";
       Decal "BigScorch";
     }

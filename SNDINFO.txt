@@ -133,7 +133,10 @@ weapons/PCaster	PLASCAST
 weapons/APCaster ALTCAST
 weapons/CasterSteam CASSTEM
 weapons/CasterUp PLASMUP
+weapons/CellPup CELPUP
 $volume weapons/CasterSteam 0.4
+weapons/CasteroHeat PLSOHEAT
+
 
 //Tricannon Sounds
 weapons/Trican	TRIFIRE

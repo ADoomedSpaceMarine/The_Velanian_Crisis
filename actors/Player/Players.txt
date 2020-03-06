@@ -93,7 +93,7 @@ ACTOR TankPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Tricannon"
+  Player.StartItem "TriCannon"
   Player.StartItem "RifleAmmo", 120
   Player.StartItem "Fist"
   
@@ -227,7 +227,7 @@ ACTOR CyberMarine : DoomPlayer
   Player.StartItem "GlockAmmo", 50
   Player.StartItem "AR36"
   Player.StartItem "RifleAmmo", 90
-  Player.StartItem "AnnAmmo", 5
+  Player.StartItem "RocketAmmo2", 8
   Player.StartItem "Fist"
 
   States

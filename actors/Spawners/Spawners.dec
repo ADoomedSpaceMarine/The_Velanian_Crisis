@@ -5,6 +5,9 @@ actor ClipSpawner : RandomSpawner replaces clip
 	DropItem "DeagleAmmo", 255, 3
     DropItem "RifleAmmo", 255, 3
 	DropItem "Glock18", 255, 3
+	DropItem "DeagleBox", 255, 1
+    DropItem "GlockBox", 255, 1
+	DropItem "RifleBox", 255, 1
 }
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
@@ -33,25 +36,34 @@ actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
 {	
 	DropItem "DeagleHunter", 255, 2
-	DropItem "BattleHZombie", 255, 3
-	DropItem "RifleDude", 255, 4
+	DropItem "RifleDude", 255, 3
+	DropItem "BattleHZombie", 255, 4
 	DropItem "AssaultZombie", 255, 5
-    DropItem "ZombieDude", 255, 6
+    DropItem "ZombieDude", 255, 8
 }
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
-	DropItem "DeagleHunter", 255, 1
-    DropItem "ShotgunGuy2", 255, 8
-    DropItem "DBShotgunGuy", 255, 6
+	DropItem "DeagleHunter", 255, 2
+	DropItem "DBShotgunGuy", 255, 3
+	DropItem "RifleDude", 255, 8
+	DropItem "ShotgunGuy2", 255, 12    
 }
 
-actor CellPack2 : CellPack{}
-actor BFLAmmoSpawner : RandomSpawner replaces CellPack
+/*actor CellPack2 : CellPack{}
+actor BFLAmmoSpawner : RandomSpawner replaces cell
 {
     DropItem "CellPack2", 255, 1
     DropItem "BFLBox", 255, 1
 }
+*/
+
+actor RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
+{
+	DropItem "RocketAmmo2", 255, 2
+    DropItem "SMRocketBox", 255, 1
+}
+
 
 actor BlurSphere2 : BlurSphere{}
 actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
@@ -83,7 +95,7 @@ actor Shell2 : ammo replaces shell
 	}
 }
 
-actor ShellBox2 : Shell replaces shellbox
+actor ShellBox2 : Shell2 replaces shellbox
 {
 	Inventory.PickupSound "Weapons/ONUClose"
 	Inventory.PickupMessage "Picked up a box of shells" 

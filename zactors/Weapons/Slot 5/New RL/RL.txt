@@ -8,7 +8,8 @@ int ShotType;
 	Weapon.AmmoGive 10;
 	Weapon.SlotNumber 5;
 	Weapon.SlotPriority 0;
-	Weapon.AmmoType "RocketAmmo";
+	scale 0.78;
+	Weapon.AmmoType "RocketAmmo2";
 	Weapon.UpSound "weapons/AnnIn";
 	+WEAPON.NOAUTOFIRE;
 	Inventory.PickupMessage "You got the UAC RPG Launcher MK2!";
@@ -22,7 +23,7 @@ int ShotType;
 	Deselect:
 		TNT1 A 0
     	  {
-			if(CountInv("AnnAmmo") ==  0)
+			if(CountInv("RocketAmmo") ==  0)
             {
 				ACS_NamedExecute("OutOfRockets");
                 return ResolveState (null);
@@ -32,7 +33,7 @@ int ShotType;
 			    return ResolveState(null);
 			}
            }
-		  NRL4 A 1 A_Lower(12);
+		  MMK2 A 1 A_Lower(12);
 		  Loop;
 	MMK2 A 1 A_Lower(12);
 	Loop;
@@ -103,9 +104,9 @@ int ShotType;
 	
 	FireSwitch:
 		MMK2 A 3;
-		MMKS A 3;
-		MMKS B 3 A_PlaySound("Weapons/arswitch", chan_auto);
-		MMKS A 3;
+		MMKS A 2;
+		MMKS B 2 A_PlaySound("Weapons/arswitch", chan_auto);
+		MMKS A 2;
 		MMK2 A 3;
 		goto ready;
 	

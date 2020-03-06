@@ -1,60 +1,10 @@
-Class DeClip: ammo 
-{
-	default
-	{
-		Inventory.Icon "CLIPA0";
-		Inventory.MaxAmount 7;
-	}
-}
-
-class DeagleAmmo : Ammo
-{
-	default
-	{
-	scale 0.14;
-	Inventory.PickupSound ("weapons/deagback");	
-	Inventory.PickupMessage "Picked up a UAC .50 AE Battlehawk clip.";
-	Inventory.Amount 7;
-	Inventory.MaxAmount 56;	
-	ammo.BackpackAmount 56;
-	Ammo.BackpackMaxAmount 112; 
-	Inventory.Icon "DECLA0";
-	}
-	States
-	{
-	Spawn:
-    DECP A -1;
-    Stop;
-  }
-}
-
-class DeagleBox : DeagleAmmo
-{
-
-	default
-	{
-	scale 0.155;
-	Inventory.PickupSound ("weapons/deagslap");	
-	Inventory.PickupMessage "Picked up a box of .50 AE ammo.";
-	Inventory.Amount 21;
-	Inventory.Icon "DEAMA0";
-	}
-	States
-	{
-	Spawn:
-    DEAM A -1;
-    Stop;
-  }
-}
-
-
 Class Battlehawk: Weapon
 {
 bool firstUp;
 
 	default
 	{
-		scale 0.3;
+		scale 0.26;
 		Weapon.BobStyle "smooth";
 		Weapon.SelectionOrder 350;
 		Weapon.AmmoUse1 1;
@@ -62,7 +12,7 @@ bool firstUp;
 		Weapon.AmmoGive1 0;
 		Weapon.AmmoGive2 7;
 		Weapon.SlotNumber 2;
-		Weapon.SlotPriority 2;
+		Weapon.SlotPriority 4;
 		Weapon.UpSound "weapons/deagback";
 		Weapon.AmmoType1 "DeClip";
 		Weapon.AmmoType2 "DeagleAmmo";
@@ -126,33 +76,32 @@ bool firstUp;
 				}
 			}
 			
-			DEAG A 1 
-			{
+			DEAG A 2
+			{	
+				A_ZoomFactor(1,ZOOM_INSTANT);
 				A_PlaySound("weapons/deagle", CHAN_AUTO);
-				A_FireBullets(2, 2, 1, 22, "BulletPuff");
+				A_FireBullets(2, 2, 1, random(30,45), "BulletPuff");
+				A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			}
-			DEAG A 1 A_GunFlash;
-			TNT1 A 0 A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
-			DEAG B 0 
+			TNT1 A 0 A_GunFlash;
+			DEAG A 0
 			{
 			A_SpawnItemEx("DeagleCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40), random(-2,-3),0,random(5,7),random(90,105));
 			A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 			}
 			DEAR B 1
             {
-	            A_SetPitch(pitch-6.0);
-	            A_ZoomFactor(0.965,ZOOM_INSTANT);
+	            A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
 	        } 
 	        DEAR C 1 
             {
-	            A_SetPitch(pitch+3.0);
+	            A_SetPitch(pitch+1.0);
 	            A_ZoomFactor(0.98,ZOOM_INSTANT);
             }
 	        DEAR B 1 
             {
-                A_SetPitch(pitch+3.0);
 	            A_ZoomFactor(1,ZOOM_INSTANT);
-				
 	        }
 		Goto Ready;
 	
