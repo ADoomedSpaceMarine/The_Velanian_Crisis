@@ -1,6 +1,6 @@
 ACTOR DeagleHunter
 {
-	Health 180
+	Health 80
 	Radius 16
 	Height 56
 	Speed 10

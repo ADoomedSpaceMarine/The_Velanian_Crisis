@@ -10,6 +10,7 @@ ACTOR RifleDude
    MONSTER 
    +FLOORCLIP
    DropItem "AR36"
+   DropItem "Clip", 1, 80
    SeeSound "chainguy/sight"
    PainSound "chainguy/pain"
    DeathSound "chainguy/death"

@@ -472,12 +472,16 @@ class DemonsBane : Weapon replaces supershotgun
             ONUR OPQRS 1;
             ONUR T 1 A_PlaySound("Weapons/ONUClose");
             ONUR UVWXYZ 1;
-            ONRZ A 1;
-            ONRZ B 1
-            {
-                invoker.BarrelOneFired = false;
+            ONRZ A 1
+			{
+				invoker.BarrelOneFired = false;
                 invoker.BarrelTwoFired = false;
                 invoker.BarrelsFired = 0;
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
+            }
+			ONRZ B 1
+            {
+                A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH); 
             }
         goto ready;
 

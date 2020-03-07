@@ -23,7 +23,7 @@ int ShotType;
 	Deselect:
 		TNT1 A 0
     	  {
-			if(CountInv("RocketAmmo") ==  0)
+			if(CountInv("RocketAmmo2") ==  0)
             {
 				ACS_NamedExecute("OutOfRockets");
                 return ResolveState (null);

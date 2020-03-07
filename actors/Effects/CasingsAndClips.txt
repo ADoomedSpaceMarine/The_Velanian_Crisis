@@ -331,8 +331,6 @@ States
 	}
 }
 
-
-
 ACTOR AnnEmClip : GenericCasing
 { 
 Scale 0.75

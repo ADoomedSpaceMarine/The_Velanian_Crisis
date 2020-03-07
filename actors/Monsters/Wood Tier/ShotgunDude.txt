@@ -14,7 +14,9 @@ ACTOR DbShotgunGuy
   DeathSound "shotguy/death"
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
-  DropItem "DemonsBane"
+  DropItem "Shotgun", 1, 115
+  DropItem "Shell2", 1, 256
+  DropItem "ShellBox2", 1, 175
   States
   {
   Spawn:
@@ -82,6 +84,8 @@ ACTOR ShotgunGuy2
   ActiveSound "shotguy/active"
   Obituary "$OB_SHOTGUY"
   DropItem "UAC12"
+  DropItem "Shell2", 1, 256
+  DropItem "ShellBox2", 1, 20
   States
   {
   Spawn:
