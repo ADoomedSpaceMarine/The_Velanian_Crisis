@@ -1,41 +1,46 @@
+version "4.3.3"
+
 //All Cat's Visor Related Content
-version "3.0"
-#include "zscript/ATMP_MapHandler.zsc"
-#include "zscript/ATMP_kShape.zsc"
-#include "zscript/ATMP_GlobalMaths.zsc"
+#include "zscript/Minimap/ATMP_MapHandler.zsc"
+#include "zscript/Minimap/ATMP_kShape.zsc"
+#include "zscript/Minimap/ATMP_GlobalMaths.zsc"
 
 //Flashlight-Related Content
-#include "zactors/Equipment/Flashlight.zsc" 
+#include "zscript/Equipment/Flashlight.zsc" 
 
 //Zscript Weapons
-#include "zactors/Weapons/Slot 7/BFL10k/BFL10K.zsc"
-#include "zactors/Weapons/Slot 7/Autocannon/AutoCannon.zsc"
-//#include "zactors/Weapons/Slot 5/Annihilator/Annihilator.zsc"
-#include "zactors/Weapons/Slot 5/New RL/RL.txt"
-#include "zactors/Weapons/Slot 3/Demonsbane/Demonsbane.zsc"
-#include "zactors/Weapons/Slot 3/UAC-12/UAC12.zsc"
-#include "zactors/Weapons/Slot 4/AR36/ar36.zsc"
-#include "zactors/Weapons/Slot 4/Trigun/Tricannon.zsc"
-#include "zactors/Weapons/Slot 2/Deagle.zsc"
-#include "zactors/Weapons/Slot 2/Glock18.zsc"
+#include "zscript/Weapons/Slot 7/BFL10k/BFL10K.zsc"
+#include "zscript/Weapons/Slot 7/Autocannon/AutoCannon.zsc"
+#include "zscript/Weapons/Slot 6/Plasmacaster/Plasmacaster.zsc"
+#include "zscript/Weapons/Slot 5/New RL/RL.txt"
+#include "zscript/Weapons/Slot 3/Demonsbane/Demonsbane.zsc"
+#include "zscript/Weapons/Slot 3/UAC-12/UAC12.zsc"
+#include "zscript/Weapons/Slot 4/AR36/ar36.zsc"
+#include "zscript/Weapons/Slot 4/Trigun/Tricannon.zsc"
+#include "zscript/Weapons/Slot 2/Deagle.zsc"
+#include "zscript/Weapons/Slot 2/Glock18.zsc"
 
 //Nash Gore
-#include "zscript/NashGoreCommon.zc"
-#include "zscript/NashGoreStatics.zc"
-#include "zscript/NashGoreHandler.zc"
-#include "zscript/NashGoreBlood.zc"
-#include "zscript/NashGoreBloodPlane.zc"
-#include "zscript/NashGoreGibs.zc"
-#include "zscript/NashGoreCrushedGibs.zc"
-#include "zscript/NashGoreSquishyGibs.zc"
-#include "zscript/NashGoreIceChunk.zc"
-#include "zscript/NashGoreLiquidBlood.zc"
-#include "zscript/NashGoreWallBlood.zc"
-#include "zscript/NashGoreActor.zc"
-#include "zscript/NashGoreMenu.zc"
+#include "zscript/Nash Gore/NashGoreCommon.zc"
+#include "zscript/Nash Gore/NashGoreStatics.zc"
+#include "zscript/Nash Gore/NashGoreHandler.zc"
+#include "zscript/Nash Gore/NashGoreBlood.zc"
+#include "zscript/Nash Gore/NashGoreBloodPlane.zc"
+#include "zscript/Nash Gore/NashGoreGibs.zc"
+#include "zscript/Nash Gore/NashGoreCrushedGibs.zc"
+#include "zscript/Nash Gore/NashGoreSquishyGibs.zc"
+#include "zscript/Nash Gore/NashGoreIceChunk.zc"
+#include "zscript/Nash Gore/NashGoreLiquidBlood.zc"
+#include "zscript/Nash Gore/NashGoreWallBlood.zc"
+#include "zscript/Nash Gore/NashGoreActor.zc"
+#include "zscript/Nash Gore/NashGoreMenu.zc"
 
 //General
-#include "zactors/Weapons/Ammo/AmmoDefs.zsc"
+#include "zscript/Weapons/Ammo/AmmoDefs.zsc"
 
 // global constants
 const STAT_NashGore_Gore = Thinker.STAT_USER + 1;
+
+
+//Needs Reworking
+//#include "zscript/Weapons/Slot 5/Annihilator/Annihilator.zsc"

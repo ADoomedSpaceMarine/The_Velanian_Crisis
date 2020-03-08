@@ -1,0 +1,207 @@
+Class Battlehawk: Weapon
+{
+bool firstUp;
+
+	default
+	{
+		scale 0.26;
+		Weapon.BobStyle "smooth";
+		Weapon.SelectionOrder 350;
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoGive1 0;
+		Weapon.AmmoGive2 7;
+		Weapon.SlotNumber 2;
+		Weapon.SlotPriority 4;
+		Weapon.UpSound "weapons/deagback";
+		Weapon.AmmoType1 "DeClip";
+		Weapon.AmmoType2 "DeagleAmmo";
+		Inventory.PickupSound ("weapons/DEAGSLIDE");
+		decal "BulletChip";
+		Weapon.MinSelectionAmmo1 1;
+		Weapon.MinSelectionAmmo2 1;
+		+Weapon.NoAutoFire;
+		+WEAPON.AMMO_CHECKBOTH;
+		Obituary "%o got obliterated by %k' .50 AE UAC Battlehawk magnum!";
+		Inventory.Pickupmessage "You picked up the .50 AE UAC Battlehawk magnum pistol!";
+	}
+		States
+		{
+		Ready:
+			TNT1 A 0
+			{
+				A_ZoomFactor(1);
+				if(invoker.firstUp != 1)
+				{
+					invoker.firstUp = 1;
+					return ResolveState ("WeaponFirstUp");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			DEAG A 1 
+			{	
+				A_WeaponReady(WRF_AllowReload);
+			}
+			loop;
+		
+		Deselect:
+			TNT1 A 0
+			{
+				A_ZoomFactor(1);
+				if(CountInv("DeagleAmmo") == 0 && CountInv("DeClip") == 0)
+				{
+					ACS_Execute(1239,0);
+				}
+			}
+			DEAG A 1 A_Lower(12);
+			loop;
+		
+		Select:
+			DEAG A 1 A_Raise(12);
+			Loop;
+		
+		Fire:
+			TNT1 A 0
+			{
+				if(countInv("DeClip") == 0)
+				{
+					return ResolveState ("reload");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+			
+			DEAG A 2
+			{	
+				A_ZoomFactor(1,ZOOM_INSTANT);
+				A_StartSound("weapons/deagle", 0);
+				A_FireBullets(2, 2, 1, random(30,45), "BulletPuff");
+				A_SpawnItemEx("DeagleSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			}
+			TNT1 A 0 A_GunFlash;
+			DEAG A 0
+			{
+			A_SpawnItemEx("DeagleCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(35,40), random(-2,-3),0,random(5,7),random(90,105));
+			A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+			}
+			DEAR B 1
+            {
+	            A_SetPitch(pitch-3.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
+	        } 
+	        DEAR C 1 
+            {
+	            A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(0.98,ZOOM_INSTANT);
+            }
+	        DEAR B 1 
+            {
+				A_SetPitch(pitch+2.0);
+	            A_ZoomFactor(1,ZOOM_INSTANT);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+	        }
+			DEAR A 1 A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+		Goto Ready;
+	
+		Reload:
+		TNT1 A 0
+		{
+			if(CountInv("DeagleAmmo") == 0 && CountInv("DeClip") == 0)
+			{
+			A_SelectWeapon("",SWF_SELECTPRIORITY);
+			return ResolveState (null);
+			}
+			Else If(CountInv("DeagleAmmo") == 21)
+			{
+				A_ZoomFactor(1);
+				ACS_Execute(1240);
+				return ResolveState ("ReloadFinish");
+			}
+			Else If(CountInv("DeagleAmmo") == 7)
+			{
+				A_ZoomFactor(1);
+				ACS_NamedExecute("AmmoCriticalLow");
+				return ResolveState ("ReloadFinish");
+			}
+			Else if(CountInv("DeClip") == 7)
+			{
+				return ResolveState ("ready");
+			}
+			Else 
+			{
+				A_ZoomFactor(1);
+				return ResolveState ("ReloadFinish");
+			}
+		}
+		
+		ReloadFinish:
+		 TNT1 A 0 {
+            if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+                return ResolveState ("Ready");
+
+            int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+            if (ammoAmount <= 0)
+                return ResolveState ("Ready");
+
+            GiveInventory (invoker.ammoType1, ammoAmount);
+            TakeInventory (invoker.ammoType2, ammoAmount);
+
+            return ResolveState (null);
+		}	
+		DERE A 2;
+		DERE B 2
+		{
+		A_StartSound("weapons/deagout");
+		A_SpawnItemEx("DeagEmptyClip",3,0,0,random(1,2),-4,random(5,7),random(-75,-85));
+		}
+		DERE ABCDE 1;
+		DERE F 2 A_StartSound("weapons/deout", 1);
+		DERE GHI 1; 
+		DERE J 2 A_StartSound("weapons/deagin", 1);
+		DERE LM 2; 
+		DERE N 2 A_StartSound("weapons/deagslap", 1);
+		DERE OPQRSTUV 1;
+		DERE W 2 A_StartSound("Weapons/DeagBack", 1);
+		DERE XY 2; 
+		DERE Z 2 A_StartSound("weapons/deagforward", 1);
+		DEZ1 ABC 2;
+		goto Ready;
+		
+		WeaponFirstUp:
+		TNT1 A 0 {
+            if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+                return ResolveState ("Ready");
+
+            int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
+            if (ammoAmount <= 0)
+                return ResolveState ("Ready");
+
+            GiveInventory (invoker.ammoType1, ammoAmount);
+            TakeInventory (invoker.ammoType2, ammoAmount);
+
+            return ResolveState (null);
+		}	
+		DERE I 2; 
+		DERE J 2 A_StartSound("weapons/deagin", 1);
+		DERE LM 2; 
+		DERE N 2 A_StartSound("weapons/deagslap", 1);
+		DERE OPQRSTUV 1;
+		DERE W 2 A_StartSound("Weapons/DeagBack", 1);
+		DERE XY 2; 
+		DERE Z 2 A_StartSound("weapons/deagforward", 1);
+		DEZ1 ABC 2;
+		goto Ready;
+		
+		Flash:
+			DEAF A 1 Bright A_Light2;
+			Goto LightDone;
+		Spawn:
+			DEPU A -1;
+			Stop;
+		}
+	}

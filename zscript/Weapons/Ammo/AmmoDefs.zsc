@@ -1,0 +1,305 @@
+//All Ammo Types Exist Here
+
+
+//Glock
+Class GlockClip: ammo 
+{
+	default
+	{
+		Inventory.PickupSound ("weapons/glkin");	
+		Inventory.Icon "GKCPA0";
+		Inventory.MaxAmount 17;
+	}
+}
+
+Class GlockBullets: GlockAmmo
+{
+		default
+	{
+	scale 0.095;
+	Inventory.PickupSound ("weapons/glkin");	
+	Inventory.PickupMessage "Picked up some Glock rounds";
+	Inventory.Amount 10;
+	Inventory.Icon "GKRDA0";
+	}
+	States
+	{
+	Spawn:
+    GKRD A -1;
+    Stop;
+  }
+}
+
+class GlockAmmo : Ammo replaces clip
+{
+	default
+	{
+	scale 0.12;
+	Inventory.PickupSound ("weapons/glkin");	
+	Inventory.PickupMessage "Picked a Glock clip";
+	Inventory.Amount 17;
+	Inventory.MaxAmount 300;	
+	ammo.BackpackAmount 300;
+	Ammo.BackpackMaxAmount 600; 
+	Inventory.Icon "GKRDA0";
+	}
+	States
+	{
+	Spawn:
+    GKCP A -1;
+    Stop;
+  }
+}
+
+class GlockBox : GlockAmmo
+{
+	
+	default
+	{
+	scale 0.75;
+	Inventory.PickupSound ("weapons/glkin");	
+	Inventory.PickupMessage "Picked up a box of UAC 9mm ammo";
+	Inventory.Amount 85;
+	Inventory.Icon "GAMOA0";
+	}
+	States
+	{
+	Spawn:
+    GAMO A -1;
+    Stop;
+  }
+}
+
+//Deagle
+Class DeClip: ammo 
+{
+	default
+	{	
+		Inventory.PickupSound ("weapons/deagback");	
+		Inventory.Icon "CLIPA0";
+		Inventory.MaxAmount	7;
+	}
+}
+
+class DeagleAmmo : Ammo
+{
+	default
+	{
+	scale 0.12;
+	Inventory.PickupSound ("weapons/deagback");	
+	Inventory.PickupMessage "Picked up a UAC .50 AE Battlehawk clip";
+	Inventory.Amount 7;
+	Inventory.MaxAmount 70;	
+	ammo.BackpackAmount 70;
+	Ammo.BackpackMaxAmount 140; 
+	Inventory.Icon "DECLA0";
+	}
+	States
+	{
+	Spawn:
+    DECP A -1;
+    Stop;
+  }
+}
+
+class DeagleBox : DeagleAmmo
+{
+
+	default
+	{
+	scale 0.75;
+	Inventory.PickupSound ("weapons/deagback");	
+	Inventory.PickupMessage "Picked up a box of .50 AE ammo";
+	Inventory.Amount 28;
+	Inventory.Icon "DAMOA0";
+	}
+	States
+	{
+	Spawn:
+    DAMO A -1;
+    Stop;
+  }
+}
+
+//Rifle Ammo Types
+
+
+class ARClip : ammo
+{
+	default
+	{
+		Inventory.PickupSound ("weapons/arin");	
+		Inventory.Icon "ARPUA0";
+		Inventory.MaxAmount 30;
+	}
+}
+
+class RifleAmmo : Ammo
+{
+
+	default
+	{
+	Inventory.PickupSound ("weapons/arin");	
+	Inventory.PickupMessage "Picked up an AR-36 clip.";
+	Inventory.Amount 30;
+	Inventory.MaxAmount 480;	
+	ammo.BackpackAmount 480;
+	Ammo.BackpackMaxAmount 960; 
+	Inventory.Icon "ARPUA0";
+	scale .155;
+	}
+	States
+	{
+	Spawn:
+    ARPU A -1;
+    Stop;
+  }
+}
+
+Class RifleBox : RifleAmmo 
+{
+	default
+	{
+	Inventory.PickupSound ("weapons/arin");
+	Inventory.PickupMessage "You picked up a box of UAC 7.62 rifle rounds"; // "Picked up a box of bullets.";
+	Inventory.Amount 300;
+	scale 0.75;
+	}
+	States
+	{
+	Spawn:
+		RAMO A -1;
+		Stop;
+  }
+}
+
+//shotguns
+class UAC12Counter : ammo
+{
+	default
+	{	
+		Inventory.MaxAmount 8;
+	}
+}
+
+//Rocket Ammo Types
+/*Class AnnAmmo : RocketAmmo  Replaces RocketAmmo//Replace Rocket Launcher ammo
+{
+Default{ 
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "Picked up a clip of Annihilator rockets."; 
+  Inventory.Amount 4;
+  Inventory.MaxAmount 80;
+  Ammo.BackpackAmount 4;
+  Ammo.BackpackMaxAmount 160;
+  Inventory.Icon "ANPU0";
+	}
+  States
+  {
+  Spawn: 
+    ANPU A -1;
+    Stop;
+  }
+}
+*/
+
+Class RocketAmmo2 : Ammo Replaces Rocketammo
+{
+Default{ 
+scale 0.6;
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "You picked up a rocket"; 
+  Inventory.Amount 1;
+  Inventory.MaxAmount 80;
+  Ammo.BackpackAmount 40;
+  Ammo.BackpackMaxAmount 160;
+  Inventory.Icon "ANPU0";
+	}
+  States
+  {
+  Spawn: 
+    ROCK A -1;
+    Stop;
+  }
+}
+
+Class SmRocketBox : RocketAmmo2
+{
+Default{ 
+scale 0.95;
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "You picked up some rockets"; 
+  Inventory.Amount 4;
+  Inventory.Icon "RCK2A0";
+	}
+  States
+  {
+  Spawn: 
+    RCK2 A -1;
+    Stop;
+  }
+}
+
+Class AnnBox : RocketAmmo2 replaces rocketbox//This class replaces the box of rockets in Doom
+{
+  Default
+  {
+  scale 0.95;
+  Inventory.PickupSound ("weapons/ANNIn");
+  Inventory.PickupMessage "Picked up a box of Annihilator rockets";
+  Inventory.Amount 12;
+  }
+  States
+  {
+  Spawn:
+    ANBX A -1;
+    Stop;
+  }
+}
+Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserve
+{
+  Default{
+  Inventory.Icon "ANPU0";
+  Inventory.MaxAmount 4;
+	}
+}
+
+//Cell Replacents
+
+Class Cell2 : ammo replaces cell//This class replaces the box of rockets in Doom
+{
+  Default
+  {
+  Inventory.PickupSound ("weapons/CellPUP");
+  Inventory.PickupMessage "Picked up an energy cell";
+  Inventory.Amount 30;
+  Inventory.MaxAmount 450;
+  Ammo.BackpackAmount 300;
+  Ammo.BackpackMaxAmount 900;
+  Inventory.Icon "BFLC0";
+  Inventory.Amount 12;
+  }
+  States
+  {
+  Spawn:
+    BFLC A -1;
+    Stop;
+  }
+}
+
+Class CellPack2 : Cell2 replaces cellpack//This class replaces the box of rockets in Doom
+{
+  Default
+  {
+  Inventory.PickupSound ("weapons/CellPUP");
+  Inventory.PickupMessage "Picked up an energy cell";
+  Inventory.Amount 12;
+  }
+  States
+  {
+  Spawn:
+    BFBX A -1;
+    Stop;
+  }
+}
+

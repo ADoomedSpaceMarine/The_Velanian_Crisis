@@ -1,0 +1,380 @@
+#library "goggle"
+#include "zcommon.acs"
+
+//This script contains various messages that play on the HUD
+
+Script "AmmoCriticalLow" (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Current ammunition reserve is critically low.";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3650 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Spartan-12 Buckshot rounds";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3651 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Slug-12 Rounds";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3652 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to SCIMTR-12 Flechette rounds";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3661 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to FRAG-12 Rounds";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+
+//BFL 10K Messages
+Script 3653 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Swtiching to experimental Photonuclear Acceleration Mode";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3654 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Low-Power Photon Cannon Mode";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3662 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to High-Power Photon Cannon Mode";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Assault Rifle Messages
+Script 1234 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to fully automatic fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1235 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to precision burst-fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1236 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to single-shot precise DMR rounds";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1237 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: AR ammo is running low";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1238 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: Rifle ammo depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Deagle Warnings
+Script 1239 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: .50 AE ammo depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1240 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: .50 AE ammo is running low";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Glock Warnings
+Script 1241 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: 9mm ammo depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1242 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: 9mm ammo is running low";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1243(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to fully automatic fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1244(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to semi-automatic fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Tricannon
+Script 1245(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to UAC 7.62 heavy-impact fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1246(void)
+{
+  PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to buckshot tri-barrel fire";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 1247 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: Autocannon ammo depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Plasmacaster Ammo Messages
+Script "CellsLow" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Plasma cells almost depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Annihilator Messages
+
+Script 3655 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Standard High-Explosives Rockets";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3656 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Yellow Jacket High-Explosive Homing Rockets";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3657 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Subnuclear UAC Bearcat Grenade Shells";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3658 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Switching to hornet's nest homing hive missiles, watch enemy positioning!";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3659 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Switching to quad-rocket MIRV rounds. Death is certain at close range";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);			
+    Terminate;
+}
+
+Script 3660 (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"WARNING: Switching to magnus cluster bombs, Death is certain at close range";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+
+//Ammo Depletion Errors
+Script "OutOfShells" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING: Shotgun ammunition depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script "CellsGone" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING! Plasma cells depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script "OutOfRockets" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING! Rocket ammunition depleted";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script "NotEnoughRockets" (void)
+{
+    PlaySound(0,"Hud/CritWarn");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"CRITICAL WARNING! Not enough rocket ammo to reload";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//Bubble Shield Messages

@@ -1,13 +1,9 @@
-//Do not use assets from my mod without expicit credits to myself or other content creators included in credit, ADoomedSpaceMarine
-
-
 //General Includes
 #include "actors/Player/Players.txt"
 #include "actors/Weapons/Explosives.txt"
 #include "actors/Weapons/Projectiles.txt"
 #include "actors/Weapons/WeaponTokens.txt"
 #include "actors/Spawners/spawners.dec"
-#include "actors/Weapons/Slot 6/Plasmagun.txt"
 
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"
@@ -20,7 +16,6 @@
 #include "actors/cathudinv_deathcam.txt"
 #include "actors/CatsTokens.txt"
 #include "actors/Radar.txt"
-
 
 //Monster Includes
 #include "actors/Monsters/Wood Tier/ZombieDude.txt"
