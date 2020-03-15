@@ -122,8 +122,8 @@ ACTOR HornetHive : Rocket
     States
     {
 	Spawn:
-		MISL A 6
-		TNT1 A 0 Bright
+		MISL A 6 A_Mushroom("PlasmaBall5", 0, MSF_DontHurt, 8, 0.1)
+		TNT1 A 0 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
 		goto death
      Death:
 	 	MISL A 2 A_Explode(120, 125)
@@ -211,7 +211,7 @@ ACTOR MagnusCluster : grenade
 	Spawn:
 		SGRN A 1 bright
 		{
-			A_SpawnItemEx("SmallRocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
+			A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0);
 		}
 	loop
     Death:    
@@ -551,7 +551,7 @@ ACTOR AnnRocket : Rocket
     States
 	{
 	Spawn:
-		MISL A 1 bright
+		MISL A 1 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
 		loop
     Death:
         TNT1 A 0  A_SetRenderStyle(0, STYLE_Add)
@@ -584,7 +584,7 @@ ACTOR AnnHornet : Rocket
     {
 	Spawn:
 		MISL A 1 A_SeekerMissile(5,60, SMF_LOOK | SMF_PRECISE | SMF_CURSPEED,400)
-		TNT1 A 0 Bright
+		TNT1 A 0 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
 		loop
     Death:
         TNT1 A 0  A_SetRenderStyle(0, STYLE_Add)
@@ -618,7 +618,7 @@ ACTOR AnnGrenade : grenade
     States
     {
 	Spawn:
-		SGRN A 1 bright 
+		SGRN A 1 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
 		loop
     Death:
         TNT1 A 0  A_SetRenderStyle(0, STYLE_Add)
@@ -631,6 +631,40 @@ ACTOR AnnGrenade : grenade
         BHXP LM 1 Bright Light("BExp3")
         BHXP NO 1 Bright Light("BExp4")
         BHXP PQRSTUVWX 1
+        Stop
+    }
+}
+
+ACTOR PlasmaImplosionRocket
+{
+  Radius 8
+  Height 8
+  Speed 100
+  Damage 25
+  scale 0.45
+  gravity .35
+  BounceFactor 0.60
+  BounceCount 2
+  DeathSound "Weapons/LGExplosion"
+  decal bigscorch
+    States
+    {
+	Spawn:
+		MISL A 1 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
+		loop
+    Death:
+        TNT1 A 0  A_SetRenderStyle(0, STYLE_Add)
+        TNT1 A 0 A_Explode(150, 175)
+		PLIM ABCDEFG 2 Bright
+		TNT1 A 0 A_Mushroom("PlasmaBall5", 30, MSF_DontHurt, 1, 0.25)
+        TNT1  A 0 A_Mushroom("PlasmaBall5", 0, MSF_DontHurt, 2, .15)
+		TNT1  A 0 A_Mushroom("PlasmaBall5", 0, MSF_DontHurt, 4, .15)
+		PLIM EFGH 2 Bright 
+        PLIM IJ 2 Bright Light("BFL10KSHOT_X5")
+        PLIM MN 2 Bright Light("BFL10KSHOT_X3")
+        PLIM OP 2 Bright Light("BFL10KSHOT_X2")
+        PLIM QR 2 Bright Light("BFL10KSHOT_X")        
+		PLIM STUVWXA 1
         Stop
     }
 }
@@ -651,7 +685,7 @@ ACTOR AnnMIRV : Rocket
     States
     {
 	Spawn:
-		MISL A 5
+		MISL A 5 Bright A_SpawnItemEx("RocketTrail",-10,random(-2,2),random(6,9),0,0,0,0)
 		TNT1 A 0 Bright
      Death:
        	SMEX A 2 A_Explode(120, 125)

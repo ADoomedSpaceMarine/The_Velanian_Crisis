@@ -302,6 +302,35 @@ ACTOR PlasmaBall4 : PlasmaBall3
   }
 }
 
+ACTOR PlasmaBall5 : PlasmaBall3
+{
+  Radius 13
+  Height 8
+  Speed 80
+  Damage 10
+  scale 0.5
+  Projectile
+  +RANDOMIZE
+  +ZDOOMTRANS
+  RenderStyle Add
+  Alpha 0.5
+  decal CasterScorch
+  SeeSound	"weapons/PCaster"
+  DeathSound "weapons/plasmax"
+  Obituary "$OB_MPPLASMARIFLE" // "%o was melted by %k's plasma gun."
+  States
+  {
+  Spawn:
+    PLCB A 1 Bright 
+	PLCB ABCDEFGH 1 Bright A_SpawnItemEx("PlasmaCasterTrail2")
+    TNT1 A 0 Bright A_SpawnItemEx("PlasmaCasterTrail2")
+	Loop
+  Death:
+    PLCE ABCDEFG 2 Bright
+    Stop
+  }
+}
+
 Actor PlasmaCasterTrail
 {
   PROJECTILE
