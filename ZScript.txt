@@ -12,7 +12,8 @@ version "4.3.3"
 #include "zscript/Weapons/Slot 7/BFL10k/BFL10K.zsc"
 #include "zscript/Weapons/Slot 7/Autocannon/AutoCannon.zsc"
 #include "zscript/Weapons/Slot 6/Plasmacaster/Plasmacaster.zsc"
-#include "zscript/Weapons/Slot 5/New RL/RL.txt"
+//#include "zscript/Weapons/Slot 5/New RL/RL.txt"
+#include "zscript/Weapons/Slot 5/Annihilator/Annihilator.zsc"
 #include "zscript/Weapons/Slot 3/Demonsbane/Demonsbane.zsc"
 #include "zscript/Weapons/Slot 3/UAC-12/UAC12.zsc"
 #include "zscript/Weapons/Slot 4/AR36/ar36.zsc"
@@ -42,5 +43,3 @@ version "4.3.3"
 const STAT_NashGore_Gore = Thinker.STAT_USER + 1;
 
 
-//Needs Reworking
-//#include "zscript/Weapons/Slot 5/Annihilator/Annihilator.zsc"

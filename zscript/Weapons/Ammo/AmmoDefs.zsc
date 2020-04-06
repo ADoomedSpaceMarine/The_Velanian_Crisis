@@ -246,7 +246,7 @@ Class AnnBox : RocketAmmo2 replaces rocketbox//This class replaces the box of ro
   {
   scale 0.95;
   Inventory.PickupSound ("weapons/ANNIn");
-  Inventory.PickupMessage "Picked up a box of Annihilator rockets";
+  Inventory.PickupMessage "Picked up a box of rockets";
   Inventory.Amount 12;
   }
   States
@@ -256,7 +256,7 @@ Class AnnBox : RocketAmmo2 replaces rocketbox//This class replaces the box of ro
     Stop;
   }
 }
-Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserve
+Class AnnClip : Ammo //This ammo simply acts a counter for the Annihilator's clip reserve
 {
   Default{
   Inventory.Icon "ANPU0";
@@ -264,7 +264,7 @@ Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserv
 	}
 }
 
-//Cell Replacents
+//Cell Replacements
 
 Class Cell2 : ammo replaces cell//This class replaces the box of rockets in Doom
 {

@@ -292,7 +292,7 @@ Script 3657 (void)
     PlaySound(0,"Hud/HudMsg");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"Switching to Subnuclear UAC Bearcat Grenade Shells";
+	HudMessage(s:"Switching to Subnuclear UAC Bearcat Grenades";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;
@@ -331,6 +331,28 @@ Script 3660 (void)
     Terminate;
 }
 
+//Annihilator Rounds
+Script 3663 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to High Velocity Ripper rockets";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+Script 3665 (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to Grenades";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
 
 //Ammo Depletion Errors
 Script "OutOfShells" (void)

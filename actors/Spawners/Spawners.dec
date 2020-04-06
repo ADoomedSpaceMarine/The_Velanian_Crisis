@@ -1,10 +1,10 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 3
-	DropItem "GlockAmmo", 255, 3
-	DropItem "DeagleAmmo", 255, 3
-    DropItem "RifleAmmo", 255, 3
-	DropItem "Glock18", 255, 3
+    DropItem "GlockBullets", 255, 4
+	DropItem "GlockAmmo", 255, 4
+	DropItem "DeagleAmmo", 255, 4
+    DropItem "RifleAmmo", 255, 4
+	DropItem "Glock18", 255, 4
 	DropItem "DeagleBox", 255, 1
     DropItem "GlockBox", 255, 1
 	DropItem "RifleBox", 255, 1
@@ -12,14 +12,14 @@ actor ClipSpawner : RandomSpawner replaces clip
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 25
+    DropItem "TriCannon", 255, 15
     DropItem "AutoCannon", 255, 1
 }
 
 actor Shotgun2 : Shotgun{}
 actor Slot3Spawner : RandomSpawner replaces shotgun
 {
-    DropItem "UAC12", 255, 10
+    DropItem "UAC12", 255, 5
     DropItem "Demonsbane", 255, 1
 }
 
@@ -31,15 +31,16 @@ actor Box2Spawner : RandomSpawner replaces ClipBox
     DropItem "GlockBox", 255, 5
 	DropItem "RifleBox", 255, 5
 	DropItem "Infrared2", 255, 1
+	DropItem "PickUpBubbleShield", 255, 1
 }
 
 actor Zombieman2 : Zombieman{}
 actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
 {	
 	DropItem "DeagleHunter", 255, 1
-	DropItem "RifleDude", 255, 3
-	DropItem "BattleHZombie", 255, 4
-	DropItem "AssaultZombie", 255, 5
+	DropItem "RifleDude", 255, 2
+	DropItem "BattleHZombie", 255, 3
+	DropItem "AssaultZombie", 255, 6
     DropItem "ZombieDude", 255, 8
 }
 
@@ -69,9 +70,9 @@ actor RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
 actor BlurSphere2 : BlurSphere{}
 actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
 {
-    DropItem "PickUpBubbleShield", 255, 2
+    DropItem "PickUpBubbleShield", 255, 1
     DropItem "BlurSphere2", 255, 1
-	DropItem "Infrared2", 255, 2
+	DropItem "Infrared2", 255, 1
 }
 
 actor BFL10K2 : BFL10K{}

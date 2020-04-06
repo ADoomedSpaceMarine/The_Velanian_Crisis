@@ -1,67 +1,24 @@
-Class AnnClip : Ammo //This ammo simply acts a counter for the gun's clip reserve
-{
-  Default{
-  Inventory.Icon "ANPU0";
-  Inventory.MaxAmount 4;
-	}
-}
-
-Class AnnAmmo : Ammo  //Replace Rocket Launcher ammo
-{
-Default{ 
-  Inventory.PickupSound ("weapons/ANNIn");
-  Inventory.PickupMessage "Picked up a clip of Annihilator rockets."; 
-  Inventory.Amount 4;
-  Inventory.MaxAmount 80;
-  Ammo.BackpackAmount 4;
-  Ammo.BackpackMaxAmount 160;
-  Inventory.Icon "ANPU0";
-	}
-  States
-  {
-  Spawn: 
-    ANPU A -1;
-    Stop;
-  }
-}
-
-Class AnnBox : AnnAmmo //This class replaces the box of rockets in Doom
-{
-  Default
-  {
-  Inventory.PickupSound ("weapons/ANNIn");
-  Inventory.PickupMessage "Picked up a box of Annihilator rockets.";
-  Inventory.Amount 8;
-  }
-  States
-  {
-  Spawn:
-    ANBX A -1;
-    Stop;
-  }
-}
-
-Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher for Doom
+Class Annihilator : Rocketlauncher replaces RocketLauncher
 {	
- int RocketsFired; 		//How many rockets have been fired
  int ShotType;		//This is a numerical value for what ammo is being used
  int MirvCheck;
- 
-  Default{
+
+  Default
+  {
 	  Inventory.PickupSound ("weapons/ANNSlap");
 	  Weapon.SelectionOrder 2500;
       Weapon.BobStyle "smooth";
       Weapon.AmmoUse1 1;
-	  Weapon.AmmoUse2 1;
+	  Weapon.AmmoUse2 0;
       Weapon.AmmoGive1 0;
-      Weapon.AmmoGive2 4;
+      Weapon.AmmoGive2 8;
       Weapon.AmmoType "AnnClip";
-      Weapon.AmmoType2 "AnnAmmo";
+      Weapon.AmmoType2 "RocketAmmo2";
       Weapon.SlotNumber 5;
       Weapon.SlotPriority 0;
       +WEAPON.NOAUTOFIRE;
-      +Weapon.NOAUTOAIM
-	  +WEAPON.AMMO_CHECKBOTH
+      +Weapon.NOAUTOAIM;
+	  +WEAPON.AMMO_CHECKBOTH;
 	  Inventory.PickupMessage "You found the Annihilator Versatile Rocket Defense System, Blow some stuff up!";
       Obituary "%o was blown to bits by %k's Annihilator Rocket Defense System.";
       Decal "BigScorch";
@@ -78,10 +35,9 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
 	  Deselect:
 		TNT1 A 0
     	  {
-			if(CountInv("AnnAmmo") ==  0)
+			if(CountInv("RocketAmmo2") <=  4 && CountInv("AnnClip") == 0)
             {
-				ACS_NamedExecute("OutOfRockets");
-                A_PlaySound("Weapons/ANNup",CHAN_AUTO);
+				ACS_NamedExecute("NotEnoughRockets");
                 return ResolveState (null);
             }
             else 
@@ -103,32 +59,13 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
 		{
 			return ResolveState (null);
 		}
-		If(Invoker.RocketsFired==4) return ResolveState("OneUp");
-		Else If(Invoker.RocketsFired==3) return ResolveState("OneUp");
-		Else If(Invoker.RocketsFired==2) return ResolveState("TwoUp");
-		Else If(Invoker.RocketsFired==1) return ResolveState("ThreeUp");
-		Else If(Invoker.RocketsFired==0) return ResolveState("FourUp");
+		If(CountInv("AnnClip") == 4) return ResolveState("RealReadyFour");
+		Else If(CountInv("AnnClip") == 3) return ResolveState("RealReadyThree");
+		Else If(CountInv("AnnClip") == 2) return ResolveState("RealReadyTwo");
+		Else If(CountInv("AnnClip") == 1) return ResolveState("RealReadyOne");
+		Else If(CountInv("AnnClip")== 0) return ResolveState("RealReadyOne");
 		Else return ResolveState(null);
-		}
-	FourUp:
-		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		NRRC ABCDEFGHIJKLMN 1;
-		Goto RealReadyFour;
-		
-	ThreeUp:
-		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		NRC1 ABCDEFGHIJKLMN 1;
-		Goto RealReadyThree;
-	
-	TwoUp:
-		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		NRC2 ABCDEFGHIJKLMN 1;
-		Goto RealReadyTwo;
-	
-	OneUp:
-		TNT1 A 0 A_PlaySound("weapons/AnnCycle", CHAN_AUTO);
-		NRC3 ABCDEFGHIJKLMN 1;
-		Goto RealReadyOne;
+	}
 
  //Actual Ready States
     RealReadyFour:
@@ -163,12 +100,12 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
     User1:
 	TNT1 A 0
 	{
-			if(Invoker.ShotType == 5)           //If the shot type variable is equal to three
+			if(Invoker.ShotType == 6)           //If the shot type variable is equal to three
 			{
 				invoker.ShotType = 0;               //reset ShotType to 0 (Buckshot)
 				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
 			} 
-			else if (invoker.ShotType != 5)     //Otherwise if shot type is not equal to three
+			else if (invoker.ShotType != 6)     //Otherwise if shot type is not equal to three
 			{
 				invoker.ShotType++;                  //Incriment shot type variable by one
 				return ResolveState("RkMsgState");     //Go to ammo switch message switch block
@@ -185,7 +122,7 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
 		{
 			if(Invoker.ShotType == 0)           //If the shot type variable is equal to zero
 			{
-				invoker.ShotType = 5;               //reset ShotType to 3 (Frag-12)
+				invoker.ShotType = 6;               //reset ShotType to 3 (Frag-12)
 				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
 			} 
 			else if (Invoker.ShotType != 0)     //otherwise if shot type is not equal to zero
@@ -210,25 +147,60 @@ Class Annihilator : Weapon replaces rocketlauncher//Replacement Rocket Laucher f
                 case 1: ACS_Execute(3656);              //Play Homing Rocket message
                 break;                                  //Break out of the switch block
 
-                case 2: ACS_Execute(3657);              //Play Grenade message
+				case 2: ACS_Execute(3663);              //Play Big Iron message
+                break;                                  //Break out of the switch block
+				
+                case 3: ACS_Execute(3657);              //Play Grenade message
                 break;                                  //Break out of the switch block
 
-                case 3: ACS_Execute(3658);              //Play Hornet's Hive message
+                case 4: ACS_Execute(3658);              //Play Hornet's Hive message
                 break;                                  //Break out of the switch block
 				
-                case 4: ACS_Execute(3659);              //Play QuadShot message
+                case 5: ACS_Execute(3659);              //Play QuadShot message
                 break;                                  //Break out of the switch block
 				
-                case 5: ACS_Execute(3660);              //Play Magnus message
+                case 6: ACS_Execute(3660);              //Play Magnus message
                 break;                                  //Break out of the switch block
             }    
 		}
-	goto Ready; 		
+	goto RocketCycle; 
+
+	RocketCycle:
+	TNT1 A 0
+	{		
+		If(CountInv("AnnClip") == 4) return ResolveState("FourCycle");
+		Else If(CountInv("AnnClip") == 3) return ResolveState("ThreeCycle");
+		Else If(CountInv("AnnClip") == 2) return ResolveState("TwoCycle");
+		Else If(CountInv("AnnClip") == 1) return ResolveState("OneCycle");
+		Else If(CountInv("AnnClip") == 0) return ResolveState("OneCycle");
+		Else return ResolveState(null); 
+	}
+	goto Ready;
+	
+	FourCycle:
+		TNT1 A 0 A_StartSound("weapons/AnnCycle", 0);
+		NRRC ABCDEFGHIJKLMN 1;
+		Goto RealReadyFour;
+		
+	ThreeCycle:
+		TNT1 A 0 A_StartSound("weapons/AnnCycle", 0);
+		NRC1 ABCDEFGHIJKLMN 1;
+		Goto RealReadyThree;
+	
+	TwoCycle:
+		TNT1 A 0 A_StartSound("weapons/AnnCycle", 0);
+		NRC2 ABCDEFGHIJKLMN 1;
+		Goto RealReadyTwo;
+	
+	OneCycle:
+		TNT1 A 0 A_StartSound("weapons/AnnCycle", 0);
+		NRC3 ABCDEFGHIJKLMN 1;
+		Goto RealReadyOne;
 
 Fire:
   TNT1 A 0 
 	{
-      If((Invoker.RocketsFired == 4)) 
+      If((CountInv("AnnClip") == 0)) 
 	  {
 		return ResolveState ("DryFire");
 	  }
@@ -243,26 +215,30 @@ Fire:
 	  {
 		Case 0:
 			A_FireProjectile("AnnRocket",0 , 1, 0, -1);
-			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			A_StartSound("Weapons/ANNFire",0);
 			break;
 		Case 1:
 			A_FireProjectile("AnnHornet",0 , 1, 0, -1);
-			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			A_StartSound("Weapons/ANNFire",0);
 			break;
 		Case 2: 
-			A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
-			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			A_FireProjectile("BigIronProjectile",0 , 1, 0, -1);
+			A_StartSound("Weapons/ANNFire",0);
 			break;
-		Case 3: 
-			A_FireProjectile("HornetHive",0 , 1, 0, -1);
-			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
-			break;			
+		Case 3:
+			A_FireProjectile("AnnGrenade",0 , 1, 0, -1);
+			A_StartSound("Weapons/ANNFire",0);
+			break;
 		Case 4: 
+			A_FireProjectile("HornetHive",0 , 1, 0, -1);
+			A_StartSound("Weapons/ANNFire",0);
+			break;			
+		Case 5: 
 			invoker.MirvCheck = 1;
 			break;
-		Case 5: 
+		Case 6: 
 			A_FireProjectile("MagnusCluster",0 , 1, 0, -1);
-			A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+			A_StartSound("Weapons/ANNFire",0);
 			break;
 		Default:
 			break;
@@ -281,7 +257,7 @@ FireMirv:
 TNT1 A 0
 {
 	invoker.MirvCheck = 0;
-	if(invoker.RocketsFired > 0) 
+	if(CountInv("AnnClip") < 4) 
 	{
 		Return ResolveState ("reload");
 	}
@@ -290,31 +266,33 @@ TNT1 A 0
 		return ResolveState (null);
 	}
 }
-	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	TNT1 A 0 A_StartSound("weapons/ANNCycle", 0);
 	NRRC ABCDEFGHIJKLMN 1;
-	TNT1 A 0 A_PlaySound("Weapons/ANNCycle", CHAN_AUTO);
+	TNT1 A 0 A_StartSound("Weapons/ANNCycle", 0);
 	NRC1 ABCDEFGHIJKLMN 1;
-	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	TNT1 A 0 A_StartSound("weapons/ANNCycle", 0);
 	NRC2 ABCDEFGHIJKLMN 1;
-	TNT1 A 0 A_PlaySound("weapons/ANNCycle", CHAN_AUTO);
+	TNT1 A 0 A_StartSound("weapons/ANNCycle", 0);
 	NRC3 ABCDEFGHIJKLMN 1;
 	TNT1 A 0
 	{
-	A_PlaySound("Weapons/ANNFire",CHAN_AUTO);
+	A_StartSound("Weapons/ANNFire",0);
 	A_FireProjectile("AnnMIRV",0 , 1, -6, -1);
 	A_FireProjectile("AnnMIRV",0 , 1, 6, -1); 
 	A_FireProjectile("AnnMIRV",0 , 1, -12, -1);
 	A_FireProjectile("AnnMIRV",0 , 1, 12, -1);
+	A_TakeInventory("AnnClip", 4);
 	}
 	goto FireOne;
 
 FireCheck:
 	TNT1 A 0
 	{
-	If(Invoker.RocketsFired==0) Return ResolveState ("FireFour");
-	Else If(Invoker.RocketsFired==1) Return ResolveState ("FireThree");
-    Else If(Invoker.RocketsFired==2) Return ResolveState ("FireTwo");
-	Else If(Invoker.RocketsFired==3 || Invoker.RocketsFired==4) Return ResolveState ("FireOne");
+	If(CountInv("AnnClip") == 4) Return ResolveState ("FireFour");
+	Else If(CountInv("AnnClip") == 3) Return ResolveState ("FireThree");
+	Else If(CountInv("AnnClip") == 2) Return ResolveState ("FireTwo");
+	Else If(CountInv("AnnClip") == 1) Return ResolveState ("FireOne");
+    Else If(CountInv("AnnClip") == 0) Return ResolveState ("DryFire");
 	Else Return ResolveState(null);
 	}
 	
@@ -345,12 +323,11 @@ FireFour:
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
   NRL2 A 1 {
-	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);		
 	}
-  
-  Goto ThreeUp;
+	Goto RocketCycle;  
+
 
 FireThree:
   NRF2 A 2 Bright A_Light1;
@@ -358,7 +335,7 @@ FireThree:
   NRF2 C 1 Bright A_Light2;
   NRL2 A 1;
   NRL3 A 1 A_Recoil(2*cos(pitch));
-  NRL3 B 1  {
+  NRL3 B 1 {
 	  A_SetPitch(pitch-6.0);
 	  A_ZoomFactor(0.97,ZOOM_INSTANT);
 	  }
@@ -383,12 +360,11 @@ FireThree:
 	  A_ZoomFactor(0.995,ZOOM_INSTANT);
 	  }
   NRL3 B 1  {
-	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
-  Goto TwoUp;
-
+	Goto RocketCycle;
+	
 FireTwo:
   NRF3 A 2 Bright A_Light1;
   NRF3 B 1 Bright; 
@@ -417,11 +393,10 @@ FireTwo:
 	  }
   NRL4 A 1
 	{
-	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	}	
-  Goto OneUp;
+	Goto RocketCycle;
   
 FireOne:
   NRF4 A 2 Bright A_Light1;
@@ -450,80 +425,59 @@ FireOne:
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
   NRL4 A 1 {
-	  invoker.RocketsFired++;
 	  A_SetPitch(pitch+1.0);
 	  A_ZoomFactor(1.0,ZOOM_INSTANT);
 	  }
-    Goto OneUp;
+	Goto RocketCycle;
 
 DryFire:
 	RDRY AB 2;
-	RDRY A 10 A_PlaySound("Weapons/ANNDRY",CHAN_AUTO);
-	TNT1 A 0 A_PlaySound("Weapons/ANNCycle",CHAN_AUTO);
+	RDRY A 10 A_StartSound("Weapons/ANNDRY",0);
+	TNT1 A 0 A_StartSound("Weapons/ANNCycle",0);
 	RDRY CDEFGHGFEDC 1;
 	goto Reload;
 
-
-  Reload:
-   TNT1 A 0 {
-            if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
+Reload:
+   TNT1 A 0 
+   { 
+	if(CountInv("AnnClip") == 0 && CountInv("RocketAmmo2") < 4)
+	{
+		A_SelectWeapon("",SWF_SELECTPRIORITY);
+		return ResolveState (null);
+	}
+		if(CountInv("AnnClip") >= 1 && CountInv("RocketAmmo2") < 4)
+	{
+		return ResolveState ("Ready");
+	}
+	else
+	{
+		return ResolveState (null);
+	}
+	}
+	TNT1 A 0
+	{
+	if (CheckInventory (invoker.ammoType1, 0) || !CheckInventory (invoker.ammoType2, 1))
                 return ResolveState ("Ready");
 
             int ammoAmount = min (FindInventory (invoker.ammoType1).maxAmount - CountInv (invoker.ammoType1), CountInv (invoker.ammoType2));
             if (ammoAmount <= 0)
-                return ResolveState ("NoAmmoReady");
+                return ResolveState ("Ready");
 
             GiveInventory (invoker.ammoType1, ammoAmount);
             TakeInventory (invoker.ammoType2, ammoAmount);
-
-			Invoker.RocketsFired=0;
-			if((CountInv("AnnClip") >= 1) && (countInv("AnnAmmo") == 0))
-			{
-			return resolvestate ("ready");
-			}
-			else
-			{
-			return ResolveState ("ReloadAnim");
-			} 
-		
+			return ResolveState (null);
 	}
-ReloadAnim:
 	NRLR AB 2;
-	NRLR C 2 A_PlaySound("Weapons/ANNout", CHAN_AUTO);
-	TNT1 A 0  A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
-	NRLR DEFGHIJK 2;
-	NRLR L 2 A_PlaySound("Weapons/ANNin", CHAN_AUTO);
+	NRLR C 2 A_StartSound("Weapons/ANNout", 0);
+	TNT1 A 0 A_SpawnItemEx("AnnEmClip",10,12,sin(-pitch)*25+random(20,22),	random(2,3),-2,random(5,7),	random(-90,-105)); 
+	NRLR DEFGH 2;
+	NRLR IJ 1;
+	NRLR K 2;
+	NRLR L 2 A_StartSound("Weapons/ANNin", 0);
 	NRLR MNO 2;
 	NRLR PQ 2;
-	NRLR Q 2 A_PlaySound("Weapons/ANNSLAP",CHAN_AUTO);
+	NRLR Q 2 A_StartSound("Weapons/ANNSLAP",0);
 	NRLR RSTUVWX 2;
-	TNT1 A 0
-	{
-		if(countInv("AnnClip") == 4)
-		{
-			Invoker.RocketsFired=0;
-			return ResolveState ("FourUp");
-		}
-		else if (countInv("AnnClip") == 3)
-		{
-			Invoker.RocketsFired=3;
-			return ResolveState ("ThreeUp");
-		}
-		else if (countInv("AnnClip") == 2)
-		{
-			Invoker.RocketsFired=0;
-			return ResolveState ("TwoUp");
-		}
-		else if(countInv("AnnClip") == 1)
-		{
-			Invoker.RocketsFired=0;
-			return ResolveState ("OneUp");
-		}
-		else 
-		{
-			return ResolveState (null);
-		}
-	}
-  Goto NoAmmoReady;
-  }
+	goto RealReadyFour;
  }
+}

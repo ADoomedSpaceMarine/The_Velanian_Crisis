@@ -6,7 +6,7 @@ ACTOR DoomMarineMK2 : DoomPlayer
   Height 56
   Mass 100
   PainChance 255
-   DamageFactor "BFLCharge", 0
+  DamageFactor "BFLCharge", 0
   DamageFactor "BFLBeam", 0
   Player.DisplayName "Marine"
   Player.CrouchSprite "PLYC"
@@ -93,8 +93,6 @@ ACTOR TankPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "TriCannon"
-  Player.StartItem "RifleAmmo", 120
   Player.StartItem "Fist"
   
   States
@@ -160,8 +158,6 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "UAC12"
-  Player.StartItem "Shell2", 24
   Player.StartItem "Fist"    
   
   States
@@ -225,9 +221,6 @@ ACTOR CyberMarine : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "AR36"
-  Player.StartItem "RifleAmmo", 90
-  Player.StartItem "RocketAmmo2", 8
   Player.StartItem "Fist"
 
   States
@@ -293,8 +286,6 @@ Actor CombatVeteran : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "UAC12"
-  Player.StartItem "Shell2", 24
   Player.StartItem "Fist"
   
   States

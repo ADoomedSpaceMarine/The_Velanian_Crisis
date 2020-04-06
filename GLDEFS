@@ -77,6 +77,149 @@ PointLight SExp4
     Size 10
 }
 
+FlickerLight PlasmaCShot
+{
+Color 0.0 0.0 1.0
+Size 80
+SecondarySize 70
+Chance 0.2
+}
+
+PointLight PlasmaBallExp1
+{
+Color 0.0 0.0 1.0
+Size 80
+}
+
+PointLight PlasmaBallExp2
+{
+Color 0.0 0.0 1.0
+Size 90
+}
+
+PointLight PlasmaBallExp3
+{
+Color 0.0 0.0 1.0
+Size 100
+}
+
+PointLight PlasmaBallExp4
+{
+Color 0.0 0.0 1.0
+Size 110
+}
+
+PointLight PlasmaGrenExp1
+{
+    color 0.0 0.0 1.0
+	Size 150
+}
+
+PointLight PlasmaGrenExp2
+{
+    color 0.0 0.0 1.0
+    Size 125
+}
+
+PointLight PlasmaGrenExp3
+{
+    color 0.0 0.0 1.0
+	Size 100
+}
+
+PointLight PlasmaGrenExp4
+{
+    color 0.0 0.0 1.0
+    Size 90
+}
+
+PointLight PlasmaGrenExp5
+{
+    color 0.0 0.0 1.0
+    Size 80
+}
+
+PointLight PlasmaGrenExp6
+{
+    color 0.0 0.0 1.0
+    Size 60
+}
+
+PointLight PlasmaGrenExp7
+{
+    color 0.0 0.0 1.0
+    Size 40
+}
+
+PointLight PlasmaGrenBH1
+{
+    color 1.0 0.0 1.0
+    subtractive 1
+	attenuate 1
+	Size 100
+}
+
+PointLight PlasmaGrenBH2
+{
+    color 1.0 0.0 1.0
+    subtractive 1
+	attenuate 1
+	Size 90
+}
+
+PointLight PlasmaGrenBH3
+{
+    color 1.0 0.0 1.0
+    subtractive 1
+	attenuate 1
+	Size 80
+}
+
+PointLight PlasmaGrenBH4
+{
+    color 1.0 0.0 1.0
+    subtractive 1
+	attenuate 1
+	Size 70
+}
+
+PointLight PlasmaGrenBH5
+{
+    color 1.0 0.0 1.0
+    subtractive 1
+	attenuate 1
+	Size 60
+}
+
+Object PlasmaImplosionGrenade
+{
+	Frame PLIVA0 { light  PlasmaGrenBH5 } 
+	Frame PLIVB0 { light PlasmaGrenBH5 }
+	Frame PLIVC0 { light PlasmaGrenBH4 }
+	Frame PLIVD0 { light PlasmaGrenBH3 }
+	Frame PLIVE0 { light PlasmaGrenBH2 }
+	Frame PLIVF0 { light PlasmaGrenBH1 }
+	Frame PLIVG0 { light PlasmaGrenBH1 }
+	Frame PLIMH0 { light PlasmaGrenExp7 } 
+	Frame PLIMI0 { light PlasmaGrenExp7 }
+	Frame PLIMJ0 { light PlasmaGrenExp6 }
+	Frame PLIMK0 { light PlasmaGrenExp6 }
+	Frame PLIML0 { light PlasmaGrenExp5 }
+	Frame PLIMM0 { light PlasmaGrenExp5 }
+	Frame PLIMN0 { light PlasmaGrenExp4 }
+	Frame PLIMO0 { light PlasmaGrenExp4 }
+	Frame PLIMP0 { light PlasmaGrenExp3 }
+	Frame PLIMQ0 { light PlasmaGrenExp2 }
+	Frame PLIMR0 { light PlasmaGrenExp1 }
+	Frame PLIMT0 { light PlasmaGrenExp1 } 
+	Frame PLIMU0 { light PlasmaGrenExp1 }
+	Frame PLIMV0 { light PlasmaGrenExp1 }
+	Frame PLIMW0 { light PlasmaGrenExp2 }
+	Frame PLIMX0 { light PlasmaGrenExp3 }
+	Frame PLIMY0 { light PlasmaGrenExp4 }
+	Frame PLIMZ0 { light PlasmaGrenExp5 }
+}
+
 PointLight BFL10KShotBig
 {
 Color 0.0 0.0 1.0

@@ -135,8 +135,10 @@ weapons/CasterSteam CASSTEM
 weapons/CasterUp PLASMUP
 weapons/CellPup CELPUP
 $volume weapons/CasterSteam 0.4
+$volume weapons/APCaster 0.95
+$attenuation weapons/PlasExplo 0.45
 weapons/CasteroHeat PLSOHEAT
-
+weapons/PlasExplo	PLSEXPL
 
 //Tricannon Sounds
 weapons/Trican	TRIFIRE

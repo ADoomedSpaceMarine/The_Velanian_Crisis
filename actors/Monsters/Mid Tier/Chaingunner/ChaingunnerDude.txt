@@ -1,0 +1,57 @@
+ACTOR ChaingunGuy2 replaces ChaingunGuy
+{
+  Health 80
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 10
+  PainChance 170
+  Monster
+  +FLOORCLIP
+  SeeSound "chainguy/sight"
+  PainSound "chainguy/pain"
+  DeathSound "chainguy/death"
+  ActiveSound "chainguy/active"
+  AttackSound "weapons/trican"
+  Obituary "$OB_CHAINGUY"
+  Dropitem "Chaingun"
+  States
+  {
+  Spawn:
+    CPOS AB 10 A_Look
+    Loop
+  See:
+    CPOS AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    CPOS E 10 A_FaceTarget
+    CPOS FE 3 bright
+	{
+		A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM);
+	}
+	CPOS F 1 A_CPosRefire
+    Goto Missile+1
+  Pain:
+    CPOS G 3
+    CPOS G 3 A_Pain
+    Goto See
+  Death:
+    CPOS H 5
+    CPOS I 5 A_Scream
+    CPOS J 5 A_NoBlocking
+    CPOS KLM 5
+    CPOS N -1
+    Stop
+  XDeath:
+    CPOS O 5 
+    CPOS P 5 A_XScream
+    CPOS Q 5 A_NoBlocking
+    CPOS RS 5
+    CPOS T -1
+    Stop
+  Raise:
+    CPOS N 5
+    CPOS MLKJIH 5
+    Goto See
+  }
+}

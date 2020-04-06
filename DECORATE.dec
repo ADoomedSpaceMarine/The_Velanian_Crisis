@@ -22,3 +22,4 @@
 #include "actors/Monsters/Wood Tier/ShotgunDude.txt"
 #include "actors/Monsters/Mid Tier/RifleDude/RifleDude.txt"
 #include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"
+#include "actors/Monsters/Mid Tier/ChainGunner/ChaingunnerDude.txt"

@@ -16,7 +16,7 @@ ACTOR BigGunSmoke : LavaSmoke
   }
 }
 
-ACTOR DeagleSmoke
+ACTOR LargeGunSmoke
 {
  +NOBLOCKMAP
   +NOGRAVITY
@@ -24,13 +24,13 @@ ACTOR DeagleSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed 1
+  VSpeed .05
   Mass 51
   scale .5
   States
   {
   Spawn:
-    GSM1 ABCDE 2 Bright
+    GSM1 AAABBBCCDDE 1 Bright
     Stop
   }
 }
@@ -43,13 +43,13 @@ ACTOR PistolSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed 1
+  VSpeed .05
   Mass 5
-  scale 0.25
+  scale 0.5
   States
   {
   Spawn:
-    GSM1 ABCDE 2 Bright
+    GSM1 AAABBBCCDDE 1 Bright
     Stop
   }
 }
@@ -62,13 +62,13 @@ ACTOR ARSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed 1
+  VSpeed .05
   Mass 5
   scale 0.3
   States
   {
   Spawn:
-    GSM1 ABCDE 2 Bright
+    GSM1 AAABBBCCDDE 1 Bright
     Stop
   }
 }
@@ -81,13 +81,13 @@ ACTOR DBSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed 1
+  VSpeed .05
   Mass 5
   scale 0.75
   States
   {
   Spawn:
-    GSM1 ABCDE 2 Bright
+    GSM1 AAABBBCCDDE 1 Bright
     Stop
   }
 }
