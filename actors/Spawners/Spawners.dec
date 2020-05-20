@@ -1,25 +1,26 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 4
-	DropItem "GlockAmmo", 255, 4
-	DropItem "DeagleAmmo", 255, 4
-    DropItem "RifleAmmo", 255, 4
-	DropItem "Glock18", 255, 4
-	DropItem "DeagleBox", 255, 1
-    DropItem "GlockBox", 255, 1
-	DropItem "RifleBox", 255, 1
+    DropItem "GlockBullets", 255, 6
+	DropItem "GlockAmmo", 255, 6
+	DropItem "DeagleAmmo", 255, 6
+    DropItem "RifleAmmo", 255, 6
+	DropItem "Glock18", 255, 6
+	DropItem "DeagleBox", 255, 2
+    DropItem "GlockBox", 255, 2
+	DropItem "RifleBox", 255, 2
+	DropItem "PickUpBubbleShield", 255, 1
 }
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 15
+    DropItem "TriCannon", 255, 10
     DropItem "AutoCannon", 255, 1
 }
 
 actor Shotgun2 : Shotgun{}
 actor Slot3Spawner : RandomSpawner replaces shotgun
 {
-    DropItem "UAC12", 255, 5
+    DropItem "UAC12", 255, 3
     DropItem "Demonsbane", 255, 1
 }
 
@@ -66,12 +67,18 @@ actor RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
     DropItem "SMRocketBox", 255, 1
 }
 
+actor cacodemon2 : CacoDemon{}
+actor CacodemonSpawner : Randomspawner replaces Cacodemon
+{
+	DropItem "Cacodemon2", 255, 8
+	DropItem "PinataCaco", 255, 1
+}
+
 
 actor BlurSphere2 : BlurSphere{}
 actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
 {
     DropItem "PickUpBubbleShield", 255, 1
-    DropItem "BlurSphere2", 255, 1
 	DropItem "Infrared2", 255, 1
 }
 
@@ -79,7 +86,7 @@ actor BFL10K2 : BFL10K{}
 actor Slot7Spawner : RandomSpawner replaces BFL10k
 {
 	DropItem "AutoCannon", 255, 1
-	DropItem "BFL10K2", 255, 1
+	DropItem "BFL10K2", 255, 3
 }
 
 actor Shell2 : ammo replaces shell

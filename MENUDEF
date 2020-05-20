@@ -1,7 +1,3 @@
-
-
-
-
 AddOptionMenu "OptionsMenu"
 {
 	StaticText "Velanian Crisis Options "

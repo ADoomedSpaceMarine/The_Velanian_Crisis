@@ -1,0 +1,33 @@
+class Fists : weapon replaces fist
+{
+  default
+  {
+  Weapon.SelectionOrder 3700;
+  Weapon.Kickback 100;
+  Obituary "$OB_MPFIST";
+  Tag "$TAG_FIST";
+  Weapon.SlotNumber 1;
+  Weapon.SlotPriority 2;
+  +WEAPON.WIMPY_WEAPON;
+  +WEAPON.MELEEWEAPON;
+  }
+  States
+  {
+  Ready:
+    PUNG A 1 A_WeaponReady;
+    Loop;
+  Deselect:
+    PUNG A 1 A_Lower;
+    Loop;
+  Select:
+    PUNG A 1 A_Raise;
+    Loop;
+  Fire:
+    PUNG B 2;
+    PUNG C 2 A_Punch;
+    PUNG D 3;
+    PUNG C 2;
+    PUNG B 3 A_ReFire;
+    Goto Ready;
+  }
+}

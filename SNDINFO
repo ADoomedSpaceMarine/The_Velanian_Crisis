@@ -13,6 +13,8 @@ Weapons/GrenBounce	GNBOUNC
 
 //Misc
 SFX/Buzz	DSBUZZ
+SFX/CacoPop	  CACPOP
+SFX/Candy	 SEECAND
 
 //Casings
 $random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
@@ -289,3 +291,32 @@ nashgore/bodydrop "sounds/body drop 01.ogg"
 
 nashgore/bullethitflesh "sounds/bullet hit flesh.ogg"
 $volume nashgore/bullethitflesh 0.23
+
+menu/MenuCurs1 UPDOWN1
+menu/MenuCurs2 UPDOWN2
+menu/MenuCurs3 UPDOWN3
+menu/MenuCurs4 UPDOWN4
+menu/MenuCurs5 UPDOWN5
+menu/MenuCurs6 UPDOWN6
+
+
+//Menu Items
+menu/activate		MSELECT	// Activate a new menu
+menu/backup			MBACK	// Backup to previous menu
+menu/prompt			MSELECT	// Activate a prompt "menu"
+$random menu/cursor			{menu/MenuCurs1 menu/MenuCurs2 menu/MenuCurs3 menu/MenuCurs4 menu/MenuCurs5 menu/MenuCurs6}// Move cursor up/down
+menu/change			UPDOWN4	// Select new value for option
+menu/invalid		MUNAVA		// Menu not available
+menu/dismiss		MUNAVA	// Dismiss a prompt message
+menu/choose			MSELECT	// Choose a menu item
+menu/clear			MUNAVA	// Close top menu
+menu/quit1 			GMQUIT
+menu/quit2 			GMQUIT
+
+//Intermission
+$alias				intermission/tick			weapons/AR36
+$alias				intermission/cooptotal		*death
+$alias				intermission/nextstage		weapons/LgExplosion
+$alias				intermission/paststats		weapons/UAC12Pickup
+$alias				intermission/pastcoopstats	weapons/UAC12Pickup
+$alias				intermission/pastdmstats	*gibbed

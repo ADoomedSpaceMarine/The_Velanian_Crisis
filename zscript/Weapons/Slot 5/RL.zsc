@@ -1,0 +1,168 @@
+CLASS NewRl : RocketLauncher replaces rocketlauncher
+{
+int ShotType;
+	default
+	{
+	Weapon.SelectionOrder 2500;
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive 10;
+	Weapon.SlotNumber 5;
+	Weapon.SlotPriority 0;
+	scale 0.78;
+	Weapon.AmmoType "RocketAmmo2";
+	Weapon.UpSound "weapons/AnnIn";
+	+WEAPON.NOAUTOFIRE;
+	+Weapon.NOAUTOAIM
+	Inventory.PickupMessage "You got the UAC RPG Launcher MK2!";
+	Tag "$TAG_ROCKETLAUNCHER";
+	}
+	States
+	{
+	Ready:
+	MMK2 A 1 A_WeaponReady(WRF_ALLOWRELOAD|WRF_ALLOWUSER1|WRF_ALLOWUSER2);
+	Loop;
+	Deselect:
+		TNT1 A 0
+    	  {
+			if(CountInv("RocketAmmo2") ==  0)
+            {
+				ACS_NamedExecute("OutOfRockets");
+                return ResolveState (null);
+            }
+            else 
+			{
+			    return ResolveState(null);
+			}
+           }
+		  MMK2 A 1 A_Lower(12);
+		  Loop;
+	MMK2 A 1 A_Lower(12);
+	Loop;
+	Select:
+	MMK2 A 1 A_Raise(12);
+	Loop;
+
+User1:
+	TNT1 A 0
+	{
+			if(Invoker.ShotType == 5)           //If the shot type variable is equal to three
+			{
+				invoker.ShotType = 0;               //reset ShotType to 0 (Buckshot)
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			} 
+			else if (invoker.ShotType != 5)     //Otherwise if shot type is not equal to three
+			{
+				invoker.ShotType++;                  //Incriment shot type variable by one
+				return ResolveState("RkMsgState");     //Go to ammo switch message switch block
+			}
+			else 
+			{
+				return ResolveState(null); 
+			}
+        }
+   
+    //Firemode Switch Key 2
+    User2:
+      TNT1 A 0
+		{
+			if(Invoker.ShotType == 0)           //If the shot type variable is equal to zero
+			{
+				invoker.ShotType = 5;               //reset ShotType to 3 (Frag-12)
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			} 
+			else if (Invoker.ShotType != 0)     //otherwise if shot type is not equal to zero
+			{   
+				invoker.ShotType--;                  //decriment shot type by one
+				return ResolveState("RkMsgState");    //Go to ammo switch message switch block
+			}
+			else
+			{
+				return ResolveState(null);
+			}    
+		}
+		
+	 RkMsgState:
+        TNT1 A 0
+        {
+         switch(invoker.ShotType)
+            {
+                case 0: ACS_Execute(3655);              //Play Normal Rocket message
+                break;                                  //Break out of the switch block
+
+                case 1: ACS_Execute(3656);              //Play Homing Rocket message
+                break;                                  //Break out of the switch block
+
+                case 2: ACS_Execute(3657);              //Play Grenade message
+                break;                                  //Break out of the switch block
+            }    
+		}
+		goto FireSwitch; 		
+	
+	FireSwitch:
+		MMK2 A 3;
+		MMKS A 2;
+		MMKS B 2 A_StartSound("Weapons/arswitch", 0);
+		MMKS A 2;
+		MMK2 A 3;
+		goto ready;
+	
+	Fire:
+	MMK2 ABCD 2;
+	MMK2 E 2 A_GunFlash;
+	TNT1 A 0
+	{
+	Switch(Invoker.ShotType)
+	  {
+		Case 0:
+			A_FireProjectile("RlRocket",0 , 1, 0, -1);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_StartSound("Weapons/ANNFire",0);
+			break;
+		Case 1:
+			A_FireProjectile("Hornet",0 , 1, 0, -1);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_StartSound("Weapons/ANNFire",0);
+			break;
+		Case 2: 
+			A_FireProjectile("HPGrenade",0 , 1, 0, -1);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_StartSound("Weapons/ANNFire",0);
+			break;
+		Default:
+			break;
+		}
+	}
+	MMKR A 1
+		{
+			A_SetPitch(pitch-3.0);
+			A_ZoomFactor(0.94,ZOOM_INSTANT);
+		}
+	MMKR B 1 
+		{
+			A_SetPitch(pitch+1.0);
+			A_ZoomFactor(0.96,ZOOM_INSTANT);
+		} 
+	MMKR C 1
+		{
+			A_SetPitch(pitch+2.0);
+			A_ZoomFactor(1,ZOOM_INSTANT);
+			A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+		}
+	MMKR B 1;
+	MMKR A 1 A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
+	Goto Ready;
+	
+	Flash:
+	MMKF A  1 Bright A_Light1;
+	MMKF B  1 Bright A_Light2;
+	MMKF CD 1 Bright;
+	Goto LightDone;
+	
+	Spawn:
+	LAUN A -1;
+	Stop;
+	}
+}

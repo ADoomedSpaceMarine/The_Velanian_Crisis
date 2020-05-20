@@ -21,6 +21,9 @@ Sprites:
 - So did the 4 base sprites for the UAC-12
 - RifleDude sprites by Xim
 
+Menu Art:
+-Cover base can be found here, original artist signature : https://upload.wikimedia.org/wikipedia/commons/8/89/BrainCloud-and-scientist_mango_concept-art_04.png
+-Title Song "Black Heat" by Ross Bugden, Found here: https://soundcloud.com/rossbugden/intense-and-upbeat-electronic-trailer-music-black-heat-copyright-and-royalty-free
 
 Sprite Edits: 
 - R3W (Shading on Demon's Bane, HUGE Sprite work contributions for Annihilator Launcher)
@@ -47,7 +50,6 @@ Nash - Nasgore
 
 Enemies:
 -RifleDude was made by Xim
-
 -Deagle Hunter (Shadow Hunter)
 Submitted: DoomedArchvileDemon
 Decorate: DoomedArchvileDemon, TheMightyHeracross

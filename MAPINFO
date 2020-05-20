@@ -1,6 +1,9 @@
 GameInfo
 {
-   PlayerClasses = "DoomMarineMK2", "CyberMarine", "TankPlayer", "AcrobatPlayer", "CombatVeteran" 
+	drawreadthis = false
+	PlayerClasses = "DoomMarineMK2", "CyberMarine", "TankPlayer", "AcrobatPlayer", "CombatVeteran" 
+	quitmessages = "Sector timeloop initiation system ready for engagement, Would you like to save the Earthlings later?", "The Grand Velanian Counsel will be displeased of your absence, are you sure you want to postpone saving Earth?", "The Earthlings will not save themselves from destruction, that's why the Counsel sent you. Are you sure?", "Abandoning a mission without initializing a sector-wide timeloop is strictly forbidden! Shall I create one?"
+	titlemusic = "V_TITLE"
 } 
 
 DamageType BFLCharge
@@ -16,7 +19,7 @@ DamageType BFLBeam
 gameinfo 
 {
     addEventHandlers = "ATMP_MapHandler"
-	weaponslot = 1, "Fist", "Chainsaw"
+	weaponslot = 1, "Fists", "NewChainsaw"
 	weaponslot = 2, "Glock18", "Battlehawk" 
 	weaponslot = 3, "UAC-12", "Demonsbane"
 	weaponslot = 4, "AR36", "TriCannon"

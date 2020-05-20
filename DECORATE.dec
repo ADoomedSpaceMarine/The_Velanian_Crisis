@@ -4,6 +4,8 @@
 #include "actors/Weapons/Projectiles.txt"
 #include "actors/Weapons/WeaponTokens.txt"
 #include "actors/Spawners/spawners.dec"
+#include "actors/Pickups/Health Bonuses/candies.dec"
+
 
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"
@@ -23,3 +25,4 @@
 #include "actors/Monsters/Mid Tier/RifleDude/RifleDude.txt"
 #include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"
 #include "actors/Monsters/Mid Tier/ChainGunner/ChaingunnerDude.txt"
+#include "actors/Monsters/Floater Tier/Mid-Grade Floaties/PinaTomato/PinataTomato.dec"

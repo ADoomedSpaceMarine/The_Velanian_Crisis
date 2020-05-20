@@ -1,4 +1,4 @@
-version "4.3.3"
+version "3.0"
 
 //All Cat's Visor Related Content
 #include "zscript/Minimap/ATMP_MapHandler.zsc"
@@ -9,17 +9,19 @@ version "4.3.3"
 #include "zscript/Equipment/Flashlight.zsc" 
 
 //Zscript Weapons
-#include "zscript/Weapons/Slot 7/BFL10k/BFL10K.zsc"
-#include "zscript/Weapons/Slot 7/Autocannon/AutoCannon.zsc"
-#include "zscript/Weapons/Slot 6/Plasmacaster/Plasmacaster.zsc"
-//#include "zscript/Weapons/Slot 5/New RL/RL.txt"
-#include "zscript/Weapons/Slot 5/Annihilator/Annihilator.zsc"
-#include "zscript/Weapons/Slot 3/Demonsbane/Demonsbane.zsc"
-#include "zscript/Weapons/Slot 3/UAC-12/UAC12.zsc"
-#include "zscript/Weapons/Slot 4/AR36/ar36.zsc"
-#include "zscript/Weapons/Slot 4/Trigun/Tricannon.zsc"
+#include "zscript/Weapons/Slot 7/BFL10K.zsc"
+#include "zscript/Weapons/Slot 7/AutoCannon.zsc"
+#include "zscript/Weapons/Slot 6/Plasmacaster.zsc"
+//#include "zscript/Weapons/Slot 5/RL.zsc"
+#include "zscript/Weapons/Slot 5/Annihilator.zsc"
+#include "zscript/Weapons/Slot 3/Demonsbane.zsc"
+#include "zscript/Weapons/Slot 3/UAC12.zsc"
+#include "zscript/Weapons/Slot 4/ar36.zsc"
+#include "zscript/Weapons/Slot 4/Tricannon.zsc"
 #include "zscript/Weapons/Slot 2/Deagle.zsc"
 #include "zscript/Weapons/Slot 2/Glock18.zsc"
+#include "zscript/Weapons/Slot 1/Chainsaw.zsc"
+#include "zscript/Weapons/Slot 1/Fists.zsc"
 
 //Nash Gore
 #include "zscript/Nash Gore/NashGoreCommon.zc"

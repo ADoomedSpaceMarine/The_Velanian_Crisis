@@ -1,0 +1,51 @@
+ACTOR PinataCaco
+{
+  Health 500
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 9
+  PainChance 128
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  SeeSound "caco/sight"
+  PainSound "caco/pain"
+  DeathSound "SFX/CacoPop"
+  ActiveSound "caco/active"
+  Obituary "Player was blown up by a Pinata Tomato"
+  HitObituary "$OB_CACOHIT"
+  States
+  {
+  Spawn:
+    HEAD A 10 A_Look
+    Loop
+  See:
+    HEAD A 3 A_Chase
+    Loop
+  Missile:
+    HEAD BC 5 A_FaceTarget
+    HEAD D 5 Bright A_HeadAttack
+    Goto See
+  Pain:
+    HEAD E 3
+    HEAD E 3 A_Pain
+    HEAD F 6
+    Goto See
+  Death:
+	PHED E 4
+	PHED C 8 A_StartSound("SFX/CacoPop", 9, 0, 1, .1)
+    PHED D 8 
+	PHED E 6
+    PHED GH 2
+    PHED I 2 A_SpawnItem("CandyFountain")
+	PHED JKLMNO 2
+	PHED P 2 A_NoBlocking
+    PHED Q -1 A_SetFloorClip
+    Stop
+  Raise:
+    HEAD L 8 A_UnSetFloorClip
+    HEAD KJIHG 8
+    Goto See
+  }
+}

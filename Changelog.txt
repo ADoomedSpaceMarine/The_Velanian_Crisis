@@ -1,0 +1,32 @@
+=================================
+Velanian Crisis - Changelog     |
+=================================
+Legend:                         |
+(+) signifies an addition       |
+(-) signifies a removal         |
+(!) signifies a bugfix	        |
+(*) signifies a modification    |
+=================================
+Last Updated: 5/17/2020	 	|
+=================================
+
+================================
+Beta Build 200517 - 05/17/2020
+================================
++Added a new menu title picture
++Added new title music
++Added replacement menu sounds
++Added Perkistan's HD Sound pack for standard sounds
++Added the Pinatacaco Demon
++Added candy for health pickups
++Added modified replacements for both slot 1 weapons
++Added new game quit messages
+*Rebalanced spawners
+*Rebalanced shotgun
+*Overhauled the BFL:
+	1) Made it fire quicker
+ 	2) Made alt fire act like BFG9000
+ 	3) Fixed BFL ball issues
+*Added new information to MAPINFO for new weapons/title
+!Fixed the Annihilator (botched sprite ordering in the fire frames and other fixes)
+!Fixed upsounds for Annihilator and the UAC12

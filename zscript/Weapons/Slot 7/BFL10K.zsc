@@ -1,0 +1,361 @@
+Class BFLAmmo : cell
+{
+Default{ 
+  Inventory.PickupMessage "Picked up a BFL10K Cell";
+  Inventory.Icon "BFLC0";
+  Inventory.Amount 20;
+  Inventory.MaxAmount 400;
+  Ammo.BackpackAmount 200;
+  Ammo.BackpackMaxAmount 800;
+}
+  States
+  {
+  Spawn: 
+    BFLC A -1;
+    Stop;
+  }
+}
+
+Class BFLBox : BFLAmmo
+{
+  Default
+  {
+  Inventory.PickupMessage "Picked up a BFL10K charge pack.";
+  Inventory.Amount 200;
+  }
+  States
+  {
+  Spawn:
+    BFBX A -1;
+    Stop;
+  }
+}
+
+Class BFL10K : Weapon replaces BFG9000
+{
+    Bool Isfiringstandard;
+    Bool IsFiringUltimate;
+
+    Default
+    {
+      Weapon.SelectionOrder 2900;
+      Weapon.BobStyle "smooth";
+      Weapon.AmmoUse1 10;
+      Weapon.AmmoUse2 50;
+      Weapon.AmmoGive1 100;
+      Weapon.AmmoType "Cell2";
+      Weapon.AmmoType2 "Cell2";
+      Weapon.SlotNumber 7;
+      Weapon.SlotPriority 3;
+      +WEAPON.NOAUTOFIRE;
+	  Inventory.PickupMessage "You Obtained the BFL-10k Photonic Megacannon!";
+      Obituary "%o was vaporized by %k's Big Frickin Photon Cannon.";
+      Decal "BigScorch";
+    }
+
+    States {
+        Spawn:
+            BFL2 A -1;
+            Stop;
+        
+        Select:
+            BFNA A 1 A_Raise(12);
+            loop;
+
+        Deselect:
+            BFNA A 0 A_StartSound("weapons/ANNUp", 1);
+            BFNA A 1 A_Lower(12);
+            Loop;
+        
+        Ready:
+            TNT1 A 0
+            {
+              invoker.IsFiringStandard=1;
+            }
+            Goto BFLUp;
+
+        UltSwitch:
+           TNT1 A 0
+           {
+            Invoker.IsFiringStandard = 0;
+            Invoker.IsFiringUltimate = 1;
+            ACS_Execute(3653);
+           }
+          Goto BFLUp;
+
+        StandardSwitch:
+           TNT1 A 0
+           {
+             Invoker.IsFiringUltimate = 0;
+             Invoker.IsFiringStandard = 1;
+             ACS_Execute(3654);
+           }
+          Goto BFLUp;
+            
+        BFLUp:
+            TNT1 A 0 A_StartSound("Weapons/BFLUP2",0);
+            BFLF A 2;
+            BFLF B 2;
+            BFLF C 2;
+            BFLF D 2;
+            BFLF E 2;
+            BFLF F 2;
+            Goto BFLIdle;
+
+        BFLIdle:
+            TNT1 A 0 A_StartSound("Weapons/BFLIdle", 1);
+            BFLG ABCDE 5 A_WeaponReady(WRF_ALLOWUSER1);
+            BFLG ABCDE 4 A_WeaponReady(WRF_ALLOWUSER1);
+            BFLG ABCDE 5 A_WeaponReady(WRF_ALLOWUSER1);
+            Loop;
+
+        Fire:
+        TNT1 A 0
+        {   
+             If((invoker.IsFiringStandard==1)) Return ResolveState ("Hold");
+             Else If((invoker.IsFiringUltimate==1)) Return ResolveState ("ChargeUlt");
+             Else Return ResolveState (null);
+        }
+            BFLF B 1;
+            BFLF C 1;
+            BFLF D 1;
+            BFLF E 1;
+            BFLF F 1;
+            BFLF G 1 A_GunFlash;
+            TNT1 A 0 
+            {
+              A_StartSound("Weapons/BFLShot", 1);
+              A_FireProjectile("BFLStandardShot", 0, 1, 0, -8, 0);
+              A_Recoil(3*cos(pitch));
+              A_SetPitch(pitch-3.0);
+              A_ZoomFactor(0.85,ZOOM_INSTANT);
+    
+            }
+            BFLF H 1 
+              {
+                A_SetPitch(pitch+1.0);
+                A_ZoomFactor(0.9,ZOOM_INSTANT);;
+              }
+            BFLF I 1 
+            {
+              A_SetPitch(pitch+1.0);
+              A_ZoomFactor(0.95,ZOOM_INSTANT);
+            }
+            BFLF J 1 
+            {
+              A_SetPitch(pitch+1.0);
+              A_ZoomFactor(1.0,ZOOM_INSTANT);
+            }
+            TNT1 A 0 A_Refire;
+            BFLF A 0 A_WeaponReady;
+			Goto BFLUp;
+            
+          Flash:
+            TNT1 A 2 Bright A_Light1;
+            TNT1 A 3 Bright A_Light2;
+            Goto LightDone;
+
+           ALtFire:
+           BFLF A 4 A_StartSound("Weapons/BFLCharge1", 0);
+            BFLF BCDEF 3;
+            BFLF BCDEF 3;           
+            BFLF BCDEF 2;           
+            BFLF BCDEF 1; 
+            BFLF BCDEF 1;                  
+            BFLF G 1 A_GunFlash;
+            TNT1 A 0 
+            {
+              A_StartSound("Weapons/BFLSHOTBIG", 1);
+              A_FireProjectile("BFLBigShot", 0, 1, 0, -8, 0);
+              A_Recoil(3*cos(pitch));
+              A_SetPitch(pitch-3.0);
+              A_ZoomFactor(0.85,ZOOM_INSTANT);
+            }
+              BFLF H 2 
+              {
+                A_SetPitch(pitch+1.0);
+                A_ZoomFactor(0.9,ZOOM_INSTANT);;
+              }
+            BFLF I 2 
+            {
+              A_SetPitch(pitch+1.0);
+              A_ZoomFactor(0.95,ZOOM_INSTANT);
+            }
+            BFLF J 2
+            {
+              A_SetPitch(pitch+1.0);
+              A_ZoomFactor(1.0,ZOOM_INSTANT);
+            }
+            BFLF A 2 A_WeaponReady;
+            Goto BFLUp;
+
+            ChargeUlt:
+            TNT1 A 0 
+            {
+            If(CountInv("Cell2") < 120) Return ResolveState ("BFLIdle");
+            Else Return ResolveState (null);
+            }
+            BFLF A 4 A_StartSound("Weapons/BFLUCharge", 1);
+            BFLF BCDEF 10 A_TakeInventory("Cell2", 1);
+            BFLF BCDEF 9 A_TakeInventory("Cell2", 1);
+            BFLF BCDEF 8 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 7 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 6 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 5 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 3 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 2 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 2 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 1 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 1 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 1 A_TakeInventory("Cell2", 2);
+            BFLF BCDEF 1 A_TakeInventory("Cell2", 2);
+            BFLU ABCDEF 5;
+            BFLU GHIJK 3;
+            TNT1 A 0 A_Overlay(-3, "ShieldUse", 1);
+            Goto Phase2;
+            
+            Phase2:
+            TNT1 A 0 A_JumpIfInventory("Phase2Token", 11, "Phase2a");
+            BFLU L 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFLU M 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_GiveInventory("Phase2Token");
+            Loop;
+  
+            Phase2a:
+            TNT1 A 0 A_JumpIfInventory("Phase2Token", 21, "Phase2b");
+            BFLU M 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
+            BFLU N 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_GiveInventory("Phase2Token");
+            Loop;
+
+            Phase2b:
+            TNT1 A 0 A_JumpIfInventory("Phase2Token", 30, "Phase2c");
+            BFLU N 3 A_Explode(60,120,0,0,0,0,0,"","BFLCharge");
+            BFLU O 3 A_Explode(60,120,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_GiveInventory("Phase2Token");
+            Loop;
+
+            Phase2C:
+            TNT1 A 0 A_JumpIfInventory("Phase2Token", 39, "Phase2d");
+            BFLU O 3 A_Explode(80,120,0,0,0,0,0,"","BFLCharge");
+            BFLU P 3 A_Explode(80,120,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_GiveInventory("Phase2Token");
+            Loop;
+
+            
+            Phase2d:
+            TNT1 A 0 A_JumpIfInventory("Phase2Token", 48, "Phase3");
+            BFLU O 3 A_Explode(100,128,0,0,0,0,0,"","BFLCharge");
+            BFLU P 3 A_Explode(100,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_GiveInventory("Phase2Token");
+            Loop;
+            
+            Phase3:
+            TNT1 A 0 A_TakeInventory("Phase2Token", 48);
+            BFP3 A 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 B 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 C 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 D 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 E 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 F 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 G 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 H 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 I 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 J 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 K 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 L 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 M 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 N 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 O 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 P 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 Q 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 R 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 S 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 T 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 U 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 V 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 W 3 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 X 2 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 Y 2 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            BFP3 Z 1 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
+            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            goto BFLUFireSound;
+
+            BFLUFireSound:
+            BFP3 A 0 A_StartSound("Weapons/BFLUFire",1);
+            Goto BFLUFire;
+
+            BFLUFire:
+            TNT1 A 0 A_JumpIfInventory("UltToken", 455, "BFLUWindDn");
+            TNT1 A 0 A_GunFlash;
+            BFFU A 1 A_FireProjectile("BFLUltShot", 0, 0, 0, -8, 0);        
+            BFFU B 1 A_FireProjectile("BFLUltShot", 0, 0, 0, -8, 0);
+            BFFU A 1 A_FireProjectile("BFLUltShot", 0, 0, 0, -8, 0);        
+            BFFU B 1 A_FireProjectile("BFLUltShot", 0, 0, 0, -8, 0);
+            BFFU A 1 A_FireProjectile("BFLUltShot", 0, 0, 0, -8, 0);
+            TNT1 A 0 A_GiveInventory("UltToken", 5);
+            Goto BFLUFire;
+
+            BFLUWindDn:
+            TNT1 A 0 A_TakeInventory("UltToken", 455);
+            TNT1 A 0 A_StartSound("Weapons/BFLUEnd",1);
+            BFDN ABCDEFGHIJKLMNOP 5;
+            BFDN Q 35;
+            Goto BFLUp;
+          
+            User1: 
+            TNT1 A 0 
+            {
+            If((invoker.IsFiringStandard==1)) Return ResolveState ("UltSwitch");
+            Else If((invoker.IsFiringUltimate==1)) Return ResolveState ("StandardSwitch");
+            Else Return ResolveState (null);
+            }
+            Goto BFLIdle;
+            ShieldUse:   
+              TNT1 A 0 A_GiveInventory("PowerBFLTerror");
+			  TNT1 A 0 A_GiveInventory("PowerBFLBuddha");
+              BUBS ABCDEFGH 1;
+              goto ShieldSustain;
+            ShieldSustain:
+              BUBS I 350;
+              Goto ShieldCrash;
+            ShieldCrash:
+              BUBD A 1;
+              BUBD B 1;
+              BUBD C 1;
+              BUBD D 1;
+            Stop;
+    }
+}
+

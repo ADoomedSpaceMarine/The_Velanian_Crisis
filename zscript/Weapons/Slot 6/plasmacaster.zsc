@@ -1,0 +1,232 @@
+Class PlasmaCaster : weapon replaces PlasmaRifle
+{
+ default
+ {
+  Weapon.SelectionOrder 100;
+  Weapon.AmmoUse 1;
+  Weapon.AmmoUse2 10;
+  scale 0.6;
+  Weapon.AmmoGive 30;
+  Weapon.AmmoType "cell2";
+  Weapon.AmmoType2 "cell2";
+  Weapon.SlotNumber 6;
+  Weapon.SlotPriority 3;
+  Weapon.UpSound "Weapons/Casterup";
+  Inventory.PickupSound "Weapons/Plasmaup";
+  +WEAPON.NOAUTOAIM;
+  +WEAPON.AMMO_CHECKBOTH;
+  Inventory.PickupMessage "You got the UAC Plasmacaster!";
+  Tag "$TAG_PLASMARIFLE";
+  decal "casterScorch";
+  }
+  States
+  {
+  Ready:
+    PLCG A 1 A_WeaponReady;
+    Loop;
+  Deselect:
+  	TNT1 A 0
+	{
+		A_ZoomFactor(1);
+		if(CountInv("Cell2") == 0)
+		{
+			ACS_NamedExecute("CellsGone");
+		}
+	}	
+    PLCG A 1 A_Lower(12);
+    Loop;
+  Select:
+    PLCG A 1 A_Raise(12);
+    Loop;
+  Fire:
+  	TNT1 A 0 GiveInventory("PCasterCooldownCounter", 1);
+	TNT1 A 0 A_StartSound("weapons/PCaster", 1);
+	TNT1 A 0 A_GunFlash;
+	PLCG A 3 A_FireProjectile("PlasmaBall3", random(-1,1), 1,0,0,0,random(0,1));
+	TNT1 A 0
+	{
+	if(countInv("cell2") == 90)
+	{
+		ACS_NamedExecute("CellsLow");
+		return ResolveState (null);
+	}
+	else if(countInv("cell2") == 30)
+	{
+		ACS_NamedExecute("AmmoCriticalLow");
+		return ResolveState (null);
+	}
+	A_SetPitch(pitch+1.0);
+			if(countInv("PCasterCooldownCounter") > 10 && countInv("PCasterCooldownCounter") < 20)
+			{
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(countInv("PCasterCooldownCounter") > 20 && countInv("PCasterCooldownCounter") <= 29)
+			{					
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(countInv("PCasterCooldownCounter") >= 30)
+			{
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);	
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState("BigCoolDown");
+			}
+			else
+			{
+				return ResolveState(null);
+			}			
+		}
+	TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+	PLCG A 1 A_ReFire;
+	goto SmokeCooldown;
+ 
+ AltFire:
+	TNT1 A 0
+	{
+		if(countInv("cell2") <= 90 && countInv("cell2") > 85)
+		{
+			ACS_NamedExecute("CellsLow");
+			return ResolveState (null);
+		}
+		else if(countInv("cell2") <= 30 && countInv("cell2") > 25)
+		{
+			ACS_NamedExecute("AmmoCriticalLow");
+			return ResolveState (null);
+		}
+		else if(countinv("cell2") < 10)
+		{
+			Return ResolveState ("dryfire");
+		}
+		else
+		{
+			return ResolveState (null);
+		}
+	}	
+	
+	TNT1 A 0
+	{
+		 A_JumpIfNoAmmo("dryfire");
+		 GiveInventory("PCasterCooldownCounter", 5);
+	}
+	TNT1 A 0
+	{
+		if(countInv("PCasterCooldownCounter") > 10 && countInv("PCasterCooldownCounter") < 20)
+		{
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			return ResolveState(null);
+		}
+		else if(countInv("PCasterCooldownCounter") > 20 && countInv("PCasterCooldownCounter") <= 29)
+		{
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			return ResolveState(null);
+		}
+		else if(countInv("PCasterCooldownCounter") > 30)
+		{
+			return ResolveState("BigCoolDown");
+		}
+		else
+		{
+			return ResolveState(null);
+		}			
+	}
+	TNT1 A 0
+	{
+		A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+		A_StartSound("weapons/APCaster", 1);
+	}
+	PLCG A 3 A_Gunflash;
+	TNT1 A 0 
+	{
+		A_FireProjectile("PlasmaImplosionGrenade", 0,1,0,0);
+	}	
+	PLCA A 1 A_Recoil(2*cos(pitch));
+	PLCA C 1   
+		{
+			A_SetPitch(pitch-4.0);
+			A_ZoomFactor(0.98,ZOOM_INSTANT);
+		}
+		PLCA B 1   
+		{
+			A_SetPitch(pitch+4.0);
+			A_ZoomFactor(0.99,ZOOM_INSTANT);
+		}
+	PLCG A 3;
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	}
+	PLCG A 1 A_ReFire;
+	goto SmokeCooldown;
+	
+ SmokeCooldown:
+	TNT1 A 0 A_StartSound("weapons/CasterSteam", 0,0,0.5);
+	TNT1 A 0 
+	{
+		TakeInventory("PCasterCooldownCounter", 31);
+		A_ZoomFactor(1,ZOOM_INSTANT);
+    }
+	PLCG DDDDDDDDDDDDDDD 1 A_SpawnItemEx("LargeGunSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+    Goto Ready;
+	
+BigCoolDown:
+    TNT1 A 0 A_StartSound("weapons/CasteroHeat", 0, 0, 0.85);
+	PLCG DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1
+	{
+	A_SpawnItemEx("LargeGunSmoke",random(20,21),-5,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+	A_StartSound("weapons/CasterSteam", 1, 0,0.5);
+	}
+	TNT1 A 0 
+	{
+		TakeInventory("PCasterCooldownCounter", 31);
+		A_ZoomFactor(1,ZOOM_INSTANT);
+    }
+    Goto Ready;
+	
+ DryFire:
+        PLCG A 4; 
+		PLCD A 2 A_StartSound("Weapons/DryFire", 1);  //Play dryfire sound
+        goto Ready;                             //goto ready state 
+ Flash:
+    PLCF A 1 Bright A_Light1;
+	TNT1 A 0
+	{	
+		A_SetPitch(pitch-1.0);
+	    A_ZoomFactor(0.99,ZOOM_INSTANT);
+	}
+    PLCF B 1 Bright A_Light2;
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	} 
+	PLCF C 1 Bright A_Light2;
+	TNT1 A 0
+	{
+		A_ZoomFactor(1,ZOOM_INSTANT);
+	}
+    Goto LightDone;
+  
+  Spawn:
+    PLAS A -1;
+    Stop;
+  }
+}
+  
+Class PCasterCooldownCounter : inventory
+{
+	default
+	{
+	Inventory.MaxAmount 31;
+	}
+}

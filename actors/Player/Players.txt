@@ -12,7 +12,7 @@ ACTOR DoomMarineMK2 : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Fist"
+  Player.StartItem "Fists"
   Player.ColorRange 112, 127
   Player.ColorSet 0, "Green",         0x70, 0x7F,  0x72
   Player.ColorSet 1, "Gray",          0x60, 0x6F,  0x62 // Called "Indigo" originally so as to have a unique initial
@@ -93,7 +93,7 @@ ACTOR TankPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Fist"
+  Player.StartItem "Fists"
   
   States
   {
@@ -158,7 +158,7 @@ ACTOR AcrobatPlayer : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Fist"    
+  Player.StartItem "Fists"    
   
   States
   {
@@ -221,7 +221,7 @@ ACTOR CyberMarine : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Fist"
+  Player.StartItem "Fists"
 
   States
     {
@@ -286,7 +286,7 @@ Actor CombatVeteran : DoomPlayer
   Player.CrouchSprite "PLYC"
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
-  Player.StartItem "Fist"
+  Player.StartItem "Fists"
   
   States
     {

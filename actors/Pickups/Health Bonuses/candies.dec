@@ -1,0 +1,135 @@
+ACTOR CandyBase : Health
+{
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.Amount 1
+  Inventory.MaxAmount 300
+  Inventory.PickupMessage "Picked up some candy!"
+  Speed 40
+  scale 0.17075
+  States
+  {
+  Spawn:
+    TNT1 A 0
+    Loop
+  }
+}
+
+ACTOR CandySpawner : RandomSpawner
+{
+	DropItem "BlueCandy", 255, 1
+	DropItem "RedCandy", 255, 1
+	DropItem "PinkCandy", 255, 1
+    DropItem "CandyCorn", 255, 1
+	DropItem "WhitePop", 255, 1
+	DropItem "PinkPop", 255, 1
+	DropItem "YellowPop", 255, 1
+    DropItem "Peppermint", 255, 1
+}
+
+ACTOR BlueCandy : CandyBase
+{
+  
+  States
+  {
+  Spawn:
+    BCDY ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR RedCandy : CandyBase
+{
+  
+  States
+  {
+  Spawn:
+    RCDY ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR PinkCandy : CandyBase
+{
+  
+  States
+  {
+  Spawn:
+    PCDY ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR CandyCorn : CandyBase
+{
+  
+  States
+  {
+  Spawn:
+    CDYC ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR WhitePop : CandyBase
+{
+  
+  States
+  {
+  Spawn:
+    WLOL ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR YellowPop : CandyBase
+{
+  States
+  {
+  Spawn:
+    YLOL ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR Pinkpop : CandyBase
+{
+  States
+  {
+  Spawn:
+    PLOL ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR Peppermint : CandyBase
+{
+  States
+  {
+  Spawn:
+    PEPC ABCDEDCB 3
+    Loop
+  }
+}
+
+ACTOR CandyFountain
+{
+	States
+	{
+	Spawn:
+	TNT1 A 1
+	goto Death
+
+	Death:
+	TNT1 A 1
+	{
+		A_StartSound("SFX/Candy", 8, 0, 1, 0.1);
+		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 5, 0.1);
+		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 4, 0.125);
+		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 2, 0.135);
+		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 1, 0.145);
+	}
+	stop
+	
+	}
+}
