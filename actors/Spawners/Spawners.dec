@@ -1,26 +1,29 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 6
-	DropItem "GlockAmmo", 255, 6
-	DropItem "DeagleAmmo", 255, 6
-    DropItem "RifleAmmo", 255, 6
+    DropItem "GlockBullets", 255, 10
+	DropItem "GlockAmmo", 255, 10
+	DropItem "DeagleAmmo", 255, 10
+    DropItem "RifleAmmo", 255, 10
 	DropItem "Glock18", 255, 6
-	DropItem "DeagleBox", 255, 2
-    DropItem "GlockBox", 255, 2
-	DropItem "RifleBox", 255, 2
+	DropItem "DeagleBox", 255, 3
+    DropItem "GlockBox", 255, 3
+	DropItem "RifleBox", 255, 3
 	DropItem "PickUpBubbleShield", 255, 1
+	DropItem "ActiveCamo", 255, 1
+	DropItem "Infrared2", 255, 1
+	DropItem "PR97", 255, 2
 }
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 10
+    DropItem "TriCannon", 255, 8
     DropItem "AutoCannon", 255, 1
 }
 
 actor Shotgun2 : Shotgun{}
 actor Slot3Spawner : RandomSpawner replaces shotgun
 {
-    DropItem "UAC12", 255, 3
+    DropItem "UAC12", 255, 2
     DropItem "Demonsbane", 255, 1
 }
 
@@ -28,11 +31,12 @@ actor Slot3Spawner : RandomSpawner replaces shotgun
 actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
 {
-	DropItem "DeagleBox", 255, 5
-    DropItem "GlockBox", 255, 5
-	DropItem "RifleBox", 255, 5
-	DropItem "Infrared2", 255, 1
+	DropItem "DeagleBox", 255, 9
+    DropItem "GlockBox", 255, 9
+	DropItem "RifleBox", 255, 9
 	DropItem "PickUpBubbleShield", 255, 1
+	DropItem "Infrared2", 255, 1
+	DropItem "PR97", 255, 2
 }
 
 actor Zombieman2 : Zombieman{}
@@ -47,17 +51,19 @@ actor ZombieSpawner1 : RandomSpawner replaces Zombieman
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
+	DropItem "RifleDude", 255, 6
 	DropItem "DeagleHunter", 255, 1
-	DropItem "DBShotgunGuy", 255, 3
-	DropItem "RifleDude", 255, 8
-	DropItem "ShotgunGuy2", 255, 12    
+	DropItem "DBShotgunGuy", 255, 4
+	DropItem "ShotgunGuy2", 255, 14    
 }
 
 /*actor CellPack2 : CellPack{}
 actor BFLAmmoSpawner : RandomSpawner replaces cell
 {
-    DropItem "CellPack2", 255, 1
-    DropItem "BFLBox", 255, 1
+    DropItem "CellPack2", 255, 2
+    DropItem "Cell2", 255, 2
+    DropItem "BFLBox", 255, 2
+	DropItem "PR97", 255, 2 	
 }
 */
 
@@ -67,11 +73,16 @@ actor RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
     DropItem "SMRocketBox", 255, 1
 }
 
-actor cacodemon2 : CacoDemon{}
+actor cacodemon2 : CacoDemon
+{	
+BloodColor "Blue"
+}
 actor CacodemonSpawner : Randomspawner replaces Cacodemon
 {
 	DropItem "Cacodemon2", 255, 8
-	DropItem "PinataCaco", 255, 1
+	DropItem "MamaCacodemon", 255, 7
+	DropItem "PinataCaco", 255, 4
+	DropItem "BabyCaco", 255, 4
 }
 
 
@@ -80,13 +91,21 @@ actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
 {
     DropItem "PickUpBubbleShield", 255, 1
 	DropItem "Infrared2", 255, 1
+	DropItem "ActiveCamo", 255, 1
 }
 
 actor BFL10K2 : BFL10K{}
 actor Slot7Spawner : RandomSpawner replaces BFL10k
 {
-	DropItem "AutoCannon", 255, 1
+	DropItem "AutoCannon", 255, 2
 	DropItem "BFL10K2", 255, 3
+}
+
+actor RocketLauncher2 : RocketLauncher{}
+Actor Slot5Spawner :RandomSpawner replaces RocketLauncher
+{
+	DropItem "NewRL", 255, 2
+	DropItem "Annihilator", 255, 1
 }
 
 actor Shell2 : ammo replaces shell
@@ -105,6 +124,13 @@ actor Shell2 : ammo replaces shell
 	}
 }
 
+actor PlasmaCaster2 : Plasmacaster{}
+actor Slot6Spawner : RandomSpawner replaces Plasmacaster
+{
+	DropItem "Plasmacaster2", 255, 2
+	DropItem "PR97", 255, 4
+}
+
 actor ShellBox2 : Shell2 replaces shellbox
 {
 	Inventory.PickupSound "Weapons/ONUClose"
@@ -116,5 +142,11 @@ actor ShellBox2 : Shell2 replaces shellbox
 			SBOX A -1
 			Stop
 	}
+}
+
+actor ArmorSpawner: RandomSpawner Replaces ArmorBonus
+{
+	DropItem "ArmorBonus2", 255, 1
+	DropItem "ArmorShard", 255, 1
 }
 

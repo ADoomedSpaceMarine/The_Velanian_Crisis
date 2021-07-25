@@ -6,9 +6,9 @@ Class PlasmaCaster : weapon replaces PlasmaRifle
   Weapon.AmmoUse 1;
   Weapon.AmmoUse2 10;
   scale 0.6;
-  Weapon.AmmoGive 30;
-  Weapon.AmmoType "cell2";
-  Weapon.AmmoType2 "cell2";
+  Weapon.AmmoGive 100;
+  Weapon.AmmoType "Cell2";
+  Weapon.AmmoType2 "Cell2";
   Weapon.SlotNumber 6;
   Weapon.SlotPriority 3;
   Weapon.UpSound "Weapons/Casterup";
@@ -42,7 +42,7 @@ Class PlasmaCaster : weapon replaces PlasmaRifle
   	TNT1 A 0 GiveInventory("PCasterCooldownCounter", 1);
 	TNT1 A 0 A_StartSound("weapons/PCaster", 1);
 	TNT1 A 0 A_GunFlash;
-	PLCG A 3 A_FireProjectile("PlasmaBall3", random(-1,1), 1,0,0,0,random(0,1));
+	PLCG A 3 A_FireProjectile("PlasmaBall3", random(-2,2), 1,0,0,0,random(0,1));
 	TNT1 A 0
 	{
 	if(countInv("cell2") == 90)

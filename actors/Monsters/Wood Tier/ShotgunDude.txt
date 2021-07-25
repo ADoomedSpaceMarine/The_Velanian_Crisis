@@ -28,10 +28,10 @@ ACTOR DbShotgunGuy
   Missile:
     SPOS E 4 A_FaceTarget
 	SPOS F 1 bright A_PlaySound("weapons/dbshot", CHAN_AUTO)
-	SPOS F 2 bright A_CustomBulletAttack(22.5, 3, 9, random(1,2)*3, "BulletPuff", 0, CBAF_NORANDOM)
+	SPOS F 2 bright A_CustomBulletAttack(22.5, 3, 9, random(1,2)*2, "BulletPuff", 0, CBAF_NORANDOM)
     SPOS E 2
 	SPOS F 1 bright A_PlaySound("weapons/dbshot", CHAN_AUTO)
-	SPOS F 2 bright A_CustomBulletAttack(22.5, 3, 9, random(1,2)*3, "BulletPuff", 0, CBAF_NORANDOM)
+	SPOS F 2 bright A_CustomBulletAttack(22.5, 3, 9, random(1,2)*2, "BulletPuff", 0, CBAF_NORANDOM)
     SPOS E 6
 	{
 		A_PlaySound("weapons/ONUOPEN", CHAN_Auto);
@@ -97,7 +97,7 @@ ACTOR ShotgunGuy2
   Missile:
     SPOS E 10 A_FaceTarget
     SPOS F 0 bright A_PlaySound("UAC12Fire", CHAN_WEAPON)
-	SPOS F 10 bright A_CustomBulletAttack(22.5, 3, 5, random(1,3)*3, "BulletPuff", 0, CBAF_NORANDOM)
+	SPOS F 10 bright A_CustomBulletAttack(22.5, 3, 5, random(1,3)*2, "BulletPuff", 0, CBAF_NORANDOM)
 	TNT1 A 0 A_SpawnItemEx("BuckCasing",random(-4,-5),cos(pitch)*25,sin(-pitch)*25+random(20,22),	random(2,3),0,random(5,7),	random(90,105)) 
     SPOS E 10
     Goto See

@@ -220,6 +220,35 @@ Object PlasmaImplosionGrenade
 	Frame PLIMZ0 { light PlasmaGrenExp5 }
 }
 
+Object PlasmaBall6
+{
+	Frame PLIVA0 { light  PlasmaGrenBH5 } 
+	Frame PLIVB0 { light PlasmaGrenBH5 }
+	Frame PLIVC0 { light PlasmaGrenBH4 }
+	Frame PLIVD0 { light PlasmaGrenBH3 }
+	Frame PLIVE0 { light PlasmaGrenBH2 }
+	Frame PLIVF0 { light PlasmaGrenBH1 }
+	Frame PLIVG0 { light PlasmaGrenBH1 }
+	Frame PLIMH0 { light PlasmaGrenExp7 } 
+	Frame PLIMI0 { light PlasmaGrenExp7 }
+	Frame PLIMJ0 { light PlasmaGrenExp6 }
+	Frame PLIMK0 { light PlasmaGrenExp6 }
+	Frame PLIML0 { light PlasmaGrenExp5 }
+	Frame PLIMM0 { light PlasmaGrenExp5 }
+	Frame PLIMN0 { light PlasmaGrenExp4 }
+	Frame PLIMO0 { light PlasmaGrenExp4 }
+	Frame PLIMP0 { light PlasmaGrenExp3 }
+	Frame PLIMQ0 { light PlasmaGrenExp2 }
+	Frame PLIMR0 { light PlasmaGrenExp1 }
+	Frame PLIMT0 { light PlasmaGrenExp1 } 
+	Frame PLIMU0 { light PlasmaGrenExp1 }
+	Frame PLIMV0 { light PlasmaGrenExp1 }
+	Frame PLIMW0 { light PlasmaGrenExp2 }
+	Frame PLIMX0 { light PlasmaGrenExp3 }
+	Frame PLIMY0 { light PlasmaGrenExp4 }
+	Frame PLIMZ0 { light PlasmaGrenExp5 }
+}
+
 PointLight BFL10KShotBig
 {
 Color 0.0 0.0 1.0
@@ -507,4 +536,91 @@ BrightMap Sprite ALY2F8
 {
 Map BMALY2F8
 DisableFullBright
+}
+
+Flickerlight2 BabyCacoBallA
+{
+ Color 0.0 0.0 1.0
+ Offset 0 2 0
+ Size 24
+ SecondarySize 32
+ Interval 0.01
+}
+
+Flickerlight2 BabyCacoBallB
+{
+ Color 0.0 0.0 1.0
+ Offset 0 2 0
+ Size 30
+ SecondarySize 40
+ Interval 0.01
+}
+
+Flickerlight2 BabyCacoBallC
+{
+ Color 0.0 0.0 1.0
+ Offset 0 2 0
+ Size 36
+ SecondarySize 48
+ Interval 0.01
+}
+
+Flickerlight2 BabyCacoBallD
+{
+ Color 0.0 0.0 0.7
+ Offset 0 2 0
+ Size 50
+ SecondarySize 55
+ Interval 0.01
+}
+
+Flickerlight2 BabyCacoBallE
+{
+ Color 0.0 0.0 0.2
+ Offset 0 2 0
+ Size 55
+ SecondarySize 60
+ Interval 0.01
+}
+
+Object BabyCacoBall
+{
+ Frame BCABA { Light BabyCacoBallA }
+ Frame BCABB { Light BabyCacoBallB }
+ Frame BCABC { Light BabyCacoBallC }
+ Frame BCABD { Light BabyCacoBallD }
+ Frame BCABE { Light BabyCacoBallE }
+}
+
+
+pointlight ARMORSHARD1
+{
+    color 0.0 0.7 0.0
+    size 6
+}
+
+pointlight ARMORSHARD2
+{
+    color 0.0 0.7 0.0
+    size 7
+}
+
+pointlight ARMORSHARD3
+{
+    color 0.0 0.7 0.0
+    size 8
+}
+
+pointlight ARMORSHARD4
+{
+    color 0.0 0.7 0.0
+    size 9
+}
+
+object ArmorShard
+{
+    frame ARSDA { light ARMORSHARD1 }
+    frame ARSDB { light ARMORSHARD2 }
+	frame ARSDC { light ARMORSHARD3 }
+	frame ARSDD { light ARMORSHARD4 }
 }

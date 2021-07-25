@@ -127,3 +127,20 @@ Advice:
 - Yukes Van Faust
 - SideshowKaz
 - Moa Dixon
+
+Baby Caco:
+Decorate: Yuraofthehairfan, MagicWazard, IMX
+GLDefs: MagicWazard
+Sounds: Scroton, IMX, MagicWazard, id Software, Raven Software
+Sprites: id Software
+Sprite Edit: osjclatchford
+Idea Base: A baby version of the Cacodemon from the ZDoom forums
+
+Armor Shard:
+Submitted: Infirnex
+Decorate: Infirnex
+GLDefs: Infirnex
+Sounds: id Software
+Sprites: id Software
+Sprite Edit: Infirnex
+Idea Base: Quake 2/3/4 armor Shard

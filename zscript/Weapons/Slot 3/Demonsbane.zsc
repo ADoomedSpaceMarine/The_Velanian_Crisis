@@ -193,7 +193,7 @@ class DemonsBane : Weapon replaces supershotgun
                 switch(invoker.ShotType)                                                            //Determine what type of shot to fire
                 {
                     case 0: //Buckshot Fired
-                    A_FireBullets(random(7,8), random(2,3), 9,random (6,8), "bulletpuff");          //fire the pellets
+                    A_FireBullets(random(6,7), random(2,3), 9,random (8,9), "bulletpuff");          //fire the pellets
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -201,7 +201,7 @@ class DemonsBane : Weapon replaces supershotgun
 					break;                                                                          //Break out of the switch block
 
                     case 1: //Slug Fired
-                    A_FireBullets(random(1,2), random (1,2), 1, random(40,50), "bulletpuff");     //Fire the slug
+                    A_FireBullets(random(1,2), random (1,2), 1, random(50,60), "bulletpuff");     //Fire the slug
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -209,7 +209,7 @@ class DemonsBane : Weapon replaces supershotgun
 					break;                                                                          //Break out of the switch block
 
                     case 2: //Flechette Fired
-                    A_FireBullets(random(2,3), random (2,3), 10, random(9,12), "bulletpuff");       //Fire the flechettes
+                    A_FireBullets(random(1,3), random (1,2), 10, random(9,12), "bulletpuff");       //Fire the flechettes
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -278,7 +278,7 @@ class DemonsBane : Weapon replaces supershotgun
                 switch(invoker.ShotType)                                                            //Determin what type of shot to fire
                 {
                     case 0: //Buckshot Fired
-                    A_FireBullets(random(7,8), random(2,3), 9,random (6,8), "bulletpuff");          //fire the pellets
+                    A_FireBullets(random(6,7), random(2,3), 9,random (8,9), "bulletpuff");          //fire the pellets
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -294,7 +294,7 @@ class DemonsBane : Weapon replaces supershotgun
 					break;                                                                          //Break out of the switch block
 
                     case 2: //Flechette Fired
-                    A_FireBullets(random(2,3), random (2,3), 10, random(9,12), "bulletpuff");       //Fire the flechettes
+                    A_FireBullets(random(1,3), random (1,2), 10, random(9,12), "bulletpuff");       //Fire the flechettes
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true
                     invoker.BarrelsFired++;                                                       //Set barrels fired to one
@@ -367,7 +367,7 @@ class DemonsBane : Weapon replaces supershotgun
                 switch(invoker.ShotType)                                                            //Determin what type of shot to fire
                 {
                     case 0: //Buckshot Fired
-                    A_FireBullets(random(8,10), random(3,4), 18,random (6,8), "bulletpuff");          //fire the pellets
+                    A_FireBullets(random(8,10), random(4,5), 18,random (6,8), "bulletpuff");          //fire the pellets
                     A_Recoil(2*cos(pitch));                                                         //Add shot recoil   
                     invoker.BarrelOneFired = true;                                                  //Set our barrel one fired to true
                     invoker.BarrelTwoFired = true;                                                  //Set our barrel two fired to true

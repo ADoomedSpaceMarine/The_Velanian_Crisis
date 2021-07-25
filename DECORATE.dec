@@ -5,14 +5,16 @@
 #include "actors/Weapons/WeaponTokens.txt"
 #include "actors/Spawners/spawners.dec"
 #include "actors/Pickups/Health Bonuses/candies.dec"
-
+#include "actors/Pickups/Armor Bonuses/Armors.dec"
 
 //Effects
 #include "actors/Effects/CasingsAndClips.txt"
 #include "actors/Effects/LightGenerators.txt"
 #include "actors/Effects/SFX.txt"
+#include "actors/Effects/Flyswarm.txt"
 #include "actors/Suit Features/BubbleShield.txt"
 #include "actors/Suit Features/NightVision.txt"
+#include "actors/Suit Features/Active Camo.txt"
 
 //Cat's Visor Stuff
 #include "actors/cathudinv_deathcam.txt"
@@ -26,3 +28,4 @@
 #include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"
 #include "actors/Monsters/Mid Tier/ChainGunner/ChaingunnerDude.txt"
 #include "actors/Monsters/Floater Tier/Mid-Grade Floaties/PinaTomato/PinataTomato.dec"
+#include "actors/Monsters/Floater Tier/Little Floaters/BabyCaco/BabyCaco.dec"

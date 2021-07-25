@@ -2,6 +2,7 @@
 #include "zcommon.acs"
 
 bool Gogsrunning = 0;
+bool ACrunning = 0;
 int BubbleState = 0;
 
 
@@ -111,6 +112,78 @@ Script "NVinitialize" (void)
 	else
 	{
 		GiveInventory("Infrared3",1);
+		Terminate;
+	}
+}
+
+//Active Camo Toggle
+Script "ACToggle" (void)
+{	
+	if (CheckInventory("ACFound") == 0)
+	{
+		PlaySound(0,"Hud/HudError");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"ERROR 502: VelaTech Active Camoflage Module not detected!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);       
+		Terminate;
+	}
+	else
+	{
+		if (ACrunning == 0)
+		{
+            PlaySound(0,"weapons/PR97FinOpen");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"Camoflage activated";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        	GiveInventory("PowerInvisibility1",1);
+			ACrunning=1;
+		}
+		else
+		{
+			PlaySound(0,"weapons/PR97FinClose");
+			SetFont("UDVSMALL");	
+			SetHudSize(5762,3240,0);
+			HudMessage(s:"Camoflage deactivated.";
+			HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+            TakeInventory("PowerInvisibility1",1);
+			ACrunning=0;
+		}
+	}
+}
+
+//Active Camo Installing
+Script "ACinitialize" (void)
+{
+	if(CheckInventory("ACFound") == 0)
+	{	
+		PlaySound(0,"Hud/ModInst");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Installing VelaTech AC-27XD Active Camoflage Module, please wait.";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		delay(130);
+		PlaySound(0,"Hud/HudMsg");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"VelaTech module installation successful! Deploying now!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		PlaySound(0,"weapons/PR97FinOpen");
+		GiveInventory("PowerInvisibility2",1);
+		GiveInventory("ACFound", 1);
+		terminate;
+	}
+	else
+	{
+		PlaySound(0,"Hud/HudMsg");
+		SetFont("UDVSMALL");	
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Active camoflage deploying now!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+		delay(10);
+		GiveInventory("PowerInvisibility2",1);
+		PlaySound(0,"weapons/PR97FinOpen");
 		Terminate;
 	}
 }

@@ -1,0 +1,69 @@
+ACTOR ArmorBonus2 : ArmorBonus
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTARMBONUS" // "Picked up an armor bonus."
+  Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 1
+  Armor.MaxSaveAmount 200
+  Inventory.PickupSound "pickup/armorbonus"
+  +COUNTITEM
+  +INVENTORY.ALWAYSPICKUP
+  States
+  {
+  Spawn:
+    BON2 ABCDCB 6
+    Loop
+  }
+}
+
+ACTOR BlueArmor2 : BlueArmor replaces Bluearmor
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTMEGA" // "Picked up the MegaArmor!"
+  Inventory.Icon "ARM2A0"
+  Armor.SavePercent 50
+  Armor.SaveAmount 200
+  Inventory.PickupSound "pickup/BigArmor"
+  States
+  {
+  Spawn:
+    ARM2 A 6
+    ARM2 B 6 Bright
+    Loop
+  }
+}
+
+ACTOR GreenArmor2 : GreenArmor Replaces GreenArmor
+{
+  Radius 20
+  Height 16
+  Inventory.PickupMessage "$GOTARMOR" // "Picked up the armor."
+  Inventory.Icon "ARM1A0"
+  Armor.SavePercent 33.335
+  Armor.SaveAmount 100
+  Inventory.PickupSound "pickup/BigArmor"
+  States
+  {
+  Spawn:
+    ARM1 A 6
+    ARM1 B 7 Bright
+    Loop
+  }
+}
+
+actor ArmorShard : ArmorBonus
+{
+	Inventory.Pickupmessage "Picked up an Armor Shard."
+	Inventory.Icon "ARSDA0"
+	Inventory.PickupSound "pickup/armorshard"
+	Armor.Saveamount 5
+	States
+	{
+	Spawn:
+		ARSD ABCDCB 6
+		loop
+	}
+}

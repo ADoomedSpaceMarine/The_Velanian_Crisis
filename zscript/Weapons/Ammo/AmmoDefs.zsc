@@ -266,13 +266,13 @@ Class AnnClip : Ammo //This ammo simply acts a counter for the Annihilator's cli
 
 //Cell Replacements
 
-Class Cell2 : ammo replaces cell//This class replaces the box of rockets in Doom
+Class Cell2 : ammo replaces cell
 {
   Default
   {
   Inventory.PickupSound ("weapons/CellPUP");
   Inventory.PickupMessage "Picked up an energy cell";
-  Inventory.Amount 30;
+  Inventory.Amount 60;
   Inventory.MaxAmount 450;
   Ammo.BackpackAmount 180;
   Ammo.BackpackMaxAmount 900;
@@ -287,13 +287,13 @@ Class Cell2 : ammo replaces cell//This class replaces the box of rockets in Doom
   }
 }
 
-Class CellPack2 : Cell2 replaces cellpack//This class replaces the box of rockets in Doom
+Class CellPack2 : Cell2 Replaces cellpack
 {
   Default
   {
   Inventory.PickupSound ("weapons/CellPUP");
   Inventory.PickupMessage "Picked up an energy cell";
-  Inventory.Amount 12;
+  Inventory.Amount 120;
   }
   States
   {
@@ -301,5 +301,21 @@ Class CellPack2 : Cell2 replaces cellpack//This class replaces the box of rocket
     BFBX A -1;
     Stop;
   }
+}
+
+class Backpack2 : BackpackItem replaces backpack
+{
+	Default
+	{
+		Height 26;
+		Inventory.PickupSound ("pickup/BACKPU");
+		Inventory.PickupMessage "$GOTBACKPACK";
+	}
+	States
+	  {
+	  Spawn:
+		BPAK A -1;
+		Stop;
+	  }
 }
 

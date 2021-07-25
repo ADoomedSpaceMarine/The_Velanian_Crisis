@@ -16,3 +16,7 @@ alias NVGogs "pukename NightVisionToggle"
 addmenukey "Activate Bubble Shield" TgBub
 defaultbind b "Tgbub"
 alias TgBub "pukename ActivateBubbleShield"
+
+addmenukey "Toggle Active Camo" ACTog
+defaultbind V "ACTog"
+alias ACTog "pukename ACToggle"

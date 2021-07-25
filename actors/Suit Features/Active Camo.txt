@@ -1,0 +1,37 @@
+ACTOR ActiveCamo : CustomInventory replaces BlurSphere
+{
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  Inventory.PickupMessage "You got the VelaTech AC-27XD Active Camoflage Module"
+  Inventory.MaxAmount 0
+  States
+  {
+  Spawn:
+	ACUS ABCDCB 2 Bright
+    Loop
+   Pickup:
+	TNT1 A 0 ACS_NamedExecute("ACInitialize")
+  }
+}
+
+ACTOR ACFound : Inventory
+{
+	Inventory.MaxAmount 1
+}
+	
+ACTOR PowerInvisibility1 : PowerInvisibility
+{
+  +SHADOW
+  Powerup.Duration -6000
+  Powerup.Strength 96
+  Powerup.Mode "translucent"
+}
+
+ACTOR PowerInvisibility2 : PowerInvisibility
+{
+  +SHADOW
+  Powerup.Duration -30
+  Powerup.Strength 96
+  Powerup.Mode "Translucent"
+}

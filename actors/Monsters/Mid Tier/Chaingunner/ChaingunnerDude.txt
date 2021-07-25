@@ -27,7 +27,7 @@ ACTOR ChaingunGuy2 replaces ChaingunGuy
     CPOS E 10 A_FaceTarget
     CPOS FE 3 bright
 	{
-		A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM);
+		A_CustomBulletAttack(22.5, 0, 1, random(2,4)*2, "BulletPuff", 0, CBAF_NORANDOM);
 	}
 	CPOS F 1 A_CPosRefire
     Goto Missile+1

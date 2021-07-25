@@ -3462,7 +3462,8 @@ script "CatsVisorHud" ENTER
 		    //Slot 6 & 7
 		  if(StrIcmp(weapon, "Plasma_Gun") == 0)               ammo = CheckInventory("AmmoCell"), ammo2 = CheckInventory("PlasmaAmmo"), weicon="PINAFA", weaponname = "Plasma Rifle", ammocapa = GetAmmoCapacity("AmmoCell"), clipsize = 50;
 		  if(StrIcmp(weapon, "U_PlasmaRifle") == 0)            ammo = CheckInventory("AmmoCell"), ammo2 = CheckInventory("PlasmaRifleAmmo"), weicon="PINAFA", weaponname = "Plasma Rifle", ammocapa = GetAmmoCapacity("AmmoCell"), clipsize = 50;
-		  if(StrIcmp(weapon, "PlasmaCaster") == 0)            ammo = CheckInventory("Cell2"), ammo2 = -1, weicon="PINAFA", weaponname = "UAC PLS35 MK2 Plasma Caster", ammocapa = GetAmmoCapacity("Cell2"), clipsize = ammocapa;
+		  if(StrIcmp(weapon, "PlasmaCaster2") == 0)            ammo = CheckInventory("Cell2"), ammo2 = -1, weicon="PINAFA", weaponname = "UAC PLS35 MK2 Plasma Caster", ammocapa = GetAmmoCapacity("Cell2"), clipsize = ammocapa;
+		  if(StrIcmp(weapon, "PR97") == 0)            ammo = CheckInventory("Cell2"), ammo2 = CheckInventory("PR97CooldownCounter"), weicon="PINAFA", weaponname = "PR97 Plasma Defender", ammocapa = GetAmmoCapacity("Cell2"), clipsize = ammocapa;
 		  if(StrIcmp(weapon, "BIG_FUCKING_GUN") == 0)          ammo = CheckInventory("AmmoCell"), ammo2 = -1, weicon="PINAFA", weaponname = "BFG", ammocapa = GetAmmoCapacity("AmmoCell"), clipsize = ammocapa;
 		  if(StrICmp(weapon, "DUalPlasmaRifles") == 0)         ammo = CheckInventory("AmmoCell"), ammo2 = checkinventory("DoublePlasmaAmmo"), weicon="PINAFA", weaponname = "Plasma Rifles", ammocapa = GetAmmoCapacity("AmmoCell"), clipsize = 100;
 		  if(StrIcmp(weapon, "U_BFG10000") == 0)               ammo = CheckInventory("RailCore"), ammo2 = -1, weicon="PINAPA", weaponname = "BFG 10k", ammocapa = GetAmmoCapacity("RailCore"), clipsize = ammocapa;

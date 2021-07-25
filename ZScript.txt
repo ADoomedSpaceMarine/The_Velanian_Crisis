@@ -1,5 +1,8 @@
 version "3.0"
 
+//Monsters
+#include "zscript/Monsters/Floaters/Mama Caco/MamaCaco.txt"
+
 //All Cat's Visor Related Content
 #include "zscript/Minimap/ATMP_MapHandler.zsc"
 #include "zscript/Minimap/ATMP_kShape.zsc"
@@ -12,11 +15,12 @@ version "3.0"
 #include "zscript/Weapons/Slot 7/BFL10K.zsc"
 #include "zscript/Weapons/Slot 7/AutoCannon.zsc"
 #include "zscript/Weapons/Slot 6/Plasmacaster.zsc"
-//#include "zscript/Weapons/Slot 5/RL.zsc"
+#include "zscript/Weapons/Slot 5/RL.zsc"
 #include "zscript/Weapons/Slot 5/Annihilator.zsc"
 #include "zscript/Weapons/Slot 3/Demonsbane.zsc"
 #include "zscript/Weapons/Slot 3/UAC12.zsc"
 #include "zscript/Weapons/Slot 4/ar36.zsc"
+#include "zscript/Weapons/Slot 6/PR97.zsc"
 #include "zscript/Weapons/Slot 4/Tricannon.zsc"
 #include "zscript/Weapons/Slot 2/Deagle.zsc"
 #include "zscript/Weapons/Slot 2/Glock18.zsc"

@@ -26,27 +26,15 @@ ACTOR RifleDude
       ACPS AABBCCDD 4 A_Chase 
       Loop 
    Missile: 
-	  ACPS E 8 A_FaceTarget 
-	  ACPS F 1 
+	  ACPS E 6 A_FaceTarget 
+	  ACPS FE 3 bright
 	  {
-		A_CustomBulletAttack(22.5, 0, 1, random(3,4) * 3, "BulletPuff", 0, CBAF_NORANDOM);
-		A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 
-		A_PlaySound ("weapons/AR36");
-	  }
-	  ACPS E 1
-	  ACPS F 1 
-	  {
-		A_CustomBulletAttack(22.5, 0, 1, random(3,4) * 3, "BulletPuff", 0, CBAF_NORANDOM);
+		A_CustomBulletAttack(22.5, 0, 1, random(2,3) * 2, "BulletPuff", 0, CBAF_NORANDOM);
 		A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105));
 		A_PlaySound ("weapons/AR36");
-	  }
-	  ACPS E 1 
-	  ACPS F 1
-	  {
-		A_CustomBulletAttack(22.5, 0, 1, random(3,4) * 3, "BulletPuff", 0, CBAF_NORANDOM);
-		A_SpawnItemEx("ARCasing",random(-6,-7),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105));
-		A_PlaySound ("weapons/AR36");
-	  }
+   	  }
+	  ACPS F 1 A_CPosRefire
+      Goto Missile+1
       ACPS E 8 A_FaceTarget 
       Goto see
    Pain: 

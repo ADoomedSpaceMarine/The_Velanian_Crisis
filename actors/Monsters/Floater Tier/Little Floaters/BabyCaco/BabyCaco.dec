@@ -1,0 +1,76 @@
+ACTOR BabyCaco : Cacodemon 9655  
+{
+	Health 150
+	Radius 18
+	Height 36
+	Mass 200
+	Speed 9
+	PainChance 176
+	SeeSound "BabyCaco/Sight"
+	PainSound "BabyCaco/Pain"
+	DeathSound "BabyCaco/Death"
+	ActiveSound "BabyCaco/Active"
+	BloodColor "Blue"
+	Obituary "%o underestimated a Baby Cacodemon."
+	HitObituary "%o was nibbled to death by a Baby Cacodemon."
+	MONSTER
+	+NOGRAVITY
+	+FLOAT 
+	States
+	{
+	Spawn:
+		CACB A 10 A_Look
+		Loop
+	See:
+		CACB A 3 A_Chase
+		Loop
+	Melee:
+	Missile:
+		CACB AB 5 A_FaceTarget
+		CACB C 5 Bright A_CustomComboAttack("BabyCacoBall", 17, random(1,8) * 3, "BabyCaco/Melee")
+		Goto See
+	Pain:
+		CACB D 3
+		CACB D 3 A_Pain
+		CACB E 6
+		Goto See
+	Death:
+		CACB F 8
+		CACB G 8 A_Scream
+		CACB H 8
+		CACB I 8
+		CACB J 8 A_NoBlocking
+		CACB K 8
+		CACB L -1 A_SetFloorClip
+		Stop
+	Raise:
+		CACB L 8 A_UnSetFloorClip
+		CACB KJIHGF 8
+		Goto See
+	}
+}
+
+ACTOR BabyCacoBall
+{
+	Radius 3
+	Height 4
+	Speed 11
+	FastSpeed 10
+	Damage 3
+	Projectile 
+	+RANDOMIZE
+	RenderStyle Add
+	Alpha 1
+	SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+	Decal "HImpScorch"
+	States
+	{
+	Spawn:
+		BCAB AB 4 BRIGHT
+		Loop
+	Death:
+		BCAB CDE 6 BRIGHT
+		Stop
+	}
+}

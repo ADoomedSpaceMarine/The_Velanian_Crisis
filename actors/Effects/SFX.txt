@@ -4,7 +4,7 @@ ACTOR BigGunSmoke : LavaSmoke
   +NOCLIP
   +NOGRAVITY
   +DONTSPLASH
-  VSpeed 1
+  VSpeed 0
   Scale 0.3
   RenderStyle Translucent
   DefaultAlpha
@@ -24,7 +24,7 @@ ACTOR LargeGunSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed .05
+  VSpeed .025
   Mass 51
   scale .5
   States
@@ -43,7 +43,7 @@ ACTOR PistolSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed .05
+  VSpeed .025
   Mass 5
   scale 0.5
   States
@@ -62,7 +62,7 @@ ACTOR ARSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed .05
+  VSpeed .01
   Mass 5
   scale 0.3
   States
@@ -81,13 +81,12 @@ ACTOR DBSmoke
   +RANDOMIZE
   RenderStyle Translucent
   Alpha 0.3
-  VSpeed .05
   Mass 5
   scale 0.75
   States
   {
   Spawn:
-    GSM1 AAABBBCCDDE 1 Bright
+    GSM1 AABBCDE 1 Bright
     Stop
   }
 }

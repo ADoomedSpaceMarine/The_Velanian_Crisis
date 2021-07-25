@@ -1,4 +1,4 @@
-Class NewChainsaw : weapon Replaces Chainsaw
+Class NewChainsaw : chainsaw Replaces chainsaw
 {
 	default
 	{
@@ -16,7 +16,16 @@ Class NewChainsaw : weapon Replaces Chainsaw
 	States
 	{
 	Ready:
-		SAWG CD 3 A_WeaponReady;
+		SAWG C 3
+		{
+			A_WeaponReady();
+			A_SetPitch(pitch-0.18);
+		}
+		SAWG D 3 
+		{
+			A_WeaponReady();
+			A_SetPitch(pitch+0.18);
+		}
 		Loop;
 	Deselect:
 		SAWG C 1 A_Lower;
@@ -25,7 +34,10 @@ Class NewChainsaw : weapon Replaces Chainsaw
 		SAWG C 1 A_Raise;
 		Loop;
 	Fire:
-		SAWG AB 2 A_Saw;
+		SAWG A 2 A_Saw;
+		TNT1 A 0 A_SetPitch(pitch-0.45);
+		SAWG B 2 A_Saw;
+		TNT1 A 0 A_SetPitch(pitch+0.45);
 		SAWG B 0 A_ReFire;
 		Goto Ready;
 	Spawn:

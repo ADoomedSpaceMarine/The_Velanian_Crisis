@@ -1,0 +1,380 @@
+class PR97 : weapon replaces chaingun
+{
+	int fireMode;
+	bool initialUp;
+	
+	Default
+	{
+		scale 0.5;
+		Inventory.PickupSound ("weapons/PR97FinClose");
+		Weapon.SelectionOrder 1600;
+		Weapon.BobStyle "smooth";
+		Weapon.AmmoUse1 1;
+		Weapon.AmmoGive1 100;
+		Weapon.AmmoType "cell2";
+		Weapon.SlotNumber 6;
+		Weapon.SlotPriority 4;
+		Weapon.UpSound "Weapons/PR97FinClose";
+		Weapon.MinSelectionAmmo1 1;
+		-Weapon.NoAutoAim;
+		+Weapon.NoAutoFire;
+		Inventory.PickupMessage "You found the VelaTec PR-97 Plasma Autocaster!";
+		Obituary "%o was evaporated by %k's VelaTec PR-97";
+		decal "CasterScorch";
+	}
+	
+	States
+	{
+		Spawn:
+			PRPU A -1;
+			Stop;
+		Select:
+			PRFU A 1 A_Raise(12);
+			loop;
+		
+		Deselect:
+		TNT1 A 0
+		{
+			A_ZoomFactor(1);
+			if(CountInv("Cell2") == 0)
+			{
+				ACS_NamedExecute("CellsGone");
+			}
+		}	
+		PRFU A 1 A_Lower(12);
+		loop;
+		
+		Ready:
+		PRFU A 1;
+		TNT1 A 0
+		{
+			A_ZoomFactor(1);
+			if(invoker.initialUp == 0)
+			{
+				invoker.initialUp = 1;
+				return ResolveState ("WeaponFirstUp");
+			}
+			else
+			{
+				return ResolveState (null);
+			}
+		}
+		goto Idle;
+		
+		Idle:
+		 	PLAI ABCDCB 3 
+			{	
+				A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			}
+			loop;
+		
+		User1:
+			TNT1 A 0
+			{
+			A_ZoomFactor(1);
+			  if(Invoker.fireMode == 2)           //If the shot type variable is equal to three
+                {
+                invoker.fireMode = 0;               //reset ShotType to 0 (Buckshot)
+                return ResolveState("PRMsgState");    //Go to ammo switch message switch block
+                } 
+                else
+                {
+                invoker.fireMode++;                  //Incriment shot type variable by one
+                return ResolveState("PRMsgState");     //Go to ammo switch message switch block
+                }
+			}
+		User2:
+			TNT1 A 0
+			{
+			A_ZoomFactor(1);
+			  if(Invoker.fireMode == 0)           //If the shot type variable is equal to three
+                {
+                invoker.fireMode = 2;               //reset ShotType to 0 (Buckshot)
+                return ResolveState("PRMsgState");    //Go to ammo switch message switch block
+                } 
+                else
+                {
+                invoker.fireMode--;                  //Incriment shot type variable by one
+                return ResolveState("PRMsgState");     //Go to ammo switch message switch block
+                }
+			}
+			
+		PRMsgState:
+			TNT1 A 0
+			{
+			switch(invoker.fireMode)
+				{
+					case 0: ACS_Execute(1234, 0);              //Play buckshot message
+					break;                                  //Break out of the switch block
+
+					case 1: ACS_Execute(1235, 0);              //Play slug message
+					break;                                  //Break out of the switch block
+
+					case 2: ACS_Execute(1236, 0);              //Play flechette message
+					break;                                  //Break out of the switch block
+				}
+			}                                          
+			goto FireSwitch; 
+		
+		FireSwitch:
+			PLAI A 3 TakeInventory("PR97CooldownCounter", 41);
+			PRSW A 3;
+			PRSW B 3 A_StartSound("Weapons/arswitch", 0);
+			PRSW A 3;
+			PLAI A 3;
+			goto Idle;
+		
+		Fire:
+				
+		TNT1 A 0
+			{
+				if(countInv("PR97CooldownCounter") >= 30)
+				{
+					return ResolveState ("Reload");
+				}
+				else
+				{
+					return ResolveState (null);
+				}
+			}
+		
+		TNT1 A 0
+		{	
+			if(countInv("cell2") == 90)
+			{
+				ACS_NamedExecute("CellsLow");
+				return ResolveState (null);
+			}
+			else if(countInv("cell2") == 30)
+			{
+				ACS_NamedExecute("AmmoCriticalLow");
+				return ResolveState (null);
+			}
+			else
+			{
+			return ResolveState (null);
+			}
+		}
+		
+		TNT1 A 0 
+		{
+			if(invoker.fireMode == 0)
+			{
+				return ResolveState ("FireAuto");
+			}
+			else if(invoker.fireMode == 1)
+			{	
+				return ResolveState ("FireBurst");
+			}
+			else if(invoker.fireMode == 2)
+			{
+				return ResolveState ("FireSemi");
+			}
+			else
+			{
+				return ResolveState (null);
+			}
+		}
+		goto idle;
+
+//Automatic Fire		
+		FireAuto:
+			TNT1 A 0 GiveInventory("PR97CooldownCounter", 1);
+			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
+			PLRF A 1 Bright A_Light(1);
+			TNT1 A 0 A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
+		    TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			PR9F B 1 Bright A_GunFlash; 
+		
+			POAH K 1  
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1, ZOOM_INSTANT);
+			}
+			PLRF C 1 A_ReFire;
+			POAH K 1 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), 	random(2,3),0,1,0);
+			POAH L 1 
+			{
+				A_StartSound("weapons/PR97Ready", 1);
+				A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), 	random(2,3),0,1,0);
+			}
+			goto Idle;
+
+//Fire Burst
+
+
+		FireBurst:
+		//Check overheating status
+		//Fire First Shot
+			TNT1 A 0 GiveInventory("PR97CooldownCounter", 1);
+			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
+			PLRF A 1 Bright 
+			{
+			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
+			A_Light(1);
+			}
+			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			PR9F B 1 Bright 
+			{
+			A_Light(2); 
+			}
+			POAH L 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
+			}
+				TNT1 A 0
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1, ZOOM_INSTANT);
+			}
+//Fire Second Shot
+			TNT1 A 0 GiveInventory("PR97CooldownCounter", 1);
+			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
+			PLRF A 1 Bright 
+			{
+			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
+			A_Light(1);
+			}
+			TNT1 A 0 
+			{
+			A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_Light(2);  
+			}
+			PR9F B 1 Bright;
+			POAH L 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
+			}
+				TNT1 A 0  
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1, ZOOM_INSTANT);
+			}
+//Fire Third Shot
+			TNT1 A 0 GiveInventory("PR97CooldownCounter", 1);
+			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
+			PLRF A 1 Bright 
+			{
+			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
+			A_Light(1);
+			}
+			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			PR9F B 1 Bright 
+			{
+			A_Light(2); 
+			}
+			PR9F B 1 Bright; 
+			POAH L 1
+			{
+				A_SetPitch(pitch-1.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
+			}
+				TNT1 A 0  
+			{
+				A_SetPitch(pitch+1.0);
+	            A_ZoomFactor(1, ZOOM_INSTANT);
+			}
+			PLRF A 1;
+			goto idle;
+
+//Semi Auto Fire
+		FireSemi:
+			TNT1 A 0 A_StartSound("weapons/PR97Alt", 1);
+			PLRF A 1 Bright A_Light(1);
+			TNT1 A 0 A_FireProjectile("PlasmaBall6",0, 1,0,0,0);
+			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			PLRF B 1
+			{
+				A_SetPitch(pitch-2.0);
+	            A_ZoomFactor(0.96,ZOOM_INSTANT);
+			}
+				PR9F B 1   
+			{
+				A_SetPitch(pitch+2.0);
+	            A_ZoomFactor(1, ZOOM_INSTANT);
+			}
+			POAH L 4 A_StartSound("weapons/PR97Ready", 0);	
+			POAH M 2;
+			POAH N 2 GiveInventory("PR97CooldownCounter", 6);
+			goto idle;
+			
+ reload:
+	 POAH A 4 A_StartSound("Hud/HudError", 0,0,0.5);	
+	 POAH B 4; 
+	 POAH A 4 A_StartSound("Hud/HudError", 0,0,0.5);	
+	 POAH B 2;
+	 POAH A 2;
+	 POAH B 3 A_StartSound("weapons/PR97FinOpen", 0,0,0.5);
+	 POAH C 3 A_StartSound("weapons/CasteroHeat", 0, 0, 0.85);
+	 POAH EFGH 3
+	 {
+	 	A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+		A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+		A_StartSound("weapons/CasterSteam", 0, 0,0.5);
+	 }
+	 POAH I 3 A_StartSound("weapons/PR97FinClose", 0, 0,0.5);
+	 POAH CBAJ 3;
+	 POAH K 2; 
+	 POAH L 2 A_StartSound("weapons/PR97Ready", 0);	
+	 POAH MN 2 TakeInventory("PR97CooldownCounter", 31);
+	goto Idle;
+
+	WeaponFirstUp:
+	 PRFU B 1;
+	 PRFU B 4 A_StartSound("weapons/PR97FinOpen", 0,0,0.5);
+	 PRFU C 4; 
+	 PRFU D 4; 
+	 PRFU E 4 A_StartSound("weapons/PR97FinClose", 0,0,0.5); 
+	 PRFU FGH 4;
+	 PRFU I 4; 
+	 PRFU J 4 A_StartSound("weapons/PR97Ready", 0);	
+	 PRFU KL 4 TakeInventory("PR97CooldownCounter", 31);
+	 Goto Idle;
+	
+	Flash:
+	PRLF B 1 Bright 
+			{
+			A_SetPitch(pitch-1.0);
+	        A_ZoomFactor(0.96,ZOOM_INSTANT);
+			A_Light(2);
+			if(countInv("PR97CooldownCounter") > 0 && countInv("PR97CooldownCounter") < 10)
+			{
+				A_SpawnItemEx("ARSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(countInv("PR97CooldownCounter") > 10 && countInv("PR97CooldownCounter") <= 19)
+			{					
+				A_SpawnItemEx("ARSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("ARSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("ARSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("ARSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(countInv("PR97CooldownCounter") > 20 && countInv("PR97CooldownCounter") <= 30)
+			{					
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),random(-2,2),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else
+			{
+				return ResolveState(null);
+			}			
+		}
+	Stop;
+	}
+ }
+
+Class PR97CooldownCounter : inventory
+{
+	default
+	{
+	Inventory.MaxAmount 30;
+	}
+}

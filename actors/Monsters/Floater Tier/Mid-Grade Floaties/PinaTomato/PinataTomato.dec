@@ -1,14 +1,15 @@
 ACTOR PinataCaco
 {
-  Health 500
+  Health 400
   Radius 31
   Height 56
   Mass 400
-  Speed 9
+  Speed 10
   PainChance 128
   Monster
   +FLOAT
   +NOGRAVITY
+  BloodColor "Blue"
   SeeSound "caco/sight"
   PainSound "caco/pain"
   DeathSound "SFX/CacoPop"
