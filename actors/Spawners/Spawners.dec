@@ -1,22 +1,23 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 10
-	DropItem "GlockAmmo", 255, 10
-	DropItem "DeagleAmmo", 255, 10
-    DropItem "RifleAmmo", 255, 10
+    DropItem "GlockBullets", 255, 11
+	DropItem "GlockAmmo", 255, 11
+	DropItem "DeagleAmmo", 255, 11
+    DropItem "RifleAmmo", 255, 11
 	DropItem "Glock18", 255, 6
 	DropItem "DeagleBox", 255, 3
     DropItem "GlockBox", 255, 3
 	DropItem "RifleBox", 255, 3
-	DropItem "PickUpBubbleShield", 255, 1
+  DropItem "PickUpBubbleShield", 255, 1
+	DropItem "PickUpRegenField", 255, 1
 	DropItem "ActiveCamo", 255, 1
+	DropItem "Haste", 255, 1
 	DropItem "Infrared2", 255, 1
-	DropItem "PR97", 255, 2
 }
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 8
+    DropItem "TriCannon", 255, 15
     DropItem "AutoCannon", 255, 1
 }
 
@@ -34,14 +35,16 @@ actor Box2Spawner : RandomSpawner replaces ClipBox
 	DropItem "DeagleBox", 255, 9
     DropItem "GlockBox", 255, 9
 	DropItem "RifleBox", 255, 9
-	DropItem "PickUpBubbleShield", 255, 1
+    DropItem "PickUpBubbleShield", 255, 1
+	DropItem "PickUpRegenField", 255, 1
+	DropItem "Haste", 255, 1
 	DropItem "Infrared2", 255, 1
 	DropItem "PR97", 255, 2
 }
 
 actor Zombieman2 : Zombieman{}
-actor ZombieSpawner1 : RandomSpawner replaces Zombieman 
-{	
+actor ZombieSpawner1 : RandomSpawner replaces Zombieman
+{
 	DropItem "DeagleHunter", 255, 1
 	DropItem "RifleDude", 255, 2
 	DropItem "BattleHZombie", 255, 3
@@ -49,12 +52,29 @@ actor ZombieSpawner1 : RandomSpawner replaces Zombieman
     DropItem "ZombieDude", 255, 8
 }
 
+actor DoomImp2 : DoomImp{}
+actor ImpSpawner1 : RandomSpawner replaces DoomImp
+{
+	DropItem "DoomImp2", 255, 40
+	DropItem "ImpAbomination", 255, 35
+	DropItem "TimeImp", 255, 1
+}
+
+actor DemonReplacement : Demon{}
+actor DemonSpawner1 : RandomSpawner replaces Demon
+{
+	DropItem "DemonReplacement", 255, 8
+	DropItem "MaulerDemon", 255, 4
+	DropItem "StoneDemon", 255, 2
+}
+
+
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
 	DropItem "RifleDude", 255, 6
 	DropItem "DeagleHunter", 255, 1
 	DropItem "DBShotgunGuy", 255, 4
-	DropItem "ShotgunGuy2", 255, 14    
+	DropItem "ShotgunGuy2", 255, 14
 }
 
 /*actor CellPack2 : CellPack{}
@@ -63,7 +83,7 @@ actor BFLAmmoSpawner : RandomSpawner replaces cell
     DropItem "CellPack2", 255, 2
     DropItem "Cell2", 255, 2
     DropItem "BFLBox", 255, 2
-	DropItem "PR97", 255, 2 	
+	DropItem "PR97", 255, 2
 }
 */
 
@@ -74,7 +94,7 @@ actor RocketAmmoSpawner : RandomSpawner replaces RocketAmmo
 }
 
 actor cacodemon2 : CacoDemon
-{	
+{
 BloodColor "Blue"
 }
 actor CacodemonSpawner : Randomspawner replaces Cacodemon
@@ -89,9 +109,11 @@ actor CacodemonSpawner : Randomspawner replaces Cacodemon
 actor BlurSphere2 : BlurSphere{}
 actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
 {
-    DropItem "PickUpBubbleShield", 255, 1
+  DropItem "PickUpBubbleShield", 255, 1
+  DropItem "PickUpRegenField", 255, 1
 	DropItem "Infrared2", 255, 1
 	DropItem "ActiveCamo", 255, 1
+	DropItem "Haste", 255, 1
 }
 
 actor BFL10K2 : BFL10K{}
@@ -128,13 +150,13 @@ actor PlasmaCaster2 : Plasmacaster{}
 actor Slot6Spawner : RandomSpawner replaces Plasmacaster
 {
 	DropItem "Plasmacaster2", 255, 2
-	DropItem "PR97", 255, 4
+	DropItem "PR97", 255, 3
 }
 
 actor ShellBox2 : Shell2 replaces shellbox
 {
 	Inventory.PickupSound "Weapons/ONUClose"
-	Inventory.PickupMessage "Picked up a box of shells" 
+	Inventory.PickupMessage "Picked up a box of shells"
 	Inventory.Amount 20
 	States
 	{
@@ -149,4 +171,3 @@ actor ArmorSpawner: RandomSpawner Replaces ArmorBonus
 	DropItem "ArmorBonus2", 255, 1
 	DropItem "ArmorShard", 255, 1
 }
-

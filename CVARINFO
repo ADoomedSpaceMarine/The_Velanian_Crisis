@@ -73,3 +73,27 @@ server bool nashgore_deathflip = true;
 server bool nashgore_squish = true;
 server bool nashgore_icedeath = true;
 server bool nashgore_splat = true;
+
+//Slomo Bullet Time
+Server Bool sm_allowslomohud = True;
+Server Bool sm_hidefullslomohud = True;
+Server int sm_giveslomointerval = 1;
+Server int sm_slomoitemduration = 3;
+Server int sm_totalslomopoints = 200;
+Server int sm_minimumslomopoints = 200;
+Server int sm_slomocooldownticks = 0;
+Server int sm_slomorechargedelay = 0;
+Server int sm_slomodraindelay = 0;
+Server int sm_slomorefillamount = 1;
+Server int sm_hudcooldowndivfactor = 1;
+Server Bool sm_enablecoolmessage = True;
+Server Bool sm_enablefreezemomentum = False;
+Server Bool sm_noslomopointdrain = False;
+Server Bool sm_pausemusic = False;
+Server Bool sm_pausesounds = True;
+Server Bool sm_enableactivemessage = True;
+Server Bool sm_usebigfont = False;
+Server Bool sm_minimumpointreadymsg = True;
+Server Bool sm_cooldownreadyatstart = False;
+
+Server Bool m8f_sm_externaltoggle = False;

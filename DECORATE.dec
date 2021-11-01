@@ -15,6 +15,9 @@
 #include "actors/Suit Features/BubbleShield.txt"
 #include "actors/Suit Features/NightVision.txt"
 #include "actors/Suit Features/Active Camo.txt"
+#include "actors/Suit Features/Slomo.txt"
+#include "actors/Suit Features/RegenField.txt"
+#include "actors/Powerups/Haste.txt"
 
 //Cat's Visor Stuff
 #include "actors/cathudinv_deathcam.txt"
@@ -23,9 +26,12 @@
 
 //Monster Includes
 #include "actors/Monsters/Wood Tier/ZombieDude.txt"
+#include "actors/Monsters/Wood Tier/ImpAbomination.txt"
 #include "actors/Monsters/Wood Tier/ShotgunDude.txt"
 #include "actors/Monsters/Mid Tier/RifleDude/RifleDude.txt"
+#include "actors/Monsters/Mid Tier/StoneDemon.txt"
 #include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"
 #include "actors/Monsters/Mid Tier/ChainGunner/ChaingunnerDude.txt"
 #include "actors/Monsters/Floater Tier/Mid-Grade Floaties/PinaTomato/PinataTomato.dec"
 #include "actors/Monsters/Floater Tier/Little Floaters/BabyCaco/BabyCaco.dec"
+#include "actors/Monsters/Upper Tier/TimeImp.txt"

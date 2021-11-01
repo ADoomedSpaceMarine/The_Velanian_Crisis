@@ -1,0 +1,30 @@
+actor Haste : CustomInventory
+{
+  inventory.pickupmessage "You got the UAC Peregrine Dash Module!"
+  inventory.pickupsound DashModUse
+  inventory.maxamount 0
+  +COUNTITEM
+  +INVENTORY.AUTOACTIVATE
+  +INVENTORY.ALWAYSPICKUP
+  states
+  {
+  Spawn:
+	TDPU ABCDEDCBA 3
+    loop
+  Pickup:
+	TNT1 A 0 ACS_NamedExecute("HasteInitialize")
+  }
+}
+
+ACTOR HasteFound : Inventory
+{
+	Inventory.MaxAmount 1
+}
+
+
+ACTOR PowerDash : PowerSpeed
+{
+  Powerup.Duration 3
+  Speed 13
+  +INVENTORY.NOTELEPORTFREEZE
+}

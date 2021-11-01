@@ -43,7 +43,7 @@ HUD:
 - Flashlight from Steve's Flashlight
 
 SloMo Bullet Time:
-- ReactorCore for his permission for usage of his slomo mod. (to be implimented)
+- ReactorCore for his permission for usage of his slomo mod.
 
 Gore:
 Nash - Nasgore
@@ -144,3 +144,29 @@ Sounds: id Software
 Sprites: id Software
 Sprite Edit: Infirnex
 Idea Base: Quake 2/3/4 armor Shard
+
+Time Imp.
+Credits:
+Submitted: NovaKiller
+Decorate: NovaKiller
+GLDefs: NovaKiller
+Sounds: Doom ( ID Software ), Hexen ( Raven Software )
+Sprites: Doom ( ID Software )
+Sprite Edit: NovaKiller
+Idea Base: Making a monster that had a bit control over time.
+
+Imp Abomination
+Submitted: Gez, Dreadopp
+Decorate: Dreadopp
+Sounds: ID Software
+Sprites: ID Software
+Sprite Edit: Damien Daurio
+Idea Base: A stronger Imp variant
+
+Mauler Demon:
+Code: KDiZD Team, Ghastly (ZScript conversion)
+GLDefs: Sandypaper (Brightmaps)
+Sounds: Id Software
+Sprites: Id Software
+Sprite Edit: Eriance
+Idea Base: Based on the Mauler Demon by Kristus

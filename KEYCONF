@@ -1,7 +1,7 @@
 
 addkeysection "Velanian Crisis Options" VelanianOptions
 
-addmenukey "Toggle Flashlight" toggleflashlight_bind   
+addmenukey "Toggle Flashlight" toggleflashlight_bind
 alias toggleflashlight_bind "pukename toggleflashlight"
 defaultbind J toggleflashlight_bind
 
@@ -17,6 +17,18 @@ addmenukey "Activate Bubble Shield" TgBub
 defaultbind b "Tgbub"
 alias TgBub "pukename ActivateBubbleShield"
 
+addmenukey "Activate Regeneration Field" TgRegen
+defaultbind V "TgRegen"
+alias TgRegen "pukename ActivateRegenField"
+
 addmenukey "Toggle Active Camo" ACTog
-defaultbind V "ACTog"
+defaultbind C "ACTog"
 alias ACTog "pukename ACToggle"
+
+addmenukey "Activate Dash Module" DashTog
+defaultbind C "DashTog"
+alias DashTog "pukename HasteToggle"
+
+addkeysection "Slomo Bullettime Addon" SlomoBulletTimeOptions
+//addmenukey "Toggle Slomo" +User4
+addmenukey "Toggle Slomo 2" "set m8f_sm_externaltoggle 1"

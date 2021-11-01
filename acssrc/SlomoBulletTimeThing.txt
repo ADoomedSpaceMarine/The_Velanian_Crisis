@@ -1,0 +1,524 @@
+#library "SlomoBulletTime"
+#include "zcommon.acs"
+
+
+script "SlomoBulletTimeThing" ENTER
+{
+
+//////////////////////////////////////////////////////////////////////////////
+// 0 - INITIALIZATION
+//
+
+	int minimumslomopoints = GetCVar("sm_minimumslomopoints");
+	int buttondelaytime = 8; //I love magic numbers in my code :D
+	int SoundLoopRepeatDelay = 8;
+
+	int totalslomopoints = GetCVar("sm_totalslomopoints");
+	int slomogiveinterval = GetCVar("sm_giveslomointerval");
+	int slomodurationtime = GetCVar("sm_slomoitemduration");
+
+	int slomocooldowntime = GetCVar("sm_slomocooldownticks");
+	int slomopointrecharge = GetCVar("sm_slomorechargedelay");
+	int slomopointdrain = GetCVar("sm_slomodraindelay");
+	int slomopointrefillamount = GetCVar("sm_slomorefillamount");
+	int hudcooldowndivisionfactor = GetCVar("sm_hudcooldowndivfactor");
+
+	int currentslomopoints = totalslomopoints;
+
+	int waitButton = 0;
+	int waitSlomoGiveInterval = slomogiveinterval;
+	int waitSlomoDuration = slomodurationtime;
+	int waitSlomoCooldown = slomocooldowntime;
+	int waitSlomoPointRecharge = slomopointrecharge;
+	int waitSlomoPointDrain = slomopointdrain;
+	int waitSoundLoopRepeat = SoundLoopRepeatDelay;
+
+	int buttons;
+
+	bool slomoactive = FALSE;
+	bool PlayedOnce = FALSE;
+	bool AllowSlomoHudMaster = GetCVar ("sm_allowslomohud");
+	bool HideHudAtFull = GetCVar("sm_hidefullslomohud");
+	bool ShowCoolMessage = GetCVar("sm_enablecoolmessage");
+	bool FreezeMomentum = GetCVar("sm_enablefreezemomentum");
+	bool LastShowBeforeHide = TRUE;
+	bool CooldownReadyOnce = TRUE;
+	bool SlomoCooldownOk = GetCVar("sm_cooldownreadyatstart");
+	bool NoSlomoPointDrain = GetCVar("sm_noslomopointdrain");
+	bool PauseMusic = GetCVar("sm_pausemusic");
+	bool ShowActiveMessage = GetCVar("sm_enableactivemessage");
+	bool slowslomopointfailsafe = FALSE;
+	bool showMinimumReadyMessage = GetCVar("sm_minimumpointreadymsg");
+	bool MinimumMessageOnce = TRUE;
+
+	bool SaveSpeedOnce = FALSE;
+
+	int velx, vely, velz;
+
+	//Toggle between small and big fonts.
+	if (GetCVar ("sm_usebigfont"))
+	{
+		SetFont("BIGFONT");
+	}
+	else
+	{
+		SetFont("SMALLFONT");
+	}
+
+	//If slomo cooldown at start option is true, then zero out the slomo counter.
+	if (SlomoCooldownOk == TRUE)
+	{
+		waitSlomoCooldown = 0;
+	}
+
+
+	//MAIN LOOP START
+	while(TRUE)
+	{
+
+//////////////////////////////////////////////////////////////////////////////
+// 1 - CONTROL
+//
+
+		//buttons = GetPlayerInput(-1, INPUT_BUTTONS);
+
+		//On-Off Toggle Switch + Sounds
+		if (waitButton < 1)
+		{
+			bool isToggled = false; //(buttons & BT_USER4);
+
+			bool externalToggle = GetCVar("m8f_sm_externaltoggle");
+			if (externalToggle)
+			{
+				isToggled = true;
+				SetCVar("m8f_sm_externaltoggle", FALSE);
+			}
+
+			else if (isToggled && slomoactive == FALSE && currentslomopoints >= minimumslomopoints && SlomoCooldownOk == TRUE)
+			{
+				slomoactive = TRUE;
+				SlomoCooldownOk = FALSE;
+				slowslomopointfailsafe = FALSE;
+				waitSlomoCooldown = slomocooldowntime;
+				CooldownReadyOnce = TRUE;
+				if (PauseMusic == FALSE)
+				{
+					SetMusicVolume(0.0); //Mute Music
+				}
+				if(PlayedOnce == FALSE)
+				{
+					if (SaveSpeedOnce == FALSE && FreezeMomentum == TRUE)
+					{
+						//Get & save current velocities, remember for later restoration.
+						velx = GetActorVelX(0);
+						vely = GetActorVelY(0);
+						velz = GetActorVelZ(0);
+						SaveSpeedOnce = TRUE;
+					}
+					GiveInventory("SlomoBulletTimeGiver", 1);
+					GiveInventory("SlomoScreenGiver", 1);
+					PlaySound(0, "Slomo_on", CHAN_NOPAUSE, 1.0, FALSE, ATTN_NONE);
+					PlaySound(0, "Slomo_loop", 6, 1.0, TRUE, ATTN_NONE);
+					PlayedOnce = TRUE;
+					waitButton = buttondelaytime;
+				}
+			}
+			else if (isToggled && slomoactive == FALSE && ShowCoolMessage == TRUE && currentslomopoints < minimumslomopoints && AllowSlomoHudMaster == TRUE)
+			{
+				HudMessage( s:"\ckMinimum points for slomo: \cg",
+				d: minimumslomopoints;
+					HUDMSG_FADEOUT, 114443, CR_RED, 0.5, 0.6, 2.5, 1.5);
+				waitButton = buttondelaytime;
+			}
+			else if (isToggled && slomoactive == FALSE && ShowCoolMessage == TRUE && SlomoCooldownOk == FALSE && AllowSlomoHudMaster == TRUE)
+			{
+				HudMessage( s:"\ckSlomo on cooldown.";
+					HUDMSG_FADEOUT, 114443, CR_RED, 0.5, 0.6, 1.5, 0.5);
+				waitButton = buttondelaytime;
+			}
+			else if (isToggled && slomoactive == TRUE || currentslomopoints < 1 && slowslomopointfailsafe == FALSE)
+			{
+				slomoactive = FALSE;
+				slowslomopointfailsafe = TRUE;
+				MinimumMessageOnce = TRUE;
+				if (PauseMusic == FALSE)
+				{
+					SetMusicVolume(1.0); //Music restored
+				}
+				if(PlayedOnce == FALSE)
+				{
+					TakeInventory("SMPowerTimeFreezerSound", 1);
+					TakeInventory("PowerSlomoUseless", 1);
+					if (FreezeMomentum == TRUE && SaveSpeedOnce == TRUE)
+					{
+						//Resume movement
+						SetActorVelocity(0, velx, vely, velz, FALSE, FALSE);
+						SaveSpeedOnce = FALSE;
+					}
+					//Log(s:"Freeze Stolen!");
+					StopSound (0, 6);
+					PlaySound(0, "Slomo_off", CHAN_NOPAUSE, 1.0, FALSE, ATTN_NONE);
+					PlayedOnce = TRUE;
+					waitButton = buttondelaytime;
+				}
+			}
+		}
+		else
+		{
+			waitButton--;
+			PlayedOnce = FALSE;
+		}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// 2 - SYSTEM
+//
+
+		//Cycle The Cooldown for Slomo
+		if (waitSlomoCooldown < 1)
+		{
+			SlomoCooldownOk = TRUE;
+		}
+		else if (waitSlomoCooldown > 0)
+		{
+			waitSlomoCooldown--;
+		}
+
+
+		//Do the Slomo Interval
+		if (slomoactive == TRUE && waitSlomoGiveInterval < 1)
+		{
+			if (SaveSpeedOnce == FALSE && FreezeMomentum == TRUE)
+			{
+				//Get & save current velocities, remember for later restoration.
+				velx = GetActorVelX(0);
+				vely = GetActorVelY(0);
+				velz = GetActorVelZ(0);
+				SaveSpeedOnce = TRUE;
+			}
+			GiveInventory("SlomoBulletTimeGiver", 1);
+			//Log(s:"You got slomo item!");		//DEBUG
+			waitSlomoGiveInterval = slomogiveinterval;
+		}
+		else if (slomoactive == TRUE && waitSlomoGiveInterval > 0)
+		{
+			waitSlomoGiveInterval--;
+		}
+
+
+		//Reduce slomo points while slomo is active
+		if (slomoactive == TRUE && waitSlomoPointDrain < 1 && NoSlomoPointDrain == FALSE)
+		{
+			currentslomopoints--;
+			waitSlomoPointDrain = slomopointdrain;
+		}
+		else if (waitSlomoPointDrain > 0)
+		{
+			waitSlomoPointDrain--;
+		}
+
+
+		//Freeze-mode halt player movement.
+		if (CheckInventory("SMPowerTimeFreezerSound") && FreezeMomentum == TRUE && SaveSpeedOnce == TRUE)
+		{
+			//Freeze movement
+			SetActorVelocity(0, 0.0, 0.0, 0.0, FALSE, FALSE);
+		}
+
+
+		//Do the Slomo Duration
+		if (CheckInventory("SMPowerTimeFreezerSound") && waitSlomoDuration < 1)
+		{
+			TakeInventory("SMPowerTimeFreezerSound", 1);
+			//Log(s:"Freeze Stolen!");
+			if (FreezeMomentum == TRUE && SaveSpeedOnce == TRUE)
+			{
+				//Resume movement speed
+				SetActorVelocity(0, velx, vely, velz, FALSE, FALSE);
+				velx = GetActorVelX(0);
+				vely = GetActorVelY(0);
+				velz = GetActorVelZ(0);
+				SaveSpeedOnce = FALSE;
+			}
+			waitSlomoDuration = slomodurationtime;
+
+		}
+		else if (waitSlomoDuration > 0)
+		{
+			waitSlomoDuration--;
+		}
+
+
+		//Repeat the slomoloop so it keeps going if anything interrupts it prematurely
+		if (slomoactive == TRUE && waitSoundLoopRepeat < 1)
+		{
+			PlaySound(0, "Slomo_loop", 6, 1.0, TRUE, ATTN_NONE);
+			waitSoundLoopRepeat = SoundLoopRepeatDelay;
+		}
+		else if (waitSoundLoopRepeat > 0)
+		{
+			waitSoundLoopRepeat--;
+		}
+
+
+		//Recharge slomopoints
+		if (slomoactive == FALSE)
+		{
+			if(currentslomopoints < totalslomopoints)
+			{
+				if(waitSlomoPointRecharge < 1)
+				{
+
+					currentslomopoints = currentslomopoints + slomopointrefillamount;
+					if(currentslomopoints > totalslomopoints)
+					{
+						currentslomopoints = totalslomopoints;
+					}
+					//currentslomopoints++;
+					LastShowBeforeHide = TRUE;
+					waitSlomoPointRecharge = slomopointrecharge;
+				}
+				else if (waitSlomoPointRecharge > 0)
+				{
+					waitSlomoPointRecharge--;
+				}
+			}
+			else if(currentslomopoints > totalslomopoints)
+			{
+				currentslomopoints = totalslomopoints;
+			}
+		}
+
+//////////////////////////////////////////////////////////////////////////////
+// 3 - HUD
+//
+
+		//Slomo HUD thing
+		if (AllowSlomoHudMaster == TRUE)
+		{
+			int pc = currentslomopoints * 3 / totalslomopoints;
+
+			//SET TEXT TOLOR
+			int crflag=0;
+			switch(pc){
+				case 3:
+				case 2:
+					crflag=CR_LIGHTBLUE; break;
+				case 1:
+					crflag=CR_PURPLE;   break;
+				case 0:
+					crflag=CR_RED;  break;
+			}
+
+			//Minimum slomopoint optional READY message
+			if (slomoactive == FALSE && currentslomopoints >= minimumslomopoints && SlomoCooldownOk == TRUE && showMinimumReadyMessage == TRUE && MinimumMessageOnce == TRUE)
+			{
+				MinimumMessageOnce = FALSE;
+				HudMessage( s:"Slomo Ready!";
+					HUDMSG_FADEOUT, 114443, CR_GREEN, 0.5, 0.6, 0.8, 0.7);
+			}
+
+			//COOLDOWN HUD
+			//Note: The +1 is to offset the zero which appears at the end of a cooldown anyway.
+			if (waitSlomoCooldown > 0 && hudcooldowndivisionfactor > 0)
+			{
+				HudMessage( s:"\n\n\n\n\cr",
+							d: (waitSlomoCooldown / hudcooldowndivisionfactor) + 1,
+							s:" (!)";
+						HUDMSG_FADEOUT, 114442, CR_ORANGE, 0.9, 0.5, 1.0);
+			}
+			if (waitSlomoCooldown > 0 && hudcooldowndivisionfactor < 1 || waitSlomoCooldown > 0 && slomocooldowntime < hudcooldowndivisionfactor)
+			{
+				HudMessage( s:"\n\n\n\n\cr",
+							s:"COOLDOWN HUD ERROR (!)",
+							s:"\nBad division number!\n(Use less than slomo cooldown time and more than 0)";
+						HUDMSG_FADEOUT, 114442, CR_ORANGE, 0.9, 0.5, 1.0);
+			}
+			if (SlomoCooldownOk == TRUE && CooldownReadyOnce == TRUE && slomocooldowntime > 0)
+			{
+				CooldownReadyOnce = FALSE;
+				HudMessage( s:"\n\n\n\n0 (!)";
+						HUDMSG_FADEOUT, 114442, CR_GREEN, 0.9, 0.5, 1.0);
+				if (ShowCoolMessage == TRUE && currentslomopoints >= minimumslomopoints && waitSlomoCooldown < 1)
+				{
+					HudMessage( s:"Slomo Ready!";
+						HUDMSG_FADEOUT, 114443, CR_GREEN, 0.5, 0.6, 0.8, 0.7);
+				}
+				if (ShowCoolMessage == TRUE && currentslomopoints < minimumslomopoints)
+				{
+					HudMessage( s:"\ckWaiting for minimum points: \cg",
+					d: minimumslomopoints;
+						HUDMSG_FADEOUT, 114443, CR_RED, 0.5, 0.6, 4.5, 2.5);
+				}
+			}
+
+
+			//MAIN HUD
+			if (slomoactive == TRUE)
+			{
+				HudMessage( s:"\cbSlomo\n\cfON\n",
+							d: currentslomopoints;
+						HUDMSG_FADEOUT, 114441, crflag, 0.9, 0.5, 1.0);
+				if (ShowActiveMessage == TRUE)
+				{
+					//CENTER MESSAGE
+					HudMessage( s:"=Slomo Active=";
+						HUDMSG_FADEOUT, 114443, CR_CYAN, 0.5, 0.6, 0.05, 0.05);
+					//FOUR CORNERS
+					HudMessage( s:"<**";
+						HUDMSG_FADEOUT, 114444, CR_CYAN, 0.1, 0.1, 0.05, 0.05);
+					HudMessage( s:"<**";
+						HUDMSG_FADEOUT, 114445, CR_CYAN, 0.1, 0.9, 0.05, 0.05);
+					HudMessage( s:"**>";
+						HUDMSG_FADEOUT, 114446, CR_CYAN, 0.9, 0.1, 0.05, 0.05);
+					HudMessage( s:"**>";
+						HUDMSG_FADEOUT, 114447, CR_CYAN, 0.9, 0.9, 0.05, 0.05);
+				}
+			}
+			else
+			{
+				if (HideHudAtFull == TRUE && SlomoCooldownOk == TRUE)
+				{
+					if (currentslomopoints == totalslomopoints)
+					{
+						if (LastShowBeforeHide == TRUE)
+						{
+						HudMessage( s:"\cbSlomo\n\cmOFF\n",
+							d: currentslomopoints;
+						HUDMSG_FADEOUT, 114441, CR_DARKGRAY, 0.9, 0.5, 1.0);
+						LastShowBeforeHide = FALSE;
+						}
+					}
+					else
+					{
+						HudMessage( s:"\cbSlomo\n\cmOFF\n",
+							d: currentslomopoints;
+						HUDMSG_FADEOUT, 114441, CR_DARKGRAY, 0.9, 0.5, 1.0);
+					}
+				}
+				else
+				{
+					HudMessage( s:"\cbSlomo\n\cmOFF\n",
+							d: currentslomopoints;
+						HUDMSG_FADEOUT, 114441, CR_DARKGRAY, 0.9, 0.5, 1.0);
+				}
+			}
+		}
+		Delay(1);
+	}
+}
+
+
+//Pukename-able script to see where the values are at. Fire it up in console with 'pukename "SLOVAL"' (double quotes optional, only need for space-containing names)
+//DEPRECATED - Options menu is now a thing, woo!
+/*
+script "SLOVAL" (Void)
+{
+	int slomogiveinterval2 = GetCVar("sm_giveslomointerval");
+	int slomodurationtime2 = GetCVar("sm_slomoitemduration");
+	int totalslomopoints2 = GetCVar("sm_totalslomopoints");
+
+	HudMessage( s:"\cgCHANGES REQUIRE MAP RESTART!\nsm_GiveSlomoInterval: ",
+				d:slomogiveinterval2,
+				s:"\nsm_SlomoItemDuration: ",
+				d:slomodurationtime2,
+				s:"\nsm_TotalSlomoPoints: ",
+				d:totalslomopoints2;
+		HUDMSG_FADEOUT, 114451, CR_CYAN, 0.1, 0.5, 6.0);
+}
+*/
+/*
+Server Bool sm_allowslomohud = True;
+Server Bool sm_hidefullslomohud = False;
+Server int sm_giveslomointerval = 1;
+Server int sm_slomoitemduration = 3;
+Server int sm_totalslomopoints = 200;
+Server int sm_slomocooldownticks = 1;
+Server int sm_slomorechargedelay = 1;
+*/
+
+/*
+Decorate Links:
+===============
+GiveInventory("SlomoBulletTimeGiver", 1);	//Actual Freeze Power
+GiveInventory("SlomoScreenGiver", 1);		//White Screen Effect, to prevent blinking
+SMPowerTimeFreezerSound
+*/
+
+
+/*
+TEST DUMP
+	posx = GetActorX(0);
+	posy = GetActorY(0);
+	posz = GetActorZ(0);
+
+	int posx, posy, posz;
+
+	if (CheckActorClass(sectorsilencertid, "SectorSilencer"))
+	{
+		Log(s:"SS Exists!");
+		HudMessage( s:"\cgSectorSilencerPOS\nX: ",
+			f:GetActorX(sectorsilencertid),
+			s:"\nY: ",
+			f:GetActorX(sectorsilencertid),
+			s:"\nZ: ",
+			f:GetActorX(sectorsilencertid);
+	HUDMSG_FADEOUT, 114448, CR_CYAN, 0.1, 0.3, 6.0);
+	}
+	else
+	{
+	HudMessage( s:"\cgSectorSilencerPOS\nX: ",
+			s:"N/A",
+			s:"\nY: ",
+			s:"N/A",
+			s:"\nZ: ",
+			s:"N/A";
+	HUDMSG_FADEOUT, 114448, CR_CYAN, 0.1, 0.3, 6.0);
+	}
+
+	HudMessage( s:"\cgPlayerPOS\nX: ",
+		f:GetActorX(0),
+		s:"\nY: ",
+		f:GetActorX(0),
+		s:"\nZ: ",
+		f:GetActorX(0);
+		HUDMSG_FADEOUT, 114447, CR_CYAN, 0.1, 0.7, 6.0);
+
+	//SectorSilencer actor position follows player to mute sounds
+	if (slomoactive == TRUE && CheckActorClass(sectorsilencertid, "SectorSilencer"))
+	{
+		SetActorPosition(sectorsilencertid, GetActorX(0), GetActorY(0), GetActorZ(0), 0);
+		Log(s:"SectorSilencer Moved!");
+	}
+
+	int sectorsilencertid;
+	sectorsilencertid = UniqueTID(); //Create a unique tid for a SectorSilencer actor
+	Spawn("SectorSilencer", GetActorX(0), GetActorY(0), GetActorZ(0), sectorsilencertid); //Sound muting sector silencer is spawned
+	Thing_Remove(sectorsilencertid); //Remove sound silencer
+*/
+
+//Mute sounds -	Overload all the sound channels with 3 tic sound clip every frame.
+//				Not elegant, but there was no other option.
+//				NOTE: Sound needs to be long and loud to drown out all the other ones. A tiny quiet one didn't work.
+/*
+if (slomoactive == TRUE)
+{
+	SoundVolume (0, 0, 0.0);
+	SoundVolume (0, 1, 0.0);
+	SoundVolume (0, 2, 0.0);
+	SoundVolume (0, 3, 0.0);
+	SoundVolume (0, 4, 0.0);
+	SoundVolume (0, 5, 0.0);
+	SoundVolume (0, 6, 0.0);
+	SoundVolume (0, 7, 0.0);
+
+	PlaySound(0, "Slomo_loop", 0|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 1|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 2|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 3|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 4|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 5|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 6|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+	PlaySound(0, "Slomo_loop", 7|CHAN_NOPAUSE, 1.0, TRUE, ATTN_NONE);
+}
+*/

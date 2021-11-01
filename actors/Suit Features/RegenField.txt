@@ -1,0 +1,187 @@
+
+ACTOR RegenField : CustomInventory
+{
+  +AUTOACTIVATE
+  +VISIBILITYPULSE
+  Inventory.MaxAmount 1
+  Inventory.Icon "RGPUE0"
+  +INVENTORY.PERSISTENTPOWER
+  RenderStyle Translucent
+  Alpha 0.15
+
+
+  States
+  {
+  Use:
+	  TNT1 A 0 A_Overlay(-2, "UseField")
+    Fail
+  UseField:
+    TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
+    RGFS ABCDEFGHIJK 1
+    TNT1 A 0 ACS_NamedExecute("DeploymentMessage")
+    goto FieldSustain
+  FieldSustain:
+    TNT1 A 0 A_GiveInventory("PowerRegenField", 1)
+    TNT1 A 0 A_GiveInventory("RegenDrain2", 1)
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    TNT1 A 0 ACS_NamedExecute("FieldWarning")
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    Goto FieldCrash
+  FieldCrash:
+    TNT1 A 0 A_PlaySound("Powerup/ShieldBrk",CHAN_AUTO)
+    RGFS JIHGFE 1
+    RGFF ABCDEFGHI 1
+    TNT1 A 0 ACS_NamedExecute("RegenDepleted")
+    TNT1 A 2100
+    TNT1 A 0 ACS_NamedExecute("RGXRechargedMessage")
+    TNT1 A 0
+    Stop
+  }
+}
+
+ACTOR PickupRegenFieldActive : CustomInventory
+{
+  +VISIBILITYPULSE
+  +AUTOACTIVATE
+  Inventory.MaxAmount 1
+  Inventory.Icon "BPUSA0"
+  States
+  {
+  Spawn:
+    RGPU ABCDE 5 Bright
+    loop
+  Use:
+    TNT1 A 0 A_Overlay(-2, "UseField")
+	fail
+  UseField:
+  TNT1 A 0 A_PlaySound("Powerup/ShieldUp",CHAN_AUTO)
+  RGFS ABCDEFGHIJK 1
+  TNT1 A 0 ACS_NamedExecute("DeploymentMessage")
+  goto FieldSustain
+  FieldSustain:
+    TNT1 A 0 A_GiveInventory("PowerRegenField", 1)
+    TNT1 A 0 A_GiveInventory("RegenDrain2", 1)
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    TNT1 A 0 ACS_NamedExecute("FieldWarning")
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    RGFS K 31
+    RGFS J 4 A_PlaySound("RegHeartbeat", CHAN_AUTO)
+    Goto FieldCrash
+  FieldCrash:
+  TNT1 A 0 A_PlaySound("Powerup/ShieldBrk",CHAN_AUTO)
+  RGFS JIHGFE 1
+  RGFF ABCDEFGHI 1
+    TNT1 A 0 ACS_NamedExecute("PickupRegenTaker")
+    TNT1 A 0
+    Stop
+  }
+}
+
+
+
+ACTOR PickUpRegenField : CustomInventory
+{
+  +VISIBILITYPULSE
+  +AUTOACTIVATE
+  Inventory.MaxAmount 0
+  Inventory.Icon "BPUSA0"
+  Inventory.PickupSound "Powerup/ShieldMsg"
+  Inventory.PickupMessage "You Got the UAC RGX-5679 Regeneration Field Generator"
+  States
+  {
+  Spawn:
+    RGPU ABCDE 5 Bright
+    loop
+  Pickup:
+    	TNT1 A 0 ACS_NamedExecute("PickupRegenSwitch")
+    Stop
+  }
+}
+
+ACTOR RegenFound : Inventory
+{
+  Inventory.MaxAmount 1
+}
+
+ACTOR PowerRegenField : PowerRegeneration
+{
+  Powerup.Duration -20
+  Powerup.Strength 15
+}
+
+ACTOR RegenDrain2 : PowerDrain
+{
+  Powerup.Duration -20
+}

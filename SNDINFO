@@ -21,7 +21,7 @@ pickup/BigArmor		BIARMPU
 pickup/BACKPU	BPPICKUP
 
 //Casings
-$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 } 
+$random weapons/casing  { weapons/casing1 weapons/casing2 weapons/casing3 }
 $volume weapons/casing 0.7
 $limit weapons/casing  3
 weapons/casing1	dscasin1
@@ -56,7 +56,7 @@ weapons/UAC12In	UAC12IN
 weapons/UAC12Pickup	UACPUPS
 
 //Demon's Bane Shotgun
-$random weapons/DBSHOT  { weapons/DBSHOT1 weapons/DBSHOT2 weapons/DBSHOT3 } 
+$random weapons/DBSHOT  { weapons/DBSHOT1 weapons/DBSHOT2 weapons/DBSHOT3 }
 Weapons/DBSHOT1     DBSHOT1
 Weapons/DBSHOT2     DBSHOT2
 Weapons/DBSHOT3     DBSHOT3
@@ -82,8 +82,8 @@ Weapons/ANNSlap ANSLAP
 Weapons/RLFIRE RLFIRE1
 
 //Big Effin' Laser Sounds
-$random weapons/BFLSHOT  { weapons/BFLFire1 weapons/BFLFire2 weapons/BFLFire3 } 
-$random weapons/BFLSHOTBIG  { weapons/BFLBig1 weapons/BFLBig2 weapons/BFLBig3 } 
+$random weapons/BFLSHOT  { weapons/BFLFire1 weapons/BFLFire2 weapons/BFLFire3 }
+$random weapons/BFLSHOTBIG  { weapons/BFLBig1 weapons/BFLBig2 weapons/BFLBig3 }
 $volume weapons/BFLIdle 0.85
 $volume weapons/BFLUPSN2 0.85
 $volume weapons/BFLUPSND 0.85
@@ -104,7 +104,7 @@ Weapons/BFLUP2 BFLUPSN2
 Weapons/BFLIdle BFLIDLE
 
 //Assault Rifle Sounds
-$random weapons/AR36  { weapons/AR361 weapons/AR362} 
+$random weapons/AR36  { weapons/AR361 weapons/AR362}
 weapons/ar361	AR361
 weapons/ar362	AR362
 weapons/ardmr	ARDMR
@@ -122,7 +122,7 @@ weapons/PR97FinOpen OPENFIN
 weapons/PR97FinClose CLSFIN
 weapons/PR97Idle PRIDLE
 
-$random weapons/GLOCK  { weapons/GLOCK1 weapons/GLOCK2 weapons/GLOCK3} 
+$random weapons/GLOCK  { weapons/GLOCK1 weapons/GLOCK2 weapons/GLOCK3}
 weapons/GLOCK1 GLOCK1
 weapons/GLOCK2 GLOCK2
 weapons/GLOCK3	GLOCK3
@@ -133,7 +133,7 @@ weapons/glkfor GLKFOR
 weapons/glkSlide GLKPKU
 
 //Deagle Sounds
-$random weapons/DEAGLE  { weapons/DEAGL1 weapons/DEAGL2 weapons/DEAGL3} 
+$random weapons/DEAGLE  { weapons/DEAGL1 weapons/DEAGL2 weapons/DEAGL3}
 weapons/DEAGL1	DEAG1
 weapons/DEAGL2	DEAG2
 weapons/DEAGL3	DEAG3
@@ -334,3 +334,45 @@ $alias				intermission/nextstage		weapons/LgExplosion
 $alias				intermission/paststats		weapons/UAC12Pickup
 $alias				intermission/pastcoopstats	weapons/UAC12Pickup
 $alias				intermission/pastdmstats	*gibbed
+
+//Slomo
+Slomo_on SLOWENTR
+Slomo_off SLOWEXIT
+Slomo_loop SLOWLOOP
+SlomoAck SLMACK
+$volume Slomo_loop 0.4
+
+DashModUse DASHMOD
+
+//TimeImp
+timeimp/clock			timecloc
+
+timeimp/timefreeze		timeexec
+
+timeimp/claw			timeclaw
+
+timeball/attack			timefire
+timeball/hit			timehit
+
+timeimp/pain			timepain
+
+timeimp/see1			timesee
+timeimp/see2			timesee1
+$random timeimp/see { timeimp/see1 timeimp/see2 }
+
+timeimp/death1			timedth
+timeimp/death2			timedth1
+$random timeimp/death { timeimp/death1 timeimp/death2 }
+
+timeimp/active			timeact
+
+$limit timeball/attack 0
+$limit timeball/hit 0
+
+//Stone demon
+stone/death		dsstndth
+stone/sight		dsstnsit
+stone/bounce		dspunch
+
+//Regen Field
+RegHeartbeat	HEARTBT

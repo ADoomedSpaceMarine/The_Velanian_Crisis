@@ -12,7 +12,6 @@ ACTOR DeagleHunter
 	RenderStyle Translucent
 	Alpha 0.5
 	Monster
-	DropItem "Battlehawk"
 	SeeSound "Shadow/Sight"
 	DeathSound "Shadow/Death"
 	ActiveSound "Shadow/Idle"
@@ -150,11 +149,13 @@ ACTOR DeagleHunter
 			SHAH A 0 A_UnSetInvulnerable
 			Goto See
 		Death:
+			TNT1 A 0 A_DropItem("Haste", 1, 175)
 			TNT1 A 0 A_PlaySound("Shadow/Death")
 			SHAD ABCDE 5
 			SHAD E -1
 			Stop
 		XDeath:
+			TNT1 A 0 A_DropItem("Haste", 1, 175)
 			TNT1 A 0 A_PlaySound("Shadow/Death")
 			SHXD ABCDEFGH 4
 			SHXD I -1

@@ -1,0 +1,64 @@
+Class MaulerDemon : Actor
+{
+  Default
+  {
+    Health 400;
+	Scale 1.25;
+    PainChance 180;
+    Speed 10;
+    Radius 30;
+    Height 56;
+    Mass 400;
+    Damage 2; //Horns = pain. I say no more
+    SeeSound "demon/sight";
+    AttackSound "demon/melee";
+    PainSound "demon/pain";
+    DeathSound "demon/death";
+    ActiveSound "demon/active";
+    Obituary "%o was gored by a Mauler Demon.";
+    HitObituary "%o was mauled by a Mauler Demon";
+    Monster;
+    +FLOORCLIP
+  }
+
+  States
+  {
+  Spawn:
+    MAUD AB 10 A_Look();
+    Loop;
+  See:
+    MAUD AABBCCDD 2
+    { //Thanks to Blue Shadow for this routine
+      statelabel st = null; //Default to no missile state
+      if (CheckIfCloser(target, 224)) //If we're close enough to charge
+        st = "Missile"; //Then set missile state so we can charge
+      A_Chase("Melee", st); //And chase
+    }
+    Loop;
+  Melee:
+    MAUD EF 8 A_FaceTarget();
+    MAUD G 8 A_SargAttack();
+    Goto See;
+  Missile:
+    MAUD E 4 A_FaceTarget();
+    MAUD F 10 A_SkullAttack();
+    MAUD G 5 A_Gravity();
+    Goto See;
+  Pain:
+    MAUD H 2;
+    MAUD H 2 A_Pain();
+    Goto See;
+  Death:
+    MAUD I 8;
+    MAUD J 8 A_Scream();
+    MAUD K 4;
+    MAUD L 4 A_Fall();
+    MAUD M 4;
+    MAUD N -1;
+    Stop;
+  Raise:
+    MAUD N 5;
+    MAUD MLKJI 5;
+    Goto See;
+  }
+}

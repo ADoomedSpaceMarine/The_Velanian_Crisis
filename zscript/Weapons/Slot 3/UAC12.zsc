@@ -426,7 +426,7 @@ class UAC12 : Weapon replaces shotgun
 			    if(countinv("UAC12Counter") > 0)
 				{
 					int input = GetPlayerInput(INPUT_BUTTONS);
-					if(input & BT_ATTACK &&  countinv("UAC12Counter") != 8)
+					if(input & BT_ATTACK &&  countinv("UAC12Counter") > 1)
 					{
 						return ResolveState("fire");
 					}
@@ -469,7 +469,7 @@ class UAC12 : Weapon replaces shotgun
             TNT1 A 0
 			{
 				int input = GetPlayerInput(INPUT_BUTTONS);
-				if(input & BT_ATTACK && countinv("UAC12Counter") != 8)
+				if(input & BT_ATTACK && countinv("UAC12Counter") > 1)
 				{
 					return ResolveState("fire");
 				}
@@ -507,7 +507,7 @@ class UAC12 : Weapon replaces shotgun
             TNT1 A 0
 			{
 				int input = GetPlayerInput(INPUT_BUTTONS);
-				if(input & BT_ATTACK && countinv("UAC12Counter") != 8)
+				if(input & BT_ATTACK && countinv("UAC12Counter") > 1)
 				{
 					return ResolveState("fire");
 				}
@@ -545,7 +545,7 @@ class UAC12 : Weapon replaces shotgun
             TNT1 A 0
 			{
 				int input = GetPlayerInput(INPUT_BUTTONS);
-				if(input & BT_ATTACK && countinv("UAC12Counter") != 8)
+				if(input & BT_ATTACK && countinv("UAC12Counter") > 1)
 				{
 					return ResolveState("fire");
 				}

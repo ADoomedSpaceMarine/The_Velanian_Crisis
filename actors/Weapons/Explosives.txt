@@ -2,7 +2,7 @@ ACTOR FRAG12 : Rocket
 {
   Radius 5
   Height 5
-  Speed 100
+  Speed 200
   Damage 10
   scale 0.2
   decal bigscorch

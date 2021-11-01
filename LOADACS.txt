@@ -8,3 +8,4 @@ enemybar
 Aspect
 Radar
 flashlight
+SlomoBulletTimeThing

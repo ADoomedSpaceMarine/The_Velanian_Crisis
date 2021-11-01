@@ -624,3 +624,82 @@ object ArmorShard
 	frame ARSDC { light ARMORSHARD3 }
 	frame ARSDD { light ARMORSHARD4 }
 }
+
+flickerlight2 SPIMPBALL1
+{
+    color 1.0 0.8 0.2
+    size 36
+    secondarySize 42
+    interval 1
+}
+flickerlight2 SPIMPBALL2
+{
+    color 1.0 0.8 0.2
+    size 40
+    secondarySize 48
+    interval 1
+}
+flickerlight2 SPIMPBALL3
+{
+    color 1.0 0.8 0.2
+    size 46
+    secondarySize 56
+    interval 1
+}
+pointlight SPIMPBALL
+{
+    color 1.0 0.8 0.2
+    size 36
+}
+object SpImpBall
+{
+    frame SBLAA { light SPIMPBALL }
+    frame SBLAB { light SPIMPBALL }
+
+    frame SBLAC { light SPIMPBALL1 }
+    frame SBLAD { light SPIMPBALL2 }
+    frame SBLAE { light SPIMPBALL3 }
+}
+object SpImpBallFast
+{
+    frame SBLAA { light SPIMPBALL }
+    frame SBLAB { light SPIMPBALL }
+
+    frame SBLAC { light SPIMPBALL1 }
+    frame SBLAD { light SPIMPBALL2 }
+    frame SBLAE { light SPIMPBALL3 }
+}
+object SpImpBallFast2
+{
+    frame SBLAA { light SPIMPBALL }
+    frame SBLAB { light SPIMPBALL }
+
+    frame SBLAC { light SPIMPBALL1 }
+    frame SBLAD { light SPIMPBALL2 }
+    frame SBLAE { light SPIMPBALL3 }
+}
+pointlight SPIMPGHOST
+{
+    color 1.0 0.2 0.2
+    size 48
+}
+object ImpGhostOutIn
+{
+    frame IMGHA { light SPIMPGHOST }
+    frame IMGHB { light SPIMPGHOST }
+    frame IMGHC { light SPIMPGHOST }
+    frame IMGHD { light SPIMPGHOST }
+    frame IMGHE { light SPIMPGHOST }
+    frame IMGHF { light SPIMPGHOST }
+    frame IMGHG { light SPIMPGHOST }
+}
+object ImpGhostOut
+{
+    frame IMGHA { light SPIMPGHOST }
+    frame IMGHB { light SPIMPGHOST }
+    frame IMGHC { light SPIMPGHOST }
+    frame IMGHD { light SPIMPGHOST }
+    frame IMGHE { light SPIMPGHOST }
+    frame IMGHF { light SPIMPGHOST }
+    frame IMGHG { light SPIMPGHOST }
+}

@@ -4,6 +4,7 @@ AddOptionMenu "OptionsMenu"
 	Submenu "Visor/HUD Options",			"DHUD"
 	Submenu "Flashlight Options",			"Flashlight"
 	Submenu "$OPTMNU_NASHGORE", "NashGoreMenu"
+	Submenu "Time Dilation Options", "SlomoModMenu"
 }
 
 OptionMenu "DHUD"
@@ -162,3 +163,27 @@ OptionValue "NashGoreGibTypes"
 	2, "$NASHGOREMNU_VANILLA"
 }
 
+OptionMenu "SlomoModMenu"
+{
+	StaticText "Scroll down for more options", "Darkgrey"
+	StaticText ""
+	StaticText "INFO:", "Gold"
+	StaticText "Slomo works by pulsing a timefreeze power on and off.", "Tan"
+	StaticText "Experiment with the values to get different effects.", "Grey"
+	StaticText "Any changes REQUIRE a map restart if already ingame.", "Tan"
+	StaticText ""
+	StaticText ""
+	StaticText "SLOMO STATUS HUD & TOGGLES:", "Gold"
+	StaticText ""
+
+	Option "HUD enabled - master switch", "sm_allowslomohud", "OnOff"
+	Option "Hide HUD if fully charged", "sm_hidefullslomohud", "OnOff"
+	Option "Show cooldown ready message", "sm_enablecoolmessage", "OnOff"
+	Option "Freeze player momentum during slomo", "sm_enablefreezemomentum", "OnOff"
+	Option "Allow music during slomo", "sm_pausemusic", "OnOff"
+	Option "Allow sounds during slomo", "sm_pausesounds", "OnOff"
+	Option "Show slomo active message", "sm_enableactivemessage", "OnOff"
+	Option "Use big font for HUD", "sm_usebigfont", "OnOff"
+	Option "Show ready message for minimum points", "sm_minimumpointreadymsg", "OnOff"
+	Option "Slomo cooldown ready at start", "sm_cooldownreadyatstart", "OnOff"
+}

@@ -2,6 +2,7 @@ version "3.0"
 
 //Monsters
 #include "zscript/Monsters/Floaters/Mama Caco/MamaCaco.txt"
+#include "zscript/Monsters/Mid Tier/Mauler.txt"
 
 //All Cat's Visor Related Content
 #include "zscript/Minimap/ATMP_MapHandler.zsc"
@@ -10,6 +11,7 @@ version "3.0"
 
 //Flashlight-Related Content
 #include "zscript/Equipment/Flashlight.zsc" 
+#include "zscript/Equipment/BulletTime.zsc" 
 
 //Zscript Weapons
 #include "zscript/Weapons/Slot 7/BFL10K.zsc"

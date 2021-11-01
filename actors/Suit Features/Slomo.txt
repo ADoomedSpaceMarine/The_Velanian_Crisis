@@ -1,0 +1,55 @@
+ACTOR SlomoBulletTimeGiver : PowerupGiver
+{
+	-COUNTITEM 
+	Inventory.MaxAmount 0
+	Powerup.Type "SMPowerTimeFreezerSound" //"TimeFreezer"
+	Powerup.Duration 0x7FFFFFFD
+	//Powerup.Color White 0.05
+	//Renderstyle Add
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+}
+
+ACTOR PickupSlomo : PowerupGiver
+{
+	-COUNTITEM 
+	Inventory.MaxAmount 0
+	Inventory.PickupMessage "You got the VelaTech TD-XR89 Time Dilation Module"
+	Powerup.Type "SMPowerTimeFreezerSound" //"TimeFreezer"
+	Powerup.Duration 0x7FFFFFFD
+	//Powerup.Color White 0.05
+	//Renderstyle Add
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	States
+	{
+		Spawn:
+			TDPU ABCDEDCBA 3 Bright
+			Loop
+		Pickup:
+			TNT1 A 0 ACS_NamedExecute("TDInitialize")
+	}
+}
+
+ACTOR PowerSlomoUseless : PowerRegeneration
+{
+  Powerup.Strength 0
+}
+
+ACTOR SlomoScreenGiver : PowerupGiver
+{
+	-COUNTITEM
+	Inventory.MaxAmount 0
+	Powerup.Type "PowerSlomoUseless"
+	Powerup.Duration 0x7FFFFFFD
+	Powerup.Color white 0.08
+	Renderstyle Add
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.NOSCREENBLINK
+}
+
+ACTOR TDFound : Inventory
+{
+	Inventory.MaxAmount 1
+}
