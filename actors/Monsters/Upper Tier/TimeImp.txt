@@ -2,7 +2,7 @@ actor TimeImp
 {
   obituary "%o was forced into death by a time imp"
   hitobituary "%o was slashed by a time imp"
-  health 300
+  health 350
   missiletype SpImpBall
   meleedamage 5
   speed 20

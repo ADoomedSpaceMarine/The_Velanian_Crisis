@@ -102,6 +102,7 @@ Weapons/BFLUEnd BFLUFIN
 Weapons/BFLUP1 BFLUPSND
 Weapons/BFLUP2 BFLUPSN2
 Weapons/BFLIdle BFLIDLE
+Weapons/BFLIdle2 BFLIDLE3
 
 //Assault Rifle Sounds
 $random weapons/AR36  { weapons/AR361 weapons/AR362}
@@ -117,10 +118,10 @@ weapons/arswitch ARSWITC
 //PR97 Sounds
 weapons/PR97Fire PR97FIR
 weapons/PR97Alt PR9AFIR
-weapons/PR97Ready PR9ARED
+weapons/PR97Deselect PR9ARED
 weapons/PR97FinOpen OPENFIN
 weapons/PR97FinClose CLSFIN
-weapons/PR97Idle PRIDLE
+weapons/PR97Idle PR9IDLE
 
 $random weapons/GLOCK  { weapons/GLOCK1 weapons/GLOCK2 weapons/GLOCK3}
 weapons/GLOCK1 GLOCK1

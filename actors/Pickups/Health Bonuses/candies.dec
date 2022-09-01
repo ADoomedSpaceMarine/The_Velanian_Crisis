@@ -124,10 +124,10 @@ ACTOR CandyFountain
 	TNT1 A 1
 	{
 		A_StartSound("SFX/Candy", 8, 0, 1, 0.1);
-		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 5, 0.1);
-		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 4, 0.125);
-		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 2, 0.135);
-		A_Mushroom("CandySpawner", 18, MSF_DontHurt, 1, 0.145);
+		A_Mushroom("CandySpawner", 20, MSF_DontHurt, 5, 0.1);
+		A_Mushroom("CandySpawner", 20, MSF_DontHurt, 4, 0.125);
+		A_Mushroom("CandySpawner", 20, MSF_DontHurt, 2, 0.135);
+		A_Mushroom("CandySpawner", 20, MSF_DontHurt, 1, 0.145);
 	}
 	stop
 	

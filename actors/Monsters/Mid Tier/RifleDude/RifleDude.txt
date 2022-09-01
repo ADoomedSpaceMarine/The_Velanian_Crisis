@@ -1,10 +1,10 @@
 ACTOR RifleDude
 {
 	//$Category Monsters
-   Health 70
+   Health 90
    Radius 20
    Height 56
-   Speed 10
+   Speed 15
    Mass 100
    PainChance 170
    MONSTER 

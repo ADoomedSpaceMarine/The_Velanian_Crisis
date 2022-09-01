@@ -5,7 +5,7 @@ Class MaulerDemon : Actor
     Health 400;
 	Scale 1.25;
     PainChance 180;
-    Speed 10;
+    Speed 14;
     Radius 30;
     Height 56;
     Mass 400;

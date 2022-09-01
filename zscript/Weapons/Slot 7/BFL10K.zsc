@@ -104,10 +104,13 @@ Class BFL10K : Weapon replaces BFG9000
 
         BFLIdle:
             TNT1 A 0 A_StartSound("Weapons/BFLIdle", 1);
-            BFLG ABCDE 5 A_WeaponReady(WRF_ALLOWUSER1);
-            BFLG ABCDE 4 A_WeaponReady(WRF_ALLOWUSER1);
-            BFLG ABCDE 5 A_WeaponReady(WRF_ALLOWUSER1);
-            Loop;
+            BFLG EDCBA 3 A_WeaponReady(WRF_ALLOWUSER1);
+            BFLG ABCDE 3 A_WeaponReady(WRF_ALLOWUSER1);
+            BFLG EDCBA 3 A_WeaponReady(WRF_ALLOWUSER1);	
+            BFLG ABCDE 3 A_WeaponReady(WRF_ALLOWUSER1);
+			BFLG EDCBA 3 A_WeaponReady(WRF_ALLOWUSER1);	
+            BFLG ABCDE 3 A_WeaponReady(WRF_ALLOWUSER1);
+			Loop;
 
         Fire:
         TNT1 A 0
@@ -126,7 +129,8 @@ Class BFL10K : Weapon replaces BFG9000
             {
               A_StartSound("Weapons/BFLShot", 1);
               A_FireProjectile("BFLStandardShot", 0, 1, 0, -8, 0);
-              A_Recoil(3*cos(pitch));
+              A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			  A_Recoil(5*cos(pitch));
               A_SetPitch(pitch-3.0);
               A_ZoomFactor(0.85,ZOOM_INSTANT);
     
@@ -134,11 +138,14 @@ Class BFL10K : Weapon replaces BFG9000
             BFLF H 1 
               {
                 A_SetPitch(pitch+1.0);
-                A_ZoomFactor(0.9,ZOOM_INSTANT);;
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+                A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_ZoomFactor(0.9,ZOOM_INSTANT);;
               }
             BFLF I 1 
             {
               A_SetPitch(pitch+1.0);
+			  A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
               A_ZoomFactor(0.95,ZOOM_INSTANT);
             }
             BFLF J 1 
@@ -156,7 +163,7 @@ Class BFL10K : Weapon replaces BFG9000
             Goto LightDone;
 
            ALtFire:
-           BFLF A 4 A_StartSound("Weapons/BFLCharge1", 0);
+           BFLF A 4 A_StartSound("Weapons/BFLCharge1", 1);
             BFLF BCDEF 3;
             BFLF BCDEF 3;           
             BFLF BCDEF 2;           
@@ -166,18 +173,21 @@ Class BFL10K : Weapon replaces BFG9000
             TNT1 A 0 
             {
               A_StartSound("Weapons/BFLSHOTBIG", 1);
-              A_FireProjectile("BFLBigShot", 0, 1, 0, -8, 0);
-              A_Recoil(3*cos(pitch));
+			  A_FireProjectile("BFLBigShot", 0, 1, 0, -8, 0);
+              A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			  A_Recoil(8*cos(pitch));
               A_SetPitch(pitch-3.0);
               A_ZoomFactor(0.85,ZOOM_INSTANT);
             }
               BFLF H 2 
               {
+				A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
                 A_SetPitch(pitch+1.0);
                 A_ZoomFactor(0.9,ZOOM_INSTANT);;
               }
             BFLF I 2 
             {
+			  A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
               A_SetPitch(pitch+1.0);
               A_ZoomFactor(0.95,ZOOM_INSTANT);
             }
@@ -217,9 +227,9 @@ Class BFL10K : Weapon replaces BFG9000
             Phase2:
             TNT1 A 0 A_JumpIfInventory("Phase2Token", 11, "Phase2a");
             BFLU L 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFLU M 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             TNT1 A 0 A_GiveInventory("Phase2Token");
             Loop;
   
@@ -227,7 +237,7 @@ Class BFL10K : Weapon replaces BFG9000
             TNT1 A 0 A_JumpIfInventory("Phase2Token", 21, "Phase2b");
             BFLU M 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
             BFLU N 3 A_Explode(60,100,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             TNT1 A 0 A_GiveInventory("Phase2Token");
             Loop;
 
@@ -235,7 +245,7 @@ Class BFL10K : Weapon replaces BFG9000
             TNT1 A 0 A_JumpIfInventory("Phase2Token", 30, "Phase2c");
             BFLU N 3 A_Explode(60,120,0,0,0,0,0,"","BFLCharge");
             BFLU O 3 A_Explode(60,120,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             TNT1 A 0 A_GiveInventory("Phase2Token");
             Loop;
 
@@ -243,7 +253,7 @@ Class BFL10K : Weapon replaces BFG9000
             TNT1 A 0 A_JumpIfInventory("Phase2Token", 39, "Phase2d");
             BFLU O 3 A_Explode(80,120,0,0,0,0,0,"","BFLCharge");
             BFLU P 3 A_Explode(80,120,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             TNT1 A 0 A_GiveInventory("Phase2Token");
             Loop;
 
@@ -252,64 +262,64 @@ Class BFL10K : Weapon replaces BFG9000
             TNT1 A 0 A_JumpIfInventory("Phase2Token", 48, "Phase3");
             BFLU O 3 A_Explode(100,128,0,0,0,0,0,"","BFLCharge");
             BFLU P 3 A_Explode(100,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             TNT1 A 0 A_GiveInventory("Phase2Token");
             Loop;
             
             Phase3:
             TNT1 A 0 A_TakeInventory("Phase2Token", 48);
             BFP3 A 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 B 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 C 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 D 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 E 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 F 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 G 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 H 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 I 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 J 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 K 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 L 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 M 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 N 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 O 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 P 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 Q 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 R 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 S 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 T 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 U 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 V 4 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 W 3 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 X 2 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 Y 2 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFP3 Z 1 A_Explode(120,128,0,0,0,0,0,"","BFLCharge");
-            TNT1 A 0 A_SpawnItemEx("BigGunSmoke",15,0,32,0);
+            TNT1 A 0 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             goto BFLUFireSound;
 
             BFLUFireSound:
@@ -330,7 +340,7 @@ Class BFL10K : Weapon replaces BFG9000
             BFLUWindDn:
             TNT1 A 0 A_TakeInventory("UltToken", 455);
             TNT1 A 0 A_StartSound("Weapons/BFLUEnd",1);
-            BFDN ABCDEFGHIJKLMNOP 5;
+            BFDN ABCDEFGHIJKLMNOP 5 A_SpawnItemEx("LargeGunSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
             BFDN Q 35;
             Goto BFLUp;
           

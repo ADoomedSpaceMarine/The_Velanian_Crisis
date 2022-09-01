@@ -8,7 +8,7 @@ How to play this mod:
    
    OR (The easy way)
    
-   Find yourself a copy of a nifty launcher program called "ZDL" and look up how to use it. It's a lot quicker 
+   Find yourself a copy of a nifty launcher program called "ZDL" and look up how to use it. It's a lot quicker than
    passing multiple files through the command line parameters provided by the run command method.
 
 4) Play the mod! 

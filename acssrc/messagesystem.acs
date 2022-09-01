@@ -348,7 +348,19 @@ Script 3665 (void)
     PlaySound(0,"Hud/HudMsg");
     SetFont("UDVSMALL");	
 	SetHudSize(5762,3240,0);
-	HudMessage(s:"Switching to Grenades";
+	HudMessage(s:"Switching to Standard HE UAC Bearcat Grenades";
+	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
+	SetHudSize(640,480,0);				
+    Terminate;
+}
+
+//PR97
+Script "PRBHSwitch" (void)
+{
+    PlaySound(0,"Hud/HudMsg");
+    SetFont("UDVSMALL");	
+	SetHudSize(5762,3240,0);
+	HudMessage(s:"Switching to single-shot singularity grenades";
 	HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.03, 0.5, 0.8);
 	SetHudSize(640,480,0);				
     Terminate;

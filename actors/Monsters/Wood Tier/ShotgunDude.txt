@@ -1,10 +1,10 @@
 ACTOR DbShotgunGuy
 {
-  Health 60
+  Health 80
   Radius 20
   Height 56
   Mass 100
-  Speed 12
+  Speed 14
   PainChance 170
   Monster
   +FLOORCLIP

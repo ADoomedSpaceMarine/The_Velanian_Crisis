@@ -9,20 +9,20 @@ Actor BFLStandardShot
   +Ripper
   +ForceRadiusDmg
   Renderstyle Add
-  Scale 0.25
+  Scale 0.1
   Alpha 0.95
   Obituary "%o was vaporized by %k's Big Frickin Laser."
   Decal BigScorch
   States
   {
   Spawn:
-    BFTS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
     Goto DmgLoop
   DmgLoop:
-    BFTS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
-    BFTS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
-    BFTS A 1 Bright A_Explode(100,100,0,0,0,0,0,BulletPuff,"BFLBeam")
-    BFTS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
+    BFLS A 1 Bright A_SpawnItemEx("SmallBFLTrail", -5)
+    BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
+    BFLS A 1 Bright A_Explode(100,100,0,0,0,0,0,BulletPuff,"BFLBeam")
+    BFLS A 0 A_SpawnItemEx("StandardBFLTrail", -5)
     Loop
   Death:
     BFLB BCDEFG 2 Bright
@@ -68,7 +68,7 @@ Actor UltBFLTrail
   PROJECTILE
    Radius 8
    Height 7
-   Scale 0.6
+   Scale 0.3
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -158,13 +158,13 @@ Actor BFLUltShot
   Radius 4
   Height 6
   Speed 300
-  Damage 600
+  Damage 80
   scale 0.6
   +ripper
   +ForceRadiusDmg
   Renderstyle Add
   Alpha 0.95
-  scale 1
+  scale .6
   Obituary "%o was vaporized by %k's Big Frickin Laser."
   Decal BigScorch
   States
@@ -265,7 +265,7 @@ ACTOR PlasmaBall3 : plasmaball replaces plasmaball
   Height 8
   Speed 70
   Damage 11
-  scale 0.55
+  scale 0.35
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
@@ -293,7 +293,7 @@ ACTOR PlasmaBall4 : PlasmaBall3
   Height 8
   Speed 120
   Damage 11
-  scale 0.15
+  scale 0.1
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
@@ -319,9 +319,9 @@ ACTOR PlasmaBall5 : PlasmaBall3
 {
   Radius 13
   Height 8
-  Speed 80
+  Speed 70
   Damage 10
-  scale 0.5
+  scale 0.25
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
@@ -349,7 +349,7 @@ Actor PlasmaCasterTrail
   PROJECTILE
    Radius 5
    Height 4
-   scale 0.55
+   scale 0.2
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -357,7 +357,7 @@ Actor PlasmaCasterTrail
    States
    {
    Spawn:
-     PLCB ACEG 1 Bright A_FadeOut
+     PLCB ABCDEFGH 1 Bright A_FadeOut
      Loop
    }
 }
@@ -367,7 +367,7 @@ Actor PlasmaCasterTrail2
   PROJECTILE
    Radius 5
    Height 4
-   scale 0.3
+   scale 0.1
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -375,7 +375,7 @@ Actor PlasmaCasterTrail2
    States
    {
    Spawn:
-     PLCB ACEG 1 Bright A_FadeOut
+     PLCB ABCDEFGH 1 Bright A_FadeOut
      Loop
    }
 }
@@ -389,7 +389,7 @@ ACTOR PlasmaImplosionGrenade : grenade
   BounceCount 0
   gravity .5
   Damage 75
-  scale .55
+  scale .5
   RenderStyle Add
   Obituary "%o was blown to bits by %k's plasma implosion grenade."
   decal bigscorch
@@ -420,7 +420,7 @@ ACTOR PR97Ball : PlasmaBall3
   Height 8
   Speed 80
   Damage 8
-  scale 0.5
+  scale 0.075
   Projectile
   +RANDOMIZE
   +ZDOOMTRANS
@@ -447,7 +447,7 @@ Actor PR97Trail
   PROJECTILE
    Radius 5
    Height 4
-   scale 0.15
+   scale 0.065
    RenderStyle Add
    +NOGRAVITY
    +NOBLOCKMAP
@@ -467,7 +467,7 @@ ACTOR PlasmaImplosionRound : PlasmaBall2
   Height 4
   Speed 200 
   Damage 24
-  scale .55
+  scale .15
   RenderStyle Add
   Obituary "%o was blown to bits by %k's plasma implosion rounds."
   decal bigscorch

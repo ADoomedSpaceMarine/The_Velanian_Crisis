@@ -33,6 +33,7 @@ class PR97 : weapon replaces chaingun
 			loop;
 		
 		Deselect:
+		TNT1 A 0 A_StopSound(30);
 		TNT1 A 0
 		{
 			A_ZoomFactor(1);
@@ -62,7 +63,8 @@ class PR97 : weapon replaces chaingun
 		goto Idle;
 		
 		Idle:
-		 	PLAI ABCDCB 3 
+		 	TNT1 A 0 A_StartSound("Weapons/PR97Idle", 30);
+			PLAI ABCDCBABCDCBA 5
 			{	
 				A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
 			}
@@ -99,18 +101,18 @@ class PR97 : weapon replaces chaingun
                 }
 			}
 			
-		PRMsgState:
+	PRMsgState:
 			TNT1 A 0
 			{
 			switch(invoker.fireMode)
 				{
-					case 0: ACS_Execute(1234, 0);              //Play buckshot message
+					case 0: ACS_Execute(1234, 0);              //Play rapid message
 					break;                                  //Break out of the switch block
 
-					case 1: ACS_Execute(1235, 0);              //Play slug message
+					case 1: ACS_Execute(1235, 0);              //Play Burst message
 					break;                                  //Break out of the switch block
 
-					case 2: ACS_Execute(1236, 0);              //Play flechette message
+					case 2: ACS_NamedExecute("PRBHSwitch");              //Play black hole grenade message
 					break;                                  //Break out of the switch block
 				}
 			}                                          
@@ -184,18 +186,21 @@ class PR97 : weapon replaces chaingun
 			PLRF A 1 Bright A_Light(1);
 			TNT1 A 0 A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
 		    TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),random(-1,1),sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
-			PR9F B 1 Bright A_GunFlash; 
-		
+			PR9F B 1 A_GunFlash;
 			POAH K 1  
 			{
 				A_SetPitch(pitch+1.0);
 	            A_ZoomFactor(1, ZOOM_INSTANT);
 			}
-			PLRF C 1 A_ReFire;
+			PLRF C 1 
+			{
+				A_SetPitch(pitch-1.0);
+				A_ReFire();
+			}
 			POAH K 1 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), 	random(2,3),0,1,0);
 			POAH L 1 
 			{
-				A_StartSound("weapons/PR97Ready", 1);
+				A_StartSound("weapons/PR97Ready", 0);
 				A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), 	random(2,3),0,1,0);
 			}
 			goto Idle;
@@ -210,12 +215,13 @@ class PR97 : weapon replaces chaingun
 			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
 			PLRF A 1 Bright 
 			{
+			A_GunFlash();
 			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
 			A_Light(1);
 			}
-			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
-			PR9F B 1 Bright 
+			TNT1 A 0
 			{
+			A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_Light(2); 
 			}
 			POAH L 1
@@ -233,6 +239,7 @@ class PR97 : weapon replaces chaingun
 			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
 			PLRF A 1 Bright 
 			{
+			A_GunFlash();
 			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
 			A_Light(1);
 			}
@@ -241,13 +248,12 @@ class PR97 : weapon replaces chaingun
 			A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_Light(2);  
 			}
-			PR9F B 1 Bright;
 			POAH L 1
 			{
 				A_SetPitch(pitch-1.0);
 	            A_ZoomFactor(0.96,ZOOM_INSTANT);
 			}
-				TNT1 A 0  
+			TNT1 A 0  
 			{
 				A_SetPitch(pitch+1.0);
 	            A_ZoomFactor(1, ZOOM_INSTANT);
@@ -257,12 +263,13 @@ class PR97 : weapon replaces chaingun
 			TNT1 A 0 A_StartSound("weapons/PR97Fire", 1);
 			PLRF A 1 Bright 
 			{
+			A_GunFlash();
 			A_FireProjectile("PR97Ball", random(-1,1), 1,0,0,0,random(0,1));
 			A_Light(1);
 			}
-			TNT1 A 0 A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
-			PR9F B 1 Bright 
+			TNT1 A 0 
 			{
+			A_SpawnItemEx("ARSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_Light(2); 
 			}
 			PR9F B 1 Bright; 
@@ -275,6 +282,7 @@ class PR97 : weapon replaces chaingun
 			{
 				A_SetPitch(pitch+1.0);
 	            A_ZoomFactor(1, ZOOM_INSTANT);
+				A_WeaponReady(WRF_NOBOB|WRF_NOSWITCH);
 			}
 			PLRF A 1;
 			goto idle;
@@ -301,7 +309,7 @@ class PR97 : weapon replaces chaingun
 			goto idle;
 			
  reload:
-	 POAH A 4 A_StartSound("Hud/HudError", 0,0,0.5);	
+	 POAH A 4 A_StartSound("Hud/HudError", 30,0,0.5);	
 	 POAH B 4; 
 	 POAH A 4 A_StartSound("Hud/HudError", 0,0,0.5);	
 	 POAH B 2;
@@ -329,14 +337,13 @@ class PR97 : weapon replaces chaingun
 	 PRFU E 4 A_StartSound("weapons/PR97FinClose", 0,0,0.5); 
 	 PRFU FGH 4;
 	 PRFU I 4; 
-	 PRFU J 4 A_StartSound("weapons/PR97Ready", 0);	
+	 PRFU J 4;
 	 PRFU KL 4 TakeInventory("PR97CooldownCounter", 31);
 	 Goto Idle;
 	
 	Flash:
 	PRLF B 1 Bright 
 			{
-			A_SetPitch(pitch-1.0);
 	        A_ZoomFactor(0.96,ZOOM_INSTANT);
 			A_Light(2);
 			if(countInv("PR97CooldownCounter") > 0 && countInv("PR97CooldownCounter") < 10)

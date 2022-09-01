@@ -1,7 +1,0 @@
-Submitted: Yuraofthehairfan
-Decorate: Yuraofthehairfan, MagicWazard, IMX
-GLDefs: MagicWazard
-Sounds: Scroton, IMX, MagicWazard, id Software, Raven Software
-Sprites: id Software
-Sprite Edit: osjclatchford
-Idea Base: A baby version of the Cacodemon from the ZDoom forums

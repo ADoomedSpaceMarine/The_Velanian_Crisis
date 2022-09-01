@@ -1,6 +1,6 @@
 ACTOR BabyCaco : Cacodemon 9655  
 {
-	Health 150
+	Health 200
 	Radius 18
 	Height 36
 	Mass 200

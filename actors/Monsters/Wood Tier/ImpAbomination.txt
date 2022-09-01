@@ -1,6 +1,7 @@
 Actor ImpAbomination : DoomImp 14803
 {
-	Health 100
+	Health 120
+	Speed 12
 	States
 	{
 	Spawn:

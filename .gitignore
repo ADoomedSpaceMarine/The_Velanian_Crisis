@@ -1,0 +1,146 @@
+
+-- Releases --/Current - Velanian Crisis Build 21111.zip
+-- Releases --/Current PK3 Build/Build 220901 - The Velanian Crisis.pk3
+-- Releases --/Previous Builds/Current - ß Build 200517 - Velanian Crisis.zip
+-- Releases --/Previous Builds/Velanian Crisis Build 21111.zip
+-- Releases --/Previous Builds/ß Build 200517 - Velanian Crisis.zip
+-- Releases --/Ready to Play Builds/Instructions for READY TO PLAY builds.txt
+-- Releases --/Ready to Play Builds/Ready to Play - 220901 - The Velanian Crisis.zip
+ACS/CatsVisorHud.o
+ACS/equipment.o
+ACS/messagesystem.o
+acssrc/CatsVisorHud.txt
+acssrc/equipment.acs
+acssrc/messagesystem.acs
+acssrc/messagesystem.o
+acssrc/SlomoBulletTimeThing.txt
+actors/Effects/CasingsAndClips.txt
+actors/Effects/SFX.txt
+actors/Monsters/Floater Tier/Little Floaters/BabyCaco/BabyCaco.dec
+actors/Monsters/Mid Tier/Chaingunner/ChaingunnerDude.txt
+actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt
+actors/Monsters/Mid Tier/RifleDude/RifleDude.txt
+actors/Monsters/Upper Tier/TimeImp.txt
+actors/Monsters/Wood Tier/ImpAbomination.txt
+actors/Monsters/Wood Tier/ShotgunDude.txt
+actors/Monsters/Wood Tier/ZombieDude.txt
+actors/Pickups/Armor Bonuses/Armors.dec
+actors/Pickups/Health Bonuses/candies.dec
+actors/Player/Players.txt
+actors/Spawners/Spawners.dec
+actors/Weapons/Projectiles.txt
+Baby Caco CREDITS.txt
+Baby CcoCREDITS.txt
+Changelog.txt
+CREDITS.txt
+DECALDEF
+language.enu
+modeldef.txt
+models/nashgore/BloodSpot/_materials.txt
+models/nashgore/BloodSpot/_models.txt
+models/nashgore/CorpseBlood/_materials.txt
+models/nashgore/CorpseBlood/_models.txt
+models/nashgore/Footprint/_materials.txt
+models/nashgore/Footprint/_models.txt
+models/nashgore/WallBlood/_models.txt
+README.txt
+SNDINFO
+sounds/Weapons/Slot 4/AR36/ARDMR.ogg
+sounds/Weapons/Slot 4/AR36/ARDMROLD.old.ogg
+sounds/Weapons/Slot 4/PR97/CLSFIN.ogg
+sounds/Weapons/Slot 4/PR97/OPENFIN.ogg
+sounds/Weapons/Slot 4/PR97/PR97FIR.ogg
+sounds/Weapons/Slot 4/PR97/PR97RED.ogg
+sounds/Weapons/Slot 4/PR97/PR9AFIR.ogg
+sounds/Weapons/Slot 4/PR97/PRIDLE.ogg
+sounds/Weapons/Slot 4/Tricannon/TRIFIRE.ogg
+sounds/Weapons/Slot 4/Tricannon/TRIFIREold.ogg
+sounds/Weapons/Slot 6/Plasma Caster/PLASCAST.ogg
+sounds/Weapons/Slot 6/PR97/CLSFIN.ogg
+sounds/Weapons/Slot 6/PR97/OPENFIN.ogg
+sounds/Weapons/Slot 6/PR97/PR97FIR.ogg
+sounds/Weapons/Slot 6/PR97/PR97RED.ogg
+sounds/Weapons/Slot 6/PR97/PR9AFIR.ogg
+sounds/Weapons/Slot 6/PR97/PR9IDLE.ogg
+sounds/Weapons/Slot 7/BFL/BFLIDLE.ogg
+sounds/Weapons/Slot 7/BFL/BFLUPSN2.ogg
+sprites/Effects/Casings/DMR rounds/DMSHA0.png
+sprites/Effects/Casings/DMR rounds/DMSHB0.png
+sprites/Effects/Casings/DMR rounds/DMSHC0.png
+sprites/Effects/Casings/DMR rounds/DMSHD0.png
+sprites/Effects/Casings/DMR rounds/DMSHE0.png
+sprites/Effects/Casings/DMR rounds/DMSHF0.png
+sprites/Effects/Casings/DMR rounds/DMSHG0.png
+sprites/Effects/Casings/DMR rounds/DMSHH0.png
+sprites/Effects/Casings/DMR rounds/DMSHI0.png
+sprites/Effects/Casings/DMR rounds/DMSHJ0.png
+sprites/Weapons/Ammo Sprites/GKCPA0.png
+sprites/Weapons/Ammo Sprites/SHELA0.png
+sprites/Weapons/Ammo Sprites/SHLPA0.png
+sprites/Weapons/Slot 6/Ball/PLCBA0.png
+sprites/Weapons/Slot 6/Ball/PLCBB0.png
+sprites/Weapons/Slot 6/Ball/PLCBC0.png
+sprites/Weapons/Slot 6/Ball/PLCBD0.png
+sprites/Weapons/Slot 6/Ball/PLCBE0.png
+sprites/Weapons/Slot 6/Ball/PLCBF0.png
+sprites/Weapons/Slot 6/Ball/PLCBG0.png
+sprites/Weapons/Slot 6/Ball/PLCBH0.png
+sprites/Weapons/Slot 6/Ball/PLCEA0.png
+sprites/Weapons/Slot 6/Ball/PLCEB0.png
+sprites/Weapons/Slot 6/Ball/PLCEC0.png
+sprites/Weapons/Slot 6/Ball/PLCED0.png
+sprites/Weapons/Slot 6/Ball/PLCEE0.png
+sprites/Weapons/Slot 6/Ball/PLCEF0.png
+sprites/Weapons/Slot 6/Ball/PLCEG0.png
+sprites/Weapons/Slot 6/Fire/PLCFA0.png
+sprites/Weapons/Slot 6/Fire/PLCFB0.png
+sprites/Weapons/Slot 6/PLASA0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBA0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBB0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBC0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBD0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBE0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBF0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBG0.png
+sprites/Weapons/Slot 6/Plasma Rifle/Ball/PLCBH0.png
+sprites/Weapons/Slot 6/PLCDA0.png
+sprites/Weapons/Slot 6/PLCGA0.png
+sprites/Weapons/Slot 6/PLCGC0.png
+sprites/Weapons/Slot 6/PLCGD0.png
+sprites/Weapons/Slot 6/Recoil/PLCAA0.png
+sprites/Weapons/Slot 6/Recoil/PLCAB0.png
+sprites/Weapons/Slot 6/Recoil/PLCAC0.png
+sprites/Weapons/Slot 6/Recoil/PLCFC0.png
+sprites/Weapons/Slot 7/BFL/Beam/Standard/BFLSA0.png
+sprites/Weapons/Slot 7/BFL/Beam/Standard/BFTSA0.png
+textures.DummySprites.txt
+ZScript.txt
+zscript/Monsters/Floaters/Mama Caco/MamaCaco.txt
+zscript/Monsters/Mid Tier/Mauler.txt
+zscript/Nash Gore/NashGoreActor.zc
+zscript/Nash Gore/NashGoreBlood.zc
+zscript/Nash Gore/NashGoreBloodPlane.zc
+zscript/Nash Gore/NashGoreCommon.zc
+zscript/Nash Gore/NashGoreCrushedGibs.zc
+zscript/Nash Gore/NashGoreGibs.zc
+zscript/Nash Gore/NashGoreHandler.zc
+zscript/Nash Gore/NashGoreIceChunk.zc
+zscript/Nash Gore/NashGoreLiquidBlood.zc
+zscript/Nash Gore/NashGoreMenu.zc
+zscript/Nash Gore/NashGoreSquishyGibs.zc
+zscript/Nash Gore/NashGoreStatics.zc
+zscript/Nash Gore/NashGoreWallBlood.zc
+zscript/Weapons/Slot 2/Deagle.zsc
+zscript/Weapons/Slot 2/Glock18.zsc
+zscript/Weapons/Slot 3/Demonsbane.zsc
+zscript/Weapons/Slot 3/UAC12.zsc
+zscript/Weapons/Slot 4/ar36.zsc
+zscript/Weapons/Slot 4/Tricannon.zsc
+zscript/Weapons/Slot 5/Annihilator.zsc
+zscript/Weapons/Slot 5/RL.zsc
+zscript/Weapons/Slot 6/plasmacaster.zsc
+zscript/Weapons/Slot 6/Plasmacaster/plasmacaster.zsc
+zscript/Weapons/Slot 6/PR97.zsc
+zscript/Weapons/Slot 7/AutoCannon.zsc
+zscript/Weapons/Slot 7/Autocannon/AutoCannon.zsc
+zscript/Weapons/Slot 7/BFL10K.zsc

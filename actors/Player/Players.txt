@@ -223,8 +223,8 @@ ACTOR CyberMarine : DoomPlayer
   Health 150
   Player.DisplayName "Commando"
   Player.CrouchSprite "PLYC"
-  Player.StartItem "UAC12"
-  Player.StartItem "Shell2", 24
+  Player.StartItem "AR36"
+  Player.StartItem "RifleAmmo", 90
   Player.StartItem "Glock18"
   Player.StartItem "GlockAmmo", 50
   Player.StartItem "Fists"
@@ -291,7 +291,7 @@ Actor CombatVeteran : DoomPlayer
   Player.DisplayName "The Veteran"
   Player.CrouchSprite "PLYC"
   Player.StartItem "Battlehawk"
-  Player.StartItem "DeagleAmmo", 35
+  Player.StartItem "DeagleAmmo", 42
   Player.StartItem "Fists"
   
   States

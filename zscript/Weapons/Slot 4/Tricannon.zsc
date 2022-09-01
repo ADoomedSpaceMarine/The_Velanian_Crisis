@@ -88,18 +88,19 @@ class TriCannon : Weapon
 				}
 			}
 		NCHG A 1;
-		NCHG B 0;
-		NCHG C 1 
+		NCHG B 1;
+		NCHG D 1 
 		{	
 			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_Light1();
 			A_ZoomFactor(0.95,ZOOM_INSTANT);
 		}
-		NCHG D 1 
+		NCHG C 1 
 		{
 			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_StartSound("weapons/trican", 1);
 			A_FireBullets(3, 3, 3, 11, "BulletPuff");
+			A_Recoil(3*cos(pitch));
 			A_SetPitch(pitch-2.0);
 			A_Light2();
 		}
@@ -126,6 +127,7 @@ class TriCannon : Weapon
 		}
 		NCHG D 1 
 		{
+			A_Recoil(5*cos(pitch));
 			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_StartSound("weapons/trishot", 1);
 			A_FireBullets(5, 6, 27, random(4,5), "BulletPuff");
@@ -133,14 +135,13 @@ class TriCannon : Weapon
 			A_TakeInventory("RifleAmmo", 3);
 			A_Light2();
 		}
-		NCHG C 0
+		NCHG C 1
 		{
 			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
 			A_Light1();
 			A_ZoomFactor(1,ZOOM_INSTANT);
 			A_SetPitch(pitch+2.0);
 		}
-		NCHG B 1;
 		TNT1 AAA 0 A_SpawnItemEx("BuckCasing",random(-7,-8),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 	
 		TNT1 A 0 A_ReFire;
 		Goto Ready;

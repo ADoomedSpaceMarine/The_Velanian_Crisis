@@ -1,14 +1,14 @@
 actor ClipSpawner : RandomSpawner replaces clip
 {
-    DropItem "GlockBullets", 255, 11
-	DropItem "GlockAmmo", 255, 11
-	DropItem "DeagleAmmo", 255, 11
-    DropItem "RifleAmmo", 255, 11
-	DropItem "Glock18", 255, 6
+    DropItem "GlockBullets", 255, 12
+	DropItem "GlockAmmo", 255, 12
+	DropItem "DeagleAmmo", 255, 12
+    DropItem "RifleAmmo", 255, 12
+	DropItem "Glock18", 255, 5
 	DropItem "DeagleBox", 255, 3
     DropItem "GlockBox", 255, 3
 	DropItem "RifleBox", 255, 3
-  DropItem "PickUpBubbleShield", 255, 1
+	DropItem "PickUpBubbleShield", 255, 1
 	DropItem "PickUpRegenField", 255, 1
 	DropItem "ActiveCamo", 255, 1
 	DropItem "Haste", 255, 1
@@ -17,7 +17,7 @@ actor ClipSpawner : RandomSpawner replaces clip
 
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
-    DropItem "TriCannon", 255, 15
+    DropItem "TriCannon", 255, 16
     DropItem "AutoCannon", 255, 1
 }
 
@@ -32,14 +32,14 @@ actor Slot3Spawner : RandomSpawner replaces shotgun
 actor ClipBox2 : ClipBox{}
 actor Box2Spawner : RandomSpawner replaces ClipBox
 {
-	DropItem "DeagleBox", 255, 9
-    DropItem "GlockBox", 255, 9
-	DropItem "RifleBox", 255, 9
+	DropItem "DeagleBox", 255, 10
+    DropItem "GlockBox", 255, 10
+	DropItem "RifleBox", 255, 10
     DropItem "PickUpBubbleShield", 255, 1
 	DropItem "PickUpRegenField", 255, 1
 	DropItem "Haste", 255, 1
 	DropItem "Infrared2", 255, 1
-	DropItem "PR97", 255, 2
+	DropItem "PlasmaCaster2", 255, 1
 }
 
 actor Zombieman2 : Zombieman{}
@@ -64,16 +64,16 @@ actor DemonReplacement : Demon{}
 actor DemonSpawner1 : RandomSpawner replaces Demon
 {
 	DropItem "DemonReplacement", 255, 8
-	DropItem "MaulerDemon", 255, 4
+	DropItem "MaulerDemon", 255, 5
 	DropItem "StoneDemon", 255, 2
 }
 
 
 actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 {
-	DropItem "RifleDude", 255, 6
+	DropItem "RifleDude", 255, 8
 	DropItem "DeagleHunter", 255, 1
-	DropItem "DBShotgunGuy", 255, 4
+	DropItem "DBShotgunGuy", 255, 6
 	DropItem "ShotgunGuy2", 255, 14
 }
 
@@ -99,10 +99,10 @@ BloodColor "Blue"
 }
 actor CacodemonSpawner : Randomspawner replaces Cacodemon
 {
-	DropItem "Cacodemon2", 255, 8
-	DropItem "MamaCacodemon", 255, 7
-	DropItem "PinataCaco", 255, 4
-	DropItem "BabyCaco", 255, 4
+	DropItem "Cacodemon2", 255, 14
+	DropItem "MamaCacodemon", 255, 10
+	DropItem "BabyCaco", 255, 8
+	DropItem "PinataCaco", 255, 2
 }
 
 
@@ -138,6 +138,7 @@ actor Shell2 : ammo replaces shell
 	Inventory.MaxAmount 80
 	ammo.BackpackAmount 80
 	Ammo.BackpackMaxAmount 180
+	Scale 0.06
 	States
 	{
 		Spawn:

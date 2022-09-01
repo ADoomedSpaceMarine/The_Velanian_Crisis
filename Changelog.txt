@@ -7,8 +7,29 @@ Legend:                         |
 (!) signifies a bugfix	        |
 (*) signifies a modification    |
 =================================
-Last Updated: 5/17/2020	 	|
+Last Updated: 9/1/2022	 	|
 =================================
+
+================================
+Build 220901 - 09/01/2022
+================================
+Changes in this version include:
+
+*Full spawner rebalances
+*Enemy health rebalances
++Fully modified the DMR rounds in the AR36 to have designated DIFFERENT shells of spent brass than standard rounds, beefed up the fire sound. 
+*Rebalanced the spread of almost every hitscan weapon
++Added a new sound for the BFL10k idle sound, made some tweaks to the weapon code to add smoke effects to the weapon
++Added smoke effects to all the guns that didn't have them
++Redid the plasma ball's sprite entirely, BFL update may be down the pike soon too, but not in this update.
++Added a few redone sounds
+!Fixed bugs with the hud projection of ammo counters, specifically for the clips of a few weapons to properly show the bar for full ammo and it's depletion.
++Kinda entirely overhauled the PR96 Plasma Rifle in a lot of ways, new fire speeds, and reworking of sprite ordering when firing.
++Added recoil to a number of guns. Yes, the big guns will now actually slow you down a bit. Especially the chain cannons and BFL.
+*Redid starting load out for a couple of the classes.
+!Fixed various bugs with the suit powerup system. There's a small issue with the Haste module, but that will probably be hotfixed.
+?A bunch of other shit I can't remember right now.
+
 
 ================================
 Beta Build 200517 - 05/17/2020

@@ -69,7 +69,7 @@ User1:
                 case 0: ACS_Execute(3655);              //Play Normal Rocket message
                 break;                                  //Break out of the switch block
 				
-                case 1: ACS_Execute(3657);              //Play Grenade message
+                case 1: ACS_Execute(3665);              //Play Grenade message
                 break;                                  //Break out of the switch block
             }    
 		}

@@ -46,7 +46,7 @@ version "3.0"
 
 //General
 #include "zscript/Weapons/Ammo/AmmoDefs.zsc"
-
+ 
 // global constants
 const STAT_NashGore_Gore = Thinker.STAT_USER + 1;
 

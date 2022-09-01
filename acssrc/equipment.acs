@@ -334,6 +334,17 @@ if(BubbleState == 1)
 		 Terminate;
 		 }
 	}
+	
+//Field Deployment Notification
+Script "DeploymentMessage" (void)
+	{
+        PlaySound(0,"Hud/CritWarn");
+		SetFont("UDVSMALL");
+		SetHudSize(5762,3240,0);
+        HudMessage(s:"Field generator active and deployed!";
+		HUDMSG_TYPEON | HUDMSG_ALPHA , 54645111, CR_WHITE, (FixedMul(0.500,5762<<16)>>16<<16), (FixedMul(0.430,3240<<16)>>16<<16), 0.5, 0.02, 0.75, 0.8);
+        Terminate;
+	}
 
 //Warning of shield collapse
 Script "ShieldWarning" (void) //Bubble Warning

@@ -1,15 +1,23 @@
 decal CasterScorch1
 {
 	pic PLCBA0
+	x-scale 0.25
+    y-scale 0.25
+    randomflipx
+    randomflipy
 	add 1.0
 	fullbright
 	animator GoAway
-	lowerdecal PlasmaScorchLower1
+	lowerdecal PlasmaScorchLower
 }
 
 decal CasterScorch2
 {
 	pic PLCBB0
+	x-scale 0.25
+    y-scale 0.25
+    randomflipx
+    randomflipy
 	add 1.0
 	fullbright
 	animator GoAway
@@ -19,6 +27,10 @@ decal CasterScorch2
 decal CasterScorch3
 {
 	pic PCLBC0
+	x-scale 0.25
+    y-scale 0.25
+    randomflipx
+    randomflipy
 	add 1.0
 	fullbright
 	animator GoAway
@@ -28,6 +40,10 @@ decal CasterScorch3
 decal CasterScorch4
 {
 	pic PLCBD0
+	x-scale 0.25
+    y-scale 0.25
+    randomflipx
+    randomflipy
 	add 1.0
 	fullbright
 	animator GoAway

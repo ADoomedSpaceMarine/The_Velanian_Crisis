@@ -1,6 +1,6 @@
 ACTOR ZombieDude
 {
-  Health 30
+  Health 35
   Radius 20
   Height 56
   Speed 10
