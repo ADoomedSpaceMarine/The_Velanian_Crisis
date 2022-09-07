@@ -1,0 +1,68 @@
+ACTOR MinigunGuy 
+{
+  Health 400
+  Radius 20
+  Height 56
+  Mass 100
+  Speed 14
+  PainChance 100
+  Scale 1.25
+  Monster
+  +FLOORCLIP
+  SeeSound "chainguy/sight"
+  PainSound "chainguy/pain"
+  DeathSound "chainguy/death"
+  ActiveSound "chainguy/active"
+  Obituary "$OB_CHAINGUY"
+  Dropitem "ShredderMiniGun", 255
+  States
+  {
+  Spawn:
+    UNHW AB 10 A_Look
+    Loop
+  See:
+    UCHW AABBCCDD 3 A_Chase
+    Loop
+  Missile:
+    UCHW A 6
+	{
+		A_FaceTarget;
+		A_StartSound("Weapons/MINIWDUP", 41);
+	}
+   UCHF AB 2 bright
+	{
+        A_StartSound("Weapons/MINITURN", 41);
+		A_StartSound("Weapons/MINIFIR", 40);
+		A_CustomBulletAttack(22.5, 0, 1, random(5,6)*2, "BulletPuff", 0, CBAF_NORANDOM);
+		A_SpawnItemEx("ChainCasing",random(-7,-8),cos(pitch)*25,sin(-pitch)*25+random(30,34), random(-2,-3),0,random(5,7),random(90,105));
+	}
+	UCHF A 1 A_CPosRefire
+	TNT1 A 0
+	{
+		A_StartSound("Weapons/MINIWDDN", 41);
+	}
+    Goto Missile+1
+  Pain:
+    UCHH A 3
+    UCHH A 3 A_Pain
+    Goto See
+  Death:
+    UCD1 A 4
+    UCD1 B 4 A_Scream
+    UCD1 C 4 A_NoBlocking
+    UCD1 DE 4
+    UCD1 F -1
+    Stop
+  XDeath:
+    UCD2 A 4 
+    UCD2 B 4 A_XScream
+    UCD2 C 4 A_NoBlocking
+    UCD2 DE 5
+    UCD2 F -1
+    Stop
+  Raise:
+    UCD1 F 4
+    UCD1 EDCBA 4
+    Goto See
+  }
+}

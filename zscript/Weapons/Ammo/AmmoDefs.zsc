@@ -142,9 +142,9 @@ class RifleAmmo : Ammo
 	Inventory.PickupSound ("weapons/arin");	
 	Inventory.PickupMessage "Picked up an AR-36 clip.";
 	Inventory.Amount 30;
-	Inventory.MaxAmount 480;	
-	ammo.BackpackAmount 240;
-	Ammo.BackpackMaxAmount 960; 
+	Inventory.MaxAmount 1000;	
+	ammo.BackpackAmount 500;
+	Ammo.BackpackMaxAmount 2000; 
 	Inventory.Icon "ARPUA0";
 	scale .155;
 	}

@@ -393,6 +393,7 @@ ACTOR PlasmaImplosionGrenade : grenade
   RenderStyle Add
   Obituary "%o was blown to bits by %k's plasma implosion grenade."
   decal bigscorch
+  DeathSound "Weapons/PlasExplo"
   -NOGRAVITY
     States
     {
@@ -402,13 +403,17 @@ ACTOR PlasmaImplosionGrenade : grenade
 		TNT1 A 0 Bright A_SpawnItemEx("PlasmaCasterTrail2")
     loop
     Death:
-		TNT1 A 0 A_StartSound("Weapons/PlasExplo", 0)
-		TNT1 A 0 A_SetGravity(0)
-        TNT1 A 0  A_SetRenderStyle(0, STYLE_Add)
-		PLIV ABCDEFG 2 A_RadiusThrust (-1200, 300, (RTF_THRUSTZ | RTF_NOIMPACTDAMAGE), 100)
-        TNT1 A 0 A_Explode(150, 200)
-		PLIM HILMNOPRSTURLJIH 1 Bright  
-		TNT1 A 0 A_SetGravity(.45)
+	TNT1 A 0 A_SetGravity(0)
+		PLIM ABCDEFG 2 A_RadiusThrust (-1200, 300, (RTF_THRUSTZ | RTF_NOIMPACTDAMAGE), 70)
+        TNT1 A 0 A_Explode(50, 100)
+		PLIM H 2 Bright 
+        PLIM IJ 2 Bright Light("BFL10KSHOT_X5")
+		TNT1 A 0 A_Mushroom("PlasmaBall6", 16, MSF_DontHurt, 1, 0.35)
+        TNT1 A 0 A_Mushroom("PlasmaBall3", 20, MSF_DontHurt, 2, 0.15)
+        PLIM MN 2 Bright Light("BFL10KSHOT_X3")
+        PLIM OP 2 Bright Light("BFL10KSHOT_X2")
+        PLIM QR 2 Bright Light("BFL10KSHOT_X")        
+		PLIM STUVWXA 1
         Stop
     }
 }

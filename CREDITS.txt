@@ -171,3 +171,6 @@ Sounds: Id Software
 Sprites: Id Software
 Sprite Edit: Eriance
 Idea Base: Based on the Mauler Demon by Kristus
+
+MinigunGuy:
+Sprites: HorrorMovieGuy, Touhou Hisouten - Scarlet Weather Rhapsody

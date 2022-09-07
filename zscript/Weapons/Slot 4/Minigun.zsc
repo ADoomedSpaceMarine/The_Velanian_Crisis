@@ -1,0 +1,367 @@
+class ShredderMiniGun : Weapon 
+{
+	int	overheat;
+	bool rotorActive;
+	bool iswound;
+	int firemode;
+	default
+	{
+		scale 0.8;
+		Weapon.SelectionOrder 600;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoGive 100;
+		Weapon.BobStyle ("smooth");
+		Inventory.PickupSound ("Weapons/ANNin");
+		Weapon.UpSound ("Weapons/ANNin");
+		Weapon.AmmoType ("RifleAmmo");
+		Weapon.AmmoType2 ("RifleAmmo");
+		Weapon.SlotNumber 4;
+		Weapon.SlotPriority 5;
+		Inventory.PickupMessage ("You got the UAC Shredder 7.62mm Minigun!!");
+		Obituary ("%o was mowed down by %k's Shredder.");
+		Tag "$TAG_CHAINGUN";
+		decal "BulletChip";
+	}	
+	States
+	{
+	Ready:
+		MNGN A 1 A_WeaponReady(WRF_AllowReload|WRF_ALLOWUSER1);
+		Loop;
+	Deselect:
+		TNT1 A 0
+		{
+			A_SetInventory("MGOverheat", 0);
+			invoker.iswound = 0;
+		}
+		TNT1 A 0
+			{
+				A_ZoomFactor(1);
+				if(CountInv("RifleAmmo") == 0)
+				{
+					ACS_Execute(1238,0);
+				}
+			}
+		MNGN A 1 A_Lower(12);
+		Loop;
+	Select:
+		TNT1 A 0
+		{
+			invoker.overheat = 0;
+			A_SetInventory("MGOverheat", 0);
+		}	
+		MNGN A 1 A_Raise(12);
+		Loop;
+	Fire:
+		////Make sure we have ammo
+		TNT1 A 0
+		{
+			if(CountInv("RifleAmmo") == 0)
+			{
+			A_SelectWeapon("",SWF_SELECTPRIORITY);
+			return ResolveState (null);
+			}
+			else
+			{
+				return ResolveState(null);
+			}
+		}
+		//make sure the chaingun isn't already wound
+		TNT1 A 0
+		{
+			if(invoker.iswound == 1)
+			{
+				return ResolveState("Firehold");
+			}
+			else
+			{
+				return ResolveState(null);
+			}
+		}
+		//Do windup
+		TNT1 A 0 A_StartSound("Weapons/MINIWDUP", 20);
+		MGWN ABCDEFG 2;
+		Goto FireHold;
+	AltFire:
+		////Make sure we have ammo
+		TNT1 A 0
+		{
+			if(CountInv("RifleAmmo") == 0)
+			{
+			A_SelectWeapon("",SWF_SELECTPRIORITY);
+			return ResolveState (null);
+			}
+			else
+			{
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 A_StartSound("Weapons/MINIWDUP", 20);
+		MGWN ABCDEFG 2;
+		Goto RotorON;
+	RotorON:
+		TNT1 A 0 A_StartSound("Weapons/MINITURN", 20);
+		TNT1 A 0 
+		{
+		invoker.rotorActive = 1;
+		int input = GetPlayerInput(INPUT_BUTTONS);
+		int oldinput = GetPlayerInput(INPUT_OLDBUTTONS);
+		if(input & BT_ATTACK)
+		{
+		return ResolveState("FireHold");
+		}
+		else If(input & BT_ALTATTACK)
+		{
+			if (oldinput & BT_ATTACK)
+			{	
+				return ResolveState(null);
+			}
+			else if (input & BT_ATTACK)
+			{
+				A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+				return ResolveState("FireHold");
+			}
+			else
+			{
+			return resolvestate(null);
+			}
+			
+		}
+		else
+		{
+			invoker.rotorActive = 0;
+			A_ZoomFactor(1);
+			A_WeaponReady(WRF_AllowReload|WRF_AllowUser1|WRF_AllowUser2);
+			return ResolveState("SpinDown");
+		}
+	}		
+	MGSI ABCD 1;
+	loop;
+	
+	Firehold:
+		TNT1 A 0
+		{
+			if(CountInv("RifleAmmo") == 0)
+			{
+				A_SelectWeapon("",SWF_SELECTPRIORITY);
+				return ResolveState (null);
+			}
+			else
+			{
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0
+		{	
+			if(invoker.overheat >= 100)
+			{
+				return ResolveState("overheat");
+			}
+			else
+			{	
+				return ResolveState(null);
+			}
+		}
+		MGMF A 1
+		{
+			A_GiveInventory("MGOverheat",1);
+			invoker.iswound = 1;
+			invoker.overheat++;
+			A_StartSound("weapons/MINITURN", 20);
+			A_StartSound("weapons/MINIFIR", 1);
+			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_FireBullets(3, 3, -1, random(12,15), "BulletPuff");
+			A_SpawnItemEx("ChainCasing",random(-7,-8),cos(pitch)*25,sin(-pitch)*25+random(30,34),	random(-2,-3),0,random(5,7),random(90,105)); 	
+			A_Recoil(0.05*cos(pitch));
+			A_SetPitch(pitch+1.0);
+			A_Light2();
+		}
+		TNT1 A 0
+		{
+			if(invoker.overheat >= 50)
+			{
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(invoker.overheat >= 100)
+			{
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(invoker.overheat >= 150)
+			{
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else
+			{	
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0
+		{	
+			if(invoker.overheat >= 100)
+			{
+				return ResolveState("overheat");
+			}
+			else
+			{	
+				return ResolveState(null);
+			}
+		}
+		MGMF C 1
+		{
+			A_TakeInventory("RifleAmmo",1);
+			A_StartSound("weapons/MINITURN", 20);
+			A_StartSound("weapons/MINIFIR", 1);
+			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_StartSound("weapons/trican", 1);
+			A_FireBullets(3, 3, 2, random(12,15), "BulletPuff");
+			A_SpawnItemEx("ChainCasing",random(-7,-8),cos(pitch)*25,sin(-pitch)*25+random(30,34), random(-2,-3),0,random(5,7),random(90,105)); 
+			A_Recoil(0.1*cos(pitch));
+			A_SetPitch(pitch-1.0);
+			A_Light2();
+		}
+		TNT1 A 0
+		{
+			if(invoker.overheat >= 50)
+			{
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(15,25),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(invoker.overheat >= 100)
+			{
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else if(invoker.overheat >= 150)
+			{
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				A_SpawnItemEx("DBSmoke",random(12,28),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+				return ResolveState(null);
+			}
+			else
+			{	
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 
+		{
+		int input = GetPlayerInput(INPUT_BUTTONS);
+		int oldinput = GetPlayerInput(INPUT_OLDBUTTONS);
+		if(oldinput & BT_ATTACK)
+			{
+			return ResolveState("FireHold");
+			}
+		else if(invoker.rotorActive = 1)
+			{
+				return ResolveState("RotorON");
+			}
+		else
+			{
+				return ResolveState(null);
+			}
+		}
+		TNT1 A 0 A_ReFire;
+		Goto SpinDown;
+			
+		
+	Spindown:
+		
+		TNT1 A 0 
+		{
+		A_StartSound("Weapons/MINIWDDN", 20);
+		invoker.overheat = 0;
+		A_SetInventory("MGOverheat", 0);
+		}
+		MGWD AB 1 A_WeaponReady;
+		MGWD CD 2 A_WeaponReady;
+		MGWD EFGH 3 A_WeaponReady;
+		MGWD JKH 4 A_WeaponReady;
+		TNT1 A 0
+		{
+			invoker.iswound = 0;
+		}
+		Goto Ready;
+		
+	overheatWinddown:
+	TNT1 A 0 
+	{
+		A_StartSound("Weapons/MINIWDDN", 20);
+		A_StartSound("weapons/CasterSteam", 21);
+	}
+	MGWD AB 1;
+	MGWD CD 2;
+	MGWD EFGH 2;
+	MGWD JKH 2;
+	goto overheat;
+	
+	overheat:
+	MGOH ABCDEDCB 1
+	{
+			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+			A_SpawnItemEx("DBSmoke",random(20,21),0,sin(-pitch)*25+random(35,40), random(2,3),0,1,0);
+	}
+	TNT1 A 0
+	{
+		A_StartSound("hud/HudError", 1);
+		if(countInv("MGOverheat") == 0)
+		{
+			A_StartSound("Weapons/ANNSlap", 20);
+			invoker.overheat = 0;
+			invoker.iswound = 0;
+			return ResolveState("Ready");
+			
+		}
+		else
+		{		
+			A_TakeInventory("MGOverheat", 30);
+			return ResolveState(null);
+		}			
+	}
+	loop;
+	
+	
+	Spawn:
+		MGPU A -1;
+		Stop;
+   }
+}
+
+Class MGOverheat : inventory
+{
+	default
+	{
+	Inventory.MaxAmount 100;
+	}
+}

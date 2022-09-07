@@ -18,6 +18,7 @@ actor ClipSpawner : RandomSpawner replaces clip
 actor Slot4Spawner : RandomSpawner replaces chaingun
 {
     DropItem "TriCannon", 255, 16
+	DropItem "ShredderMiniGun" 255, 2
     DropItem "AutoCannon", 255, 1
 }
 
@@ -74,7 +75,8 @@ actor ShotgunDude : RandomSpawner replaces ShotgunGuy
 	DropItem "RifleDude", 255, 8
 	DropItem "DeagleHunter", 255, 1
 	DropItem "DBShotgunGuy", 255, 6
-	DropItem "ShotgunGuy2", 255, 14
+	DropItem "ShotgunGuy2", 255, 12
+	DropItem "MinigunGuy",255, 1
 }
 
 /*actor CellPack2 : CellPack{}
@@ -119,6 +121,7 @@ actor BubbleShieldSpawner : RandomSpawner replaces BlurSphere
 actor BFL10K2 : BFL10K{}
 actor Slot7Spawner : RandomSpawner replaces BFL10k
 {
+	DropItem "ShredderMiniGun", 255, 2
 	DropItem "AutoCannon", 255, 2
 	DropItem "BFL10K2", 255, 3
 }
@@ -171,4 +174,10 @@ actor ArmorSpawner: RandomSpawner Replaces ArmorBonus
 {
 	DropItem "ArmorBonus2", 255, 1
 	DropItem "ArmorShard", 255, 1
+}
+
+actor ChaingunGuySpawner : RandomSpawner Replaces ChaingunGuy
+{
+	DropItem "ChaingunGuy2", 255, 8
+	DropItem "MinigunGuy",255, 1
 }

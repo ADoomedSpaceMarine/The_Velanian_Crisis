@@ -1,0 +1,36 @@
+ACTOR Chaingun2 : DoomWeapon
+{
+   Weapon.SelectionOrder 700
+   Weapon.AmmoUse 1
+   Weapon.AmmoGive 20
+   Weapon.AmmoType "RifleAmmo"
+   Inventory.PickupMessage "$GOTCHAINGUN" // "You got the chaingun"
+   Obituary "$OB_MPCHAINGUN" // "%o was mowed down by %k's chaingun."
+   Tag "$TAG_CHAINGUN"
+   decal "BulletChip"
+   States
+   {
+   Ready:
+     CHGG A 1 A_WeaponReady
+     Loop
+   Deselect:
+     CHGG A 1 A_Lower
+     Loop
+   Select:
+     CHGG A 1 A_Raise
+     Loop
+   Fire:
+     TNT1 A 0 A_StartSound("weapons/MINIFIR", 1)
+	 TNT1 A 0 A_Gunflash
+	 CHGG A 1 A_FireBullets(3,3,1,12,"BulletPuff")
+	 CHGG B 1 A_FireBullets(3,3,1,12,"BulletPuff")
+	 CHGG B 0 A_ReFire
+     Goto Ready
+   Flash:
+     CHGF A 1 Bright A_Light2
+     CHGF B 1 Bright A_Light1
+   Spawn:
+     MGUN A -1
+     Stop
+   }
+}

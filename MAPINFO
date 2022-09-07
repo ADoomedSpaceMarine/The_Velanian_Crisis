@@ -22,7 +22,7 @@ gameinfo
 	weaponslot = 1, "Fists", "NewChainsaw"
 	weaponslot = 2, "Glock18", "Battlehawk" 
 	weaponslot = 3, "UAC-12", "Demonsbane"
-	weaponslot = 4, "AR36", "TriCannon"
+	weaponslot = 4, "AR36", "TriCannon", "Minigun"
 	weaponslot = 5, "NewRl", "Annihilator"
 	WeaponSlot = 6, "PR97", "PlasmaCaster"
 	WeaponSlot = 7, "BFL10k",  "AutoCannon"

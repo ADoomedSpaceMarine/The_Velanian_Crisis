@@ -32,6 +32,10 @@
 #include "actors/Monsters/Mid Tier/StoneDemon.txt"
 #include "actors/Monsters/Mid Tier/DeagleHunter/DeagHunter.txt"
 #include "actors/Monsters/Mid Tier/ChainGunner/ChaingunnerDude.txt"
+#include "actors/Monsters/Mid Tier/MiniGunner/MinigunDude.txt"
 #include "actors/Monsters/Floater Tier/Mid-Grade Floaties/PinaTomato/PinataTomato.dec"
 #include "actors/Monsters/Floater Tier/Little Floaters/BabyCaco/BabyCaco.dec"
 #include "actors/Monsters/Upper Tier/TimeImp.txt"
+
+//Weapons
+#include "actors/Weapons/Chaingun2.txt"

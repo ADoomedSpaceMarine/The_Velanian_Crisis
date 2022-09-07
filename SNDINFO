@@ -67,6 +67,16 @@ Weapons/ONUOpen		ONUOPEN
 Weapons/ONULoad		ONULOAD
 Weapons/ONUClose	ONUCLS
 
+//Minigun sounds
+$random weapons/MINIFIR  { weapons/MINIFIR1 weapons/MINIFIR2 weapons/MINIFIR3}
+Weapons/MINIFIR1 MGFIRE1
+Weapons/MINIFIR2 MGFIRE2
+Weapons/MINIFIR3 MGFIRE3
+Weapons/MINITURN MGWTRN
+Weapons/MINIWDUP MGWNDU
+Weapons/MINIWDDN MGWNDD
+Weapons/MINIBUZZ MGBUZZ
+
 //Annhilator Rocket Launcher
 Weapons/ANNFire		ANFIRE
 Weapons/ANNCycle	ANCYCL

@@ -24,7 +24,7 @@ class Fists : weapon replaces fist
     Loop;
   Fire:
     PUNG B 2;
-    PUNG C 2 A_Punch;
+    PUNG C 2 A_CustomPunch(random(20,25), FALSE, 0);
     PUNG D 3;
     PUNG C 2;
     PUNG B 3 A_ReFire;
