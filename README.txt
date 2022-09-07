@@ -1,3 +1,7 @@
+Getting started:
+https://github.com/ADoomedSpaceMarine/The_Velanian_Crisis/wiki/Getting-Started-(Installation-and-Usage)
+This basically explains the things below, but in greater detail
+
 How to play this mod:
 
 1) Have a copy of GZDoom, a copy of any copy of Doom, Doom 2, Plutonia, or TNT (Preferrably a legal one)
