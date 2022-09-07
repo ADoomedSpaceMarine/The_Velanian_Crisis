@@ -7,8 +7,23 @@ Legend:                         |
 (!) signifies a bugfix	        |
 (*) signifies a modification    |
 =================================
-Last Updated: 9/1/2022	 	|
+Last Updated: 9/7/2022	 	|
 =================================
+
+================================
+Build 220907 - 09/01/2022
+================================
+
+VERSION 220907
++Added a fully new weapon, a 2700 round per minute minigun
++Added sounds and sprites for said weapon
+*Vastly adjusted the plasma implosion grenade. 
+*Fiddled with weapon and spawner balances a bit more
++Added a heavy Minigun Dude as an enemy.
++Added sounds and sprites for it as well. 
++Spent over 6 hours animating frames for the Chaingun
++Wrote the code base for the new weapon
+! Fixed an issue with the final packed size being too large, Ready to Play releases are thing now.
 
 ================================
 Build 220901 - 09/01/2022
